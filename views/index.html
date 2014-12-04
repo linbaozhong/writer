@@ -1,82 +1,509 @@
 <!DOCTYPE html>
 
 <html>
-  	<head>
-    	<title>Beego</title>
-    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	
+
+	<head>
+		<title>非线性协作</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="../static/css/iconFont.min.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/metro-bootstrap.min.css" />
+		<script src="../static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
+		<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			body {
-				margin: 0px;
-				font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-				font-size: 14px;
-				line-height: 20px;
-				color: rgb(51, 51, 51);
-				background-color: rgb(255, 255, 255);
+				/*background-image: url(../static/img/qyer.jpg);*/
+				
+				background-size: cover;
 			}
-
-			.hero-unit {
-				padding: 60px;
-				margin-bottom: 30px;
-				border-radius: 6px 6px 6px 6px;
+			nav {
+				position: fixed;
+				width: 75px;
+				top: 0;
+				left: -1000px;
+				bottom: 0;
+				padding: 50px 0;
+				z-index: 1000;
+				display: none;
 			}
-
-			.container {
-				width: 940px;
-				margin-right: auto;
-				margin-left: auto;
+			div.nav-info-box {
+				z-index: 900;
 			}
-
-			.row {
-				margin-left: -20px;
+			div.nav-info {
+				z-index: 901;
+				color: white !important;
 			}
-
-			h1 {
-				margin: 10px 0px;
-				font-family: inherit;
+			div.nav-info,
+			div.nav-info-box {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: -1000px;
+				width: auto;
+			}
+			#snow-sign {
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 400px;
+				margin: 0 auto;
+				color: white !important;
+			}
+			/*左侧框*/
+			
+			#snow-left {
+				position: fixed;
+				height: 100%;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 1000px;
+				z-index: 1;
+			}
+			#snow-left .content {
+				margin: 20px 20px 20px 40px;
+				float: right;
+			}
+			#snow-left .content,
+			#snow-right .content {
+				height: 100%;
+				position: relative;
+				max-width: 500px;
+				padding-right: 10px;
+			}
+			/*右侧框*/
+			
+			#snow-right {
+				position: fixed;
+				height: 100%;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				width: 1000px;
+				z-index: 1;
+			}
+			#snow-right .content {
+				margin: 20px 40px 20px 20px;
+			}
+			/*.doclist*/
+			
+			.doclist {
+				text-align: left;
+			}
+			.doclist .doc {
+				padding: 20px 0;
+				width: 100%;
+			}
+			.doclist .doc h1 {
+				font-size: 1.5em;
+			}
+			.doclist .doc h2 {
+				font-size: 1.3em;
+			}
+			.doclist .doc h3 {
+				font-size: 1.1em;
+			}
+			.doclist .doc h4,
+			.doclist .doc h5,
+			.doclist .doc h6 {
+				font-size: 1em;
+			}
+			.doclist .doc h1,
+			.doclist .doc h2,
+			.doclist .doc h3,
+			.doclist .doc h4,
+			.doclist .doc h5,
+			.doclist .doc h6 {
 				font-weight: bold;
-				text-rendering: optimizelegibility;
+				line-height: initial;
+				font-family: "微软雅黑", "黑体";
+				margin: 0 0 .8em;
+				color: gray;
 			}
-
-			.hero-unit h1 {
-				margin-bottom: 0px;
-				font-size: 60px;
-				line-height: 1;
-				letter-spacing: -1px;
-				color: inherit;
+			.doclist .doc .doc-content {
+				font-size: 1.1em;
+				margin: 0 0 .5em;
 			}
-
-			.description {
-				padding-top: 5px;
-				padding-left: 5px;
-				font-size: 18px;
-				font-weight: 200;
-				line-height: 30px;
-				color: inherit;
+			.doclist .doc .doc-remark {
+				font-size: .8em;
 			}
-
-			p {
-				margin: 0px 0px 10px;
+			/*编辑器*/
+			
+			div.user-editor .textarea-wrapper {
+				height: 250px;
+				overflow: hidden;
+				margin: 20px 0;
+			}
+			div.user-editor .textarea {
+				padding: 10px;
+				border: none;
+				outline: none;
+				background: transparent;
+				color: white;
+				min-height: 250px;
+				font-size: 14px;
+				overflow: hidden;
+				line-height: 1.5em;
+				resize: none;
+			}
+			div.user-editor .textarea-clone {
+				position: absolute;
+				top: -9999px;
+				left: -9999px;
+				visibility: hidden;
+				min-height: 250px;
+				word-wrap: break-word;
+				white-space: pre-wrap;
 			}
 		</style>
 	</head>
-  	
-  	<body>
-  		<header class="hero-unit" style="background-color:#A9F16C">
-			<div class="container">
-			<div class="row">
-			  <div class="hero-text">
-			    <h1>Welcome to Beego!</h1>
-			    <p class="description">
-			    	Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
-			    <br />
-			    	Official website: <a href="http://{{.Website}}">{{.Website}}</a>
-			    <br />
-			    	Contact me: {{.Email}}
-			    </p>
-			  </div>
+
+	<body class="metro">
+		<!--左侧导航条-->
+		<nav class="bg-dark fg-white shadow">
+			<div style="padding:10px;">
+				<div class="tile half bg-cyan" data-hint="登录/注册" data-hint-position="right" data-click="transform" data-role="1" data-rel="signin">
+					<div class="tile-content icon">
+						<i class="icon-key-2"></i>
+					</div>
+				</div>
+				<div class="tile half bg-cyan" data-hint="登录/注册" data-hint-position="right" data-click="transform" data-role="0" data-rel="signup">
+					<div class="tile-content icon">
+						<i class="icon-air"></i>
+					</div>
+				</div>
+
 			</div>
+		</nav>
+		<!--导航条弹出框-->
+		<div class="nav-info-box bg-gray opacity">
+
+		</div>
+		<div class="nav-info">
+
+		</div>
+		<!--中间的注册登录框-->
+		<div id="snow-sign" class="bg-gray opacity">
+			<div class="user-editor">
+				<div class="textarea-wrapper">
+					<textarea class="textarea"></textarea>
+					<div class="textarea-clone"></div>
+				</div>
 			</div>
-		</header>
+			<div class="user-sign">
+				<div class="" data-load="signin">
+
+				</div>
+				<hr />
+				<div class="" data-load="signup">
+
+				</div>
+				<hr />
+				<button id="getout" type="button" class="button primary large" style="width: 100%;font-weight: bold;">滚犊子</button>
+			</div>
+		</div>
+		<!--左侧框--工作区-->
+		<div id="snow-left" class="bg-white">
+			<div class="content">
+				<div class="doclist">
+					<div class="doc">
+						<div class="doc-content">
+							<h1>
+							标题标题标题标题标题标题
+						</h1> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</div>
+						<div class="doc-remark">
+							备注 备注 备注
+						</div>
+					</div>
+					<div class="doc">
+						<div class="doc-content">
+							<h2>
+							标题标题标题标题标题标题
+						</h2> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</div>
+						<div class="doc-remark">
+							备注 备注 备注
+						</div>
+					</div>
+					<div class="doc">
+						<div class="doc-content">
+							<h3>
+							标题标题标题标题标题标题
+						</h3> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</div>
+						<div class="doc-remark">
+							备注 备注 备注
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--右侧框--工作区-->
+		<div id="snow-right" class="bg-white">
+			<div class="content">
+				<div class="doclist">
+					<div class="doc">
+						<div class="doc-content">
+							<h1>
+							标题标题标题标题标题标题
+						</h1> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</div>
+						<div class="doc-remark">
+							备注 备注 备注
+						</div>
+					</div>
+
+					<div class="doc">
+						<div class="doc-content">
+							<h2>
+							标题标题标题标题标题标题
+						</h2> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</div>
+						<div class="doc-remark">
+							备注 备注 备注
+						</div>
+					</div>
+					<div class="doc">
+						<div class="doc-content">
+							<h3>
+							标题标题标题标题标题标题
+						</h3> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</div>
+						<div class="doc-remark">
+							备注 备注 备注
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
+
 </html>
+<script type="text/javascript">
+	var snow = {
+		speed: 600,
+		width: $(window).width(),
+		log: function() {
+			console.log(arguments);
+		},
+		inc: function() {
+			return '../static/inc/_' + arguments[0] + '.html';
+		}
+	};
+
+	//隐藏位置
+	snow.hidden = {
+		left: -1000,
+		right: -1000
+	};
+	//
+
+	// 导航条
+	snow.nav = $('nav');
+	snow.nav.width = snow.nav.width();
+	//注册登录框
+	snow.sign = $('#snow-sign').css({
+		width: 400,
+		left: snow.nav.width
+	});
+
+	/*
+	 * 解决传统浏览器不支持placeholder问题
+	 */
+	function placeholder() {
+
+		if (!('placeholder' in document.createElement('input'))) {
+
+			$('input[placeholder],textarea[placeholder]').each(function() {
+
+				var that = $(this),
+					text = that.attr('placeholder');
+
+				if (that.val() === "") {
+					that.val(text).addClass('placeholder');
+				}
+				that.focus(function() {
+					if (that.val() === text) {
+						that.val("").removeClass('placeholder');
+					}
+				}).blur(function() {
+					if (that.val() === "") {
+						that.val(text).addClass('placeholder');
+					}
+				}).closest('form').submit(function() {
+					if (that.val() === text) {
+						that.val('');
+					}
+				});
+			});
+		}
+	};
+	/*
+	 * 页面数据拉取
+	 */
+	function dataLoading() {
+		$('[data-load]').each(function() {
+			var _this = $(this),
+				_data = _this.data('load');
+			if (_data && _data.length > 0) {
+				_this.load(snow.inc(_this.data('load')));
+			}
+		});
+	};
+
+	//打开登录注册框
+	function openSign() {
+		$('#snow-left,#snow-right').animate({
+			width: '-=' + snow.sign.width() / 2
+		}, snow.speed, function() {
+			snow.sign.addClass('active')
+		});
+		//snow.nav.find('.tile[data-rel="signin"]').remove();
+	}
+
+	$(function() {
+		setTimeout(function() {
+			// 拉取数据
+			dataLoading();
+			// 解决传统浏览器不支持placeholder问题
+			placeholder();
+
+			//打开登录注册框
+			openSign();
+			//
+			$("div.content").mCustomScrollbar({
+				theme: 'minimal-dark',
+				axis: 'y',
+				autoHideScrollbar: true,
+				scrollbarPosition: 'outside',
+				mouseWheel: {
+					scrollAmount: 500
+				}
+			});
+		}, 100);
+		// 导航条---事件
+		snow.nav.on('click', '.tile', function(e) {
+			var _that = $(this);
+			if (_that.data('rel') == 'signin') {
+				openSign();
+			} else {
+				//
+				$('div.nav-info').load(snow.inc(_that.data('rel')), function() {
+					$('div.nav-info-box').css({
+						width: $('div.nav-info').eq(0).width()
+					});
+				});
+				$('div.nav-info-box,div.nav-info').animate({
+					left: snow.nav.width
+				});
+			}
+		});
+
+		//滚犊子
+		$("#getout").click(function() {
+			$('#snow-left,#snow-right').animate({
+				width: '+=' + snow.sign.width() / 2
+			}, snow.speed, function() {
+				if (snow.nav.is(':hidden')) {
+					snow.sign.removeClass('active');
+
+					snow.nav.animate({
+						left: 0
+					}, snow.speed).show();
+				}
+			});
+		});
+	});
+
+	//
+	$(window).resize(function() {
+		snow.width = $(this).width();
+		snow.left = $('#snow-left').css({
+			width: (snow.width - snow.nav.width) / 2,
+			left: snow.nav.width
+		});
+		snow.right = $("#snow-right").css({
+			width: (snow.width - snow.nav.width) / 2
+		});
+		if (snow.sign.hasClass('active')) {
+			//
+			$('#snow-left,#snow-right').css({
+				width: (snow.width - snow.nav.width - snow.sign.width()) / 2
+			});
+		}
+	}).resize();
+</script>
+<script>
+	(function($) {
+		$(window).load(function() {
+
+			var textareaLineHeight = parseInt($(".textarea-wrapper textarea").css("line-height"));
+
+			$(".textarea-wrapper").mCustomScrollbar({
+				scrollInertia: 0,
+				theme: "minimal",
+				advanced: {
+					autoScrollOnFocus: false
+				},
+				keyboard: {
+					enable: false
+				},
+				snapAmount: textareaLineHeight
+			});
+			//
+
+			var textarea = $(".textarea-wrapper textarea").css({
+					minWidth: snow.sign.width()
+				}),
+				textareaWrapper = $(".textarea-wrapper"),
+				textareaClone = $(".textarea-wrapper .textarea-clone").css({
+					minWidth: snow.sign.width()
+				});
+
+			textarea.bind("keyup keydown", function(e) {
+				var $this = $(this),
+					textareaContent = $this.val(),
+					clength = textareaContent.length,
+					cursorPosition = textarea.getCursorPosition();
+				textareaContent = "<span>" + textareaContent.substr(0, cursorPosition) + "</span>" + textareaContent.substr(cursorPosition, textareaContent.length);
+				textareaContent = textareaContent.replace(/\n/g, "<br />");
+				textareaClone.html(textareaContent + "<br />");
+				$this.css("height", textareaClone.height());
+				var textareaCloneSpan = textareaClone.children("span"),
+					textareaCloneSpanOffset = 0,
+					viewLimitBottom = (parseInt(textareaClone.css("min-height"))) - textareaCloneSpanOffset,
+					viewLimitTop = textareaCloneSpanOffset,
+					viewRatio = Math.round(textareaCloneSpan.height() + textareaWrapper.find(".mCSB_container").position().top);
+				if (viewRatio > viewLimitBottom || viewRatio < viewLimitTop) {
+					if ((textareaCloneSpan.height() - textareaCloneSpanOffset) > 0) {
+						console.log(textareaCloneSpan.height() , textareaCloneSpanOffset , textareaLineHeight);
+						textareaWrapper.mCustomScrollbar("scrollTo", textareaCloneSpan.height() - textareaCloneSpanOffset - textareaLineHeight);
+					} else {
+						textareaWrapper.mCustomScrollbar("scrollTo", "top");
+					}
+				}
+			});
+
+			$.fn.getCursorPosition = function() {
+				var el = $(this).get(0),
+					pos = 0;
+				if ("selectionStart" in el) {
+					pos = el.selectionStart;
+				} else if ("selection" in document) {
+					el.focus();
+					var sel = document.selection.createRange(),
+						selLength = document.selection.createRange().text.length;
+					sel.moveStart("character", -el.value.length);
+					pos = sel.text.length - selLength;
+				}
+				return pos;
+			}
+
+		});
+	})(jQuery);
+</script>

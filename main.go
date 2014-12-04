@@ -2,7 +2,10 @@ package main
 
 import (
 	"github.com/astaxie/beego"
+
+	"writer/models"
 	_ "writer/routers"
+	"zouzhe/utils"
 )
 
 func main() {

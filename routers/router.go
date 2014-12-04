@@ -8,6 +8,5 @@ import (
 
 func init() {
 	//beego.Router("/", &controllers.Account{})
-	//beego.AutoRouter(&controllers.Account{})
-	beego.Trace("haha")
+	beego.AutoRouter(&controllers.Account{})
 }

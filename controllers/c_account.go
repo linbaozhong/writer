@@ -1,9 +1,6 @@
 package controllers
 
-import (
-	"fmt"
-	"writer/models"
-)
+import "writer/models"
 
 type Account struct {
 	Authorized
@@ -11,8 +8,8 @@ type Account struct {
 
 func (a *Account) Login() {
 	account := &models.Account{}
+	account.Login()
+	a.Ctx.Output.Json(account, true, true)
 
-	fmt.Println(account)
-
-	a.toString(fmt.Sprintf("O(∩_∩)O哈哈~ %d", models.Deleted))
+	//a.toString(fmt.Sprintf("O(∩_∩)O哈哈~ %d", models.Deleted))
 }
