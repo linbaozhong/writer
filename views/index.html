@@ -13,9 +13,50 @@
 		<script src="../static/js/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
+			body,
+			div,
+			dl,
+			dt,
+			dd,
+			ul,
+			ol,
+			li,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			pre,
+			code,
+			form,
+			b,
+			strong,
+			fieldset,
+			legend,
+			input,
+			textarea,
+			p,
+			blockquote,
+			th,
+			td,
+			hr,
+			button,
+			article,
+			aside,
+			details,
+			figcaption,
+			figure,
+			footer,
+			header,
+			hgroup,
+			menu,
+			nav,
+			section {
+				font-family: "微软雅黑" !important;
+				font-size: 14px;
+			}
 			body {
-				/*background-image: url(../static/img/qyer.jpg);*/
-				
 				background-size: cover;
 			}
 			nav {
@@ -89,11 +130,57 @@
 			#snow-right .content {
 				margin: 20px 40px 20px 20px;
 			}
+			/*列表项*/
+			
+			.horizontal-list ul,
+			.horizontal-list dl {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				outline: none;
+				overflow: hidden;
+				width: 100%;
+			}
+			.horizontal-list ul li {
+				/*font-size: .8em !important;*/
+				
+				float: left;
+				overflow: hidden;
+				text-align: right;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				padding: 0 4px;
+				display: block;
+				cursor: pointer;
+			}
+			.horizontal-list ul li:hover {
+				background: #1ba1e2 !important;
+				color: #ffffff !important;
+			}
+			.horizontal-list ul li.active {
+				background: #1ba1e2 !important;
+				color: #ffffff !important;
+			}
+			.horizontal-list dl dt {
+				font-weight: bold;
+			}
+			.horizontal-list dl dt,
+			.horizontal-list dl dd {
+				float: left;
+			}
+			.horizontal-list dl:after {
+				clear: both;
+				content: "";
+			}
 			/*.doclist*/
 			
 			.doclist {
 				text-align: left;
 			}
+			/*.doclist .doc:nth-child(2n+1){
+				background:#eee;
+			}*/
+			
 			.doclist .doc {
 				padding: 20px 0;
 				width: 100%;
@@ -120,7 +207,6 @@
 			.doclist .doc h6 {
 				font-weight: bold;
 				line-height: initial;
-				font-family: "微软雅黑", "黑体";
 				margin: 0 0 .8em;
 				color: gray;
 			}
@@ -131,33 +217,10 @@
 			.doclist .doc .doc-remark {
 				font-size: .8em;
 			}
-			/*编辑器*/
+			/*metro*/
 			
-			div.user-editor .textarea-wrapper {
-				height: 250px;
-				overflow: hidden;
-				margin: 20px 0;
-			}
-			div.user-editor .textarea {
-				padding: 10px;
-				border: none;
-				outline: none;
-				background: transparent;
-				color: white;
-				min-height: 250px;
-				font-size: 14px;
-				overflow: hidden;
-				line-height: 1.5em;
-				resize: none;
-			}
-			div.user-editor .textarea-clone {
-				position: absolute;
-				top: -9999px;
-				left: -9999px;
-				visibility: hidden;
-				min-height: 250px;
-				word-wrap: break-word;
-				white-space: pre-wrap;
+			.metro form {
+				margin: initial;
 			}
 		</style>
 	</head>
@@ -171,7 +234,8 @@
 						<i class="icon-key-2"></i>
 					</div>
 				</div>
-				<div class="tile half bg-cyan" data-hint="登录/注册" data-hint-position="right" data-click="transform" data-role="0" data-rel="signup">
+				<!--书签-->
+				<div class="tile half bg-cyan" data-hint="书签" data-hint-position="right" data-click="transform" data-role="0" data-rel="bookmarks">
 					<div class="tile-content icon">
 						<i class="icon-air"></i>
 					</div>
@@ -188,13 +252,11 @@
 		</div>
 		<!--中间的注册登录框-->
 		<div id="snow-sign" class="bg-gray opacity">
-			<div class="user-editor">
-				<div class="textarea-wrapper">
-					<textarea class="textarea"></textarea>
-					<div class="textarea-clone"></div>
-				</div>
-			</div>
 			<div class="user-sign">
+				<div class="padding20 margin10">
+					<button id="getout" type="button" class="button primary large" style="width: 100%;font-weight: bold;">爷就这么任性</button>
+				</div>
+				<hr />
 				<div class="" data-load="signin">
 
 				</div>
@@ -202,8 +264,6 @@
 				<div class="" data-load="signup">
 
 				</div>
-				<hr />
-				<button id="getout" type="button" class="button primary large" style="width: 100%;font-weight: bold;">滚犊子</button>
 			</div>
 		</div>
 		<!--左侧框--工作区-->
@@ -214,17 +274,20 @@
 						<div class="doc-content">
 							<h1>
 							标题标题标题标题标题标题
-						</h1> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</h1>
+							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
 						<div class="doc-remark">
 							备注 备注 备注
 						</div>
+
 					</div>
 					<div class="doc">
 						<div class="doc-content">
 							<h2>
 							标题标题标题标题标题标题
-						</h2> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</h2>
+							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
 						<div class="doc-remark">
 							备注 备注 备注
@@ -234,7 +297,8 @@
 						<div class="doc-content">
 							<h3>
 							标题标题标题标题标题标题
-						</h3> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</h3>
+							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
 						<div class="doc-remark">
 							备注 备注 备注
@@ -251,7 +315,8 @@
 						<div class="doc-content">
 							<h1>
 							标题标题标题标题标题标题
-						</h1> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</h1>
+							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
 						<div class="doc-remark">
 							备注 备注 备注
@@ -262,7 +327,8 @@
 						<div class="doc-content">
 							<h2>
 							标题标题标题标题标题标题
-						</h2> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</h2>
+							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
 						<div class="doc-remark">
 							备注 备注 备注
@@ -272,7 +338,8 @@
 						<div class="doc-content">
 							<h3>
 							标题标题标题标题标题标题
-						</h3> 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+						</h3>
+							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
 						<div class="doc-remark">
 							备注 备注 备注
@@ -379,12 +446,13 @@
 			$("div.content").mCustomScrollbar({
 				theme: 'minimal-dark',
 				axis: 'y',
-				autoHideScrollbar: true,
-				scrollbarPosition: 'outside',
+				//autoHideScrollbar: true,
+				//scrollbarPosition: 'outside',
 				mouseWheel: {
 					scrollAmount: 500
 				}
 			});
+
 		}, 100);
 		// 导航条---事件
 		snow.nav.on('click', '.tile', function(e) {
@@ -404,14 +472,13 @@
 			}
 		});
 
-		//滚犊子
+		//关闭登陆框
 		$("#getout").click(function() {
+			snow.sign.removeClass('active');
 			$('#snow-left,#snow-right').animate({
 				width: '+=' + snow.sign.width() / 2
 			}, snow.speed, function() {
 				if (snow.nav.is(':hidden')) {
-					snow.sign.removeClass('active');
-
 					snow.nav.animate({
 						left: 0
 					}, snow.speed).show();
@@ -422,11 +489,14 @@
 
 	//
 	$(window).resize(function() {
+		// 窗体宽度
 		snow.width = $(this).width();
+		// 左侧工作区
 		snow.left = $('#snow-left').css({
 			width: (snow.width - snow.nav.width) / 2,
 			left: snow.nav.width
 		});
+		// 右侧工作区
 		snow.right = $("#snow-right").css({
 			width: (snow.width - snow.nav.width) / 2
 		});
@@ -437,73 +507,4 @@
 			});
 		}
 	}).resize();
-</script>
-<script>
-	(function($) {
-		$(window).load(function() {
-
-			var textareaLineHeight = parseInt($(".textarea-wrapper textarea").css("line-height"));
-
-			$(".textarea-wrapper").mCustomScrollbar({
-				scrollInertia: 0,
-				theme: "minimal",
-				advanced: {
-					autoScrollOnFocus: false
-				},
-				keyboard: {
-					enable: false
-				},
-				snapAmount: textareaLineHeight
-			});
-			//
-
-			var textarea = $(".textarea-wrapper textarea").css({
-					minWidth: snow.sign.width()
-				}),
-				textareaWrapper = $(".textarea-wrapper"),
-				textareaClone = $(".textarea-wrapper .textarea-clone").css({
-					minWidth: snow.sign.width()
-				});
-
-			textarea.bind("keyup keydown", function(e) {
-				var $this = $(this),
-					textareaContent = $this.val(),
-					clength = textareaContent.length,
-					cursorPosition = textarea.getCursorPosition();
-				textareaContent = "<span>" + textareaContent.substr(0, cursorPosition) + "</span>" + textareaContent.substr(cursorPosition, textareaContent.length);
-				textareaContent = textareaContent.replace(/\n/g, "<br />");
-				textareaClone.html(textareaContent + "<br />");
-				$this.css("height", textareaClone.height());
-				var textareaCloneSpan = textareaClone.children("span"),
-					textareaCloneSpanOffset = 0,
-					viewLimitBottom = (parseInt(textareaClone.css("min-height"))) - textareaCloneSpanOffset,
-					viewLimitTop = textareaCloneSpanOffset,
-					viewRatio = Math.round(textareaCloneSpan.height() + textareaWrapper.find(".mCSB_container").position().top);
-				if (viewRatio > viewLimitBottom || viewRatio < viewLimitTop) {
-					if ((textareaCloneSpan.height() - textareaCloneSpanOffset) > 0) {
-						console.log(textareaCloneSpan.height() , textareaCloneSpanOffset , textareaLineHeight);
-						textareaWrapper.mCustomScrollbar("scrollTo", textareaCloneSpan.height() - textareaCloneSpanOffset - textareaLineHeight);
-					} else {
-						textareaWrapper.mCustomScrollbar("scrollTo", "top");
-					}
-				}
-			});
-
-			$.fn.getCursorPosition = function() {
-				var el = $(this).get(0),
-					pos = 0;
-				if ("selectionStart" in el) {
-					pos = el.selectionStart;
-				} else if ("selection" in document) {
-					el.focus();
-					var sel = document.selection.createRange(),
-						selLength = document.selection.createRange().text.length;
-					sel.moveStart("character", -el.value.length);
-					pos = sel.text.length - selLength;
-				}
-				return pos;
-			}
-
-		});
-	})(jQuery);
 </script>
