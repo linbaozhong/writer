@@ -63,11 +63,11 @@
 				position: fixed;
 				width: 75px;
 				top: 0;
-				left: -1000px;
+				left: 0;
 				bottom: 0;
 				padding: 50px 0;
 				z-index: 1000;
-				display: none;
+				/*display: none;*/
 			}
 			div.nav-info-box {
 				z-index: 900;
@@ -93,6 +93,7 @@
 				width: 400px;
 				margin: 0 auto;
 				color: white !important;
+				/*z-index: 2;*/
 			}
 			/*左侧框*/
 			
@@ -106,14 +107,15 @@
 				z-index: 1;
 			}
 			#snow-left .content {
-				margin: 20px 20px 20px 40px;
+				margin: 0 0 0 20px;
 				float: right;
 			}
 			#snow-left .content,
 			#snow-right .content {
 				height: 100%;
 				position: relative;
-				max-width: 500px;
+				max-width: 700px;
+				min-width: 300px;
 				padding-right: 10px;
 			}
 			/*右侧框*/
@@ -182,8 +184,12 @@
 			}*/
 			
 			.doclist .doc {
-				padding: 20px 0;
+				padding: 20px 20px;
 				width: 100%;
+				cursor: pointer;
+			}
+			.doclist .doc.active {
+				background: #eee;
 			}
 			.doclist .doc h1 {
 				font-size: 1.5em;
@@ -216,6 +222,35 @@
 			}
 			.doclist .doc .doc-remark {
 				font-size: .8em;
+			}
+			.doclist .user-input {
+				display: none;
+				padding: 20px 0;
+			}
+			.doclist .user-input.editing {
+				display: none;
+				padding: 20px;
+				background: #999;
+				margin: 20px 0;
+			}
+			.doclist .user-input textarea {
+				height: 2em;
+				min-height: 2em !important;
+				resize: none;
+				overflow: hidden;
+			}
+			.doclist .user-input.editing textarea {
+				/*height: 3em;
+				min-height: 3em !important;*/
+				
+				resize: none;
+				overflow: auto;
+			}
+			.doclist .user-input .form-actions {
+				display: none;
+			}
+			.doclist .user-input.editing .form-actions {
+				display: block;
 			}
 			/*metro*/
 			
@@ -270,6 +305,15 @@
 		<div id="snow-left" class="bg-white">
 			<div class="content">
 				<div class="doclist">
+					<form class="doc user-input">
+						<div class="input-control textarea">
+							<textarea name="" rows="" cols="" placeholder="写点儿什么……"></textarea>
+						</div>
+						<div class="form-actions text-right">
+							<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
+							<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
+						</div>
+					</form>
 					<div class="doc">
 						<div class="doc-content">
 							<h1>
@@ -282,6 +326,11 @@
 						</div>
 
 					</div>
+					<form class="doc user-input">
+						<div class="input-control textarea">
+							<textarea name="" rows="" cols="" placeholder="写点儿什么……"></textarea>
+						</div>
+					</form>
 					<div class="doc">
 						<div class="doc-content">
 							<h2>
@@ -293,6 +342,14 @@
 							备注 备注 备注
 						</div>
 					</div>
+					<form class="doc user-input">
+						<div class="input-control textarea">
+							<textarea name="" rows="" cols="" placeholder="写点儿什么……"></textarea>
+						</div>
+						<div class="form-actions text-right">
+							<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
+						</div>
+					</form>
 					<div class="doc">
 						<div class="doc-content">
 							<h3>
@@ -304,6 +361,11 @@
 							备注 备注 备注
 						</div>
 					</div>
+					<form class="doc user-input">
+						<div class="input-control textarea">
+							<textarea name="" rows="" cols=""></textarea>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -353,7 +415,7 @@
 </html>
 <script type="text/javascript">
 	var snow = {
-		speed: 600,
+		speed: 300,
 		width: $(window).width(),
 		log: function() {
 			console.log(arguments);
@@ -425,12 +487,18 @@
 
 	//打开登录注册框
 	function openSign() {
-		$('#snow-left,#snow-right').animate({
-			width: '-=' + snow.sign.width() / 2
-		}, snow.speed, function() {
-			snow.sign.addClass('active')
-		});
-		//snow.nav.find('.tile[data-rel="signin"]').remove();
+		if (!snow.sign.hasClass('active')) {
+			$('#snow-left,#snow-right').animate({
+				width: '-=' + snow.sign.width() / 2
+			}, snow.speed, function() {
+				snow.sign.addClass('active');
+			});
+		}
+		//		snow.sign.animate({
+		//			left:'-=' + snow.sign.width()
+		//		},snow.speed,function(){
+		//			snow.sign.addClass('active');
+		//		});
 	}
 
 	$(function() {
@@ -484,6 +552,50 @@
 					}, snow.speed).show();
 				}
 			});
+		});
+
+		// 文档编辑框
+		snow.left.on('click', '.doclist .doc', function() {
+			var _doc = $(this);
+			// 如果是user-input表单，展开编辑
+			if (_doc.hasClass('user-input')) {
+				if (_doc.hasClass('editing') && _doc.find('textarea').val() == '') {
+					// 复原
+					_doc.removeClass('editing').find('textarea').animate({
+						height: '2em'
+					}, snow.speed).val('').blur();
+				} else if (!_doc.hasClass('editing')) {
+					_doc.addClass('editing').find('textarea').animate({
+						height: '20em'
+					}, snow.speed);
+				}
+				return;
+			}
+			// 复原编辑表单
+			var _old = _doc.siblings('.active').removeClass('active');
+			_old.next('.user-input').removeClass('editing').hide().find('textarea').css({
+				height: '2em'
+			});
+			_old.prev('.user-input').removeClass('editing').hide().find('textarea').css({
+				height: '2em'
+			});
+			// 激活doc
+			_doc.addClass('active');
+			//显示编辑表单
+			_doc.next('.user-input').show();
+			_doc.prev('.user-input').show();
+		}).on('click', 'button', function(e) {
+			e.stopPropagation();
+			var _that = $(this),
+				_frm = _that.closest('form.user-input');
+			if (_that.attr('name') == 'btn-save') {
+
+			} else {
+				// 复原
+				_frm.removeClass('editing').find('textarea').animate({
+					height: '2em'
+				}, snow.speed).val('');
+			}
 		});
 	});
 
