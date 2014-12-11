@@ -194,15 +194,17 @@
 				background: #eee;
 			}
 			.doclist .doc h1 {
-				font-size: 1.5em;
+				font-size: 1.4em;
 			}
 			.doclist .doc h2 {
 				font-size: 1.3em;
 			}
 			.doclist .doc h3 {
+				font-size: 1.2em;
+			}
+			.doclist .doc h4{
 				font-size: 1.1em;
 			}
-			.doclist .doc h4,
 			.doclist .doc h5,
 			.doclist .doc h6 {
 				font-size: 1em;
@@ -230,15 +232,21 @@
 				margin: 4px 0 0 10px;
 				color: gray;
 			}
-			.doclist .doc .tools.del {
+			.doclist .doc .tools.del,.doclist .doc .tools.edit {
 				font-size: 12px;
 				margin: 5px;
 				display: none;
 			}
-			.doclist .doc.active .tools.del {
+			.doclist .doc .tools.edit{
+				margin: 5px 30px 5px 5px;
+			}
+			.doclist div.doc:hover{
+				background: #eee;
+			}
+			.doclist div.doc:hover .tools.del,.doclist .doc:hover .tools.edit {
 				display: block;
 			}
-			.doclist .doc .tools i {
+			.doclist div.doc .tools i {
 				font-size: 10px;
 			}
 			.doclist .user-input {
@@ -249,8 +257,8 @@
 			}
 			.doclist .user-input.editing {
 				padding: 20px;
-				background: #999;
 				margin: 20px 0;
+				background: #999;
 			}
 			.doclist .user-input textarea {
 				height: 2em;
@@ -336,8 +344,12 @@
 		<div id="snow-left" class="bg-white">
 			<div class="content">
 				<form class="doc user-input native">
+					<input type="hidden" name="id" id="doc-id" value="" />
 					<div class="input-control textarea">
-						<textarea name="" rows="" cols="" placeholder="写点儿什么……"></textarea>
+						<textarea name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
+					</div>
+					<div class="form-actions input-control text">
+						<input type="text" name="tags" id="tags" value="" placeholder="标签" />
 					</div>
 					<div class="form-actions text-right">
 						<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
@@ -345,7 +357,7 @@
 					</div>
 				</form>
 				<div class="doclist">
-					<div class="doc" data-hint="双击修改" data-hint-position="top" data-click="transform">
+					<div class="doc" data-id="1">
 						<div class="doc-content">
 							<h1>
 							标题标题标题标题标题标题
@@ -354,6 +366,8 @@
 						</div>
 						<div>
 							<a href="javascript:;" class="tools del icon-cancel-2 place-top-right">
+							</a>
+							<a href="javascript:;" class="tools edit icon-pencil place-top-right">
 							</a>
 							<span class="doc-remark">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
@@ -371,7 +385,8 @@
 						<div>
 							<a href="javascript:;" class="tools del icon-cancel-2 place-top-right">
 							</a>
-							<span class="doc-remark">备注 备注 备注</span>
+							<a href="javascript:;" class="tools edit icon-pencil place-top-right">
+							</a>							<span class="doc-remark">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
 						</div>
@@ -386,7 +401,8 @@
 						<div>
 							<a href="javascript:;" class="tools del icon-cancel-2 place-top-right">
 							</a>
-							<span class="doc-remark">备注 备注 备注</span>
+							<a href="javascript:;" class="tools edit icon-pencil place-top-right">
+							</a>							<span class="doc-remark">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
 						</div>
@@ -576,33 +592,42 @@
 
 		// 文档编辑框
 		var _native = snow.left.find('form.native').eq(0).click(function() {
+			if (snow.left.find('form.editing').length>0) {
+				return;
+			}
 			var _doc = $(this);
 			if (_doc.hasClass('editing') && _doc.find('textarea').val() == '') {
 				// 复原
-				_doc.find('textarea').animate({
-					height: '2em'
-				}, snow.speed, function() {
-					_doc.removeClass('editing');
-				}).val('').blur();
+//				_doc.find('textarea').animate({
+//					height: '2em'
+//				}, snow.speed, function() {
+//					_doc.removeClass('editing');
+//				}).val('').blur();
 			} else if (!_doc.hasClass('editing')) {
 				_doc.addClass('editing').find('textarea').animate({
 					height: '20em'
 				}, snow.speed);
 			}
-		}).on('click', 'button', function(e) {
+		}).on('click', 'button', function(e) {//表单保存(取消)事件
 			e.stopPropagation();
 			var _that = $(this),
 				_frm = _that.closest('form.user-input');
-			if (_that.attr('name') == 'btn-save') {
+			if (_that.attr('name') == 'btn-save') {//保存
 
-			} else {
+			} else {//取消
 				// 复原
 				_frm.removeClass('editing').find('textarea').animate({
 					height: '2em'
 				}, snow.speed).val('');
 			}
+			// 如果是修改表单
+			if (_frm.hasClass('editor')) {
+				_frm.prev('div.doc').show();
+				_frm.remove();
+			}
 		});
 		var _clone = _native.clone(true).removeClass('native').addClass('clone');
+		var _editor = _native.clone(true).removeClass('native').addClass('editor');
 
 		snow.left.on('click', '.doclist div.doc', function() {
 			var _doc = $(this);
@@ -642,6 +667,14 @@
 				_doc.next().hide();
 			}
 			_doc.remove();
+		}).on('click','.tools.edit',function(e){
+			e.stopPropagation();
+			if (snow.left.find('form.editing').length>0) {
+				return;
+			}
+			var _doc = $(this).closest('div.doc').hide();
+			//
+			_doc.after(_editor.click());
 		});
 
 	});
