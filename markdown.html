@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="static/js/marked.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="editor" style="width:300px;height:300px" class="" contenteditable="true">
+			ni
+<p>hahahahahah lahjsdgklf j
+</p>
+<p>lkjsdjf kldkj l <b>jlbbb bbfb b b bbl</b>ksdlf lskdj fs</p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$('#editor').on('keydown',function(e){
+		//e.stopPropagation();e.preventDefault();
+		console.log(e.relatedTarget);
+	});
+</script>
