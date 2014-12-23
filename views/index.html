@@ -276,6 +276,22 @@
 			.doclist .user-input.editing .form-actions {
 				display: block;
 			}
+			/*书签*/
+			.bookmarks{
+				position: fixed;
+				width:80px;
+				height:80px;
+				opacity: .1;
+				z-index: 1000;
+				text-align: center;
+				cursor: pointer;
+			}
+			.bookmarks-left{
+				left:0;
+			}
+			.bookmarks-right{
+				right:75px;
+			}
 			/*metro*/
 			
 			.metro form {
@@ -488,6 +504,15 @@
 			</div>
 
 		</div>
+		<!--书签-->
+		<div class="bookmarks bookmarks-left bg-gray">
+			<h1>
+			<i class="icon-arrow-left-3 fg-white"></i></h1>
+		</div>
+		<div class="bookmarks bookmarks-right bg-gray">
+			<h1>
+			<i class="icon-arrow-right-3 fg-white"></i></h1>
+		</div>
 	</body>
 
 </html>
@@ -606,6 +631,15 @@
 			snow.left.find('.doclist div.doc').eq(0).click();
 
 		}, 100);
+		// 书签事件
+		$('div.bookmarks').hover(
+			function(){
+				$(this).css('opacity',0.8);
+			},
+			function(){
+				$(this).css('opacity',0.1);
+			}
+		);
 		// 导航条---事件
 		snow.nav.on('click', '.tile', function(e) {
 			var _that = $(this);
@@ -737,6 +771,10 @@
 	$(window).resize(function() {
 		// 窗体宽度
 		snow.width = $(this).width();
+		// 书签
+		$('div.bookmarks').css({
+			top:(snow.nav.height()-80)/2
+		});
 		// 左侧工作区
 		snow.left = $('#snow-left').css({
 			//width: (snow.width - snow.nav.width - 20) / 2,

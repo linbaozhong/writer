@@ -212,6 +212,7 @@
 			 * 初始化
 			 */
 			var _init = (function() {
+
 				//渲染
 				self.addClass('accordion').css({
 					position: 'relative',
@@ -235,7 +236,7 @@
 				self.on('click', '.frame', function(e) {
 					//
 					var _obj = $(this);
-
+					//当前活动的frame保持原状
 					if (_obj.hasClass('active') && _obj.next().hasClass('active')) {
 						return;
 					} else if (_obj.next().length == 0) {
@@ -249,10 +250,19 @@
 					_revert(_obj);
 				}).on('mouseenter', '.frame', function(e) {
 					var _that = $(this);
+					//当前活动的frame保持原状
+					if (_that.hasClass('active')) {
+						return;
+					}
 					self.find('.frame.opening').removeClass('opening');
 					_that.addClass('opening');
 					$this.open(_that);
 				}).on('mouseleave', '.frame', function(e) {
+					var _that = $(this);
+					//当前活动的frame保持原状
+					if (_that.hasClass('active')) {
+						return;
+					}
 					self.find('.frame.opening').removeClass('opening');
 					_revert();
 				});
