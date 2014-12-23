@@ -5,7 +5,7 @@
 	<head>
 		<title>非线性协作</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" type="text/css" href="../static/css/pinghei.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/pinghei.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/iconFont.min.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/metro-bootstrap.min.css" />
 		<script src="../static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -23,27 +23,17 @@
 			ul,
 			ol,
 			li,
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6,
 			pre,
 			code,
 			form,
-			b,
-			strong,
 			fieldset,
 			legend,
 			input,
 			textarea,
-			p,
 			blockquote,
 			th,
 			td,
 			hr,
-			button,
 			article,
 			aside,
 			details,
@@ -54,9 +44,15 @@
 			hgroup,
 			menu,
 			nav,
-			section {
-				font-family: "PingHei" !important;
-				font-size: 14px;
+			b,strong,section {
+				font-family: "PingHei 200" !important;
+			}
+			h1,h2,h3,h4,h5,h6
+			{
+				font-family: "PingHei 600" !important;
+			}
+			p {
+				font-family: "PingHei 400" !important;
 			}
 			body {
 				background-size: cover;
@@ -294,14 +290,7 @@
 				clear: both;
 				content: " ";
 			}
-			.accordion.horizontal .frame .heading {
-			}
-			.accordion.horizontal .frame .content {
-			}
-			.accordion.horizontal .frame .content::after {
-
-			}
-			.accordion .frame {
+			.accordion.horizontal .frame .heading {} .accordion.horizontal .frame .content {} .accordion.horizontal .frame .content::after {} .accordion .frame {
 				background: #fff;
 			}
 			.accordion .frame .heading {
@@ -309,7 +298,7 @@
 			}
 			.accordion .frame .content {
 				border-left: 1px solid #EEEEEE;
-				padding:5px;
+				padding: 5px;
 			}
 			.accordion .frame.active .content {}
 		</style>
@@ -346,7 +335,7 @@
 				<a href="javascript:;" class="getout icon-cancel-2 place-top-right margin5 fg-white border padding5" style="border-radius: 50%;">
 				</a>
 				<div class="padding20">
-					<h3 class="padding10 fg-white">使用合作网站账户登录</h3>
+					<h2 class="padding10 fg-white">使用合作网站账户登录</h2>
 					<div class="form-actions">
 						<div class="horizontal-list">
 							<ul>
@@ -392,7 +381,9 @@
 							<div class="doc" data-id="1">
 								<div class="doc-content">
 									<h1>
+
 							标题标题标题标题标题标题
+
 						</h1>
 									<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 								</div>
@@ -410,7 +401,9 @@
 							<div class="doc">
 								<div class="doc-content">
 									<h2>
+
 							标题标题标题标题标题标题
+
 						</h2>
 									<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 								</div>
@@ -426,7 +419,9 @@
 							<div class="doc">
 								<div class="doc-content">
 									<h3>
+
 							标题标题标题标题标题标题
+
 						</h3>
 									<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 								</div>
@@ -452,7 +447,9 @@
 					<div class="doc">
 						<div class="doc-content">
 							<h1>
+
 							标题标题标题标题标题标题
+
 						</h1>
 							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
@@ -464,7 +461,9 @@
 					<div class="doc">
 						<div class="doc-content">
 							<h2>
+
 							标题标题标题标题标题标题
+
 						</h2>
 							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
@@ -475,7 +474,9 @@
 					<div class="doc">
 						<div class="doc-content">
 							<h3>
+
 							标题标题标题标题标题标题
+
 						</h3>
 							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 						</div>
@@ -584,7 +585,11 @@
 			//
 			var chouti = snow.left.find('div.chouti').accordion({
 				horizontal: true
-			}).add({title: '',url:'it.htm',active:false});
+			}).add({
+				title: '',
+				url: 'it.htm',
+				active: false
+			});
 
 			//chouti.up();
 			//
@@ -599,7 +604,7 @@
 			});
 			// 选中第一个文档
 			snow.left.find('.doclist div.doc').eq(0).click();
-			
+
 		}, 100);
 		// 导航条---事件
 		snow.nav.on('click', '.tile', function(e) {
@@ -670,7 +675,7 @@
 				_frm.hide();
 			}
 		});
-		
+
 		var _clone = _native.clone(true).removeClass('native').addClass('clone');
 		var _editor = _native.clone(true).removeClass('native').addClass('editor');
 
@@ -703,7 +708,7 @@
 			_native.show();
 			_clone.show();
 		}).on('click', '.tools.del', function(e) {
-			
+
 			e.stopPropagation();
 			var _doc = $(this).closest('div.doc');
 
@@ -716,7 +721,7 @@
 			}
 			_doc.remove();
 		}).on('click', '.tools.edit', function(e) {
-			
+
 			e.stopPropagation();
 			if (snow.left.find('form.editing').length > 0) {
 				return;
