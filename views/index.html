@@ -5,10 +5,11 @@
 	<head>
 		<title>非线性协作</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" type="text/css" href="../static/css/pinghei.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/jquery-ui.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../static/css/iconFont.min.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/metro-bootstrap.min.css" />
 		<script src="../static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
 		<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
@@ -44,15 +45,8 @@
 			hgroup,
 			menu,
 			nav,
-			b,strong,section {
-				font-family: "PingHei 200" !important;
-			}
-			h1,h2,h3,h4,h5,h6
-			{
-				font-family: "PingHei 600" !important;
-			}
-			p {
-				font-family: "PingHei 400" !important;
+			b,strong,section,span,h1,h2,h3,h4,h5,h6,button,p {
+				font-family: "黑体" !important;
 			}
 			body {
 				background-size: cover;
@@ -106,30 +100,16 @@
 				
 				z-index: 1;
 			}
-			#snow-left .content {} #snow-left .content,
-			#snow-right .content {
+			#snow-left .content {
 				height: 100%;
 				position: relative;
 				max-width: 700px;
 				min-width: 300px;
 				padding: 0 20px;
 				width: 100%;
-			}
-			/*右侧框*/
-			
-			#snow-right {
-				display: none;
-				position: fixed;
-				height: 100%;
-				top: 0;
-				bottom: 0;
-				right: 0;
-				width: 1000px;
-				z-index: 1;
-			}
-			#snow-right .content {
-				/*margin: 0 40px 0 20px;*/
-			}
+				
+			} 
+
 			/*列表项*/
 			
 			.horizontal-list ul,
@@ -279,8 +259,8 @@
 			/*书签*/
 			.bookmarks{
 				position: fixed;
-				width:80px;
-				height:80px;
+				width:68px;
+				height:68px;
 				opacity: .1;
 				z-index: 1000;
 				text-align: center;
@@ -346,7 +326,7 @@
 
 		</div>
 		<!--中间的注册登录框-->
-		<div id="snow-sign" class="bg-gray opacity">
+		<div id="snow-sign" class="bg-gray shadow">
 			<div class="user-sign">
 				<a href="javascript:;" class="getout icon-cancel-2 place-top-right margin5 fg-white border padding5" style="border-radius: 50%;">
 				</a>
@@ -454,55 +434,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!--右侧框--工作区-->
-		<div id="snow-right" class="bg-white">
-
-			<div class="content">
-				<div class="doclist">
-					<div class="doc">
-						<div class="doc-content">
-							<h1>
-
-							标题标题标题标题标题标题
-
-						</h1>
-							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-						</div>
-						<div class="doc-remark">
-							备注 备注 备注
-						</div>
-					</div>
-
-					<div class="doc">
-						<div class="doc-content">
-							<h2>
-
-							标题标题标题标题标题标题
-
-						</h2>
-							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-						</div>
-						<div class="doc-remark">
-							备注 备注 备注
-						</div>
-					</div>
-					<div class="doc">
-						<div class="doc-content">
-							<h3>
-
-							标题标题标题标题标题标题
-
-						</h3>
-							<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-						</div>
-						<div class="doc-remark">
-							备注 备注 备注
-						</div>
-					</div>
-				</div>
-			</div>
-
 		</div>
 		<!--书签-->
 		<div class="bookmarks bookmarks-left bg-gray">
@@ -617,7 +548,7 @@
 			});
 
 			//chouti.up();
-			//
+			// 滚动条
 			$("div.content").mCustomScrollbar({
 				theme: 'minimal-dark',
 				axis: 'y',
@@ -766,7 +697,13 @@
 		});
 
 	});
-
+	//
+//	$('div.doclist').sortable({
+//		connectWith:'div.doclist',
+//		zIndex:10000,
+//		start:function(e,ui){},
+//		stop:function(e,ui){}
+//	});
 	//
 	$(window).resize(function() {
 		// 窗体宽度
@@ -780,15 +717,5 @@
 			//width: (snow.width - snow.nav.width - 20) / 2,
 			right: snow.nav.width
 		});
-		// 右侧工作区
-		//		snow.right = $("#snow-right").css({
-		//			width: (snow.width - snow.nav.width - 20) / 2
-		//		});
-		//		if (snow.sign.hasClass('active')) {
-		//			//
-		//			$('#snow-left,#snow-right').css({
-		//				width: (snow.width - snow.nav.width - snow.sign.width() - 20) / 2
-		//			});
-		//		}
 	}).resize();
 </script>

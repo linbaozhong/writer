@@ -1,14 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"github.com/astaxie/beego"
-
 	"writer/models"
 	_ "writer/routers"
 	"zouzhe/utils"
 )
 
 func main() {
+	fmt.Println(models)
 	beego.Run()
 }
 

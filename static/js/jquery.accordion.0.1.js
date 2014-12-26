@@ -201,12 +201,13 @@
 			 */
 			var _revert = function(_obj) {
 				if (_obj) {
-					self.find('.frame.active').removeClass('active');
-					_obj.addClass('active').next().addClass('active');
+					self.find('.frame.active').removeClass('active opening');
+					_obj.addClass('active opening').next().addClass('active opening');
 				} else {
 					_obj = self.find('.frame.active').addClass('opening');
 				}
 				$this.open(_obj);
+				$this.open(_obj.next());
 			};
 			/*
 			 * 初始化
