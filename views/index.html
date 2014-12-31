@@ -10,8 +10,8 @@
 		<link rel="stylesheet" type="text/css" href="../static/css/metro-bootstrap.min.css" />
 		<script src="../static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
-		<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
+		<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>-->
 		<script src="../static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/jquery.widget.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>
@@ -100,7 +100,7 @@
 				
 				z-index: 1;
 			}
-			#snow-left .content {
+			/*#snow-left .content {
 				height: 100%;
 				position: relative;
 				max-width: 700px;
@@ -108,7 +108,7 @@
 				padding: 0 20px;
 				width: 100%;
 				
-			} 
+			} */
 
 			/*列表项*/
 			
@@ -152,108 +152,105 @@
 				clear: both;
 				content: "";
 			}
-			/*.doclist*/
+			/*.frame*/
 			
-			.doclist {
+			.frame {
 				text-align: left;
 			}
-			/*.doclist .doc:nth-child(2n+1){
-				background:#eee;
-			}*/
 			
-			.doclist .doc {
+			.frame .doc {
 				padding: 20px 20px;
 				width: 100%;
 				cursor: pointer;
 				position: relative;
 			}
-			.doclist .doc.active {
+			.frame .doc.active {
 				background: #eee;
 			}
-			.doclist .doc h1 {
+			.frame .doc h1 {
 				font-size: 1.4em;
 			}
-			.doclist .doc h2 {
+			.frame .doc h2 {
 				font-size: 1.3em;
 			}
-			.doclist .doc h3 {
+			.frame .doc h3 {
 				font-size: 1.2em;
 			}
-			.doclist .doc h4 {
+			.frame .doc h4 {
 				font-size: 1.1em;
 			}
-			.doclist .doc h5,
-			.doclist .doc h6 {
+			.frame .doc h5,
+			.frame .doc h6 {
 				font-size: 1em;
 			}
-			.doclist .doc h1,
-			.doclist .doc h2,
-			.doclist .doc h3,
-			.doclist .doc h4,
-			.doclist .doc h5,
-			.doclist .doc h6 {
+			.frame .doc h1,
+			.frame .doc h2,
+			.frame .doc h3,
+			.frame .doc h4,
+			.frame .doc h5,
+			.frame .doc h6 {
 				font-weight: bold;
 				line-height: initial;
 				margin: 0 0 .8em;
 				color: gray;
 			}
-			.doclist .doc .doc-content {
+			.frame .doc .doc-content {
 				font-size: 1.1em;
 				margin: 0 0 .5em;
 			}
-			.doclist .doc .doc-remark {
+			.frame .doc .doc-remark {
 				font-size: .8em;
 				color: gray;
 			}
-			.doclist .doc .tools {
+			.frame .doc .tools {
 				margin: 4px 0 0 10px;
 				color: gray;
 			}
-			.doclist .doc .tools.del,
-			.doclist .doc .tools.edit {
+			.frame .doc .tools.del,
+			.frame .doc .tools.edit {
 				font-size: 12px;
 				margin: 5px;
 				display: none;
 			}
-			.doclist .doc .tools.edit {
+			.frame .doc .tools.edit {
 				margin: 5px 30px 5px 5px;
 			}
-			.doclist div.doc:hover {
+			.frame div.doc:hover {
 				background: #eee;
 			}
-			.doclist div.doc:hover .tools.del,
-			.doclist .doc:hover .tools.edit {
+			.frame div.doc:hover .tools.del,
+			.frame .doc:hover .tools.edit {
 				display: block;
 			}
-			.doclist div.doc .tools i {
+			.frame div.doc .tools i {
 				font-size: 10px;
 			}
-			.doclist .user-input {
+			.frame .user-input {
 				padding: 20px 0;
 			}
-			.doclist .user-input .textarea {
+			.frame .user-input .textarea {
 				margin: 0;
 			}
-			.doclist .user-input.editing {
+			.frame .user-input.editing {
 				padding: 20px;
 				margin: 20px 0;
 				background: #999;
 			}
-			.doclist .user-input textarea {
+			.frame .user-input textarea {
 				height: 2em;
 				min-height: 2em !important;
 				resize: none;
 				overflow: hidden;
 			}
-			.doclist .user-input.editing textarea {
+			.frame .user-input.editing textarea {
 				margin-bottom: 10px;
 				resize: none;
 				overflow: auto;
 			}
-			.doclist .user-input .form-actions {
+			.frame .user-input .form-actions {
 				display: none;
 			}
-			.doclist .user-input.editing .form-actions {
+			.frame .user-input.editing .form-actions {
 				display: block;
 			}
 			/*书签*/
@@ -286,17 +283,21 @@
 				clear: both;
 				content: " ";
 			}
-			.accordion.horizontal .frame .heading {} .accordion.horizontal .frame .content {} .accordion.horizontal .frame .content::after {} .accordion .frame {
+			.accordion .frame {
 				background: #fff;
+				display: none;
 			}
-			.accordion .frame .heading {
+			.accordion .frame.opening {
+				display: block;
+			}
+			/*.accordion .frame .heading {
 				background: #eee;
 			}
 			.accordion .frame .content {
 				border-left: 1px solid #EEEEEE;
 				padding: 5px;
 			}
-			.accordion .frame.active .content {}
+			.accordion .frame.active .content {}*/
 		</style>
 	</head>
 
@@ -359,7 +360,7 @@
 		<div id="snow-left" class="bg-white">
 			<div class="chouti" style="height:100%;">
 				<div class="frame">
-					<div class="content">
+					
 						<form class="doc user-input native">
 							<input type="hidden" name="id" id="doc-id" value="" />
 							<div class="input-control textarea">
@@ -373,7 +374,7 @@
 								<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
 							</div>
 						</form>
-						<div class="doclist">
+					
 							<div class="doc" data-id="1">
 								<div class="doc-content">
 									<h1>
@@ -430,8 +431,8 @@
 									<span class="tools place-right icon-new-tab"><i>456</i></span>
 								</div>
 							</div>
-						</div>
-					</div>
+				
+					
 				</div>
 			</div>
 		</div>
@@ -546,20 +547,26 @@
 				url: 'it.htm',
 				active: false
 			});
-
+	$('div.frame').sortable({
+		connectWith:'div.frame',
+		helper:'clone',
+		revert:true,
+		start:function(e,ui){},
+		stop:function(e,ui){}
+	});
 			//chouti.up();
-			// 滚动条
-			$("div.content").mCustomScrollbar({
-				theme: 'minimal-dark',
-				axis: 'y',
-				//autoHideScrollbar: true,
-				scrollbarPosition: 'inside',
-				mouseWheel: {
-					scrollAmount: 500
-				}
-			});
+//			// 滚动条
+//			$("div.content").mCustomScrollbar({
+//				theme: 'minimal-dark',
+//				axis: 'y',
+//				//autoHideScrollbar: true,
+//				scrollbarPosition: 'inside',
+//				mouseWheel: {
+//					scrollAmount: 500
+//				}
+//			});
 			// 选中第一个文档
-			snow.left.find('.doclist div.doc').eq(0).click();
+			snow.left.find('.frame div.doc').eq(0).click();
 
 		}, 100);
 		// 书签事件
@@ -644,7 +651,7 @@
 		var _clone = _native.clone(true).removeClass('native').addClass('clone');
 		var _editor = _native.clone(true).removeClass('native').addClass('editor');
 
-		snow.left.find('.doclist').on('click', 'div.doc', function(e) {
+		snow.left.find('.frame').on('click', 'div.doc', function(e) {
 			var _doc = $(this);
 
 			// 复原编辑表单
@@ -698,12 +705,7 @@
 
 	});
 	//
-//	$('div.doclist').sortable({
-//		connectWith:'div.doclist',
-//		zIndex:10000,
-//		start:function(e,ui){},
-//		stop:function(e,ui){}
-//	});
+
 	//
 	$(window).resize(function() {
 		// 窗体宽度

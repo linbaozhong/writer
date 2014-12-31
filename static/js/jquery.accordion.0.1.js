@@ -21,9 +21,10 @@
 			},
 			opts = $.extend(defaults, options),
 			frameStyle = {
-				'position': 'absolute',
-				'left': 5000,
-				'top': 0,
+//				'position': 'absolute',
+//				'left': 5000,
+//				'top': 0,
+				'float':'left',
 				'cursor': 'pointer',
 				'overflow': 'hidden',
 				'background': opts.background
@@ -55,50 +56,50 @@
 							'width': self.width() - _border.width
 						});
 					}
-					// 渲染 heading
-					_frame.find('.heading').each(function() {
-						var heading = $(this),
-							headingBorder = getBorder(heading);
-						// 横向
-						if (opts.horizontal) {
-							heading.css({
-								'textAlign': 'center',
-								'overflow': 'hidden',
-								'float': 'left',
-								'width': opts.size.heading - headingBorder.width,
-								'height': _frame.height() - headingBorder.height
-							});
-						} else {
-							heading.css({
-								'overflow': 'hidden',
-								'lineHeight': (opts.size.heading - headingBorder.height) + 'px',
-								'height': opts.size.heading - headingBorder.height,
-								'width': _frame.width() - headingBorder.width
-							});
-						}
-					});
-					// 渲染 content
-					_frame.find('.content').each(function() {
-						var content = $(this),
-							contentBorder = getBorder(content);
-						// 横向
-						if (opts.horizontal) {
-							content.css({
-								'width': _frame.width() - contentBorder.width + (content.siblings('.heading').length > 0 ? 0 : opts.size.heading),
-								'height': _frame.height() - contentBorder.height,
-								'marginLeft': (content.siblings('.heading').length > 0 ? opts.size.heading : 0),
-								'overflowX': 'hidden',
-								'overflowY': 'auto'
-							});
-						} else {
-							content.css({
-								'height': _frame.height() - contentBorder.height - (content.siblings('.heading').length > 0 ? opts.size.heading : 0),
-								'width': _frame.width() - contentBorder.width,
-								'overflowX': 'hidden',
-								'overflowY': 'auto'
-							});
-						}
-					});
+//					// 渲染 heading
+//					_frame.find('.heading').each(function() {
+//						var heading = $(this),
+//							headingBorder = getBorder(heading);
+//						// 横向
+//						if (opts.horizontal) {
+//							heading.css({
+//								'textAlign': 'center',
+//								'overflow': 'hidden',
+//								'float': 'left',
+//								'width': opts.size.heading - headingBorder.width,
+//								'height': _frame.height() - headingBorder.height
+//							});
+//						} else {
+//							heading.css({
+//								'overflow': 'hidden',
+//								'lineHeight': (opts.size.heading - headingBorder.height) + 'px',
+//								'height': opts.size.heading - headingBorder.height,
+//								'width': _frame.width() - headingBorder.width
+//							});
+//						}
+//					});
+//					// 渲染 content
+//					_frame.find('.content').each(function() {
+//						var content = $(this),
+//							contentBorder = getBorder(content);
+//						// 横向
+//						if (opts.horizontal) {
+//							content.css({
+//								'width': _frame.width() - contentBorder.width + (content.siblings('.heading').length > 0 ? 0 : opts.size.heading),
+//								'height': _frame.height() - contentBorder.height,
+//								'marginLeft': (content.siblings('.heading').length > 0 ? opts.size.heading : 0),
+//								'overflowX': 'hidden',
+//								'overflowY': 'auto'
+//							});
+//						} else {
+//							content.css({
+//								'height': _frame.height() - contentBorder.height - (content.siblings('.heading').length > 0 ? opts.size.heading : 0),
+//								'width': _frame.width() - contentBorder.width,
+//								'overflowX': 'hidden',
+//								'overflowY': 'auto'
+//							});
+//						}
+//					});
 				});
 			};
 
@@ -118,18 +119,18 @@
 				active: false
 			}, options);
 
-			var _frame = $('<div />').addClass('frame').css(frameStyle).appendTo($this),
-				heading = $('<div />').addClass('heading').css('lineHeight', opts.size.heading + 'px').html(_options.title),
-				content = $('<div />').addClass('content').html(_options.html);
-			//标题
-			if (_options.title != '') {
-				_frame.append(heading);
-			}
-			//内容,异步载入
-			if (_options.url && _options.url.length > 0) {
-				content.load(_options.url);
-			}
-			_frame.append(content);
+			var _frame = $('<div />').addClass('frame').css(frameStyle).appendTo($this);
+				//heading = $('<div />').addClass('heading').css('lineHeight', opts.size.heading + 'px').html(_options.title),
+				//content = $('<div />').addClass('content').html(_options.html);
+//			//标题
+//			if (_options.title != '') {
+//				_frame.append(heading);
+//			}
+//			//内容,异步载入
+//			if (_options.url && _options.url.length > 0) {
+//				content.load(_options.url);
+//			}
+//			_frame.append(content);
 			//活动状态
 			if (_options.active) {
 				_frame.addClass('active').addClass('opening');
