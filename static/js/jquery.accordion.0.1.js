@@ -14,92 +14,47 @@
 					body: 600 //单体宽度或者高度,'auto'可选
 				},
 				background: 'white',
-				horizontal: true, //横向或纵向排列
 				clickonly: true, //只允许click触发
 				autoopen: 1, //自动打开第几个
 				speed: 400 //动画速度
 			},
 			opts = $.extend(defaults, options),
 			frameStyle = {
-//				'position': 'absolute',
-//				'left': 5000,
-//				'top': 0,
-				'float':'left',
+				'position': 'absolute',
 				'cursor': 'pointer',
 				'overflow': 'hidden',
 				'background': opts.background
 			},
 			getBorder = function(_obj) {
 				return {
-					'width': parseInt(_obj.css('paddingLeft')) + parseInt(_obj.css('paddingRight')) + parseInt(_obj.css('marginLeft')) + parseInt(_obj.css('marginRight')) + parseInt(_obj.css('borderLeftWidth')) + parseInt(_obj.css('borderRightWidth')),
-					'height': parseInt(_obj.css('paddingTop')) + parseInt(_obj.css('paddingBottom')) + parseInt(_obj.css('marginTop')) + parseInt(_obj.css('marginBottom')) + parseInt(_obj.css('borderTopWidth')) + parseInt(_obj.css('borderBottomWidth'))
+					'width': parseInt(_obj.css('paddingLeft')) + parseInt(_obj.css('paddingRight')) + parseInt(_obj.css('borderLeftWidth')) + parseInt(_obj.css('borderRightWidth')),
+					'height': parseInt(_obj.css('paddingTop')) + parseInt(_obj.css('paddingBottom')) + parseInt(_obj.css('borderTopWidth')) + parseInt(_obj.css('borderBottomWidth'))
 				};
 			},
-			refresh = function() {
-				//重绘
-				$this.each(function() {
-					var self = $(this),
-						_frame = self.find('.frame'),
-						_border = getBorder(_frame);
+			//重绘
+			refresh = function(self) {
+				var _left = 0,
+					_frames = self.find('.frame'),
+					_width = (self.width() - opts.size.body) / _frames.length - 1;
 
-					// 渲染frame
-					if (opts.horizontal) {
-						// 横向
-						_frame.css({
-							'height': self.height() - _border.height,
-							'width': opts.size.body - _border.width
-						});
-					} else {
-						// 纵向
-						_frame.css({
-							'height': (self.height() - ((_frame.length - _frame.filter('.opening').length) * opts.size.heading)) / _frame.filter('.opening').length - _border.height,
-							'width': self.width() - _border.width
-						});
+				// 
+				_width = _width > opts.size.body ? opts.size.body : _width;
+
+				// 渲染frame
+				_frames.css({
+					'height': self.height(),
+					'width': opts.size.body
+				});
+
+				$.each(_frames, function(index, frame) {
+					var _frame = $(frame);
+
+					if (_frame.position().left != _left) {
+						_frame.stop().animate({
+							left: _left
+						}, opts.speed);
 					}
-//					// 渲染 heading
-//					_frame.find('.heading').each(function() {
-//						var heading = $(this),
-//							headingBorder = getBorder(heading);
-//						// 横向
-//						if (opts.horizontal) {
-//							heading.css({
-//								'textAlign': 'center',
-//								'overflow': 'hidden',
-//								'float': 'left',
-//								'width': opts.size.heading - headingBorder.width,
-//								'height': _frame.height() - headingBorder.height
-//							});
-//						} else {
-//							heading.css({
-//								'overflow': 'hidden',
-//								'lineHeight': (opts.size.heading - headingBorder.height) + 'px',
-//								'height': opts.size.heading - headingBorder.height,
-//								'width': _frame.width() - headingBorder.width
-//							});
-//						}
-//					});
-//					// 渲染 content
-//					_frame.find('.content').each(function() {
-//						var content = $(this),
-//							contentBorder = getBorder(content);
-//						// 横向
-//						if (opts.horizontal) {
-//							content.css({
-//								'width': _frame.width() - contentBorder.width + (content.siblings('.heading').length > 0 ? 0 : opts.size.heading),
-//								'height': _frame.height() - contentBorder.height,
-//								'marginLeft': (content.siblings('.heading').length > 0 ? opts.size.heading : 0),
-//								'overflowX': 'hidden',
-//								'overflowY': 'auto'
-//							});
-//						} else {
-//							content.css({
-//								'height': _frame.height() - contentBorder.height - (content.siblings('.heading').length > 0 ? opts.size.heading : 0),
-//								'width': _frame.width() - contentBorder.width,
-//								'overflowX': 'hidden',
-//								'overflowY': 'auto'
-//							});
-//						}
-//					});
+					_left += _frame.hasClass('active') ? opts.size.body - 1 : _width - 1;
 				});
 			};
 
@@ -119,32 +74,39 @@
 				active: false
 			}, options);
 
-			var _frame = $('<div />').addClass('frame').css(frameStyle).appendTo($this);
-				//heading = $('<div />').addClass('heading').css('lineHeight', opts.size.heading + 'px').html(_options.title),
-				//content = $('<div />').addClass('content').html(_options.html);
-//			//标题
-//			if (_options.title != '') {
-//				_frame.append(heading);
-//			}
-//			//内容,异步载入
-//			if (_options.url && _options.url.length > 0) {
-//				content.load(_options.url);
-//			}
-//			_frame.append(content);
+			var _frame = $('<div />').addClass('frame').css(frameStyle).css({
+				left: 5000
+			}).appendTo($this);
 			//活动状态
 			if (_options.active) {
-				_frame.addClass('active').addClass('opening');
+				_frame.addClass('active');
 			}
-
-			$this.open(_frame);
-
-			refresh();
+			_frame.sortable({
+				connectWith: 'div.frame',
+				appendTo: '#snow-left',
+				items:'div.doc',
+				//helper: 'clone',
+				handle: ".doc-info",
+				placeholder: "portlet-placeholder ui-corner-all",
+				revert: true,
+				tolerance:'pointer',
+				opacity: 0.8,
+				over:function(e,ui){
+					_frame.closest('#snow-left').find('.frame.active').removeClass('active');
+					$this.open($(e.target));
+				},
+				start: function(e, ui) {
+				},
+				stop: function(e, ui) {
+				}
+			});
+			refresh(_frame.parent());
 			return $this;
 
 		};
 		//
 		$this.active = function(i) {
-			var _frame = $this.find('.frame:nth-child(' + i + ')').addClass('active').addClass('opening');
+			var _frame = $this.find('.frame:nth-child(' + i + ')').addClass('active');
 			$this.open(_frame);
 			return $this;
 		};
@@ -152,45 +114,23 @@
 		 * 展开frame
 		 */
 		$this.open = function(_obj) {
-			var _this = _obj.parent(),
-				_frame = _this.children(),
-				_left = 0,
-				_top = 0,
-				_width = (_this.width() - (_frame.filter('.opening').length * opts.size.body)) / (_frame.length - _frame.filter('.opening').length),
-				_height = (_this.height() - ((_frame.length - _frame.filter('.opening').length) * opts.size.heading)) / _frame.filter('.opening').length;
+			_obj.addClass('active');
 
-			_frame.each(function(index) {
-				var __this = $(this),
-					_border = getBorder(__this);
-
-				if (opts.horizontal) {
-					__this.stop().animate({
-						'left': _left
-					}, opts.speed);
-
-					_left += __this.hasClass('opening') ? __this.width() : _width > _frame.width() ? _frame.width() : _width;
-				} else {
-					__this.stop().animate({
-						'top': _top
-					}, opts.speed);
-					_top += __this.hasClass('opening') ? _height - _border.height : opts.size.heading;
-				}
-			});
+			refresh(_obj.parent());
 		};
 		//
 		$(window).on('resize', function() {
 			// 刷新
 			$this.each(function() {
 				var self = $(this),
-					_frame = self.find('.frame.active').addClass('opening');
+					_frame = self.find('.frame.active');
 
 				self.css({
 					height: self.parent().height()
 				});
 
-				$this.open(_frame);
 				// 刷新
-				refresh();
+				refresh(self);
 			});
 		});
 		//
@@ -200,15 +140,9 @@
 			/*
 			 * 复原
 			 */
-			var _revert = function(_obj) {
-				if (_obj) {
-					self.find('.frame.active').removeClass('active opening');
-					_obj.addClass('active opening').next().addClass('active opening');
-				} else {
-					_obj = self.find('.frame.active').addClass('opening');
-				}
-				$this.open(_obj);
-				$this.open(_obj.next());
+			var _revert = function() {
+				// 刷新
+				refresh(self);
 			};
 			/*
 			 * 初始化
@@ -223,41 +157,36 @@
 				});
 
 				//横向
-				if (opts.horizontal) {
-					self.addClass('horizontal');
-				}
+				self.addClass('horizontal');
 
 				//自动打开
 				var _frame = self.find('.frame').css(frameStyle);
-				$this.open(_frame.filter(':nth-child(' + opts.autoopen + ')').addClass('active').addClass('opening'));
+				$this.open(_frame.filter(':nth-child(' + opts.autoopen + ')').addClass('active'));
 
-				// 刷新
-				refresh();
 
 				//事件
-				self.on('click', '.frame', function(e) {
+				self.on('click', '.frame div.doc', function(e) {
 					//
-					var _obj = $(this);
-					//当前活动的frame保持原状
-					if (_obj.hasClass('active') && _obj.next().hasClass('active')) {
-						return;
-					} else if (_obj.next().length == 0) {
+					self.find('.frame.active').removeClass('active');
+					var _obj = $(this).closest('.frame');
+
+					if (_obj.next().length == 0) {
 						//新建一个抽屉
 						$this.add({
 							html: 'it.htm',
 							active: true
 						});
+					} else {
+						_obj.next().addClass('active');
 					};
-
-					_revert(_obj);
+					_revert();
 				}).on('mouseenter', '.frame', function(e) {
 					var _that = $(this);
 					//当前活动的frame保持原状
 					if (_that.hasClass('active')) {
 						return;
 					}
-					self.find('.frame.opening').removeClass('opening');
-					_that.addClass('opening');
+					self.find('.frame.active').removeClass('active');
 					$this.open(_that);
 				}).on('mouseleave', '.frame', function(e) {
 					var _that = $(this);
@@ -265,7 +194,6 @@
 					if (_that.hasClass('active')) {
 						return;
 					}
-					self.find('.frame.opening').removeClass('opening');
 					_revert();
 				});
 			})();

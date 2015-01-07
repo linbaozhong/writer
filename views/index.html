@@ -5,11 +5,11 @@
 	<head>
 		<title>非线性协作</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" type="text/css" href="../static/css/jquery-ui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/jquery-ui.min.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/iconFont.min.css" />
 		<link rel="stylesheet" type="text/css" href="../static/css/metro-bootstrap.min.css" />
 		<script src="../static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../static/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/js/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
 		<!--<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
 		<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>-->
 		<script src="../static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
@@ -45,7 +45,18 @@
 			hgroup,
 			menu,
 			nav,
-			b,strong,section,span,h1,h2,h3,h4,h5,h6,button,p {
+			b,
+			strong,
+			section,
+			span,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			button,
+			p {
 				font-family: "黑体" !important;
 			}
 			body {
@@ -109,7 +120,6 @@
 				width: 100%;
 				
 			} */
-
 			/*列表项*/
 			
 			.horizontal-list ul,
@@ -156,73 +166,73 @@
 			
 			.frame {
 				text-align: left;
+				padding: 20px;
+				border: 1px solid #eee;
 			}
-			
-			.frame .doc {
-				padding: 20px 20px;
+			div.doc {
 				width: 100%;
 				cursor: pointer;
-				position: relative;
+				background: #fff;
 			}
-			.frame .doc.active {
+			div.doc .doc-info {
+				padding: 20px;
+			}
+			div.doc.active {
 				background: #eee;
 			}
-			.frame .doc h1 {
+			div.doc h1 {
 				font-size: 1.4em;
 			}
-			.frame .doc h2 {
+			div.doc h2 {
 				font-size: 1.3em;
 			}
-			.frame .doc h3 {
+			div.doc h3 {
 				font-size: 1.2em;
 			}
-			.frame .doc h4 {
+			div.doc h4 {
 				font-size: 1.1em;
 			}
-			.frame .doc h5,
-			.frame .doc h6 {
+			div.doc h5,
+			div.doc h6 {
 				font-size: 1em;
 			}
-			.frame .doc h1,
-			.frame .doc h2,
-			.frame .doc h3,
-			.frame .doc h4,
-			.frame .doc h5,
-			.frame .doc h6 {
+			div.doc h1,
+			div.doc h2,
+			div.doc h3,
+			div.doc h4,
+			div.doc h5,
+			div.doc h6 {
 				font-weight: bold;
 				line-height: initial;
 				margin: 0 0 .8em;
 				color: gray;
 			}
-			.frame .doc .doc-content {
+			div.doc .doc-content {
 				font-size: 1.1em;
 				margin: 0 0 .5em;
 			}
-			.frame .doc .doc-remark {
+			div.doc .doc-remark {
 				font-size: .8em;
 				color: gray;
 			}
-			.frame .doc .tools {
+			div.doc .tools {
 				margin: 4px 0 0 10px;
 				color: gray;
 			}
-			.frame .doc .tools.del,
-			.frame .doc .tools.edit {
+			div.doc .tools.del,
+			div.doc .tools.edit {
 				font-size: 12px;
-				margin: 5px;
+				margin: 5px 5px 0 8px;
 				display: none;
 			}
-			.frame .doc .tools.edit {
-				margin: 5px 30px 5px 5px;
-			}
-			.frame div.doc:hover {
+			div.doc:hover {
 				background: #eee;
 			}
-			.frame div.doc:hover .tools.del,
-			.frame .doc:hover .tools.edit {
+			div.doc:hover .tools.del,
+			div.doc:hover .tools.edit {
 				display: block;
 			}
-			.frame div.doc .tools i {
+			div.doc .tools i {
 				font-size: 10px;
 			}
 			.frame .user-input {
@@ -254,25 +264,35 @@
 				display: block;
 			}
 			/*书签*/
-			.bookmarks{
+			
+			.bookmarks {
 				position: fixed;
-				width:68px;
-				height:68px;
+				width: 68px;
+				height: 68px;
 				opacity: .1;
 				z-index: 1000;
 				text-align: center;
 				cursor: pointer;
 			}
-			.bookmarks-left{
-				left:0;
+			.bookmarks-left {
+				left: 0;
 			}
-			.bookmarks-right{
-				right:75px;
+			.bookmarks-right {
+				right: 75px;
+			}
+			.portlet-placeholder {
+				border: 1px dotted #ccc;
+				margin: 1em 0;
+				height: 100px;
 			}
 			/*metro*/
 			
 			.metro form {
 				margin: initial;
+			}
+			.metro .input-control.select,
+			.metro .input-control.textarea {
+				position: initial;
 			}
 		</style>
 		<style type="text/css">
@@ -283,14 +303,10 @@
 				clear: both;
 				content: " ";
 			}
-			.accordion .frame {
-				background: #fff;
-				display: none;
-			}
-			.accordion .frame.opening {
+			/*.accordion .frame.opening {
 				display: block;
 			}
-			/*.accordion .frame .heading {
+			.accordion .frame .heading {
 				background: #eee;
 			}
 			.accordion .frame .content {
@@ -360,89 +376,100 @@
 		<div id="snow-left" class="bg-white">
 			<div class="chouti" style="height:100%;">
 				<div class="frame">
-					
-						<form class="doc user-input native">
-							<input type="hidden" name="id" id="doc-id" value="" />
-							<div class="input-control textarea">
-								<textarea name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
-							</div>
-							<div class="form-actions input-control text">
-								<input type="text" name="tags" id="tags" value="" placeholder="标签" />
-							</div>
-							<div class="form-actions text-right">
-								<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
-								<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
-							</div>
-						</form>
-					
-							<div class="doc" data-id="1">
-								<div class="doc-content">
-									<h1>
 
+					<form class="doc user-input native">
+						<input type="hidden" name="id" id="doc-id" value="" />
+						<div class="input-control textarea">
+							<textarea name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
+						</div>
+						<div class="form-actions input-control text">
+							<input type="text" name="tags" id="tags" value="" placeholder="标签" />
+						</div>
+						<div class="form-actions text-right">
+							<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
+							<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
+						</div>
+					</form>
+
+					<div class="doc" data-id="1">
+						<div class="doc-tools">
+							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							</a>
+							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							</a>
+						</div>
+						<div class="doc-info">
+							<div class="doc-content">
+								<h1>
 							标题标题标题标题标题标题
-
 						</h1>
-									<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-								</div>
-								<div>
-									<a href="javascript:;" class="tools del icon-cancel-2 place-top-right">
-									</a>
-									<a href="javascript:;" class="tools edit icon-pencil place-top-right">
-									</a>
-									<span class="doc-remark">备注 备注 备注</span>
-									<span class="tools place-right icon-heart-2"><i>123</i></span>
-									<span class="tools place-right icon-new-tab"><i>456</i></span>
-								</div>
+								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
+							</div>
+							<div>
+
+								<span class="doc-remark">备注 备注 备注</span>
+								<span class="tools place-right icon-heart-2"><i>123</i></span>
+								<span class="tools place-right icon-new-tab"><i>456</i></span>
 
 							</div>
-							<div class="doc">
-								<div class="doc-content">
-									<h2>
-
+						</div>
+					</div>
+					<div class="doc">
+						<div class="doc-tools">
+							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							</a>
+							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							</a>
+						</div>
+						<div class="doc-info">
+							<div class="doc-content">
+								<h2>
 							标题标题标题标题标题标题
-
 						</h2>
-									<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-								</div>
-								<div>
-									<a href="javascript:;" class="tools del icon-cancel-2 place-top-right">
-									</a>
-									<a href="javascript:;" class="tools edit icon-pencil place-top-right">
-									</a> <span class="doc-remark">备注 备注 备注</span>
-									<span class="tools place-right icon-heart-2"><i>123</i></span>
-									<span class="tools place-right icon-new-tab"><i>456</i></span>
-								</div>
+								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
-							<div class="doc">
-								<div class="doc-content">
-									<h3>
-
+							<div>
+								<span class="doc-remark">备注 备注 备注</span>
+								<span class="tools place-right icon-heart-2"><i>123</i></span>
+								<span class="tools place-right icon-new-tab"><i>456</i></span>
+							</div>
+						</div>
+					</div>
+					<div class="doc">
+						<div class="doc-tools">
+							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							</a>
+							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							</a>
+						</div>
+						<div class="doc-info">
+							<div class="doc-content">
+								<h3>
 							标题标题标题标题标题标题
-
 						</h3>
-									<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-								</div>
-								<div>
-									<a href="javascript:;" class="tools del icon-cancel-2 place-top-right">
-									</a>
-									<a href="javascript:;" class="tools edit icon-pencil place-top-right">
-									</a> <span class="doc-remark">备注 备注 备注</span>
-									<span class="tools place-right icon-heart-2"><i>123</i></span>
-									<span class="tools place-right icon-new-tab"><i>456</i></span>
-								</div>
+								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
-				
-					
+							<div>
+								<span class="doc-remark">备注 备注 备注</span>
+								<span class="tools place-right icon-heart-2"><i>123</i></span>
+								<span class="tools place-right icon-new-tab"><i>456</i></span>
+							</div>
+						</div>
+					</div>
+
+
 				</div>
 			</div>
 		</div>
 		<!--书签-->
 		<div class="bookmarks bookmarks-left bg-gray">
 			<h1>
+
 			<i class="icon-arrow-left-3 fg-white"></i></h1>
 		</div>
 		<div class="bookmarks bookmarks-right bg-gray">
 			<h1>
+
 			<i class="icon-arrow-right-3 fg-white"></i></h1>
 		</div>
 	</body>
@@ -547,35 +574,47 @@
 				url: 'it.htm',
 				active: false
 			});
-	$('div.frame').sortable({
-		connectWith:'div.frame',
-		helper:'clone',
-		revert:true,
-		start:function(e,ui){},
-		stop:function(e,ui){}
-	});
-			//chouti.up();
-//			// 滚动条
-//			$("div.content").mCustomScrollbar({
-//				theme: 'minimal-dark',
-//				axis: 'y',
-//				//autoHideScrollbar: true,
-//				scrollbarPosition: 'inside',
-//				mouseWheel: {
-//					scrollAmount: 500
-//				}
-//			});
+			$('div.frame').sortable({
+				connectWith: 'div.frame',
+				appendTo: '#snow-left',
+				items:'div.doc',
+				//helper: 'clone',
+				handle: ".doc-info",
+				placeholder: "portlet-placeholder ui-corner-all",
+				revert: true,
+				tolerance:'pointer',
+				opacity: 0.8,
+				over: function(e, ui) {
+					snow.left.find('.frame.active').removeClass('active');
+					chouti.open($(e.target));
+				},
+				start: function(e, ui) {},
+				stop: function(e, ui) {
+
+				}
+			});
+			
+			//			// 滚动条
+			//			$("div.content").mCustomScrollbar({
+			//				theme: 'minimal-dark',
+			//				axis: 'y',
+			//				//autoHideScrollbar: true,
+			//				scrollbarPosition: 'inside',
+			//				mouseWheel: {
+			//					scrollAmount: 500
+			//				}
+			//			});
 			// 选中第一个文档
 			snow.left.find('.frame div.doc').eq(0).click();
 
 		}, 100);
 		// 书签事件
 		$('div.bookmarks').hover(
-			function(){
-				$(this).css('opacity',0.8);
+			function() {
+				$(this).css('opacity', 0.8);
 			},
-			function(){
-				$(this).css('opacity',0.1);
+			function() {
+				$(this).css('opacity', 0.1);
 			}
 		);
 		// 导航条---事件
@@ -652,6 +691,7 @@
 		var _editor = _native.clone(true).removeClass('native').addClass('editor');
 
 		snow.left.find('.frame').on('click', 'div.doc', function(e) {
+			e.stopPropagation();
 			var _doc = $(this);
 
 			// 复原编辑表单
@@ -712,7 +752,7 @@
 		snow.width = $(this).width();
 		// 书签
 		$('div.bookmarks').css({
-			top:(snow.nav.height()-80)/2
+			top: (snow.nav.height() - 80) / 2
 		});
 		// 左侧工作区
 		snow.left = $('#snow-left').css({
