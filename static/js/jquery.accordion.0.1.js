@@ -31,8 +31,8 @@
 			},
 			getBorder = function(_obj) {
 				return {
-					'width': parseInt(_obj.css('paddingLeft')) + parseInt(_obj.css('paddingRight')) + parseInt(_obj.css('marginLeft')) + parseInt(_obj.css('marginRight')) + parseInt(_obj.css('borderLeftWidth')) + parseInt(_obj.css('borderRightWidth')),
-					'height': parseInt(_obj.css('paddingTop')) + parseInt(_obj.css('paddingBottom')) + parseInt(_obj.css('marginTop')) + parseInt(_obj.css('marginBottom')) + parseInt(_obj.css('borderTopWidth')) + parseInt(_obj.css('borderBottomWidth'))
+					'width': parseInt(_obj.css('paddingLeft')) + parseInt(_obj.css('paddingRight')) + parseInt(_obj.css('borderLeftWidth')) + parseInt(_obj.css('borderRightWidth')),
+					'height': parseInt(_obj.css('paddingTop')) + parseInt(_obj.css('paddingBottom')) + parseInt(_obj.css('borderTopWidth')) + parseInt(_obj.css('borderBottomWidth'))
 				};
 			},
 			refresh = function() {
@@ -165,7 +165,7 @@
 
 				if (opts.horizontal) {
 					__this.stop().animate({
-						'left': _left
+						'margin-left': _left
 					}, opts.speed);
 
 					_left += __this.hasClass('opening') ? __this.width() : _width > _frame.width() ? _frame.width() : _width;

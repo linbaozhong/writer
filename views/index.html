@@ -162,7 +162,7 @@
 				padding: 20px 20px;
 				width: 100%;
 				cursor: pointer;
-				position: relative;
+				/*position: relative;*/
 			}
 			.frame .doc.active {
 				background: #eee;
@@ -274,6 +274,9 @@
 			.metro form {
 				margin: initial;
 			}
+			.metro .input-control.select, .metro .input-control.textarea{
+				position:initial;
+			}
 		</style>
 		<style type="text/css">
 			.accordion {
@@ -285,12 +288,12 @@
 			}
 			.accordion .frame {
 				background: #fff;
-				display: none;
+				display: table;
 			}
-			.accordion .frame.opening {
+			/*.accordion .frame.opening {
 				display: block;
 			}
-			/*.accordion .frame .heading {
+			.accordion .frame .heading {
 				background: #eee;
 			}
 			.accordion .frame .content {
