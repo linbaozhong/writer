@@ -182,14 +182,12 @@
 			div.doc {
 				width: 100%;
 				cursor: pointer;
-<<<<<<< HEAD
 				/*position: relative;*/
-=======
 				background: #fff;
 			}
 			div.doc .doc-info {
 				padding: 20px;
->>>>>>> origin/master
+				position: relative;
 			}
 			div.doc.active {
 				background: #eee;
@@ -304,14 +302,9 @@
 			.metro form {
 				margin: initial;
 			}
-<<<<<<< HEAD
-			.metro .input-control.select, .metro .input-control.textarea{
-				position:initial;
-=======
 			.metro .input-control.select,
 			.metro .input-control.textarea {
 				position: initial;
->>>>>>> origin/master
 			}
 		</style>
 		<style type="text/css">
@@ -322,17 +315,15 @@
 				clear: both;
 				content: " ";
 			}
-<<<<<<< HEAD
-			.accordion .frame {
+			/*.accordion .frame {
 				background: #fff;
-				display: table;
+				display: none;
 			}
-=======
->>>>>>> origin/master
-			/*.accordion .frame.opening {
+			.accordion .frame.opening {
+			.accordion .frame.opening {
 				display: block;
 			}
-			.accordion .frame .heading {
+			/*.accordion .frame .heading {
 				background: #eee;
 			}
 			.accordion .frame .content {
@@ -937,6 +928,7 @@
 			//
 			snow.docResize(_doc.closest('.frame'));
 		}).on('click', '.frame .tools.edit', function(e) {
+			alert(1);
 			e.stopPropagation();
 			if (snow.left.find('form.editing').length > 0) {
 				return;

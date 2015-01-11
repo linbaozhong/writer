@@ -17,6 +17,8 @@
 				clickonly: true, //只允许click触发
 				autoopen: 1, //自动打开第几个
 				space:0,//间距
+				during:200,//延时
+				timer:null,
 				speed: 400 //动画速度
 			},
 			opts = $.extend(defaults, options),
@@ -26,32 +28,11 @@
 				'overflow': 'hidden',
 				'background': opts.background
 			},
-<<<<<<< HEAD
-			getBorder = function(_obj) {
-				return {
-					'width': parseInt(_obj.css('paddingLeft')) + parseInt(_obj.css('paddingRight')) + parseInt(_obj.css('borderLeftWidth')) + parseInt(_obj.css('borderRightWidth')),
-					'height': parseInt(_obj.css('paddingTop')) + parseInt(_obj.css('paddingBottom')) + parseInt(_obj.css('borderTopWidth')) + parseInt(_obj.css('borderBottomWidth'))
-				};
-			},
-			refresh = function() {
-				//重绘
-				$this.each(function() {
-					var self = $(this),
-						_frame = self.find('.frame'),
-						_border = getBorder(_frame);
-=======
-//			getBorder = function(_obj) {
-//				return {
-//					'width': parseInt(_obj.css('paddingLeft')) + parseInt(_obj.css('paddingRight')) + parseInt(_obj.css('borderLeftWidth')) + parseInt(_obj.css('borderRightWidth')),
-//					'height': parseInt(_obj.css('paddingTop')) + parseInt(_obj.css('paddingBottom')) + parseInt(_obj.css('borderTopWidth')) + parseInt(_obj.css('borderBottomWidth'))
-//				};
-//			},
-			//重绘
+			//重绘frame
 			refresh = function(self) {
 				var _left = 0,
 					_frames = self.find('.frame'),
 					_width = (self.width() - opts.size.body) / (_frames.length - 1);
-
 				// 
 				_width = _width > opts.size.body ? opts.size.body : _width;
 				// 间距
@@ -61,16 +42,15 @@
 					'height': self.height(),
 					'width': opts.size.body
 				});
-
+				
 				$.each(_frames, function(index, frame) {
-					var _frame = $(frame);
+					var _frame = $(frame).css({left: _left});
 
 					// 遮罩
 					_frame.find('.mask').css({
 						width: _frame.outerWidth(),
 						height: _frame.outerHeight()
 					});
->>>>>>> origin/master
 
 					if (_frame.position().left != _left) {
 						_frame.stop().animate({
@@ -80,11 +60,7 @@
 					_left += _frame.hasClass('active') ? opts.size.body - 1 : opts.space;
 				});
 			},
-//			// 遮罩
-//			getMask = function() {
-//				var _mask = $('<div class="mask" />');
-//				return _mask;
-//			},
+
 			getWrap = function(){
 				return '<div class="accordion-item"></div>'
 			},
@@ -100,8 +76,14 @@
 					tolerance: 'pointer',
 					opacity: 0.8,
 					over: function(e, ui) {
-						frame.closest('#snow-left').find('.frame.active').removeClass('active');
-						$this.open(frame);
+						//当前活动的frame保持原状
+						if (frame.hasClass('active')) {
+							return;
+						}		
+						
+						//opts.timer = setTimeout(function(){
+							$this.open(frame);
+						//},opts.during);
 					},
 					start: function(e, ui) {
 						frame.closest('#snow-left').find('form.clone').hide();
@@ -112,7 +94,7 @@
 						}
 					},
 					out: function(e, ui) {
-						ui.sender.mouseenter();
+						//clearTimeout(opts.timer);	
 					}
 				});
 			};
@@ -160,36 +142,31 @@
 		 * 展开frame
 		 */
 		$this.open = function(_obj) {
-<<<<<<< HEAD
-			var _this = _obj.parent(),
-				_frame = _this.children(),
-				_left = 0,
-				_top = 0,
-				_width = (_this.width() - (_frame.filter('.opening').length * opts.size.body)) / (_frame.length - _frame.filter('.opening').length),
-				_height = (_this.height() - ((_frame.length - _frame.filter('.opening').length) * opts.size.heading)) / _frame.filter('.opening').length;
+			var _frames;
+			
+			if (parseInt(_obj.css('left')) > _obj.index()* opts.space) {
+				//console.log('after');
+				_frames = _obj.prevAll();
+				$.each(_frames,function(){
+					var __frame=$(this);
 
-			_frame.each(function(index) {
-				var __this = $(this),
-					_border = getBorder(__this);
-
-				if (opts.horizontal) {
-					__this.stop().animate({
-						'margin-left': _left
+					__frame.stop().animate({
+							left: __frame.index() * opts.space
 					}, opts.speed);
+				});
+				_obj.stop().animate({'left':_obj.index() * opts.space}, opts.speed);
+			}else{
+				//console.log('before');
+				_frames = _obj.nextAll();
+				$.each(_frames,function(){
+					var __frame=$(this);
 
-					_left += __this.hasClass('opening') ? __this.width() : _width > _frame.width() ? _frame.width() : _width;
-				} else {
-					__this.stop().animate({
-						'top': _top
+					__frame.stop().animate({
+							left: (__frame.index()-1) * opts.space + opts.size.body-1
 					}, opts.speed);
-					_top += __this.hasClass('opening') ? _height - _border.height : opts.size.heading;
-				}
-			});
-=======
-			_obj.addClass('active');
-console.log(_obj.index()*opts.space,_obj.css('left'));
-			refresh(_obj.parent());
->>>>>>> origin/master
+				});
+			}
+			_obj.addClass('active').siblings('.active').removeClass('active');
 		};
 		//
 		$(window).on('resize', function() {
@@ -239,7 +216,7 @@ console.log(_obj.index()*opts.space,_obj.css('left'));
 					_sortable(__frame);//.append(getMask()).wrap(getWrap())
 				});
 
-				$this.open(_frames.filter(':nth-child(' + opts.autoopen + ')').addClass('active'));
+				$this.open(_frames.filter(':nth-child(' + opts.autoopen + ')'));
 
 
 				//事件
@@ -249,15 +226,11 @@ console.log(_obj.index()*opts.space,_obj.css('left'));
 					if (_that.hasClass('active')) {
 						return;
 					}
-					self.find('.frame.active').removeClass('active');
-					$this.open(_that);
-				}).on('mouseleave', '.frame', function(e) {
-//					var _that = $(this);
-//					//当前活动的frame保持原状
-//					if (_that.hasClass('active')) {
-//						return;
-//					}
-//					_revert();
+					opts.timer = setTimeout(function(){
+							$this.open(_that);
+						},opts.during);
+				}).on('mouseleave','.frame',function(e){
+					clearTimeout(opts.timer);					
 				});
 			})();
 
