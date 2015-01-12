@@ -81,9 +81,7 @@
 							return;
 						}		
 						
-						//opts.timer = setTimeout(function(){
-							$this.open(frame);
-						//},opts.during);
+						$this.open(frame);
 					},
 					start: function(e, ui) {
 						frame.closest('#snow-left').find('form.clone').hide();
