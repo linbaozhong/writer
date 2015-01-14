@@ -62,7 +62,26 @@
 			body {
 				background-size: cover;
 			}
-			nav {
+			#nav-left {
+				position: fixed;
+				width: 120px;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				padding: 50px 0;
+				z-index: 1000;
+				/*display: none;*/
+			}
+			#nav-left .tile{
+				width:100px;
+				margin-left: 10px;
+				text-align: center;
+				line-height: 55px;
+			}
+			#nav-left .tile.active{
+				border: 2px #1ba1e2 solid;
+			}
+			#nav-right {
 				position: fixed;
 				width: 75px;
 				top: 0;
@@ -345,7 +364,17 @@
 
 	<body class="metro">
 		<!--左侧导航条-->
-		<nav class="bg-dark fg-white shadow">
+		<nav id="nav-left" class="bg-dark fg-white shadow padding10">
+			<div class="tile half bg-dark">
+				教育
+			</div>
+			<div class="tile half bg-dark">
+				分类
+			</div>
+		</nav>
+
+		<!--右侧导航条-->
+		<nav id="nav-right" class="bg-dark fg-white shadow">
 			<div style="padding:10px;">
 				<div class="tile half bg-cyan" data-hint="登录/注册" data-hint-position="left" data-click="transform" data-role="1" data-rel="signin">
 					<div class="tile-content icon">
@@ -655,12 +684,17 @@
 	//
 
 	// 导航条
-	snow.nav = $('nav');
-	snow.nav.width = snow.nav.width();
+	snow.nav = {
+		left:$('#nav-left'),
+		right:$('#nav-right')
+	};
+	snow.nav.left.width = snow.nav.left.width();
+	snow.nav.right.width = snow.nav.right.width();
 	//注册登录框
 	snow.sign = $('#snow-sign').css({
 		width: 400,
-		right: snow.nav.width
+		right: snow.nav.right.width,
+		left:snow.nav.left.width
 	});
 
 	// 文档编辑框
@@ -682,26 +716,35 @@
 	}).on('click', 'button', function(e) { //表单保存(取消)事件
 		e.stopPropagation();
 		var _that = $(this),
-			_frm = _that.closest('form.user-input');
+			_form = _that.closest('form.user-input'),
+			_frame = _form.closest('.frame');
+			
 		if (_that.attr('name') == 'btn-save') { //保存
 
 		} else { //取消
-			// 复原
-			_frm.removeClass('editing').find('textarea').animate({
-				height: '2em'
-			}, snow.speed, function() {
-				//
-				snow.docResize(_frm.closest('.frame'));
-			}).val('');
+			
 		}
+		// 复原
+		_form.removeClass('editing').find('textarea').animate({
+			height: '2em'
+		}, snow.speed, function() {
+			//
+			snow.docResize(_frame);
+		}).val('');
+		
 		// 如果是修改表单
-		if (_frm.hasClass('editor')) {
-			_frm.hide();
-			_frm.prev('div.doc').show(100, function() {
+		if (_form.hasClass('editor')) {
+			_form.hide(snow.speed);
+			_form.prev('div.doc').show(snow.speed, function() {
 				//
-				snow.docResize($(this).closest('.frame'));
+				snow.docResize(_frame);
 			});
-		} else {}
+		} else if(_form.hasClass('clone')){
+			_form.hide(function(){
+				//
+				snow.docResize(_frame);
+			});
+		}
 	});
 
 	var _clone = snow.editor.clone(true).removeClass('native').addClass('clone');
@@ -802,8 +845,12 @@
 				$(this).css('opacity', 0.1);
 			}
 		);
-		// 导航条---事件
-		snow.nav.on('click', '.tile', function(e) {
+		// 左导航条---事件
+		snow.nav.left.on('click','.tile',function(e){
+			var _that = $(this).addClass('active').siblings('.active').removeClass('active');
+		});
+		// 右导航条---事件
+		snow.nav.right.on('click', '.tile', function(e) {
 			var _that = $(this);
 			if (_that.data('rel') == 'signin') {
 				openSign();
@@ -815,7 +862,7 @@
 					});
 				});
 				$('div.nav-info-box,div.nav-info').animate({
-					right: snow.nav.width
+					right: snow.nav.right.width
 				});
 			}
 		});
@@ -827,8 +874,8 @@
 				.animate({
 					top: '-2000px'
 				}, snow.speed, function() {
-					if (snow.nav.is(':hidden')) {
-						snow.nav.animate({
+					if (snow.nav.right.is(':hidden')) {
+						snow.nav.right.animate({
 							right: 0
 						}, snow.speed).show();
 					}
@@ -986,11 +1033,12 @@
 		snow.width = $(this).width();
 		// 书签
 		$('div.bookmarks').css({
-			top: (snow.nav.height() - 80) / 2
+			top: (snow.nav.right.height() - 80) / 2
 		});
 		// 左侧工作区
 		snow.left.css({
-			right: snow.nav.width
+			right: snow.nav.right.width,
+			left:snow.nav.left.width
 		});
 		//
 
