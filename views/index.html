@@ -188,6 +188,9 @@
 				padding: 20px;
 				border: 1px solid #eee;
 			}
+			.frame header .doc-plus{
+				font-size:16px;
+			}
 			.frame .mask {
 				position: absolute;
 				top: 0;
@@ -305,7 +308,7 @@
 			}
 			/*书签*/
 			
-			.bookmarks {
+			/*.bookmarks {
 				position: fixed;
 				width: 68px;
 				height: 68px;
@@ -324,7 +327,7 @@
 				border: 1px dotted #ccc;
 				margin: 1em 0;
 				height: 100px;
-			}
+			}*/
 			/*metro*/
 			
 			.metro form {
@@ -432,7 +435,7 @@
 			<div class="chouti" style="height:100%;">
 				<div class="frame">
 					<header>
-						<form class="doc user-input native">
+						<form class="doc user-input native" style="display:none;">
 							<input type="hidden" name="id" id="doc-id" value="" />
 							<div class="input-control textarea">
 								<textarea name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
@@ -445,6 +448,9 @@
 								<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
 							</div>
 						</form>
+						<div class="doc-add text-center padding20">
+							<a href="javascript:;" class="doc-plus icon-plus"></a>
+						</div>
 					</header>
 
 					<div class="doc" data-id="1">
@@ -699,14 +705,14 @@
 
 	// 文档编辑框
 	snow.editor = snow.left.find('form.native').eq(0).click(function(e) {
-		if (snow.left.find('form.editing').length > 0) {
+		if (snow.left.find('form.editing').length) {
 			return;
 		}
 		var _doc = $(this);
 		if (_doc.hasClass('editing') && _doc.find('textarea').val() == '') {
 
 		} else if (!_doc.hasClass('editing')) {
-			_doc.addClass('editing').find('textarea').animate({
+			_doc.show().addClass('editing').find('textarea').animate({
 				height: '20em'
 			}, snow.speed, function() {
 				//
@@ -725,30 +731,22 @@
 			
 		}
 		// 复原
-		_form.removeClass('editing').find('textarea').animate({
-			height: '2em'
-		}, snow.speed, function() {
-			//
-			snow.docResize(_frame);
-		}).val('');
-		
-		// 如果是修改表单
-		if (_form.hasClass('editor')) {
-			_form.hide(snow.speed);
-			_form.prev('div.doc').show(snow.speed, function() {
-				//
+		_form.removeClass('editing').fadeOut(snow.speed,function(){
+			// 顶端新增按钮
+			if (_form.prev('div.doc-add').length) {
+				_form.prev('div.doc-add').fadeIn(function(){
+					snow.docResize(_frame);
+				});
+			}else if(_form.prev('div.doc').length){
+				_form.prev('div.doc').fadeIn(function(){
+					snow.docResize(_frame);
+				});
+			}else{
 				snow.docResize(_frame);
-			});
-		} else if(_form.hasClass('clone')){
-			_form.hide(function(){
-				//
-				snow.docResize(_frame);
-			});
-		}
+			}
+		}).find('textarea').val('');
 	});
 
-	var _clone = snow.editor.clone(true).removeClass('native').addClass('clone');
-	var _editor = snow.editor.clone(true).removeClass('native').addClass('editor');
 
 	/*
 	 * 解决传统浏览器不支持placeholder问题
@@ -936,7 +934,7 @@
 				_top = parseInt(_first.css('marginTop')) + (delta * 20);
 
 			// 向上
-			if (delta > 0 && _top >= 0) {
+			if (delta > 0 && _top > 0) {
 				return;
 			} else if (delta < 0 && parseInt(snow.scrollbar.drager.css('top')) + snow.scrollbar.drager.height() >= _height) {
 				return;
@@ -967,7 +965,12 @@
 					active: false
 				}, function(frame) {
 					frame.prepend('<footer><div class="mask" /></footer>');
-					frame.prepend($('<header />').append(snow.editor.clone(true)));
+					//frame.prepend($('<header />').append(snow.editor.clone(true)));
+					frame.prepend(
+						$('<header />').append('<div class="doc-add text-center padding20">'
+							+'<a href="javascript:;" class="doc-plus icon-plus"></a>'
+							+'</div>')
+						);
 					frame.find('.mask').css({
 						width: frame.outerWidth(),
 						height: frame.outerHeight()
@@ -976,11 +979,8 @@
 			}
 			// 复原编辑表单
 			if (!_doc.hasClass('active')) {
-				var _old = _doc.siblings('.active').removeClass('active');
+				_doc.siblings('.active').removeClass('active');
 
-				_clone.removeClass('editing').find('textarea').css({
-					height: '2em'
-				});
 				// 激活doc
 				_doc.addClass('active');
 
@@ -997,7 +997,7 @@
 			_doc.remove();
 			//
 			snow.docResize(_doc.closest('.frame'));
-		}).on('click', '.frame .tools.edit', function(e) {
+		}).on('click', '.frame .doc .tools.edit', function(e) {
 			e.stopPropagation();
 			// 如果有仍未提交的正在编辑中的表单，中断当前操作
 			if (snow.left.find('form.editing').length > 0) {
@@ -1006,22 +1006,31 @@
 
 			var _doc = $(this).closest('div.doc').hide();
 			//
-			_doc.after(_editor.show());
-			_editor.click();
-		}).on('click','.frame .doc-plus',function(e){
+			_doc.after(snow.editor.fadeIn().click());
+		}).on('click','.frame .doc .doc-plus',function(e){
 			e.stopPropagation();
 			// 如果有仍未提交的正在编辑中的表单，中断当前操作
-			if (snow.left.find('form.editing').length > 0) {
+			if (snow.left.find('form.editing').length) {
 				return;
 			}
 			
 			var _doc = $(this).closest('div.doc');
 			if (!_doc.next().hasClass('clone')) {
-				_clone.find('textarea').val('');
-				_doc.after(_clone);
+				snow.editor.find('textarea').val('');
+				_doc.after(snow.editor);
 			}
 
-			_clone.show().click();
+			snow.editor.fadeIn().click();
+		}).on('click','.frame header .doc-plus',function(e){
+			e.stopPropagation();
+			// 如果有仍未提交的正在编辑中的表单，中断当前操作
+			if (snow.left.find('form.editing').length) {
+				return;
+			}
+			
+			var _doc = $(this).parent().hide().closest('header');
+
+			_doc.append(snow.editor.fadeIn().click());
 		});
 
 	});
