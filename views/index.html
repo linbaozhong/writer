@@ -11,8 +11,14 @@
 		<script src="../static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/jquery.mousewheel.js" type="text/javascript"></script>
+		<!--编辑器-->
+		<link href="../static/css/umeditor.min.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" charset="utf-8" src="../static/js/umeditor.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../static/js/umeditor.config.js"></script>
+		<script type="text/javascript" src="../static/js/lang/zh-cn/zh-cn.js"></script>
+		<!--滚动条-->
 		<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
-		<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>-->
 		<script src="../static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
@@ -188,8 +194,8 @@
 				padding: 20px;
 				border: 1px solid #eee;
 			}
-			.frame header .doc-plus{
-				font-size:16px;
+			.frame .doc-plus{
+				font-size:14px;
 			}
 			.frame .mask {
 				position: absolute;
@@ -197,6 +203,7 @@
 				left: 0;
 				background: black;
 				opacity: .2;
+				z-index: 2;
 			}
 			.frame.active .mask {
 				display: none;
@@ -204,6 +211,7 @@
 			div.doc {
 				width: 100%;
 				background: #fff;
+				border: 1px dashed #fff;
 				margin-bottom: 1em;
 			}
 			div.doc .doc-tools {
@@ -221,7 +229,8 @@
 				position: relative;
 			}
 			div.doc.active {
-				background: #eee;
+				/*background: #eee;*/
+				border-color: cyan;
 			}
 			div.doc footer {
 				padding: 10px;
@@ -230,24 +239,23 @@
 				height: 3em;
 			}
 			div.doc footer .doc-plus {
-				font-size: 16px;
 				display: none;
 			}
 			div.doc h1 {
-				font-size: 1.4em;
+				font-size: 1.4em !important;
 			}
 			div.doc h2 {
-				font-size: 1.3em;
+				font-size: 1.3em !important;
 			}
 			div.doc h3 {
-				font-size: 1.2em;
+				font-size: 1.2em !important;
 			}
 			div.doc h4 {
-				font-size: 1.1em;
+				font-size: 1.1em !important;
 			}
 			div.doc h5,
 			div.doc h6 {
-				font-size: 1em;
+				font-size: 1em !important;
 			}
 			div.doc h1,
 			div.doc h2,
@@ -279,18 +287,19 @@
 				font-size: 10px;
 			}
 			.frame .user-input {
-				padding: 20px 0;
+				/*padding: 20px 0;*/
+				padding: 20px;
+				margin: 20px 0;
+				background: #999;
 			}
 			.frame .user-input .textarea {
 				margin: 0;
 			}
 			.frame .user-input.editing {
-				padding: 20px;
-				margin: 20px 0;
-				background: #999;
 			}
 			.frame .user-input textarea {
-				height: 2em;
+				height: 10em;
+				width:530px !important;
 				min-height: 2em !important;
 				resize: none;
 				overflow: hidden;
@@ -336,6 +345,26 @@
 			.metro .input-control.select,
 			.metro .input-control.textarea {
 				position: initial;
+			}
+			/*编辑器*/
+			.edui-container,.edui-container .edui-toolbar{
+				box-shadow: none;
+				/*z-index: 1 !important;*/
+			}
+			.edui-dialog-container .edui-combobox-menu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				display: none;
+				list-style: none;
+				text-decoration: none;
+				margin: 0;
+				padding: 5px;
+				background-color: #fff;
+				border: 1px solid #ccc;
+				font-size: 12px;
+				box-shadow: 2px 2px 5px #d3d6da;
+				min-width: 160px;
 			}
 		</style>
 		<style type="text/css">
@@ -438,18 +467,18 @@
 						<form class="doc user-input native" style="display:none;">
 							<input type="hidden" name="id" id="doc-id" value="" />
 							<div class="input-control textarea">
-								<textarea name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
+								<textarea id="myEditor" name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
 							</div>
-							<div class="form-actions input-control text">
+							<!--<div class="form-actions input-control text">
 								<input type="text" name="tags" id="tags" value="" placeholder="标签" />
-							</div>
+							</div>-->
 							<div class="form-actions text-right">
 								<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
 								<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
 							</div>
 						</form>
 						<div class="doc-add text-center padding20">
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">新<i class="icon-plus on-right on-left"></i>建</a>
 						</div>
 					</header>
 
@@ -474,7 +503,7 @@
 							<span class="doc-remark place-left">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
@@ -498,7 +527,7 @@
 							<span class="doc-remark place-left">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
@@ -522,7 +551,7 @@
 							<span class="doc-remark place-left">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
@@ -546,7 +575,7 @@
 							<span class="doc-remark place-left">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
@@ -570,7 +599,7 @@
 							<span class="doc-remark place-left">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
@@ -594,7 +623,7 @@
 							<span class="doc-remark place-left">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
@@ -618,7 +647,7 @@
 							<span class="doc-remark place-left">备注 备注 备注</span>
 							<span class="tools place-right icon-heart-2"><i>123</i></span>
 							<span class="tools place-right icon-new-tab"><i>456</i></span>
-							<a href="javascript:;" class="doc-plus icon-plus"></a>
+							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<footer>
@@ -708,15 +737,11 @@
 		if (snow.left.find('form.editing').length) {
 			return;
 		}
-		var _doc = $(this);
-		if (_doc.hasClass('editing') && _doc.find('textarea').val() == '') {
-
-		} else if (!_doc.hasClass('editing')) {
-			_doc.show().addClass('editing').find('textarea').animate({
-				height: '20em'
-			}, snow.speed, function() {
-				//
-				snow.docResize(_doc.closest('.frame'));
+		var _form = $(this);
+		if (_form.hasClass('editing') && _form.find('textarea').val() == '') {
+		} else if (!_form.hasClass('editing')) {
+			_form.addClass('editing').slideDown(function(){
+				snow.docResize(_form.closest('.frame'));
 			});
 		}
 	}).on('click', 'button', function(e) { //表单保存(取消)事件
@@ -726,12 +751,20 @@
 			_frame = _form.closest('.frame');
 			
 		if (_that.attr('name') == 'btn-save') { //保存
-
+			var __doc = _form.prev('div.doc');
+			console.log(_form.find('input[name="id"]').val());
+			// 新建文档
+			if(_form.find('input[name="id"]').val()==''){
+				// 在_form之前插入一个新doc
+			}else{
+				// 编辑修改，修改form之前的doc
+				__doc.find('.doc-content').html(um.getContent());
+			}
 		} else { //取消
 			
 		}
 		// 复原
-		_form.removeClass('editing').fadeOut(snow.speed,function(){
+		_form.removeClass('editing').slideUp(snow.speed,function(){
 			// 顶端新增按钮
 			if (_form.prev('div.doc-add').length) {
 				_form.prev('div.doc-add').fadeIn(function(){
@@ -746,7 +779,47 @@
 			}
 		}).find('textarea').val('');
 	});
+	
+	var editorOptions = {
+		toolbar: [
+			'bold italic underline strikethrough | superscript subscript |',
+			'insertorderedlist insertunorderedlist',
+			'| justifyleft justifycenter justifyright paragraph |',
+			'link unlink | image video'
+		],
+		initialFrameHeight:100,
+		autoHeightEnabled: true,
+		autoFloatEnabled: true,
+		filterRules:function(){
+            function transP(node){
+                node.tagName = 'p';
+                node.setStyle();
+            }
+            return {
+                //直接删除及其字节点内容
+                '-' : 'script style object iframe embed input select',
+                'p': {$:{}},
+                'br':{$:{}},
+                'div':{'$':{}},
+                'li':{'$':{}},
+                'caption':transP,
+                'th':transP,
+                'tr':transP,
+                'h1':transP,'h2':transP,'h3':transP,'h4':transP,'h5':transP,'h6':transP,
+                'td':function(node){
+                    //没有内容的td直接删掉
+                    var txt = !!node.innerText();
+                    if(txt){
+                        node.parentNode.insertAfter(UM.uNode.createText(' &nbsp; &nbsp;'),node);
+                    }
+                    node.parentNode.removeChild(node,node.innerText())
+                }
+            }
+        }()
+	};
 
+	 //实例化编辑器
+	var um = UM.getEditor('myEditor', editorOptions);
 
 	/*
 	 * 解决传统浏览器不支持placeholder问题
@@ -968,7 +1041,7 @@
 					//frame.prepend($('<header />').append(snow.editor.clone(true)));
 					frame.prepend(
 						$('<header />').append('<div class="doc-add text-center padding20">'
-							+'<a href="javascript:;" class="doc-plus icon-plus"></a>'
+							+'<a href="javascript:;" class="doc-plus">新<i class="icon-plus on-right on-left"></i>建</a>'
 							+'</div>')
 						);
 					frame.find('.mask').css({
@@ -1005,8 +1078,11 @@
 			}
 
 			var _doc = $(this).closest('div.doc').hide();
-			//
-			_doc.after(snow.editor.fadeIn().click());
+			// 赋值
+			snow.editor.find('input[name="id"]').val(_doc.data('id'));
+			um.setContent(_doc.find('.doc-content').html());
+			
+			_doc.after(snow.editor.click().slideDown(snow.speed));
 		}).on('click','.frame .doc .doc-plus',function(e){
 			e.stopPropagation();
 			// 如果有仍未提交的正在编辑中的表单，中断当前操作
@@ -1020,7 +1096,11 @@
 				_doc.after(snow.editor);
 			}
 
-			snow.editor.fadeIn().click();
+			// 赋值
+			snow.editor.find('input[name="id"]').val('');
+			um.setContent('');
+			
+			snow.editor.click().slideDown(snow.speed);
 		}).on('click','.frame header .doc-plus',function(e){
 			e.stopPropagation();
 			// 如果有仍未提交的正在编辑中的表单，中断当前操作
@@ -1030,7 +1110,11 @@
 			
 			var _doc = $(this).parent().hide().closest('header');
 
-			_doc.append(snow.editor.fadeIn().click());
+			// 赋值
+			snow.editor.find('input[name="id"]').val('');
+			um.setContent('');
+
+			_doc.append(snow.editor.click().slideDown(snow.speed));
 		});
 
 	});
