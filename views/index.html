@@ -12,13 +12,11 @@
 		<script src="../static/js/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/jquery.mousewheel.js" type="text/javascript"></script>
 		<!--编辑器-->
-		<link href="../static/css/umeditor.min.css" type="text/css" rel="stylesheet">
-		<script type="text/javascript" charset="utf-8" src="../static/js/umeditor.js"></script>
-		<script type="text/javascript" charset="utf-8" src="../static/js/umeditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../static/js/ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../static/js/ueditor.all.min.js"></script>
 		<script type="text/javascript" src="../static/js/lang/zh-cn/zh-cn.js"></script>
 		<!--滚动条-->
 		<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
-		<!--<script src="../static/js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" charset="utf-8"></script>-->
 		<script src="../static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
@@ -466,13 +464,16 @@
 					<header>
 						<form class="doc user-input native" style="display:none;">
 							<input type="hidden" name="id" id="doc-id" value="" />
-							<div class="input-control textarea">
+							<script id="myEditor" name="content" type="text/plain">
+								
+							</script>
+							<!--<div class="input-control textarea">
 								<textarea id="myEditor" name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
-							</div>
+							</div>-->
 							<!--<div class="form-actions input-control text">
 								<input type="text" name="tags" id="tags" value="" placeholder="标签" />
 							</div>-->
-							<div class="form-actions text-right">
+							<div class="form-actions text-right" style="margin-top: 10px;">
 								<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
 								<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
 							</div>
@@ -688,7 +689,9 @@
 			return '../static/inc/_' + arguments[0] + '.html';
 		},
 		left: $('#snow-left'),
-		scrollbar: $('#scrollbar_vertical')
+		scrollbar: $('#scrollbar_vertical'),
+		//实例化编辑器
+		ue:UE.getEditor('myEditor')
 	};
 	// 滚动条拖拽块事件
 	snow.scrollbar.drager = snow.scrollbar.find('#dragger_vertical').draggable({
@@ -758,7 +761,7 @@
 				// 在_form之前插入一个新doc
 			}else{
 				// 编辑修改，修改form之前的doc
-				__doc.find('.doc-content').html(um.getContent());
+				__doc.find('.doc-content').html(snow.ue.getContent());
 			}
 		} else { //取消
 			
@@ -780,47 +783,6 @@
 		}).find('textarea').val('');
 	});
 	
-	var editorOptions = {
-		toolbar: [
-			'bold italic underline strikethrough | superscript subscript |',
-			'insertorderedlist insertunorderedlist',
-			'| justifyleft justifycenter justifyright paragraph |',
-			'link unlink | image video'
-		],
-		initialFrameHeight:100,
-		autoHeightEnabled: true,
-		autoFloatEnabled: true,
-		filterRules:function(){
-            function transP(node){
-                node.tagName = 'p';
-                node.setStyle();
-            }
-            return {
-                //直接删除及其字节点内容
-                '-' : 'script style object iframe embed input select',
-                'p': {$:{}},
-                'br':{$:{}},
-                'div':{'$':{}},
-                'li':{'$':{}},
-                'caption':transP,
-                'th':transP,
-                'tr':transP,
-                'h1':transP,'h2':transP,'h3':transP,'h4':transP,'h5':transP,'h6':transP,
-                'td':function(node){
-                    //没有内容的td直接删掉
-                    var txt = !!node.innerText();
-                    if(txt){
-                        node.parentNode.insertAfter(UM.uNode.createText(' &nbsp; &nbsp;'),node);
-                    }
-                    node.parentNode.removeChild(node,node.innerText())
-                }
-            }
-        }()
-	};
-
-	 //实例化编辑器
-	var um = UM.getEditor('myEditor', editorOptions);
-
 	/*
 	 * 解决传统浏览器不支持placeholder问题
 	 */
@@ -1080,9 +1042,11 @@
 			var _doc = $(this).closest('div.doc').hide();
 			// 赋值
 			snow.editor.find('input[name="id"]').val(_doc.data('id'));
-			um.setContent(_doc.find('.doc-content').html());
 			
-			_doc.after(snow.editor.click().slideDown(snow.speed));
+			_doc.after(snow.editor.click().slideDown(snow.speed,function(){
+				snow.ue.setContent(_doc.find('.doc-content').html());
+			}));
+
 		}).on('click','.frame .doc .doc-plus',function(e){
 			e.stopPropagation();
 			// 如果有仍未提交的正在编辑中的表单，中断当前操作
@@ -1098,7 +1062,7 @@
 
 			// 赋值
 			snow.editor.find('input[name="id"]').val('');
-			um.setContent('');
+			snow.ue.setContent('');
 			
 			snow.editor.click().slideDown(snow.speed);
 		}).on('click','.frame header .doc-plus',function(e){
@@ -1112,7 +1076,7 @@
 
 			// 赋值
 			snow.editor.find('input[name="id"]').val('');
-			um.setContent('');
+			snow.ue.setContent('');
 
 			_doc.append(snow.editor.click().slideDown(snow.speed));
 		});
