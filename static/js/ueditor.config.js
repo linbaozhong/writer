@@ -32,16 +32,16 @@
         // 服务器统一请求接口路径
         , serverUrl: URL + "net/controller.ashx"
         , toolbars: [[
-            'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'blockquote', '|', 'insertorderedlist', 'insertunorderedlist', '|',
-            'paragraph', '|',
+            'drafts','|','bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'blockquote', '|', 
+            'insertorderedlist', 'insertunorderedlist', 'paragraph',//'|',
 //          'directionalityltr', 'directionalityrtl', 'indent', '|',
 //          'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 
 //          'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
-            'simpleupload', 'insertvideo','snapscreen', '|',
+            'simpleupload', 'insertvideo','snapscreen', 'insertcode',//'|',
             'horizontal', 'spechars', '|',
             'link', 'unlink', '|', 
-            'inserttable', 'deletetable', '|',
-            'insertcode', 'drafts'
+            'inserttable', 'deletetable', 'insertparagraphbeforetable', '|',//'insertrow', 'deleterow', 
+            //'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts','|',
         ]]
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
@@ -109,7 +109,7 @@
         //,autoClearEmptyNode : true //getContent时，是否删除空的inlineElement节点（包括嵌套的情况）
 
         //启用自动保存
-        //,enableAutoSave: true
+        //,enableAutoSave: false
         //自动保存间隔时间， 单位ms
         //,saveInterval: 500
 
