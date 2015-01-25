@@ -15,385 +15,14 @@
 		<script type="text/javascript" charset="utf-8" src="../static/js/ueditor.config.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../static/js/ueditor.all.min.js"></script>
 		<script type="text/javascript" src="../static/js/lang/zh-cn/zh-cn.js"></script>
-    	<script type="text/javascript" charset="utf-8" src="../static/js/kityformula-plugin/addKityFormulaDialog.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../static/js/kityformula-plugin/addKityFormulaDialog.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../static/js/kityformula-plugin/getKfContent.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../static/js/kityformula-plugin/defaultFilterFix.js"></script>
 		<!--滚动条-->
 		<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css" />
 		<script src="../static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>
-		<style type="text/css">
-			body,
-			div,
-			dl,
-			dt,
-			dd,
-			ul,
-			ol,
-			li,
-			pre,
-			code,
-			form,
-			fieldset,
-			legend,
-			input,
-			textarea,
-			blockquote,
-			th,
-			td,
-			hr,
-			article,
-			aside,
-			details,
-			figcaption,
-			figure,
-			footer,
-			header,
-			hgroup,
-			menu,
-			nav,
-			b,
-			strong,
-			section,
-			span,
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6,
-			button,
-			p {
-				font-family: "黑体" !important;
-			}
-			body {
-				background-size: cover;
-			}
-			#nav-left {
-				position: fixed;
-				width: 120px;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				padding: 50px 0;
-				z-index: 1000;
-				/*display: none;*/
-			}
-			#nav-left .tile{
-				width:100px;
-				margin-left: 10px;
-				text-align: center;
-				line-height: 55px;
-			}
-			#nav-left .tile.active{
-				border: 2px #1ba1e2 solid;
-			}
-			#nav-right {
-				position: fixed;
-				width: 75px;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				padding: 50px 0;
-				z-index: 1000;
-				/*display: none;*/
-			}
-			div.nav-info-box {
-				z-index: 900;
-			}
-			div.nav-info {
-				z-index: 901;
-				color: white !important;
-			}
-			div.nav-info,
-			div.nav-info-box {
-				position: fixed;
-				top: 0;
-				bottom: 0;
-				right: -1000px;
-				width: auto;
-			}
-			#snow-sign {
-				position: fixed;
-				left: 0;
-				right: 0;
-				top: 0;
-				height: 100%;
-				width: 400px;
-				margin: 0 auto;
-				color: white !important;
-				z-index: 1000;
-			}
-			/*左侧框*/
-			
-			#snow-left {
-				position: fixed;
-				height: 100%;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				/*margin-left: 20px;*/
-				
-				z-index: 1;
-			}
-			/*#snow-left .content {
-				height: 100%;
-				position: relative;
-				max-width: 700px;
-				min-width: 300px;
-				padding: 0 20px;
-				width: 100%;
-				
-			} */
-			/*列表项*/
-			
-			.horizontal-list ul,
-			.horizontal-list dl {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-				outline: none;
-				overflow: hidden;
-				width: 100%;
-			}
-			.horizontal-list ul li {
-				/*font-size: .8em !important;*/
-				
-				float: left;
-				overflow: hidden;
-				text-align: right;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				padding: 0 4px;
-				display: block;
-				cursor: pointer;
-			}
-			.horizontal-list ul li:hover {
-				background: #1ba1e2 !important;
-				color: #ffffff !important;
-			}
-			.horizontal-list ul li.active {
-				background: #1ba1e2 !important;
-				color: #ffffff !important;
-			}
-			.horizontal-list dl dt {
-				font-weight: bold;
-			}
-			.horizontal-list dl dt,
-			.horizontal-list dl dd {
-				float: left;
-			}
-			.horizontal-list dl:after {
-				clear: both;
-				content: "";
-			}
-			/*.frame*/
-			
-			.frame {
-				text-align: left;
-				padding: 20px;
-				border: 1px solid #eee;
-				z-index: 2;
-			}
-			.frame .doc-plus{
-				font-size:14px;
-			}
-			.frame .mask {
-				position: absolute;
-				top: 0;
-				left: 0;
-				background: black;
-				opacity: .2;
-				z-index: 2;
-			}
-			.frame.active .mask {
-				display: none;
-			}
-			div.doc {
-				width: 100%;
-				background: #fff;
-				border: 1px dashed #fff;
-				margin-bottom: 1em;
-			}
-			div.doc .doc-tools {
-				position: absolute;
-				right: 20px;
-				z-index: 1;
-				display: none;
-			}
-			div.doc:hover .doc-tools,
-			div.doc:hover .doc-plus {
-				display: block;
-			}
-			div.doc .doc-info {
-				padding: 20px 20px 0 20px;
-				position: relative;
-			}
-			div.doc.active {
-				/*background: #eee;*/
-				border-color: cyan;
-			}
-			div.doc footer {
-				padding: 10px;
-				font-size: .8em;
-				color: gray;
-				height: 3em;
-			}
-			div.doc footer .doc-plus {
-				display: none;
-			}
-			div.doc h1 {
-				font-size: 1.4em !important;
-			}
-			div.doc h2 {
-				font-size: 1.3em !important;
-			}
-			div.doc h3 {
-				font-size: 1.2em !important;
-			}
-			div.doc h4 {
-				font-size: 1.1em !important;
-			}
-			div.doc h5,
-			div.doc h6 {
-				font-size: 1em !important;
-			}
-			div.doc h1,
-			div.doc h2,
-			div.doc h3,
-			div.doc h4,
-			div.doc h5,
-			div.doc h6 {
-				font-weight: bold;
-				line-height: initial;
-				margin: 0 0 .8em;
-				color: gray;
-			}
-			div.doc .doc-content {
-				font-size: 1.1em;
-				margin: 0 0 .5em;
-			}
-			div.doc .doc-remark {} div.doc .tools {
-				margin-left: 10px;
-			}
-			div.doc .tools.del,
-			div.doc .tools.edit {
-				font-size: 12px;
-				margin: 5px 5px 0 8px;
-			}
-			div.doc:hover {
-				background: #eee;
-			}
-			div.doc .tools i {
-				font-size: 10px;
-			}
-			.frame .user-input {
-				/*padding: 20px 0;*/
-				padding: 20px;
-				margin: 20px 0;
-				background: #999;
-			}
-			.frame .user-input .textarea {
-				margin: 0;
-			}
-			.frame .user-input.editing {
-			}
-			.frame .user-input textarea {
-				height: 10em;
-				width:530px !important;
-				min-height: 2em !important;
-				resize: none;
-				overflow: hidden;
-			}
-			.frame .user-input.editing textarea {
-				margin-bottom: 10px;
-				resize: none;
-				overflow: auto;
-			}
-			.frame .user-input .form-actions {
-				display: none;
-			}
-			.frame .user-input.editing .form-actions {
-				display: block;
-			}
-			/*书签*/
-			
-			/*.bookmarks {
-				position: fixed;
-				width: 68px;
-				height: 68px;
-				opacity: .1;
-				z-index: 1000;
-				text-align: center;
-				cursor: pointer;
-			}
-			.bookmarks-left {
-				left: 0;
-			}
-			.bookmarks-right {
-				right: 75px;
-			}
-			.portlet-placeholder {
-				border: 1px dotted #ccc;
-				margin: 1em 0;
-				height: 100px;
-			}*/
-			/*metro*/
-			
-			.metro form {
-				margin: initial;
-			}
-			.metro .input-control.select,
-			.metro .input-control.textarea {
-				position: initial;
-			}
-			/*编辑器*/
-			.edui-container,.edui-container .edui-toolbar{
-				box-shadow: none;
-				/*z-index: 1 !important;*/
-			}
-			.edui-dialog-container .edui-combobox-menu {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				display: none;
-				list-style: none;
-				text-decoration: none;
-				margin: 0;
-				padding: 5px;
-				background-color: #fff;
-				border: 1px solid #ccc;
-				font-size: 12px;
-				box-shadow: 2px 2px 5px #d3d6da;
-				min-width: 160px;
-			}
-		</style>
-		<style type="text/css">
-			.accordion {
-				border: 1px solid #EEEEEE;
-			}
-			.accordion.horizontal::after {
-				clear: both;
-				content: " ";
-			}
-			/*.accordion .frame {
-				background: #fff;
-				display: none;
-			}
-			.accordion .frame.opening {
-			.accordion .frame.opening {
-				display: block;
-			}
-			/*.accordion .frame .heading {
-				background: #eee;
-			}
-			.accordion .frame .content {
-				border-left: 1px solid #EEEEEE;
-				padding: 5px;
-			}
-			.accordion .frame.active .content {}*/
-		</style>
+		<link rel="stylesheet" type="text/css" href="../static/css/index.css" />
 	</head>
 
 	<body class="metro">
@@ -469,7 +98,7 @@
 						<form class="doc user-input native" style="display:none;">
 							<input type="hidden" name="id" id="doc-id" value="" />
 							<script id="myEditor" name="content" type="text/plain">
-								
+
 							</script>
 							<!--<div class="input-control textarea">
 								<textarea id="myEditor" name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
@@ -489,169 +118,225 @@
 
 					<div class="doc" data-id="1">
 						<div class="doc-tools">
-							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							<a href="javascript:;" class="tools edit icon-pencil">
 							</a>
-							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							<a href="javascript:;" class="tools del icon-cancel-2">
 							</a>
 						</div>
 						<article class="doc-info">
 							<div class="doc-content">
 								<h1>
 
+
+
 							标题标题标题标题标题标题
+
+
 
 						</h1>
 								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
 						</article>
 						<footer class="text-center">
-							<span class="doc-remark place-left">备注 备注 备注</span>
-							<span class="tools place-right icon-heart-2"><i>123</i></span>
-							<span class="tools place-right icon-new-tab"><i>456</i></span>
+							<div class="pos-abs">
+								<span class="doc-remark"></span>
+							</div>
+							<div class="doc-tools">
+								<span class="tools icon-new-tab"><i>456</i></span>
+								<span class="tools icon-heart-2"><i>123</i></span>
+							</div>
 							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
 						<div class="doc-tools">
-							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							<a href="javascript:;" class="tools edit icon-pencil">
 							</a>
-							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							<a href="javascript:;" class="tools del icon-cancel-2">
 							</a>
 						</div>
 						<article class="doc-info">
 							<div class="doc-content">
 								<h2>
 
+
+
 							标题标题标题标题标题标题
+
+
 
 						</h2>
 								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
 						</article>
 						<footer class="text-center">
-							<span class="doc-remark place-left">备注 备注 备注</span>
-							<span class="tools place-right icon-heart-2"><i>123</i></span>
-							<span class="tools place-right icon-new-tab"><i>456</i></span>
+							<div class="pos-abs">
+								<span class="doc-remark"></span>
+							</div>
+							<div class="doc-tools">
+								<span class="tools icon-new-tab"><i>456</i></span>
+								<span class="tools icon-heart-2"><i>123</i></span>
+							</div>
 							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
 						<div class="doc-tools">
-							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							<a href="javascript:;" class="tools edit icon-pencil">
 							</a>
-							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							<a href="javascript:;" class="tools del icon-cancel-2">
 							</a>
 						</div>
 						<article class="doc-info">
 							<div class="doc-content">
 								<h3>
+
+
 
 							标题标题标题标题标题标题
 
+
+
 						</h3>
 								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
 						</article>
 						<footer class="text-center">
-							<span class="doc-remark place-left">备注 备注 备注</span>
-							<span class="tools place-right icon-heart-2"><i>123</i></span>
-							<span class="tools place-right icon-new-tab"><i>456</i></span>
+							<div class="pos-abs">
+								<span class="doc-remark"></span>
+							</div>
+							<div class="doc-tools">
+								<span class="tools icon-new-tab"><i>456</i></span>
+								<span class="tools icon-heart-2"><i>123</i></span>
+							</div>
 							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
 						<div class="doc-tools">
-							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							<a href="javascript:;" class="tools edit icon-pencil">
 							</a>
-							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							<a href="javascript:;" class="tools del icon-cancel-2">
 							</a>
 						</div>
 						<article class="doc-info">
 							<div class="doc-content">
 								<h3>
+
+
 
 							1111111111111111111111111111111
 
+
+
 						</h3>
 								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
 						</article>
 						<footer class="text-center">
-							<span class="doc-remark place-left">备注 备注 备注</span>
-							<span class="tools place-right icon-heart-2"><i>123</i></span>
-							<span class="tools place-right icon-new-tab"><i>456</i></span>
+							<div class="pos-abs">
+								<span class="doc-remark"></span>
+							</div>
+							<div class="doc-tools">
+								<span class="tools icon-new-tab"><i>456</i></span>
+								<span class="tools icon-heart-2"><i>123</i></span>
+							</div>
 							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
 						<div class="doc-tools">
-							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							<a href="javascript:;" class="tools edit icon-pencil">
 							</a>
-							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							<a href="javascript:;" class="tools del icon-cancel-2">
 							</a>
 						</div>
 						<article class="doc-info">
 							<div class="doc-content">
 								<h3>
+
+
 
 							2222222222222222222222222
 
+
+
 						</h3>
 								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
 						</article>
 						<footer class="text-center">
-							<span class="doc-remark place-left">备注 备注 备注</span>
-							<span class="tools place-right icon-heart-2"><i>123</i></span>
-							<span class="tools place-right icon-new-tab"><i>456</i></span>
+							<div class="pos-abs">
+								<span class="doc-remark"></span>
+							</div>
+							<div class="doc-tools">
+								<span class="tools icon-new-tab"><i>456</i></span>
+								<span class="tools icon-heart-2"><i>123</i></span>
+							</div>
 							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
 						<div class="doc-tools">
-							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							<a href="javascript:;" class="tools edit icon-pencil">
 							</a>
-							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							<a href="javascript:;" class="tools del icon-cancel-2">
 							</a>
 						</div>
 						<article class="doc-info">
 							<div class="doc-content">
 								<h3>
+
+
 
 							3333
 
+
+
 						</h3>
 								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
 						</article>
 						<footer class="text-center">
-							<span class="doc-remark place-left">备注 备注 备注</span>
-							<span class="tools place-right icon-heart-2"><i>123</i></span>
-							<span class="tools place-right icon-new-tab"><i>456</i></span>
+							<div class="pos-abs">
+								<span class="doc-remark"></span>
+							</div>
+							<div class="doc-tools">
+								<span class="tools icon-new-tab"><i>456</i></span>
+								<span class="tools icon-heart-2"><i>123</i></span>
+							</div>
 							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
 					<div class="doc">
 						<div class="doc-tools">
-							<a href="javascript:;" class="tools del icon-cancel-2 place-right">
+							<a href="javascript:;" class="tools edit icon-pencil">
 							</a>
-							<a href="javascript:;" class="tools edit icon-pencil place-right">
+							<a href="javascript:;" class="tools del icon-cancel-2">
 							</a>
 						</div>
 						<article class="doc-info">
 							<div class="doc-content">
 								<h3>
 
+
+
 							44444444444
+
+
 
 						</h3>
 								<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 							</div>
 						</article>
 						<footer class="text-center">
-							<span class="doc-remark place-left">备注 备注 备注</span>
-							<span class="tools place-right icon-heart-2"><i>123</i></span>
-							<span class="tools place-right icon-new-tab"><i>456</i></span>
+							<div class="pos-abs">
+								<span class="doc-remark"></span>
+							</div>
+							<div class="doc-tools">
+								<span class="tools icon-new-tab"><i>456</i></span>
+								<span class="tools icon-heart-2"><i>123</i></span>
+							</div>
 							<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
 						</footer>
 					</div>
@@ -695,7 +380,7 @@
 		left: $('#snow-left'),
 		scrollbar: $('#scrollbar_vertical'),
 		//实例化编辑器
-		ue:UE.getEditor('myEditor')
+		ue: UE.getEditor('myEditor')
 	};
 	// 滚动条拖拽块事件
 	snow.scrollbar.drager = snow.scrollbar.find('#dragger_vertical').draggable({
@@ -727,8 +412,8 @@
 
 	// 导航条
 	snow.nav = {
-		left:$('#nav-left'),
-		right:$('#nav-right')
+		left: $('#nav-left'),
+		right: $('#nav-right')
 	};
 	snow.nav.left.width = snow.nav.left.width();
 	snow.nav.right.width = snow.nav.right.width();
@@ -736,7 +421,7 @@
 	snow.sign = $('#snow-sign').css({
 		width: 400,
 		right: snow.nav.right.width,
-		left:snow.nav.left.width
+		left: snow.nav.left.width
 	});
 
 	// 文档编辑框
@@ -745,9 +430,8 @@
 			return;
 		}
 		var _form = $(this);
-		if (_form.hasClass('editing') && _form.find('textarea').val() == '') {
-		} else if (!_form.hasClass('editing')) {
-			_form.addClass('editing').slideDown(function(){
+		if (_form.hasClass('editing') && _form.find('textarea').val() == '') {} else if (!_form.hasClass('editing')) {
+			_form.addClass('editing').slideDown(function() {
 				snow.docResize(_form.closest('.frame'));
 			});
 		}
@@ -756,37 +440,37 @@
 		var _that = $(this),
 			_form = _that.closest('form.user-input'),
 			_frame = _form.closest('.frame');
-			
+
 		if (_that.attr('name') == 'btn-save') { //保存
 			var __doc = _form.prev('div.doc');
 			console.log(_form.find('input[name="id"]').val());
 			// 新建文档
-			if(_form.find('input[name="id"]').val()==''){
+			if (_form.find('input[name="id"]').val() == '') {
 				// 在_form之前插入一个新doc
-			}else{
+			} else {
 				// 编辑修改，修改form之前的doc
 				__doc.find('.doc-content').html(snow.ue.getContent());
 			}
 		} else { //取消
-			
+
 		}
 		// 复原
-		_form.removeClass('editing').slideUp(snow.speed,function(){
+		_form.removeClass('editing').slideUp(snow.speed, function() {
 			// 顶端新增按钮
 			if (_form.prev('div.doc-add').length) {
-				_form.prev('div.doc-add').fadeIn(function(){
+				_form.prev('div.doc-add').fadeIn(function() {
 					snow.docResize(_frame);
 				});
-			}else if(_form.prev('div.doc').length){
-				_form.prev('div.doc').fadeIn(function(){
+			} else if (_form.prev('div.doc').length) {
+				_form.prev('div.doc').fadeIn(function() {
 					snow.docResize(_frame);
 				});
-			}else{
+			} else {
 				snow.docResize(_frame);
 			}
 		}).find('textarea').val('');
 	});
-	
+
 	/*
 	 * 解决传统浏览器不支持placeholder问题
 	 */
@@ -883,7 +567,7 @@
 			}
 		);
 		// 左导航条---事件
-		snow.nav.left.on('click','.tile',function(e){
+		snow.nav.left.on('click', '.tile', function(e) {
 			var _that = $(this).addClass('active').siblings('.active').removeClass('active');
 		});
 		// 右导航条---事件
@@ -1006,10 +690,8 @@
 					frame.prepend('<footer><div class="mask" /></footer>');
 					//frame.prepend($('<header />').append(snow.editor.clone(true)));
 					frame.prepend(
-						$('<header />').append('<div class="doc-add text-center padding20">'
-							+'<a href="javascript:;" class="doc-plus">新<i class="icon-plus on-right on-left"></i>建</a>'
-							+'</div>')
-						);
+						$('<header />').append('<div class="doc-add text-center padding20">' + '<a href="javascript:;" class="doc-plus">新<i class="icon-plus on-right on-left"></i>建</a>' + '</div>')
+					);
 					frame.find('.mask').css({
 						width: frame.outerWidth(),
 						height: frame.outerHeight()
@@ -1046,18 +728,18 @@
 			var _doc = $(this).closest('div.doc').hide();
 			// 赋值
 			snow.editor.find('input[name="id"]').val(_doc.data('id'));
-			
-			_doc.after(snow.editor.click().slideDown(snow.speed,function(){
+
+			_doc.after(snow.editor.click().slideDown(snow.speed, function() {
 				snow.ue.setContent(_doc.find('.doc-content').html());
 			}));
 
-		}).on('click','.frame .doc .doc-plus',function(e){
+		}).on('click', '.frame .doc .doc-plus', function(e) {
 			e.stopPropagation();
 			// 如果有仍未提交的正在编辑中的表单，中断当前操作
 			if (snow.left.find('form.editing').length) {
 				return;
 			}
-			
+
 			var _doc = $(this).closest('div.doc');
 			if (!_doc.next().hasClass('clone')) {
 				snow.editor.find('textarea').val('');
@@ -1067,15 +749,15 @@
 			// 赋值
 			snow.editor.find('input[name="id"]').val('');
 			snow.ue.setContent('');
-			
+
 			snow.editor.click().slideDown(snow.speed);
-		}).on('click','.frame header .doc-plus',function(e){
+		}).on('click', '.frame header .doc-plus', function(e) {
 			e.stopPropagation();
 			// 如果有仍未提交的正在编辑中的表单，中断当前操作
 			if (snow.left.find('form.editing').length) {
 				return;
 			}
-			
+
 			var _doc = $(this).parent().hide().closest('header');
 
 			// 赋值
@@ -1099,7 +781,7 @@
 		// 左侧工作区
 		snow.left.css({
 			right: snow.nav.right.width,
-			left:snow.nav.left.width
+			left: snow.nav.left.width
 		});
 		//
 
