@@ -7,6 +7,22 @@ import (
 )
 
 func init() {
-	//beego.Router("/", &controllers.Account{})
-	beego.AutoRouter(&controllers.Account{})
+	// 屏蔽路由大小写敏感
+	beego.RouterCaseSensitive = false
+
+	home := &controllers.Home{}
+	beego.Router("/", home, "get:Get")
+
+	conn := &controllers.Connect{}
+	beego.Router("/connect/qq_error/:msg", conn)
+	beego.AutoRouter(conn)
+
+	beego.Router("/profile", &controllers.Profile{})
+
+	act := &controllers.Account{}
+	beego.Router("/login", act, "get:Login")
+	beego.Router("/signin", act, "post:SignIn")
+	beego.Router("/signout", act, "post:SignOut")
+	beego.Router("/signup", act, "get:SignUp")
+	beego.Router("/passwordreset", act, "get:PasswordReset")
 }

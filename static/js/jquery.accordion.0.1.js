@@ -68,8 +68,8 @@
 				frame.sortable({
 					connectWith: 'div.frame',
 					appendTo: '#snow-left',
+					helper: 'clone',
 					items: 'div.doc',
-					//helper: 'clone',
 					handle: ".doc-info",
 					placeholder: "portlet-placeholder ui-corner-all",
 					revert: true,
@@ -84,15 +84,26 @@
 						$this.open(frame);
 					},
 					start: function(e, ui) {
-						frame.closest('#snow-left').find('form.clone').hide();
+						ui.item.show();
 					},
 					beforeStop:function(e,ui){
-						if (ui.item.prevAll('footer').length) {
-							ui.item.after(ui.item.prevAll('footer'));
+						// 如果在同一队列，移动
+						if (ui.item.parent().attr('id') === $(this).attr('id')) {
+							
+						}else{ 	// 不同队列，克隆
+							if (ui.placeholder.prevAll('footer').length) {
+								ui.placeholder.after(ui.placeholder.prevAll('footer'));
+							}
+							ui.placeholder.replaceWith(ui.item.clone());
+							$(this).sortable('cancel');
 						}
 					},
 					out: function(e, ui) {
 						//clearTimeout(opts.timer);	
+					}
+				}).droppable({
+					drop:function(e,ui){
+						
 					}
 				});
 			};
@@ -113,7 +124,7 @@
 				active: false
 			}, options);
 
-			var _frame = $('<div />').addClass('frame').css(frameStyle).css({
+			var _frame = $('<div />').attr('id',Math.random()).addClass('frame').css(frameStyle).css({
 				left: 5000
 			}).appendTo($this);//.append(getMask()).wrap(getWrap());
 			//活动状态
@@ -211,6 +222,10 @@
 
 				$.each(_frames, function() {
 					var __frame = $(this);
+					// 设置id属性
+					if (!__frame.attr('id')) {
+						__frame.attr('id',Math.random());
+					}
 					_sortable(__frame);//.append(getMask()).wrap(getWrap())
 				});
 

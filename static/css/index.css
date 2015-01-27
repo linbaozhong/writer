@@ -191,6 +191,10 @@ div.doc {
 	border: 1px dashed #fff;
 	/*margin-bottom: 1em;*/
 }
+div.doc.ui-draggable-dragging{
+	width:556px;
+	z-index: 1000;
+}
 div.doc .doc-tools {
 	position: absolute;
 	right: 20px;
@@ -311,12 +315,12 @@ div.doc .tools i {
 }
 .bookmarks-right {
 	right: 75px;
-}
+}*/
 .portlet-placeholder {
 	border: 1px dotted #ccc;
 	margin: 1em 0;
 	height: 100px;
-}*/
+}
 /*metro*/
 
 .metro form {
