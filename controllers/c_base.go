@@ -22,8 +22,10 @@ type langType struct {
 type Base struct {
 	beego.Controller
 	i18n.Locale
-	page        models.Page
-	currentUser *models.Current
+	page           models.Page
+	currentUser    *models.Current
+	controllerName string
+	actionName     string
 }
 
 //全部单词字符包括中文
@@ -64,6 +66,8 @@ func appconf(key string) string {
 
 func (this *Base) Prepare() {
 	this.currentUser = new(models.Current)
+	// 读取当前控制器和方法名称
+	this.controllerName, this.actionName = this.GetControllerAndAction()
 
 	this.initPage()
 }
@@ -282,11 +286,8 @@ func (this *Base) isOutLink() bool {
 
 // 渲染字符串模板
 func (this *Base) renderTemplateString(tplString string) error {
-	// 读取当前控制器和方法名称
-	a, c := this.GetControllerAndAction()
-
 	// 查找模板是否已经存在
-	name := "/" + a + "/" + c
+	name := "/" + this.controllerName + "/" + this.actionName
 	t := beego.BeeTemplates[name]
 
 	if t == nil {
@@ -491,12 +492,10 @@ func (this *Base) cookieHttpOnly(name, value string) {
 
 // 设置模板文件
 func (this *Base) setTplNames(name ...string) {
-	c, a := this.Controller.GetControllerAndAction()
-
 	if len(name) > 0 && name[0] != "" {
-		a = name[0]
+		this.actionName = name[0]
 	}
-	this.TplNames = strings.ToLower(fmt.Sprintf("%s/%s.html", c, a))
+	this.TplNames = strings.ToLower(fmt.Sprintf("%s/%s.html", this.controllerName, this.actionName))
 }
 
 //签名
@@ -520,8 +519,7 @@ func (this *Base) loginOut() {
 * 跟踪
  */
 func (this *Base) trace(v ...interface{}) {
-	c, a := this.Controller.GetControllerAndAction()
-	beego.Trace(fmt.Sprintf("%s/%s ", c, a) + fmt.Sprintf("Info:%s", utils.Interface2str(v...)))
+	beego.Trace(fmt.Sprintf("%s/%s ", this.controllerName, this.actionName) + fmt.Sprintf("Info:%s", utils.Interface2str(v...)))
 }
 
 /*

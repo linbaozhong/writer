@@ -25,13 +25,13 @@ func (this *Account) Prepare() {
 	// 		this.end()
 	// 	}
 	// }
-	this.Layout = "_noneLayout.html"
-	this.LayoutSections = make(map[string]string)
-	this.LayoutSections["Head"] = "_head.html"
-	this.LayoutSections["Header"] = "_noneHeader.html"
-	this.LayoutSections["Login"] = ""
-	this.LayoutSections["Footer"] = "_footer.html"
-	this.LayoutSections["Scripts"] = "_scripts.html"
+	// this.Layout = "_noneLayout.html"
+	// this.LayoutSections = make(map[string]string)
+	// this.LayoutSections["Head"] = "_head.html"
+	// this.LayoutSections["Header"] = "_noneHeader.html"
+	// this.LayoutSections["Login"] = ""
+	// this.LayoutSections["Footer"] = "_footer.html"
+	// this.LayoutSections["Scripts"] = "_scripts.html"
 }
 
 /*

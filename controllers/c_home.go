@@ -1,7 +1,9 @@
 package controllers
 
 import (
-//"html/template"
+//"strings"
+//"fmt"
+//"github.com/astaxie/beego"
 )
 
 type Home struct {
@@ -9,5 +11,6 @@ type Home struct {
 }
 
 func (this *Home) Get() {
+	//this.LayoutSections["scripts"] = strings.ToLower(this.controllerName) + "/_index.html"
 	this.setTplNames("index")
 }
