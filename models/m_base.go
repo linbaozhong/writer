@@ -5,14 +5,11 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
 	//_ "github.com/go-sql-driver/mysql"
+	"fmt"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
 	_ "github.com/mattn/go-sqlite3"
 	"math"
-)
-
-const (
-	ReviewQuestion = 0
 )
 
 //页面公共信息
@@ -56,26 +53,26 @@ type Error struct {
 
 //分页
 type Pagination struct {
-	Count int
-	Prev  int
-	Index int
-	Next  int
-	Size  int
+	Count int //总页数
+	Prev  int //上页索引
+	Index int //当前页
+	Next  int //下页索引
+	Size  int //每页条数
 }
 
 //列表选项
 type SelectItem struct {
 	Key      string
 	Value    string
-	Selected bool
+	Selected bool //是否选中项
 }
 
 //上传文件
 type UploadFile struct {
-	Name string
-	Ext  string
-	Path string
-	Size int64
+	Name string //文件名
+	Ext  string //扩展名（文件类型）
+	Path string //路径
+	Size int64  //文件大小
 }
 
 var db *xorm.Engine
@@ -83,7 +80,7 @@ var db *xorm.Engine
 func init() {
 	var err error
 	//db, err = xorm.NewEngine("mysql", "root:goldapple@127.0.0.1:3306/writer?charset=utf8")
-	db, err = xorm.NewEngine("sqlite3", "./data/zouzhe.db")
+	db, err = xorm.NewEngine("sqlite3", "./data/writer.db")
 
 	if err != nil {
 		beego.Trace(err)
@@ -138,4 +135,40 @@ func parseDb(dbs []map[string][]byte) []map[string]string {
 // 根据记录总数，返回总页数
 func getPageCount(rows int64, page *Pagination) {
 	page.Count = int(math.Ceil(float64(rows / int64(page.Size))))
+}
+
+// 锁定
+func Lock(table string, id int64) error {
+	sql := "update `" + table + "` set locked=? where id=?"
+	_, err := db.Exec(sql, Locked, id)
+	
+	fmt.Println(table, Locked,err)
+	return err
+}
+
+// 解锁
+func UnLock(table string, id int64) error {
+	sql := "update `" + table + "` set locked=? where id=?"
+	_, err := db.Exec(sql, Unlock, id)
+	
+	fmt.Println(table, Unlock,err)
+	return err
+}
+
+// 移除
+func Delete(table string, id int64) error {
+	sql := "update `" + table + "` set deleted=? where id=?"
+	_, err := db.Exec(sql, Deleted, id)
+	
+	fmt.Println(table, Deleted,err)
+	return err
+}
+
+// 恢复
+func UnDelete(table string, id int64) error {
+	sql := "update `" + table + "` set deleted=? where id=?"
+	_, err := db.Exec(sql, Undelete, id)
+	
+	fmt.Println(table, Undelete,err)
+	return err
 }

@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"fmt"
-	"zouzhe/models"
+	"writer/models"
 	"zouzhe/utils"
 
 	"github.com/astaxie/beego"
@@ -52,7 +52,7 @@ func (this *Account) New() {
 
 		this.extend(oa)
 
-		if _, err, _ = oa.Post(); err == nil {
+		if err, _ = oa.Post(); err == nil {
 			this.trace(oa)
 		} else {
 			this.trace(err)

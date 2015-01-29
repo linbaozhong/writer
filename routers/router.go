@@ -25,4 +25,7 @@ func init() {
 	beego.Router("/signout", act, "post:SignOut")
 	beego.Router("/signup", act, "get:SignUp")
 	beego.Router("/passwordreset", act, "get:PasswordReset")
+
+	article := &controllers.Article{}
+	beego.AutoRouter(article)
 }

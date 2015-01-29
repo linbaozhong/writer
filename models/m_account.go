@@ -4,8 +4,6 @@ import (
 	// "errors"
 	// "fmt"
 	"github.com/astaxie/beego/validation"
-	//"notes/utils"
-	//"notes/logs"
 )
 
 // 账户
@@ -34,7 +32,7 @@ func (this *Accounts) Exists() (bool, error) {
 	return db.Get(this)
 }
 
-//
+// 自定义数据验证
 func (this *Accounts) Valid(v *validation.Validation) {
 	//登录名必须是email
 	if this.LoginName != "" {
@@ -43,35 +41,23 @@ func (this *Accounts) Valid(v *validation.Validation) {
 }
 
 // 增加新账户
-func (this *Accounts) Post() (int64, error, []Error) {
+func (this *Accounts) Post() (error, []Error) {
 
 	if this.RealName == "" {
 		this.RealName = this.NickName
 	}
 	//数据有效性检验
 	if d, err := dataCheck(this); err != nil {
-		return 0, err, d
+		return err, d
 	}
 	//
-	id, err := db.Insert(this)
-	return id, err, nil
+	_, err := db.Insert(this)
+	return err, nil
 }
 
-// 刷新token
+// 更新第三方登录的refreshToken
 func (this *Accounts) RefreshAccessToken() (int64, error) {
 	return db.Id(this.Id).Cols("accessToken", "refreshToken", "updated").Update(this)
 }
 
 // --------------------------------------------------
-// 登录日志
-type LoginLog struct {
-	Id        int64  `json:"loginId"`
-	AccountId int64  `json:"accoundId"`
-	Updated   int64  `json:"loginTime"`
-	Ip        string `json:"ip" valid:"MaxSize(23)"`
-}
-
-//
-func (this *LoginLog) Post() (int64, error) {
-	return db.Insert(this)
-}
