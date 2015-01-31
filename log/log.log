@@ -1,0 +1,182 @@
+2015/01/31 10:11:20 [log.go:108] [D] Loading language: en-US 
+2015/01/31 10:11:20 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 10:11:20 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 10:11:20 [app.go:96] [I] http server Running on :8088
+2015/01/31 10:49:25 [log.go:108] [D] Loading language: en-US 
+2015/01/31 10:49:25 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 10:49:25 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 10:49:25 [app.go:96] [I] http server Running on :8088
+2015/01/31 11:36:33 [log.go:108] [D] Loading language: en-US 
+2015/01/31 11:36:33 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 11:36:33 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 11:36:33 [app.go:96] [I] http server Running on :8088
+2015/01/31 11:41:53 [router.go:845] [D] | GET        | /                                        | 255.0146ms       | match      | /                                        | 
+2015/01/31 11:41:56 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 11:42:04 [router.go:845] [D] | GET        | /connect/qq_login                        | 1ms              | match      | /connect/qq_login/*                      | 
+2015/01/31 11:42:25 [log.go:108] [D] Connect/QQ_Callback Info:&controllers.OpenSign{
+    Ret: 0,
+    Msg: ,
+    Id: 0,
+    From: qq,
+    OpenId: 769730D627FD70BF6FBC376B5554E4C5,
+    Token: 5B9F45C11278896121B34468BBEE2C0D,
+    Refresh: 17B16261244FECB04470F4002D52FF4E,
+    NickName: 哈利蔺特,
+    Gender: 男,
+    Avatar_1: http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/40,
+    Avatar_2: http://q.qlogo.cn/qqapp/101036556/769730D627FD70BF6FBC376B5554E4C5/100,
+} 
+2015/01/31 11:42:25 [router.go:845] [D] | GET        | /connect/qq_callback                     | 3.7742158s       | match      | /connect/qq_callback/*                   | 
+2015/01/31 11:42:25 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/01/31 11:42:25 [router.go:845] [D] | POST       | /connect/signtrace                       | 98.0056ms        | match      | /connect/signtrace/*                     | 
+2015/01/31 11:43:03 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 11:43:03 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 11:43:03 [router.go:845] [D] | POST       | /article/update                          | 56.0032ms        | match      | /article/update/*                        | 
+2015/01/31 11:46:46 [router.go:845] [D] | GET        | /                                        | 162.0093ms       | match      | /                                        | 
+2015/01/31 11:46:47 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 11:46:56 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 11:46:56 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 11:46:56 [router.go:845] [D] | POST       | /article/update                          | 31.0018ms        | match      | /article/update/*                        | 
+2015/01/31 12:03:38 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:03:38 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:03:38 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:03:38 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:03:57 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:03:57 [router.go:876] [C] the request url is  /article/update 
+2015/01/31 12:03:57 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/01/31 12:03:57 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:248 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:552 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/runtime/panic.c:466 
+2015/01/31 12:03:58 [router.go:883] [C] c:/snow/src/writer/controllers/c_articles.go:22 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/runtime/asm_386.s:383 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/reflect/value.go:563 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/reflect/value.go:411 
+2015/01/31 12:03:58 [router.go:883] [C] c:/snow/src/github.com/astaxie/beego/router.go:794 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1673 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/net/http/server.go:1174 
+2015/01/31 12:03:58 [router.go:883] [C] c:/go/src/pkg/runtime/proc.c:1445 
+2015/01/31 12:05:13 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:05:13 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:05:13 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:05:13 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:05:25 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:05:26 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:05:26 [router.go:845] [D] | POST       | /article/update                          | 159.0091ms       | match      | /article/update/*                        | 
+2015/01/31 12:16:31 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:16:31 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:16:31 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:16:31 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:16:49 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:16:49 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:16:49 [router.go:845] [D] | POST       | /article/update                          | 10.0006ms        | match      | /article/update/*                        | 
+2015/01/31 12:18:52 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:18:52 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:18:52 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:18:52 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:19:15 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:19:15 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:19:15 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:19:15 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:19:32 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:19:32 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:19:32 [router.go:845] [D] | POST       | /article/update                          | 180.0103ms       | match      | /article/update/*                        | 
+2015/01/31 12:20:34 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:20:34 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:20:34 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:20:34 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:20:39 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:20:39 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:20:39 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:20:39 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:21:08 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:21:08 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:21:08 [router.go:845] [D] | POST       | /article/update                          | 82.0047ms        | match      | /article/update/*                        | 
+2015/01/31 12:22:37 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:22:37 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:22:37 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:22:37 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:23:34 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:23:34 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:23:34 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:23:34 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:23:45 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:23:45 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:23:45 [router.go:845] [D] | POST       | /article/update                          | 78.0044ms        | match      | /article/update/*                        | 
+2015/01/31 12:26:01 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:26:01 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:26:01 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:26:01 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:26:24 [router.go:845] [D] | GET        | /                                        | 191.011ms        | match      | /                                        | 
+2015/01/31 12:26:25 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:26:34 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:26:34 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:26:35 [router.go:845] [D] | POST       | /article/update                          | 9.0006ms         | match      | /article/update/*                        | 
+2015/01/31 12:27:36 [router.go:845] [D] | GET        | /                                        | 254.0146ms       | match      | /                                        | 
+2015/01/31 12:27:38 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:27:44 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:27:44 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:27:44 [router.go:845] [D] | POST       | /article/update                          | 61.0035ms        | match      | /article/update/*                        | 
+2015/01/31 12:31:42 [router.go:845] [D] | GET        | /                                        | 200.0115ms       | match      | /                                        | 
+2015/01/31 12:31:43 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:31:49 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:31:49 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:31:49 [router.go:845] [D] | POST       | /article/update                          | 24.0014ms        | match      | /article/update/*                        | 
+2015/01/31 12:34:10 [router.go:845] [D] | GET        | /                                        | 168.0096ms       | match      | /                                        | 
+2015/01/31 12:34:11 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:37:29 [router.go:845] [D] | GET        | /                                        | 209.0119ms       | match      | /                                        | 
+2015/01/31 12:37:30 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:37:35 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:37:35 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:37:35 [router.go:845] [D] | POST       | /article/update                          | 53.0031ms        | match      | /article/update/*                        | 
+2015/01/31 12:41:11 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:41:11 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:41:11 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:41:11 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:41:27 [router.go:845] [D] | GET        | /                                        | 177.0101ms       | match      | /                                        | 
+2015/01/31 12:41:28 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:41:33 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:41:33 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:41:33 [router.go:845] [D] | POST       | /article/update                          | 29.0017ms        | match      | /article/update/*                        | 
+2015/01/31 12:42:58 [router.go:845] [D] | GET        | /                                        | 140.008ms        | match      | /                                        | 
+2015/01/31 12:42:59 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:43:10 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:43:10 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:43:10 [router.go:845] [D] | POST       | /article/update                          | 51.0029ms        | match      | /article/update/*                        | 
+2015/01/31 12:43:53 [router.go:845] [D] | GET        | /                                        | 168.0096ms       | match      | /                                        | 
+2015/01/31 12:43:54 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:44:04 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:44:04 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:44:04 [router.go:845] [D] | POST       | /article/update                          | 56.0032ms        | match      | /article/update/*                        | 
+2015/01/31 12:44:52 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:44:52 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:44:52 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:44:52 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:45:01 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:45:01 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:45:01 [router.go:845] [D] | POST       | /article/update                          | 86.0049ms        | match      | /article/update/*                        | 
+2015/01/31 12:45:08 [router.go:845] [D] | GET        | /                                        | 160.0092ms       | match      | /                                        | 
+2015/01/31 12:45:09 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:45:15 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:45:15 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:45:15 [router.go:845] [D] | POST       | /article/update                          | 28.0016ms        | match      | /article/update/*                        | 
+2015/01/31 12:46:06 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:46:06 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:46:06 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:46:06 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:46:09 [router.go:845] [D] | GET        | /                                        | 227.013ms        | match      | /                                        | 
+2015/01/31 12:46:10 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:46:19 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:46:19 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:46:19 [router.go:845] [D] | POST       | /article/update                          | 57.0033ms        | match      | /article/update/*                        | 
+2015/01/31 12:47:02 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:47:02 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:47:02 [router.go:845] [D] | POST       | /article/update                          | 10.0006ms        | match      | /article/update/*                        | 
+2015/01/31 12:47:58 [log.go:108] [D] Loading language: en-US 
+2015/01/31 12:47:58 [log.go:108] [D] Loading language: zh-CN 
+2015/01/31 12:47:58 [main.go:17] [I] writer 0.1.14.1105 
+2015/01/31 12:47:58 [app.go:96] [I] http server Running on :8088
+2015/01/31 12:49:41 [router.go:845] [D] | GET        | /                                        | 157.009ms        | match      | /                                        | 
+2015/01/31 12:49:42 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/01/31 12:49:48 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/01/31 12:49:48 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/01/31 12:49:48 [router.go:845] [D] | POST       | /article/update                          | 9.0005ms         | match      | /article/update/*                        | 

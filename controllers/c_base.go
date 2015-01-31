@@ -418,6 +418,15 @@ func (this *Base) getCheckboxInt(key string) int {
 }
 
 /*
+* 解析首尾<h1></h1>中的字符串
+ */
+func (this *Base) parseHtml_H(str string) []string {
+	//匹配字符串
+	p := fmt.Sprintf("<h1>([%s\011\012\013\014\015]+)</h1>", sub)
+	return this.parseString(str, p)
+}
+
+/*
 * 解析首尾#中的字符串
  */
 func (this *Base) parseSharp(str string) []string {
@@ -447,7 +456,7 @@ func (this *Base) parseString(str, p string) []string {
 	for _, tags := range re.FindAllStringSubmatch(str, -1) {
 		for _, tag := range tags[1:] {
 			if tag != "" {
-				result = append(result, tag)
+				result = append(result, strings.Trim(tag, "\t\r\n\f"))
 			}
 		}
 	}

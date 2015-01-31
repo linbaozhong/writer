@@ -33,7 +33,7 @@
 				</div>
 				<article class="doc-info">
 					<div class="doc-content">
-						<h1>
+						<h2>
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-				</h1>
+				</h2>
 						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 					</div>
 				</article>
@@ -325,13 +325,20 @@ $(function(){
 		e.stopPropagation();
 		var _that = $(this),
 			_form = _that.closest('form.user-input'),
-			_frame = _form.closest('.frame');
+			_frame = _form.closest('.frame'),
+			_id = _form.find('input[name="id"]').val(),
+			_content = snow.ue.getContent();
 
 		if (_that.attr('name') == 'btn-save') { //保存
+			$.post(snow.api.docSave
+				,{id:_id,content:_content}
+				,function(result){
+				snow.log(result);
+			});
 			var __doc = _form.prev('div.doc');
-			console.log(_form.find('input[name="id"]').val());
+			
 			// 新建文档
-			if (_form.find('input[name="id"]').val() == '') {
+			if ($.trim(_id).length) {
 				// 在_form之前插入一个新doc
 			} else {
 				// 编辑修改，修改form之前的doc
