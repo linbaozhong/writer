@@ -6,7 +6,6 @@
 				<form class="doc user-input native" style="display:none;">
 					<input type="hidden" name="id" id="doc-id" value="" />
 					<script id="myEditor" name="content" type="text/plain">
-
 					</script>
 					<!--<div class="input-control textarea">
 						<textarea id="myEditor" name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
@@ -33,15 +32,7 @@
 				</div>
 				<article class="doc-info">
 					<div class="doc-content">
-						<h2>
-
-
-
-					标题标题标题标题标题标题
-
-
-
-				</h2>
+						<h2>标题标题标题标题标题标题</h2>
 						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 					</div>
 				</article>
@@ -66,13 +57,7 @@
 				<article class="doc-info">
 					<div class="doc-content">
 						<h2>
-
-
-
 					标题标题标题标题标题标题
-
-
-
 				</h2>
 						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 					</div>
@@ -98,13 +83,7 @@
 				<article class="doc-info">
 					<div class="doc-content">
 						<h3>
-
-
-
 					标题标题标题标题标题标题
-
-
-
 				</h3>
 						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
 					</div>
@@ -328,13 +307,16 @@ $(function(){
 			_frame = _form.closest('.frame'),
 			_id = _form.find('input[name="id"]').val(),
 			_content = snow.ue.getContent();
-
+			
 		if (_that.attr('name') == 'btn-save') { //保存
+			
 			$.post(snow.api.docSave
 				,{id:_id,content:_content}
 				,function(result){
-				snow.log(result);
-			});
+					snow.log(result);
+				}
+			);
+			
 			var __doc = _form.prev('div.doc');
 			
 			// 新建文档
@@ -342,7 +324,7 @@ $(function(){
 				// 在_form之前插入一个新doc
 			} else {
 				// 编辑修改，修改form之前的doc
-				__doc.find('.doc-content').html(snow.ue.getContent());
+				__doc.find('.doc-content').html(_content);
 			}
 		} else { //取消
 

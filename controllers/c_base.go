@@ -29,7 +29,7 @@ type Base struct {
 }
 
 //全部单词字符包括中文
-const sub = "\\w\u4e00-\u9fa5"
+const sub = "\\w\\W\u4e00-\u9fa5"
 
 var (
 	siteDomain string //网站域
@@ -421,8 +421,9 @@ func (this *Base) getCheckboxInt(key string) int {
 * 解析首尾<h1></h1>中的字符串
  */
 func (this *Base) parseHtml_H(str string) []string {
+	fmt.Println(str)
 	//匹配字符串
-	p := fmt.Sprintf("<h1>([%s\011\012\013\014\015]+)</h1>", sub)
+	p := fmt.Sprintf("(?s).*<h[123]>([%s\011\012\013\014\015]+)</h[123]>.*", sub)
 	return this.parseString(str, p)
 }
 
