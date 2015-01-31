@@ -18,12 +18,12 @@ func (this *Article) Update() {
 	}
 
 	article.Content = this.GetString("content")
-
-	//article.Title = this.parseHtml_H(article.Content)
+	article.Title = this.parseHtml_H(article.Content)[0]
 	//
 	this.extend(article)
 
 	fmt.Println(this.parseHtml_H(article.Content))
+	fmt.Println(this.parseSharp(article.Content))
 
 	this.renderJson(utils.JsonData(true, "", article))
 	//// 提交更新，返回结果
