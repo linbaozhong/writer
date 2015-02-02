@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"writer/models"
 	"zouzhe/utils"
 )
@@ -18,20 +17,18 @@ func (this *Article) Update() {
 	}
 
 	article.Content = this.GetString("content")
-	article.Title = this.parseHtml_H(article.Content)[0]
+	article.Title = this.GetString("title") //this.parseHtml_H(article.Content)[0]
+	article.Tags = this.GetString("tags")
 	//
 	this.extend(article)
 
-	fmt.Println(this.parseHtml_H(article.Content))
-	fmt.Println(this.parseSharp(article.Content))
-
-	this.renderJson(utils.JsonData(true, "", article))
-	//// 提交更新，返回结果
-	//if err, errs := article.Update(); err == nil {
-	//	this.renderJson(utils.JsonMessage(true, "", ""))
-	//} else {
-	//	this.renderJson(utils.JsonData(false, "", errs))
-	//}
+	//this.renderJson(utils.JsonData(true, "", article))
+	// 提交更新，返回结果
+	if err, errs := article.Update(); err == nil {
+		this.renderJson(utils.JsonData(true, "", article))
+	} else {
+		this.renderJson(utils.JsonData(false, "", errs))
+	}
 
 }
 

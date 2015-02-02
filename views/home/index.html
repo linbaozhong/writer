@@ -327,14 +327,35 @@ $(function(){
 			_form = _that.closest('form.user-input'),
 			_frame = _form.closest('.frame'),
 			_id = _form.find('input[name="id"]').val(),
-			_content = snow.ue.getContent();
+			_content = snow.ue.getContent().replace(/[\s]+/g,' '),
+			_contentTxt = snow.ue.getContentTxt();
 
-		if (_that.attr('name') == 'btn-save') { //保存
+		if (_that.attr('name') == 'btn-save') { 
+			var _result,_title;
+			// 提取标题
+			var _pattern = /<h[123456]>([\w\W\s\S]+?)<\/h[123456]>/ig;
+			while((_result = _pattern.exec(_content)) != null){
+				_title = $.trim($(_result[0]).text());
+				if(_title.length){
+					break;
+				}
+			};
+			//snow.log(_title);
+			// 提取标签
+			_pattern = /#([ \w\u4e00-\u9fa5]+?)#/ig;
+			var _tags=[];
+			while((_result = _pattern.exec(_contentTxt)) != null){
+				_tags.push($.trim(_result[1]));
+			};
+			snow.log(_tags);
+			//保存
 			$.post(snow.api.docSave
-				,{id:_id,content:_content}
+				,{id:_id,title:_title,content:_content,tags:_tags.join(',')}
 				,function(result){
-				snow.log(result);
-			});
+					snow.log(result);
+				}
+			);
+
 			var __doc = _form.prev('div.doc');
 			
 			// 新建文档

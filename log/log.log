@@ -180,3 +180,165 @@
 2015/01/31 12:49:48 [log.go:108] [D] Article/Update Info:1,  qq 
 2015/01/31 12:49:48 [log.go:108] [D] Article/Update Info:zh-CN 
 2015/01/31 12:49:48 [router.go:845] [D] | POST       | /article/update                          | 9.0005ms         | match      | /article/update/*                        | 
+2015/02/02 10:47:18 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 10:47:18 [app.go:96] [I] http server Running on :8088
+2015/02/02 11:04:02 [router.go:845] [D] | GET        | /                                        | 182.0104ms       | match      | /                                        | 
+2015/02/02 11:04:03 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:04:47 [router.go:845] [D] | GET        | /                                        | 73.0042ms        | match      | /                                        | 
+2015/02/02 11:04:47 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:05:14 [router.go:845] [D] | GET        | /                                        | 67.0038ms        | match      | /                                        | 
+2015/02/02 11:05:14 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:06:10 [router.go:845] [D] | GET        | /                                        | 105.006ms        | match      | /                                        | 
+2015/02/02 11:06:10 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:25:23 [router.go:845] [D] | GET        | /                                        | 61.0035ms        | match      | /                                        | 
+2015/02/02 11:25:23 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:27:22 [router.go:845] [D] | GET        | /                                        | 66.0037ms        | match      | /                                        | 
+2015/02/02 11:27:22 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:28:31 [router.go:845] [D] | GET        | /                                        | 63.0036ms        | match      | /                                        | 
+2015/02/02 11:28:31 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:30:00 [router.go:845] [D] | GET        | /                                        | 70.004ms         | match      | /                                        | 
+2015/02/02 11:30:00 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:31:31 [router.go:845] [D] | GET        | /                                        | 73.0042ms        | match      | /                                        | 
+2015/02/02 11:31:32 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:49:39 [router.go:845] [D] | GET        | /                                        | 72.0041ms        | match      | /                                        | 
+2015/02/02 11:49:40 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:53:23 [router.go:845] [D] | GET        | /                                        | 82.0047ms        | match      | /                                        | 
+2015/02/02 11:53:23 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 11:58:08 [router.go:845] [D] | GET        | /                                        | 63.0036ms        | match      | /                                        | 
+2015/02/02 11:58:08 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:00:49 [router.go:845] [D] | GET        | /                                        | 89.0051ms        | match      | /                                        | 
+2015/02/02 12:00:49 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:03:44 [router.go:845] [D] | GET        | /                                        | 72.0042ms        | match      | /                                        | 
+2015/02/02 12:03:45 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:08:26 [router.go:845] [D] | GET        | /                                        | 65.0037ms        | match      | /                                        | 
+2015/02/02 12:08:27 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:13:18 [router.go:845] [D] | GET        | /                                        | 62.0036ms        | match      | /                                        | 
+2015/02/02 12:13:18 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:15:37 [router.go:845] [D] | GET        | /                                        | 62.0036ms        | match      | /                                        | 
+2015/02/02 12:15:37 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:20:17 [router.go:845] [D] | GET        | /                                        | 69.004ms         | match      | /                                        | 
+2015/02/02 12:20:17 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:22:57 [router.go:845] [D] | GET        | /                                        | 64.0037ms        | match      | /                                        | 
+2015/02/02 12:22:57 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:23:55 [router.go:845] [D] | GET        | /                                        | 63.0036ms        | match      | /                                        | 
+2015/02/02 12:23:55 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:26:38 [router.go:845] [D] | GET        | /                                        | 107.0061ms       | match      | /                                        | 
+2015/02/02 12:26:38 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:28:43 [router.go:845] [D] | GET        | /                                        | 84.0048ms        | match      | /                                        | 
+2015/02/02 12:28:43 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:29:52 [router.go:845] [D] | GET        | /                                        | 66.0038ms        | match      | /                                        | 
+2015/02/02 12:29:52 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 12:38:34 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 12:38:34 [app.go:96] [I] http server Running on :8088
+2015/02/02 13:38:11 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 13:38:11 [app.go:96] [I] http server Running on :8088
+2015/02/02 17:38:12 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 17:38:12 [app.go:96] [I] http server Running on :8088
+2015/02/02 17:48:24 [router.go:845] [D] | GET        | /                                        | 82.0046ms        | match      | /                                        | 
+2015/02/02 17:48:26 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 17:49:26 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 17:49:26 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/02 17:49:26 [router.go:845] [D] | POST       | /article/update                          | 139.0079ms       | match      | /article/update/*                        | 
+2015/02/02 17:52:04 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 17:52:04 [app.go:96] [I] http server Running on :8088
+2015/02/02 17:53:06 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 17:53:06 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/02 17:53:06 [router.go:845] [D] | POST       | /article/update                          | 97.0056ms        | match      | /article/update/*                        | 
+2015/02/02 17:56:36 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 17:56:36 [app.go:96] [I] http server Running on :8088
+2015/02/02 17:56:47 [router.go:845] [D] | GET        | /                                        | 64.0037ms        | match      | /                                        | 
+2015/02/02 17:56:48 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 17:57:16 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 17:57:16 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/02 17:57:16 [router.go:845] [D] | POST       | /article/update                          | 121.0069ms       | match      | /article/update/*                        | 
+2015/02/02 17:58:26 [router.go:845] [D] | GET        | /                                        | 65.0037ms        | match      | /                                        | 
+2015/02/02 17:58:26 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 18:01:45 [router.go:845] [D] | GET        | /                                        | 63.0036ms        | match      | /                                        | 
+2015/02/02 18:01:45 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 18:01:48 [router.go:845] [D] | GET        | /                                        | 65.0037ms        | match      | /                                        | 
+2015/02/02 18:01:48 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 18:02:11 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 18:02:11 [router.go:876] [C] the request url is  /article/update 
+2015/02/02 18:02:11 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/02 18:02:11 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:107 
+2015/02/02 18:02:11 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:27 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/02 18:02:11 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/02 18:02:11 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/02 18:11:29 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 18:11:29 [app.go:96] [I] http server Running on :8088
+2015/02/02 18:11:59 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 18:11:59 [app.go:96] [I] http server Running on :8088
+2015/02/02 18:12:29 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 18:12:29 [router.go:876] [C] the request url is  /article/update 
+2015/02/02 18:12:29 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/02 18:12:29 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:107 
+2015/02/02 18:12:29 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:27 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/02 18:12:29 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/02 18:12:29 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/02 18:14:25 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 18:14:25 [app.go:96] [I] http server Running on :8088
+2015/02/02 18:14:46 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 18:14:46 [app.go:96] [I] http server Running on :8088
+2015/02/02 18:15:01 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 18:15:01 [router.go:876] [C] the request url is  /article/update 
+2015/02/02 18:15:01 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/02 18:15:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:109 
+2015/02/02 18:15:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:27 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/02 18:15:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/02 18:15:01 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/02 18:16:59 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 18:16:59 [app.go:96] [I] http server Running on :8088
+2015/02/02 18:20:24 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 18:20:24 [app.go:96] [I] http server Running on :8088
+2015/02/02 18:21:12 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 18:21:12 [router.go:876] [C] the request url is  /article/update 
+2015/02/02 18:21:12 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/02 18:21:12 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:107 
+2015/02/02 18:21:12 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:27 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/02 18:21:12 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/02 18:21:12 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/02 18:25:42 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/02 18:25:42 [app.go:96] [I] http server Running on :8088
+2015/02/02 18:26:44 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/02 18:26:44 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/02 18:26:44 [router.go:845] [D] | POST       | /article/update                          | 191.0109ms       | match      | /article/update/*                        | 
+2015/02/02 18:49:09 [router.go:845] [D] | GET        | /                                        | 104.0059ms       | match      | /                                        | 
+2015/02/02 18:49:09 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 18:51:21 [router.go:845] [D] | GET        | /                                        | 75.0043ms        | match      | /                                        | 
+2015/02/02 18:51:21 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 19:02:06 [router.go:845] [D] | GET        | /                                        | 63.0036ms        | match      | /                                        | 
+2015/02/02 19:02:06 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/02 19:03:03 [router.go:845] [D] | GET        | /                                        | 90.0052ms        | match      | /                                        | 
+2015/02/02 19:03:04 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
