@@ -94,8 +94,11 @@
 							if (ui.placeholder.prevAll('footer').length) {
 								ui.placeholder.after(ui.placeholder.prevAll('footer'));
 							}
-							ui.placeholder.replaceWith(ui.item.clone());
-							$(this).sortable('cancel');
+							// 如果不是当前用户的作品
+							if(parseInt(ui.item.data('id')) != 1){
+								ui.placeholder.replaceWith(ui.item.clone());
+								$(this).sortable('cancel');
+							}
 						}
 					},
 					out: function(e, ui) {

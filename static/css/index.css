@@ -258,13 +258,16 @@ div.doc .doc-content {
 	font-size: 1.1em;
 	margin: 0 0 .5em;
 }
-div.doc .doc-remark {} div.doc .tools {
+div.doc .doc-remark {
+
+} 
+div.doc .tools {
 	margin-left: 10px;
 }
 div.doc .tools.del,
 div.doc .tools.edit {
 	font-size: 12px;
-	margin: 5px 5px 0 0;
+	margin: 5px 5px 0 5px;
 }
 div.doc:hover {
 	background: #eee;
@@ -282,7 +285,10 @@ div.doc .tools i {
 .frame .user-input .textarea {
 	margin: 0;
 }
-.frame .user-input.editing {} .frame .user-input textarea {
+.frame .user-input.editing {
+	
+} 
+.frame .user-input textarea {
 	height: 10em;
 	width: 530px !important;
 	min-height: 2em !important;

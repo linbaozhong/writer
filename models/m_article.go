@@ -2,13 +2,29 @@ package models
 
 import (
 	// "errors"
-	// "fmt"
+	"fmt"
 	"github.com/astaxie/beego/validation"
 	"strings"
 	"zouzhe/utils"
 )
 
 type Articles struct {
+	Id       int64  `json:"articleId"`
+	Title    string `json:"title" valid:"MaxSize(250)"`
+	Content  string `json:"content"`
+	Tags     string `json:"tags" valid:"MaxSize(250)"`
+	ParentId int64  `json:"parentId"`
+	Position int    `json:"position"`
+	Status   int    `json:"status" valid:"Range(0,1)"`
+	Deleted  int    `json:"deleted" valid:"Range(0,1)"`
+	Creator  int64  `json:"creator"`
+	Created  int64  `json:"created"`
+	Updator  int64  `json:"updator"`
+	Updated  int64  `json:"updated"`
+	Ip       string `json:"ip" valid:"MaxSize(23)"`
+}
+
+type Documents struct {
 	Id      int64  `json:"articleId"`
 	Title   string `json:"title" valid:"MaxSize(250)"`
 	Content string `json:"content"`
@@ -45,13 +61,32 @@ func (this *Articles) Update() (error, []Error) {
 	err := session.Begin()
 
 	if err != nil {
+		session.Rollback()
 		return err, nil
 	}
 
+	// 如果是新增，按index腾出位置
+	if this.Id == 0 {
+		// 找到id=this.Position参考文档的position
+		if this.Position > 0 {
+			_article := new(Articles)
+			if _has, err := session.Id(this.Position).Get(_article); err == nil && _has {
+				this.Position = _article.Position
+			}
+		}
+		// 更新其后文档的position
+		_, err = session.Exec("update 'articles' set position = position+1 where creator = ? and position > ?", this.Creator, this.Position)
+		if err != nil {
+			session.Rollback()
+			return err, nil
+		}
+	}
+
+	// 新增 or 修改
 	if this.Id == 0 {
 		_, err = session.Insert(this)
 	} else {
-		_, err = session.Cols("title", "content", "tags", "updator", "updated", "ip").Update(this)
+		_, err = session.Id(this.Id).Cols("title", "content", "tags", "updator", "updated", "ip").Update(this)
 	}
 
 	if err != nil {
@@ -102,20 +137,40 @@ func (this *Articles) Update() (error, []Error) {
 			return err, nil
 		}
 		// 建立新的标签-文章的索引
-		tagArticle := new(TagArticle)
+		tagArticles := make([]TagArticle, 0)
 		for _, id := range ids {
-			tagArticle.TagId = id
-			tagArticle.ArticleId = this.Id
-
-			_, err = session.Insert(tagArticle)
-			if err != nil {
-				session.Rollback()
-				return err, nil
-			}
+			tagArticles = append(tagArticles, TagArticle{TagId: id, ArticleId: this.Id})
+		}
+		fmt.Println(tagArticles)
+		_, err = session.Insert(tagArticles)
+		if err != nil {
+			session.Rollback()
+			return err, nil
 		}
 	}
 	// add Commit() after all actions
 	err = session.Commit()
 
 	return err, nil
+}
+
+// 读取
+func (this *Articles) Get() (bool, error) {
+	return db.Get(this)
+}
+
+// 分页列表
+func (this *Articles) List(where string, page *Pagination) ([]Articles, error) {
+	as := make([]Articles, 0)
+	// 符合条件的记录总数
+	a := new(Articles)
+
+	if rows, err := db.Where(where).Count(a); err != nil {
+		return as, err
+	} else {
+		getPageCount(rows, page)
+	}
+
+	err := db.Where(where).Asc("position").Limit(page.Size, page.Index*page.Size).Find(&as)
+	return as, err
 }

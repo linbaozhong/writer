@@ -5,15 +5,11 @@
 			<header>
 				<form class="doc user-input native" style="display:none;">
 					<input type="hidden" name="id" id="doc-id" value="" />
+					<input type="hidden" name="parentId" id="doc-parentId" value="" />
+					<input type="hidden" name="position" id="doc-position" value="" />
 					<script id="myEditor" name="content" type="text/plain">
 
 					</script>
-					<!--<div class="input-control textarea">
-						<textarea id="myEditor" name="content" rows="" cols="" placeholder="写点儿什么……"></textarea>
-					</div>-->
-					<!--<div class="form-actions input-control text">
-						<input type="text" name="tags" id="tags" value="" placeholder="标签" />
-					</div>-->
 					<div class="form-actions text-right" style="margin-top: 10px;">
 						<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
 						<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
@@ -24,230 +20,6 @@
 				</div>
 			</header>
 
-			<div class="doc" data-id="1">
-				<div class="doc-tools">
-					<a href="javascript:;" class="tools edit icon-pencil">
-					</a>
-					<a href="javascript:;" class="tools del icon-cancel-2">
-					</a>
-				</div>
-				<article class="doc-info">
-					<div class="doc-content">
-						<h2>
-
-
-
-					标题标题标题标题标题标题
-
-
-
-				</h2>
-						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-					</div>
-				</article>
-				<footer class="text-center">
-					<div class="pos-abs">
-						<span class="doc-remark"></span>
-					</div>
-					<div class="doc-tools">
-						<span class="tools icon-new-tab"><i>456</i></span>
-						<span class="tools icon-heart-2"><i>123</i></span>
-					</div>
-					<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
-				</footer>
-			</div>
-			<div class="doc">
-				<div class="doc-tools">
-					<a href="javascript:;" class="tools edit icon-pencil">
-					</a>
-					<a href="javascript:;" class="tools del icon-cancel-2">
-					</a>
-				</div>
-				<article class="doc-info">
-					<div class="doc-content">
-						<h2>
-
-
-
-					标题标题标题标题标题标题
-
-
-
-				</h2>
-						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-					</div>
-				</article>
-				<footer class="text-center">
-					<div class="pos-abs">
-						<span class="doc-remark"></span>
-					</div>
-					<div class="doc-tools">
-						<span class="tools icon-new-tab"><i>456</i></span>
-						<span class="tools icon-heart-2"><i>123</i></span>
-					</div>
-					<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
-				</footer>
-			</div>
-			<div class="doc">
-				<div class="doc-tools">
-					<a href="javascript:;" class="tools edit icon-pencil">
-					</a>
-					<a href="javascript:;" class="tools del icon-cancel-2">
-					</a>
-				</div>
-				<article class="doc-info">
-					<div class="doc-content">
-						<h3>
-
-
-
-					标题标题标题标题标题标题
-
-
-
-				</h3>
-						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-					</div>
-				</article>
-				<footer class="text-center">
-					<div class="pos-abs">
-						<span class="doc-remark"></span>
-					</div>
-					<div class="doc-tools">
-						<span class="tools icon-new-tab"><i>456</i></span>
-						<span class="tools icon-heart-2"><i>123</i></span>
-					</div>
-					<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
-				</footer>
-			</div>
-			<div class="doc">
-				<div class="doc-tools">
-					<a href="javascript:;" class="tools edit icon-pencil">
-					</a>
-					<a href="javascript:;" class="tools del icon-cancel-2">
-					</a>
-				</div>
-				<article class="doc-info">
-					<div class="doc-content">
-						<h3>
-
-
-
-					1111111111111111111111111111111
-
-
-
-				</h3>
-						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-					</div>
-				</article>
-				<footer class="text-center">
-					<div class="pos-abs">
-						<span class="doc-remark"></span>
-					</div>
-					<div class="doc-tools">
-						<span class="tools icon-new-tab"><i>456</i></span>
-						<span class="tools icon-heart-2"><i>123</i></span>
-					</div>
-					<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
-				</footer>
-			</div>
-			<div class="doc">
-				<div class="doc-tools">
-					<a href="javascript:;" class="tools edit icon-pencil">
-					</a>
-					<a href="javascript:;" class="tools del icon-cancel-2">
-					</a>
-				</div>
-				<article class="doc-info">
-					<div class="doc-content">
-						<h3>
-
-
-
-					2222222222222222222222222
-
-
-
-				</h3>
-						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-					</div>
-				</article>
-				<footer class="text-center">
-					<div class="pos-abs">
-						<span class="doc-remark"></span>
-					</div>
-					<div class="doc-tools">
-						<span class="tools icon-new-tab"><i>456</i></span>
-						<span class="tools icon-heart-2"><i>123</i></span>
-					</div>
-					<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
-				</footer>
-			</div>
-			<div class="doc">
-				<div class="doc-tools">
-					<a href="javascript:;" class="tools edit icon-pencil">
-					</a>
-					<a href="javascript:;" class="tools del icon-cancel-2">
-					</a>
-				</div>
-				<article class="doc-info">
-					<div class="doc-content">
-						<h3>
-
-
-
-					3333
-
-
-
-				</h3>
-						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-					</div>
-				</article>
-				<footer class="text-center">
-					<div class="pos-abs">
-						<span class="doc-remark"></span>
-					</div>
-					<div class="doc-tools">
-						<span class="tools icon-new-tab"><i>456</i></span>
-						<span class="tools icon-heart-2"><i>123</i></span>
-					</div>
-					<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
-				</footer>
-			</div>
-			<div class="doc">
-				<div class="doc-tools">
-					<a href="javascript:;" class="tools edit icon-pencil">
-					</a>
-					<a href="javascript:;" class="tools del icon-cancel-2">
-					</a>
-				</div>
-				<article class="doc-info">
-					<div class="doc-content">
-						<h3>
-
-
-
-					44444444444
-
-
-
-				</h3>
-						<p>正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文</p>
-					</div>
-				</article>
-				<footer class="text-center">
-					<div class="pos-abs">
-						<span class="doc-remark"></span>
-					</div>
-					<div class="doc-tools">
-						<span class="tools icon-new-tab"><i>456</i></span>
-						<span class="tools icon-heart-2"><i>123</i></span>
-					</div>
-					<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>
-				</footer>
-			</div>
 			<footer>
 				<div class="mask" />
 			</footer>
@@ -327,6 +99,7 @@ $(function(){
 			_form = _that.closest('form.user-input'),
 			_frame = _form.closest('.frame'),
 			_id = _form.find('input[name="id"]').val(),
+			_position = _form.find('input[name="position"]').val(),
 			_content = snow.ue.getContent().replace(/[\s]+/g,' '),
 			_contentTxt = snow.ue.getContentTxt();
 
@@ -350,26 +123,40 @@ $(function(){
 			snow.log(_tags);
 			//保存
 			$.post(snow.api.docSave
-				,{id:_id,title:_title,content:_content,tags:_tags.join(',')}
+				,{
+					id:_id,
+					title:_title,
+					content:_content,
+					tags:_tags.join(','),
+					position:_position
+				}
 				,function(result){
-					snow.log(result);
+					if(result.ok){
+						// 新建文档
+						if ($.trim(_id).length) {
+							alert(0);
+							// 编辑修改，修改form之前的doc
+							var __doc = _form.prev('div.doc');
+							__doc.find('.doc-content').html(_content);
+						} else {
+							alert(1);
+							// 在_form之前插入一个新doc
+							_form.after(snow.docTemplate.join('')
+								.replace('<%.id%>',result.data.articleId)
+								.replace('<%.parentId%>',result.data.parentId)
+								.replace('<%.position%>',result.data.position)
+								.replace('<%.content%>',result.data.content)
+							);
+						}
+					}
 				}
 			);
-
-			var __doc = _form.prev('div.doc');
-			
-			// 新建文档
-			if ($.trim(_id).length) {
-				// 在_form之前插入一个新doc
-			} else {
-				// 编辑修改，修改form之前的doc
-				__doc.find('.doc-content').html(_content);
-			}
 		} else { //取消
 
 		}
 		// 复原
 		_form.removeClass('editing').slideUp(snow.speed, function() {
+			snow.ue.reset();
 			// 顶端新增按钮
 			if (_form.prev('div.doc-add').length) {
 				_form.prev('div.doc-add').fadeIn(function() {
@@ -382,20 +169,8 @@ $(function(){
 			} else {
 				snow.docResize(_frame);
 			}
-		}).find('textarea').val('');
+		});
 	});
-	/* 增加单个文档
-	 * frame:容器
-	 * doc:文档
-	 * before:文档位置，true表示最前，false表示最后
-	 */
-	snow.addDoc = function(frame, doc, before) {
-		if (before) {
-			frame.find('>header').after(doc);
-		} else {
-			frame.find('>footer').before(doc);
-		}
-	}
 
 	//
 	snow.left.on('mousewheel', '.frame', function(e, delta) {
@@ -443,7 +218,7 @@ $(function(){
 				active: false
 			}, function(frame) {
 				frame.prepend('<footer><div class="mask" /></footer>');
-				//frame.prepend($('<header />').append(snow.editor.clone(true)));
+
 				frame.prepend(
 					$('<header />').append('<div class="doc-add text-center padding20">' + '<a href="javascript:;" class="doc-plus">新<i class="icon-plus on-right on-left"></i>建</a>' + '</div>')
 				);
@@ -483,6 +258,8 @@ $(function(){
 		var _doc = $(this).closest('div.doc').hide();
 		// 赋值
 		snow.editor.find('input[name="id"]').val(_doc.data('id'));
+		snow.editor.find('input[name="position"]').val(_doc.data('position'));
+		snow.editor.find('input[name="parentId"]').val(_doc.data('parentId'));
 
 		_doc.after(snow.editor.click().slideDown(snow.speed, function() {
 			snow.ue.setContent(_doc.find('.doc-content').html());
@@ -503,7 +280,8 @@ $(function(){
 
 		// 赋值
 		snow.editor.find('input[name="id"]').val('');
-		snow.ue.setContent('');
+		snow.editor.find('input[name="position"]').val(_doc.data('id'));
+		snow.editor.find('input[name="parentId"]').val(_doc.data('parentId'));
 
 		snow.editor.click().slideDown(snow.speed);
 	}).on('click', '.frame header .doc-plus', function(e) {
@@ -517,11 +295,66 @@ $(function(){
 
 		// 赋值
 		snow.editor.find('input[name="id"]').val('');
-		snow.ue.setContent('');
+		snow.editor.find('input[name="position"]').val('');
+		snow.editor.find('input[name="parentId"]').val(_doc.closest('.frame').data('parentId'));
 
 		_doc.append(snow.editor.click().slideDown(snow.speed));
 	});
 
+	// 文档模板
+	snow.docTemplate = [];
+	snow.docTemplate.push('<div class="doc" data-id="<%.id%>" data-parentId="<%.parentId%>" data-position="<%.position%>">');
+		snow.docTemplate.push('<div class="doc-tools">');
+			snow.docTemplate.push('<a href="javascript:;" class="tools edit icon-pencil"></a>');
+			snow.docTemplate.push('<a href="javascript:;" class="tools del icon-cancel-2"></a>');
+		snow.docTemplate.push('</div>');
+		snow.docTemplate.push('<article class="doc-info">');
+			snow.docTemplate.push('<div class="doc-content">');
+			snow.docTemplate.push('<%.content%>');	
+			snow.docTemplate.push('</div>');
+		snow.docTemplate.push('</article>');
+		snow.docTemplate.push('<footer class="text-center">');
+			snow.docTemplate.push('<div class="pos-abs">');
+				snow.docTemplate.push('<span class="doc-remark"></span>');
+			snow.docTemplate.push('</div>');
+			snow.docTemplate.push('<div class="doc-tools">');
+				snow.docTemplate.push('<span class="tools icon-new-tab"><i>456</i></span>');
+				snow.docTemplate.push('<span class="tools icon-heart-2"><i>123</i></span>');
+			snow.docTemplate.push('</div>');
+			snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>');
+		snow.docTemplate.push('</footer>');
+	snow.docTemplate.push('</div>');
+	/* 增加单个文档
+	 * frame:容器
+	 * doc:文档
+	 * before:文档位置，true表示最前，false表示最后
+	 */
+	snow.addDoc = function(frame, doc, before) {
+		if (before) {
+			frame.find('>header').after(doc);
+		} else {
+			frame.find('>footer').before(doc);
+		}
+	}
+	// 首次加载
+	$.post(snow.api.docList,{},function(result){
+				snow.log(result);
+		if (result.ok) {
+			var _docs = result.data
+				,_tpl = snow.docTemplate.join('');
+
+			$.each(_docs,function(index,_doc){
+				snow.addDoc(
+					snow.left.find('.frame').eq(0).data('parentId',0)
+					,_tpl.replace('<%.id%>',_doc.articleId)
+						.replace('<%.parentId%>',_doc.parentId)
+						.replace('<%.position%>',_doc.position)
+						.replace('<%.content%>',_doc.content)
+				);
+
+			});
+		};
+	});
 	// 选中第一个文档
 	//snow.left.find('.frame div.doc').eq(0).click();
 
