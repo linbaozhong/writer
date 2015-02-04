@@ -8,24 +8,42 @@ import (
 	"zouzhe/utils"
 )
 
-type Articles struct {
-	Id       int64  `json:"articleId"`
-	Title    string `json:"title" valid:"MaxSize(250)"`
-	Content  string `json:"content"`
-	Tags     string `json:"tags" valid:"MaxSize(250)"`
-	ParentId int64  `json:"parentId"`
-	Position int    `json:"position"`
-	Status   int    `json:"status" valid:"Range(0,1)"`
-	Deleted  int    `json:"deleted" valid:"Range(0,1)"`
-	Creator  int64  `json:"creator"`
-	Created  int64  `json:"created"`
-	Updator  int64  `json:"updator"`
-	Updated  int64  `json:"updated"`
-	Ip       string `json:"ip" valid:"MaxSize(23)"`
+// article视图
+type Article struct {
+	Id         int64  `json:"articleId"`
+	Title      string `json:"title" valid:"MaxSize(250)"`
+	Content    string `json:"content"`
+	Tags       string `json:"tags" valid:"MaxSize(250)"`
+	ParentId   int64  `json:"parentId"`
+	Position   int    `json:"position"`
+	DocumentId int64  `json:"documentId"`
+	Status     int    `json:"status" valid:"Range(0,1)"`
+	Deleted    int    `json:"deleted" valid:"Range(0,1)"`
+	Creator    int64  `json:"creator"`
+	Created    int64  `json:"created"`
+	Updator    int64  `json:"updator"`
+	Updated    int64  `json:"updated"`
+	Ip         string `json:"ip" valid:"MaxSize(23)"`
 }
 
+// Articles表
+type Articles struct {
+	Id         int64  `json:"articleId"`
+	ParentId   int64  `json:"parentId"`
+	Position   int    `json:"position"`
+	DocumentId int64  `json:"documentId"`
+	Status     int    `json:"status" valid:"Range(0,1)"`
+	Deleted    int    `json:"deleted" valid:"Range(0,1)"`
+	Creator    int64  `json:"creator"`
+	Created    int64  `json:"created"`
+	Updator    int64  `json:"updator"`
+	Updated    int64  `json:"updated"`
+	Ip         string `json:"ip" valid:"MaxSize(23)"`
+}
+
+// Documents表
 type Documents struct {
-	Id      int64  `json:"articleId"`
+	Id      int64  `json:"documentId"`
 	Title   string `json:"title" valid:"MaxSize(250)"`
 	Content string `json:"content"`
 	Tags    string `json:"tags" valid:"MaxSize(250)"`
@@ -39,17 +57,17 @@ type Documents struct {
 }
 
 // 文章是否存在
-func (this *Articles) Exists() (bool, error) {
+func (this *Article) Exists() (bool, error) {
 	return db.Get(this)
 }
 
 // 自定义数据验证
-func (this *Articles) Valid(v *validation.Validation) {
+func (this *Article) Valid(v *validation.Validation) {
 
 }
 
 // 新文章
-func (this *Articles) Update() (error, []Error) {
+func (this *Article) Update() (error, []Error) {
 	//数据有效性检验
 	if d, err := dataCheck(this); err != nil {
 		return err, d
@@ -57,7 +75,7 @@ func (this *Articles) Update() (error, []Error) {
 
 	session := db.NewSession()
 	defer session.Close()
-	// add Begin() before any action
+	// 事务开始
 	err := session.Begin()
 
 	if err != nil {
@@ -65,34 +83,69 @@ func (this *Articles) Update() (error, []Error) {
 		return err, nil
 	}
 
+	// articles对象
+	_article := new(Articles)
+	_article.Id = this.Id
+	_article.ParentId = this.ParentId
+	_article.Position = this.Position
+	_article.DocumentId = this.DocumentId
+	_article.Creator = this.Creator
+	_article.Created = this.Created
+	_article.Updator = this.Updator
+	_article.Updated = this.Updated
+	_article.Ip = this.Ip
+
+	// documents对象
+	_document := new(Documents)
+	_document.Id = this.DocumentId
+	_document.Title = this.Title
+	_document.Content = this.Content
+	_document.Tags = this.Tags
+	_document.Creator = this.Creator
+	_document.Created = this.Created
+	_document.Updator = this.Updator
+	_document.Updated = this.Updated
+	_document.Ip = this.Ip
+
 	// 如果是新增，按index腾出位置
 	if this.Id == 0 {
 		// 找到id=this.Position参考文档的position
 		if this.Position > 0 {
-			_article := new(Articles)
-			if _has, err := session.Id(this.Position).Get(_article); err == nil && _has {
-				this.Position = _article.Position
+			if _results, err := session.Query("select position from articles where id=?", this.Position); len(_results) > 0 && err == nil {
+				this.Position = utils.Bytes2int(_results[0]["position"])
 			}
 		}
 		// 更新其后文档的position
-		_, err = session.Exec("update 'articles' set position = position+1 where creator = ? and position > ?", this.Creator, this.Position)
-		if err != nil {
+		if _, err = session.Exec("update 'articles' set position = position+1 where creator = ? and position > ?", this.Creator, this.Position); err != nil {
+			session.Rollback()
+			return err, nil
+		}
+
+		// 先 insert documents 附表
+		if _, err = session.Insert(_document); err != nil {
+			session.Rollback()
+			return err, nil
+		}
+
+		// insert articles 主表
+		_article.DocumentId = _document.Id //主附表映射
+		if _, err = session.Insert(_article); err != nil {
+			session.Rollback()
+			return err, nil
+		}
+	} else {
+		// Update articles 主表
+		if _, err = session.Id(_article.Id).Cols("updator", "updated", "ip").Update(_article); err != nil {
+			session.Rollback()
+			return err, nil
+		}
+		// Update documents 附表
+		if _, err = session.Id(_document.Id).Cols("title", "content", "tags", "updator", "updated", "ip").Update(_document); err != nil {
 			session.Rollback()
 			return err, nil
 		}
 	}
 
-	// 新增 or 修改
-	if this.Id == 0 {
-		_, err = session.Insert(this)
-	} else {
-		_, err = session.Id(this.Id).Cols("title", "content", "tags", "updator", "updated", "ip").Update(this)
-	}
-
-	if err != nil {
-		session.Rollback()
-		return err, nil
-	}
 	// 检查tags是否为空
 	if len(this.Tags) != 0 {
 		_tags := strings.Split(this.Tags, ",")
@@ -148,29 +201,41 @@ func (this *Articles) Update() (error, []Error) {
 			return err, nil
 		}
 	}
-	// add Commit() after all actions
+	// 提交事务
 	err = session.Commit()
 
 	return err, nil
 }
 
 // 读取
-func (this *Articles) Get() (bool, error) {
-	return db.Get(this)
+func (this *Article) Get() (bool, error) {
+	return db.Sql("select articles.*,documents.title,documents.content from articles,documents where documents.id=articles.documentId and articles.id=?", this.Id).Get(this)
 }
 
 // 分页列表
-func (this *Articles) List(where string, page *Pagination) ([]Articles, error) {
-	as := make([]Articles, 0)
-	// 符合条件的记录总数
-	a := new(Articles)
+func (this *Article) List(condition string, page *Pagination) ([]Article, error) {
+	// select 语句对象
+	_sql := &Sqlstr{}
+	_sql.Field = "articles.*,documents.title,documents.content"
+	_sql.From = "articles,documents"
+	_sql.Where = "documents.id = articles.documentId"
+	_sql.OrderBy = "articles.parentId,articles.position"
 
-	if rows, err := db.Where(where).Count(a); err != nil {
-		return as, err
-	} else {
-		getPageCount(rows, page)
+	if strings.TrimSpace(condition) != "" {
+		_sql.Where += " and " + condition
 	}
 
-	err := db.Where(where).Asc("position").Limit(page.Size, page.Index*page.Size).Find(&as)
-	return as, err
+	as := make([]Article, 0)
+	// 读取符合条件的记录总数
+	if rows := getCount(_sql); rows > 0 {
+
+		getPageCount(rows, page)
+
+		_sql.Size = page.Size
+		_sql.Offset = page.Index * page.Size
+
+		err := db.Sql(getSelect(_sql)).Find(&as)
+		return as, err
+	}
+	return as, nil
 }

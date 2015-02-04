@@ -11,7 +11,7 @@ type Article struct {
 }
 
 func (this *Article) Update() {
-	article := new(models.Articles)
+	article := new(models.Article)
 
 	if id, err := this.GetInt64("id"); err == nil {
 		article.Id = id
@@ -56,7 +56,7 @@ func (this *Article) Get() {
 	}
 
 	//
-	a := new(models.Articles)
+	a := new(models.Article)
 	a.Id = id
 
 	if has, err := a.Get(); err == nil {
@@ -97,7 +97,7 @@ func (this *Article) List() {
 	}
 
 	// 拉取
-	a := new(models.Articles)
+	a := new(models.Article)
 
 	if as, err := a.List(cond, p); err != nil {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))

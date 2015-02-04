@@ -10,6 +10,8 @@ import (
 	"github.com/go-xorm/xorm"
 	_ "github.com/mattn/go-sqlite3"
 	"math"
+	"strings"
+	"zouzhe/utils"
 )
 
 //页面公共信息
@@ -141,8 +143,8 @@ func getPageCount(rows int64, page *Pagination) {
 func Lock(table string, id int64) error {
 	sql := "update `" + table + "` set locked=? where id=?"
 	_, err := db.Exec(sql, Locked, id)
-	
-	fmt.Println(table, Locked,err)
+
+	fmt.Println(table, Locked, err)
 	return err
 }
 
@@ -150,8 +152,8 @@ func Lock(table string, id int64) error {
 func UnLock(table string, id int64) error {
 	sql := "update `" + table + "` set locked=? where id=?"
 	_, err := db.Exec(sql, Unlock, id)
-	
-	fmt.Println(table, Unlock,err)
+
+	fmt.Println(table, Unlock, err)
 	return err
 }
 
@@ -159,8 +161,8 @@ func UnLock(table string, id int64) error {
 func Delete(table string, id int64) error {
 	sql := "update `" + table + "` set deleted=? where id=?"
 	_, err := db.Exec(sql, Deleted, id)
-	
-	fmt.Println(table, Deleted,err)
+
+	fmt.Println(table, Deleted, err)
 	return err
 }
 
@@ -168,7 +170,59 @@ func Delete(table string, id int64) error {
 func UnDelete(table string, id int64) error {
 	sql := "update `" + table + "` set deleted=? where id=?"
 	_, err := db.Exec(sql, Undelete, id)
-	
-	fmt.Println(table, Undelete,err)
+
+	fmt.Println(table, Undelete, err)
 	return err
+}
+
+// ---------- 数据库 DAL 层 -------------------
+
+// Select 语句
+type Sqlstr struct {
+	Field   string
+	From    string
+	Where   string
+	OrderBy string
+	Size    int
+	Offset  int
+}
+
+// 生成Select语句
+func getSelect(s *Sqlstr) string {
+	_sql := make([]string, 0)
+	_sql = append(_sql, "select "+s.Field+" from "+s.From)
+
+	if strings.TrimSpace(s.Where) != "" {
+		_sql = append(_sql, "where "+s.Where)
+	}
+
+	if strings.TrimSpace(s.OrderBy) != "" {
+		_sql = append(_sql, "order by  "+s.OrderBy)
+	}
+
+	if s.Size > 0 {
+		_sql = append(_sql, fmt.Sprintf("limit %d offset %d", s.Size, s.Offset))
+	}
+
+	return strings.Join(_sql, " ")
+}
+
+// 记录数目统计
+func getCount(s *Sqlstr) int64 {
+	sqlstr := make([]string, 0)
+	sqlstr = append(sqlstr, "select count(*) as counts from "+s.From)
+
+	if strings.TrimSpace(s.Where) != "" {
+		sqlstr = append(sqlstr, "where "+s.Where)
+	}
+
+	return utils.Str2int64(getSingle(strings.Join(sqlstr, " "), "counts"))
+}
+
+// 返回第一行第一个字段的字符串形式
+func getSingle(sql string, field string) string {
+	if rows, err := db.Query(sql); len(rows) > 0 && err == nil {
+		return string(rows[0][field])
+	}
+	return ""
 }

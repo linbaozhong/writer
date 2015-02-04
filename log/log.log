@@ -814,3 +814,696 @@
 2015/02/03 18:07:49 [app.go:96] [I] http server Running on :8088
 2015/02/03 18:31:11 [main.go:17] [I] writer 0.1.14.1105 
 2015/02/03 18:31:11 [app.go:96] [I] http server Running on :8088
+2015/02/04 12:25:17 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 12:25:18 [app.go:96] [I] http server Running on :8088
+2015/02/04 12:26:05 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 12:26:05 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:05:29 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:05:29 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:13:41 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:13:41 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:14:03 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:14:03 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:14:03 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:195 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:222 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:14:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:14:03 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:16:48 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:16:48 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:16:52 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:16:52 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:16:52 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:195 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:16:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:16:52 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:19:45 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:19:45 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:19:48 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:19:48 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:19:48 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:195 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:19:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:19:48 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:19:51 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:19:51 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:19:51 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:195 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:19:51 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:19:51 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:20:29 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:20:29 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:20:34 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:20:34 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:20:34 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:195 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:20:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:20:34 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:21:33 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:21:33 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:21:35 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:21:35 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:21:35 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:21:35 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:21:35 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:24:59 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:24:59 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:25:03 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:25:03 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:25:03 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:25:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:25:03 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:26:34 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:26:34 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:26:34 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:26:34 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:26:34 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:26:34 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:26:34 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:26:37 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:26:37 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:26:37 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:26:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:26:37 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:27:17 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:27:17 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:27:21 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:27:21 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:27:21 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:27:21 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:27:21 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:27:30 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:27:30 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:27:30 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:27:30 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:27:30 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:27:32 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:27:32 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:27:32 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:27:32 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:27:32 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:27:54 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:27:54 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:28:01 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:28:01 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:28:01 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:196 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:28:01 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:28:01 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:30:56 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:30:56 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:31:16 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:31:16 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:31:16 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:199 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:191 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:31:16 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:31:16 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:32:02 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:32:02 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:32:05 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:32:05 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:32:05 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:199 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:191 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:32:05 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:32:05 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:33:19 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:33:19 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:33:22 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:33:22 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 16:33:22 [router.go:877] [C] Handler crashed with error reflect: NumField of non-struct type 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/reflect/type.go:658 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:685 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:623 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:633 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/rows.go:37 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/session.go:895 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/go-xorm/xorm/engine.go:1454 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:198 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:191 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 16:33:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 16:33:22 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 16:35:43 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:35:43 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:35:46 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:35:46 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 16:35:46 [router.go:845] [D] | GET        | /article/list                            | 6.0004ms         | match      | /article/list/*                          | 
+2015/02/04 16:38:05 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:38:05 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 16:38:05 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/04 16:51:19 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 16:51:19 [app.go:96] [I] http server Running on :8088
+2015/02/04 16:51:26 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 16:51:26 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 16:51:26 [router.go:845] [D] | GET        | /article/list                            | 5.0002ms         | match      | /article/list/*                          | 
+2015/02/04 17:08:00 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:08:00 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:08:06 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:08:06 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:08:06 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 17:09:28 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:09:28 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:09:33 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:09:33 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:09:33 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 17:12:41 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:12:41 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:12:44 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:12:44 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:12:44 [router.go:877] [C] Handler crashed with error reflect: call of reflect.Value.Field on ptr Value 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:307 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:867 
+2015/02/04 17:12:44 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/init.go:66 
+2015/02/04 17:12:44 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:198 
+2015/02/04 17:12:44 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:190 
+2015/02/04 17:12:44 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:12:44 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:12:44 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:12:44 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:13:45 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:13:45 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:13:48 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:13:48 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:13:48 [router.go:877] [C] Handler crashed with error reflect: call of reflect.Value.MapKeys on ptr Value 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:307 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:1230 
+2015/02/04 17:13:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/init.go:66 
+2015/02/04 17:13:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:198 
+2015/02/04 17:13:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:190 
+2015/02/04 17:13:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:13:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:13:48 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:13:48 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:15:52 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:15:52 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:15:52 [router.go:877] [C] Handler crashed with error reflect: call of reflect.Value.MapKeys on ptr Value 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:307 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:1230 
+2015/02/04 17:15:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/init.go:66 
+2015/02/04 17:15:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:198 
+2015/02/04 17:15:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:190 
+2015/02/04 17:15:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:15:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:15:52 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:15:52 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:17:01 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:17:01 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:17:03 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:17:03 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:17:03 [router.go:877] [C] Handler crashed with error reflect: call of reflect.Value.Field on ptr Value 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:307 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:867 
+2015/02/04 17:17:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/init.go:66 
+2015/02/04 17:17:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:198 
+2015/02/04 17:17:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:190 
+2015/02/04 17:17:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:17:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:17:03 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:17:03 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:18:20 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:18:20 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:18:22 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:18:22 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:18:22 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 17:20:32 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:20:32 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:20:37 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:20:37 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:20:37 [router.go:877] [C] Handler crashed with error reflect: call of reflect.Value.Field on ptr Value 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:307 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:867 
+2015/02/04 17:20:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/init.go:66 
+2015/02/04 17:20:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:200 
+2015/02/04 17:20:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:192 
+2015/02/04 17:20:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:20:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:20:37 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:20:37 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:21:46 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:21:46 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:21:47 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:21:47 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:21:47 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/04 17:22:46 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:22:46 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:23:05 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:23:05 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:23:05 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/04 17:36:21 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:36:21 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:39:16 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:39:16 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:39:22 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:39:22 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:39:22 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 17:41:22 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:41:22 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:41:22 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/04 17:43:07 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:43:07 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:43:32 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:43:32 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:43:32 [router.go:845] [D] | GET        | /article/list                            | 4.0003ms         | match      | /article/list/*                          | 
+2015/02/04 17:43:35 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:43:35 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:43:35 [router.go:845] [D] | GET        | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/04 17:44:40 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:44:41 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:44:44 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:44:44 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:44:44 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/04 17:45:19 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:45:19 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:45:22 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:45:22 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:45:22 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/04 17:46:05 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:46:06 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:46:07 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:46:07 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:46:07 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/04 17:46:41 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:46:41 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:46:44 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:46:44 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:46:44 [router.go:845] [D] | GET        | /article/list                            | 6.0003ms         | match      | /article/list/*                          | 
+2015/02/04 17:47:44 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:47:44 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:49:53 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:49:53 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:51:20 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:51:20 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:51:20 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/encoding/binary/binary.go:110 
+2015/02/04 17:51:20 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/convert.go:31 
+2015/02/04 17:51:20 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 17:51:20 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:51:20 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:51:20 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:51:20 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:53:59 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:53:59 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:53:59 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/encoding/binary/binary.go:110 
+2015/02/04 17:53:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/convert.go:31 
+2015/02/04 17:53:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 17:53:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:53:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:53:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:53:59 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:54:46 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:54:46 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:55:08 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:55:08 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:55:08 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/encoding/binary/binary.go:110 
+2015/02/04 17:55:08 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/convert.go:31 
+2015/02/04 17:55:08 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 17:55:08 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:55:08 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:55:08 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:55:08 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:55:56 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:55:56 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:55:59 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:55:59 [router.go:876] [C] the request url is  /article/list 
+2015/02/04 17:55:59 [router.go:877] [C] Handler crashed with error runtime error: index out of range 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:466 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/encoding/binary/binary.go:110 
+2015/02/04 17:55:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/zouzhe/utils/convert.go:32 
+2015/02/04 17:55:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_base.go:188 
+2015/02/04 17:55:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/models/m_article.go:221 
+2015/02/04 17:55:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_articles.go:102 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/02/04 17:55:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/02/04 17:55:59 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/02/04 17:59:27 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 17:59:27 [app.go:96] [I] http server Running on :8088
+2015/02/04 17:59:29 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 17:59:29 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 17:59:29 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 18:03:59 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:03:59 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:04:08 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 18:04:08 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 18:04:08 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/04 18:15:45 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:15:45 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:15:52 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 18:15:52 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 18:15:52 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/04 18:26:04 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:26:04 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:26:06 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:26:06 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:26:14 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 18:26:14 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 18:26:14 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 18:31:09 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:31:09 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:40:29 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:40:29 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:41:58 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:41:58 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:50:14 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:50:15 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:50:46 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 18:50:46 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 18:50:46 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 18:50:50 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 18:50:50 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 18:50:50 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/04 18:51:19 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:51:19 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:51:23 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 18:51:23 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 18:51:23 [router.go:845] [D] | GET        | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/04 18:53:26 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:53:26 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:54:02 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:54:03 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:56:02 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:56:02 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:56:28 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:56:28 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:56:33 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/04 18:56:33 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/04 18:56:33 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/04 18:57:32 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:57:32 [app.go:96] [I] http server Running on :8088
+2015/02/04 18:57:42 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 18:57:42 [app.go:96] [I] http server Running on :8088
+2015/02/04 19:00:47 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/04 19:00:47 [app.go:96] [I] http server Running on :8088
