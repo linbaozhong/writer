@@ -1507,3 +1507,510 @@
 2015/02/04 18:57:42 [app.go:96] [I] http server Running on :8088
 2015/02/04 19:00:47 [main.go:17] [I] writer 0.1.14.1105 
 2015/02/04 19:00:47 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:25:03 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:25:04 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:33:20 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:33:20 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:44:15 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:44:15 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:44:44 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:44:44 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:45:11 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 12:45:11 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 12:45:11 [router.go:845] [D] | GET        | /article/list                            | 4.0003ms         | match      | /article/list/*                          | 
+2015/02/05 12:48:38 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:48:38 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:48:42 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 12:48:42 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 12:48:42 [router.go:845] [D] | GET        | /article/list                            | 5.0002ms         | match      | /article/list/*                          | 
+2015/02/05 12:48:55 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:48:55 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:48:58 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 12:48:58 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 12:48:58 [router.go:845] [D] | GET        | /article/list                            | 7.0004ms         | match      | /article/list/*                          | 
+2015/02/05 12:52:27 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:52:27 [app.go:96] [I] http server Running on :8088
+2015/02/05 12:53:09 [log.go:108] [D] Article/Get Info:1,  qq 
+2015/02/05 12:53:09 [log.go:108] [D] Article/Get Info:zh-CN 
+2015/02/05 12:53:09 [router.go:845] [D] | GET        | /article/get                             | 7.0004ms         | match      | /article/get/*                           | 
+2015/02/05 12:58:12 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 12:58:12 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:17:05 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:17:05 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:17:36 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:17:36 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:17:44 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:17:44 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:18:14 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:18:14 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:25:53 [log.go:108] [D] Article/Position Info:1,  qq 
+2015/02/05 13:25:53 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/02/05 13:25:53 [router.go:845] [D] | GET        | /article/position                        | 5.0003ms         | match      | /article/position/*                      | 
+2015/02/05 13:25:59 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 13:25:59 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 13:25:59 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/05 13:28:45 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:28:45 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:28:58 [log.go:108] [D] Article/Position Info:1,  qq 
+2015/02/05 13:28:58 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/02/05 13:28:58 [router.go:845] [D] | GET        | /article/position                        | 101.0058ms       | match      | /article/position/*                      | 
+2015/02/05 13:29:04 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 13:29:04 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 13:29:04 [router.go:845] [D] | GET        | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 13:31:14 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:31:14 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:31:22 [log.go:108] [D] Article/Position Info:1,  qq 
+2015/02/05 13:31:22 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/02/05 13:31:22 [router.go:845] [D] | GET        | /article/position                        | 94.0053ms        | match      | /article/position/*                      | 
+2015/02/05 13:31:25 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 13:31:25 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 13:31:25 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/05 13:31:29 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 13:31:29 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 13:31:29 [router.go:845] [D] | GET        | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 13:32:04 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:32:04 [app.go:96] [I] http server Running on :8088
+2015/02/05 13:47:50 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 13:47:51 [app.go:96] [I] http server Running on :8088
+2015/02/05 15:25:26 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 15:25:26 [app.go:96] [I] http server Running on :8088
+2015/02/05 15:45:26 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 15:45:26 [app.go:96] [I] http server Running on :8088
+2015/02/05 15:46:10 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 15:46:10 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 15:46:10 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/05 15:46:54 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 15:46:54 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 15:46:54 [router.go:845] [D] | GET        | /article/lock                            | 201.0115ms       | match      | /article/lock/*                          | 
+2015/02/05 15:47:00 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 15:47:00 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 15:47:00 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/05 15:51:45 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 15:51:45 [app.go:96] [I] http server Running on :8088
+2015/02/05 15:51:53 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 15:51:53 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 15:51:53 [router.go:845] [D] | GET        | /article/lock                            | 113.0064ms       | match      | /article/lock/*                          | 
+2015/02/05 15:55:04 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 15:55:04 [app.go:96] [I] http server Running on :8088
+2015/02/05 15:57:53 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 15:57:53 [app.go:96] [I] http server Running on :8088
+2015/02/05 15:58:10 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 15:58:10 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 15:58:10 [router.go:845] [D] | GET        | /article/lock                            | 125.0072ms       | match      | /article/lock/*                          | 
+2015/02/05 15:58:34 [log.go:108] [D] Article/UnLock Info:1,  qq 
+2015/02/05 15:58:34 [log.go:108] [D] Article/UnLock Info:zh-CN 
+2015/02/05 15:58:34 [router.go:845] [D] | GET        | /article/unlock                          | 224.0129ms       | match      | /article/unlock/*                        | 
+2015/02/05 16:02:13 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:02:13 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:10:23 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:10:23 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:18:40 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:18:40 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:20:11 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:20:11 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:20:32 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:20:32 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:20:32 [router.go:845] [D] | GET        | /article/list                            | 8.0005ms         | match      | /article/list/*                          | 
+2015/02/05 16:20:43 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 16:20:43 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 16:20:43 [router.go:845] [D] | GET        | /article/lock                            | 7.0004ms         | match      | /article/lock/*                          | 
+2015/02/05 16:22:56 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:22:56 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:23:04 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 16:23:04 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 16:23:04 [router.go:845] [D] | GET        | /article/lock                            | 10.0006ms        | match      | /article/lock/*                          | 
+2015/02/05 16:23:16 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 16:23:16 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 16:23:16 [router.go:845] [D] | GET        | /article/lock                            | 8.0005ms         | match      | /article/lock/*                          | 
+2015/02/05 16:23:43 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:43 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:43 [router.go:845] [D] | GET        | /article/list                            | 6.0003ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:44 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:44 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:44 [router.go:845] [D] | GET        | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:45 [router.go:845] [D] | GET        | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:45 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:45 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:45 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:45 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:46 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:46 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:46 [router.go:845] [D] | GET        | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:46 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:46 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:46 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:46 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:46 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:46 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:47 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:47 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:47 [router.go:845] [D] | GET        | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:50 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:50 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:50 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:51 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:51 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:51 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:52 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:52 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:52 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:53 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:53 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:53 [router.go:845] [D] | GET        | /article/list                            | 3.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:53 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:53 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:53 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:54 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:23:54 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:23:54 [router.go:845] [D] | GET        | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 16:23:58 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 16:23:58 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 16:23:58 [router.go:845] [D] | GET        | /article/lock                            | 3.0002ms         | match      | /article/lock/*                          | 
+2015/02/05 16:24:50 [log.go:108] [D] Article/Get Info:1,  qq 
+2015/02/05 16:24:50 [log.go:108] [D] Article/Get Info:zh-CN 
+2015/02/05 16:24:50 [router.go:845] [D] | GET        | /article/get                             | 2.0001ms         | match      | /article/get/*                           | 
+2015/02/05 16:24:57 [router.go:845] [D] | GET        | /article/getex                           | 1.0001ms         | notmatch   | 
+2015/02/05 16:25:04 [log.go:108] [D] Article/Get Info:1,  qq 
+2015/02/05 16:25:04 [log.go:108] [D] Article/Get Info:zh-CN 
+2015/02/05 16:25:04 [router.go:845] [D] | GET        | /article/get                             | 2.0001ms         | match      | /article/get/*                           | 
+2015/02/05 16:25:29 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 16:25:29 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 16:25:29 [router.go:845] [D] | GET        | /article/lock                            | 4.0002ms         | match      | /article/lock/*                          | 
+2015/02/05 16:28:24 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:28:24 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:30:27 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:30:27 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:30:42 [log.go:108] [D] Article/Lock Info:1,  qq 
+2015/02/05 16:30:42 [log.go:108] [D] Article/Lock Info:zh-CN 
+2015/02/05 16:30:42 [router.go:845] [D] | GET        | /article/lock                            | 101.0058ms       | match      | /article/lock/*                          | 
+2015/02/05 16:30:49 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:30:49 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:30:49 [router.go:845] [D] | GET        | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:30:58 [log.go:108] [D] Article/UnLock Info:1,  qq 
+2015/02/05 16:30:59 [log.go:108] [D] Article/UnLock Info:zh-CN 
+2015/02/05 16:30:59 [router.go:845] [D] | GET        | /article/unlock                          | 345.0197ms       | match      | /article/unlock/*                        | 
+2015/02/05 16:31:03 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 16:31:03 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 16:31:03 [router.go:845] [D] | GET        | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 16:32:22 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:32:22 [app.go:96] [I] http server Running on :8088
+2015/02/05 16:33:46 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 16:33:46 [app.go:96] [I] http server Running on :8088
+2015/02/05 17:49:35 [router.go:845] [D] | GET        | /                                        | 114.0065ms       | match      | /                                        | 
+2015/02/05 17:49:36 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 17:49:36 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 17:49:36 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 17:49:36 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 17:49:44 [log.go:108] [D] Article/Delete Info:1,  qq 
+2015/02/05 17:49:44 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/02/05 17:49:44 [router.go:845] [D] | POST       | /article/delete                          | 113.0065ms       | match      | /article/delete/*                        | 
+2015/02/05 17:49:47 [router.go:845] [D] | GET        | /                                        | 92.0052ms        | match      | /                                        | 
+2015/02/05 17:49:48 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 17:49:48 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 17:49:48 [router.go:845] [D] | POST       | /article/list                            | 1ms              | match      | /article/list/*                          | 
+2015/02/05 17:49:48 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 17:51:15 [router.go:845] [D] | GET        | /                                        | 84.0048ms        | match      | /                                        | 
+2015/02/05 17:51:15 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 17:51:15 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 17:51:15 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 17:51:15 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 17:51:33 [router.go:845] [D] | GET        | /                                        | 116.0067ms       | match      | /                                        | 
+2015/02/05 17:51:33 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 17:51:33 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 17:51:33 [router.go:845] [D] | POST       | /article/list                            | 1ms              | match      | /article/list/*                          | 
+2015/02/05 17:51:33 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 17:52:56 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 17:52:56 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 17:52:56 [router.go:845] [D] | POST       | /article/update                          | 98.0056ms        | match      | /article/update/*                        | 
+2015/02/05 17:53:09 [router.go:845] [D] | GET        | /                                        | 82.0047ms        | match      | /                                        | 
+2015/02/05 17:53:10 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 17:53:10 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 17:53:10 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 17:53:10 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:02:36 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 18:02:36 [app.go:96] [I] http server Running on :8088
+2015/02/05 18:07:39 [router.go:845] [D] | GET        | /                                        | 95.0054ms        | match      | /                                        | 
+2015/02/05 18:07:39 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:07:39 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:07:39 [router.go:845] [D] | POST       | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/05 18:07:39 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:08:47 [router.go:845] [D] | GET        | /                                        | 82.0047ms        | match      | /                                        | 
+2015/02/05 18:08:48 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:08:48 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:08:48 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:08:48 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:11:08 [router.go:845] [D] | GET        | /                                        | 88.005ms         | match      | /                                        | 
+2015/02/05 18:11:08 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:11:08 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:11:08 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:11:08 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:19:40 [router.go:845] [D] | GET        | /                                        | 78.0045ms        | match      | /                                        | 
+2015/02/05 18:19:40 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:19:40 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:19:40 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:19:40 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:20:19 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:20:19 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:20:19 [router.go:845] [D] | POST       | /article/update                          | 123.007ms        | match      | /article/update/*                        | 
+2015/02/05 18:20:36 [router.go:845] [D] | GET        | /                                        | 82.0047ms        | match      | /                                        | 
+2015/02/05 18:20:36 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:20:36 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:20:36 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:20:36 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:22:00 [router.go:845] [D] | GET        | /                                        | 91.0052ms        | match      | /                                        | 
+2015/02/05 18:22:01 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:22:01 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:22:01 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:22:01 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:23:36 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:23:36 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:23:36 [router.go:845] [D] | POST       | /article/update                          | 179.0102ms       | match      | /article/update/*                        | 
+2015/02/05 18:23:51 [router.go:845] [D] | GET        | /                                        | 90.0051ms        | match      | /                                        | 
+2015/02/05 18:23:52 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:23:52 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:23:52 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:23:52 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:25:22 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 18:25:22 [app.go:96] [I] http server Running on :8088
+2015/02/05 18:25:36 [router.go:845] [D] | GET        | /                                        | 92.0052ms        | match      | /                                        | 
+2015/02/05 18:25:36 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:25:36 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:25:36 [router.go:845] [D] | POST       | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/05 18:25:36 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:30:21 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 18:30:21 [app.go:96] [I] http server Running on :8088
+2015/02/05 18:30:39 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:30:39 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:30:39 [router.go:845] [D] | POST       | /article/update                          | 122.007ms        | match      | /article/update/*                        | 
+2015/02/05 18:30:42 [router.go:845] [D] | GET        | /                                        | 89.0051ms        | match      | /                                        | 
+2015/02/05 18:30:42 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:30:42 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:30:42 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:30:42 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:30:51 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:30:51 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:30:51 [router.go:845] [D] | POST       | /article/update                          | 132.0075ms       | match      | /article/update/*                        | 
+2015/02/05 18:30:53 [router.go:845] [D] | GET        | /                                        | 94.0054ms        | match      | /                                        | 
+2015/02/05 18:30:53 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:30:53 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:30:53 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:30:53 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:31:11 [router.go:845] [D] | GET        | /                                        | 104.0059ms       | match      | /                                        | 
+2015/02/05 18:31:11 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:31:11 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:31:11 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:31:12 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:36:56 [router.go:845] [D] | GET        | /                                        | 105.006ms        | match      | /                                        | 
+2015/02/05 18:36:57 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:36:57 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:36:57 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:36:57 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:38:24 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:38:24 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:38:24 [router.go:845] [D] | POST       | /article/update                          | 117.0067ms       | match      | /article/update/*                        | 
+2015/02/05 18:38:48 [router.go:845] [D] | GET        | /                                        | 80.0046ms        | match      | /                                        | 
+2015/02/05 18:38:48 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:38:48 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:38:48 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:38:48 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:39:02 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:39:02 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:39:02 [router.go:845] [D] | POST       | /article/update                          | 132.0075ms       | match      | /article/update/*                        | 
+2015/02/05 18:39:05 [router.go:845] [D] | GET        | /                                        | 87.005ms         | match      | /                                        | 
+2015/02/05 18:39:05 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:39:05 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:39:05 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:39:05 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:39:44 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:39:44 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:39:44 [router.go:845] [D] | POST       | /article/update                          | 140.008ms        | match      | /article/update/*                        | 
+2015/02/05 18:39:46 [router.go:845] [D] | GET        | /                                        | 90.0051ms        | match      | /                                        | 
+2015/02/05 18:39:46 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:39:46 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:39:46 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:39:46 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:39:58 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:39:58 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:39:58 [router.go:845] [D] | POST       | /article/update                          | 128.0073ms       | match      | /article/update/*                        | 
+2015/02/05 18:40:00 [router.go:845] [D] | GET        | /                                        | 93.0053ms        | match      | /                                        | 
+2015/02/05 18:40:00 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:40:00 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:40:00 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 18:40:00 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:41:03 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:41:04 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:41:04 [router.go:845] [D] | POST       | /article/update                          | 114.0065ms       | match      | /article/update/*                        | 
+2015/02/05 18:41:05 [router.go:845] [D] | GET        | /                                        | 91.0053ms        | match      | /                                        | 
+2015/02/05 18:41:05 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:41:05 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:41:05 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 18:41:06 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:49:21 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 18:49:22 [app.go:96] [I] http server Running on :8088
+2015/02/05 18:55:21 [router.go:845] [D] | GET        | /                                        | 91.0052ms        | match      | /                                        | 
+2015/02/05 18:55:22 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:55:22 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:55:22 [router.go:845] [D] | POST       | /article/list                            | 3.0001ms         | match      | /article/list/*                          | 
+2015/02/05 18:55:22 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:55:37 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:55:37 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:55:37 [router.go:845] [D] | POST       | /article/update                          | 130.0074ms       | match      | /article/update/*                        | 
+2015/02/05 18:55:38 [router.go:845] [D] | GET        | /                                        | 108.0062ms       | match      | /                                        | 
+2015/02/05 18:55:39 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:55:39 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:55:39 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 18:55:39 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:57:39 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 18:57:39 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 18:57:39 [router.go:845] [D] | POST       | /article/update                          | 124.0071ms       | match      | /article/update/*                        | 
+2015/02/05 18:57:41 [router.go:845] [D] | GET        | /                                        | 94.0053ms        | match      | /                                        | 
+2015/02/05 18:57:41 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 18:57:41 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 18:57:41 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 18:57:41 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 18:59:48 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 18:59:48 [app.go:96] [I] http server Running on :8088
+2015/02/05 19:00:35 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 19:00:35 [app.go:96] [I] http server Running on :8088
+2015/02/05 19:01:19 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 19:01:19 [app.go:96] [I] http server Running on :8088
+2015/02/05 19:01:20 [router.go:845] [D] | GET        | /                                        | 86.0049ms        | match      | /                                        | 
+2015/02/05 19:01:21 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:01:21 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:01:21 [router.go:845] [D] | POST       | /article/list                            | 3.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:01:21 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:01:29 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:01:29 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:01:29 [router.go:845] [D] | POST       | /article/update                          | 139.008ms        | match      | /article/update/*                        | 
+2015/02/05 19:01:30 [router.go:845] [D] | GET        | /                                        | 88.0051ms        | match      | /                                        | 
+2015/02/05 19:01:30 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:01:30 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:01:30 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:01:30 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:03:34 [router.go:845] [D] | GET        | /                                        | 120.0069ms       | match      | /                                        | 
+2015/02/05 19:03:34 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:03:34 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:03:34 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:03:34 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:03:39 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:03:39 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:03:39 [router.go:845] [D] | POST       | /article/update                          | 126.0072ms       | match      | /article/update/*                        | 
+2015/02/05 19:03:40 [router.go:845] [D] | GET        | /                                        | 87.005ms         | match      | /                                        | 
+2015/02/05 19:03:41 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:03:41 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:03:41 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:03:41 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:04:12 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 19:04:12 [app.go:96] [I] http server Running on :8088
+2015/02/05 19:04:17 [router.go:845] [D] | GET        | /                                        | 90.0052ms        | match      | /                                        | 
+2015/02/05 19:04:18 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:04:18 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:04:18 [router.go:845] [D] | POST       | /article/list                            | 5.0002ms         | match      | /article/list/*                          | 
+2015/02/05 19:04:18 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:04:25 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:04:25 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:04:25 [router.go:845] [D] | POST       | /article/update                          | 147.0084ms       | match      | /article/update/*                        | 
+2015/02/05 19:05:23 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 19:05:23 [app.go:96] [I] http server Running on :8088
+2015/02/05 19:05:35 [router.go:845] [D] | GET        | /                                        | 92.0053ms        | match      | /                                        | 
+2015/02/05 19:05:35 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:05:35 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:05:35 [router.go:845] [D] | POST       | /article/list                            | 5.0003ms         | match      | /article/list/*                          | 
+2015/02/05 19:05:36 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:05:38 [router.go:845] [D] | GET        | /                                        | 95.0054ms        | match      | /                                        | 
+2015/02/05 19:05:38 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:05:38 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:05:38 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 19:05:39 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:05:44 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:05:45 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:05:45 [router.go:845] [D] | POST       | /article/update                          | 383.0219ms       | match      | /article/update/*                        | 
+2015/02/05 19:05:46 [router.go:845] [D] | GET        | /                                        | 84.0048ms        | match      | /                                        | 
+2015/02/05 19:05:46 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:05:46 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:05:46 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 19:05:46 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:05:53 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:05:54 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:05:54 [router.go:845] [D] | POST       | /article/update                          | 121.0069ms       | match      | /article/update/*                        | 
+2015/02/05 19:05:55 [router.go:845] [D] | GET        | /                                        | 94.0053ms        | match      | /                                        | 
+2015/02/05 19:05:56 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:05:56 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:05:56 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 19:05:56 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:07:09 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:07:09 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:07:09 [router.go:845] [D] | POST       | /article/update                          | 135.0077ms       | match      | /article/update/*                        | 
+2015/02/05 19:07:44 [router.go:845] [D] | GET        | /                                        | 100.0057ms       | match      | /                                        | 
+2015/02/05 19:07:44 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:07:44 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:07:44 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:07:44 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:09:49 [router.go:845] [D] | GET        | /                                        | 135.0077ms       | match      | /                                        | 
+2015/02/05 19:09:49 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:09:49 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:09:49 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:09:49 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:10:33 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:10:33 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:10:33 [router.go:845] [D] | POST       | /article/update                          | 142.0081ms       | match      | /article/update/*                        | 
+2015/02/05 19:15:43 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/05 19:15:43 [app.go:96] [I] http server Running on :8088
+2015/02/05 19:15:44 [router.go:845] [D] | GET        | /                                        | 90.0051ms        | match      | /                                        | 
+2015/02/05 19:15:45 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:15:45 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:15:45 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 19:15:45 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:15:56 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:15:56 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:15:56 [router.go:845] [D] | POST       | /article/update                          | 118.0067ms       | match      | /article/update/*                        | 
+2015/02/05 19:15:58 [router.go:845] [D] | GET        | /                                        | 94.0054ms        | match      | /                                        | 
+2015/02/05 19:15:58 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:15:58 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:15:58 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:15:58 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:16:05 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:16:06 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:16:06 [router.go:845] [D] | POST       | /article/update                          | 105.006ms        | match      | /article/update/*                        | 
+2015/02/05 19:16:07 [router.go:845] [D] | GET        | /                                        | 93.0053ms        | match      | /                                        | 
+2015/02/05 19:16:08 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:16:08 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:16:08 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 19:16:08 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:16:18 [log.go:108] [D] Article/Update Info:1,  qq 
+2015/02/05 19:16:18 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/02/05 19:16:18 [router.go:845] [D] | POST       | /article/update                          | 127.0073ms       | match      | /article/update/*                        | 
+2015/02/05 19:16:19 [router.go:845] [D] | GET        | /                                        | 83.0047ms        | match      | /                                        | 
+2015/02/05 19:16:20 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:16:20 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:16:20 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/05 19:16:20 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:17:37 [log.go:108] [D] Article/Delete Info:1,  qq 
+2015/02/05 19:17:37 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/02/05 19:17:37 [router.go:845] [D] | POST       | /article/delete                          | 117.0067ms       | match      | /article/delete/*                        | 
+2015/02/05 19:17:38 [log.go:108] [D] Article/Delete Info:1,  qq 
+2015/02/05 19:17:38 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/02/05 19:17:38 [router.go:845] [D] | POST       | /article/delete                          | 120.0068ms       | match      | /article/delete/*                        | 
+2015/02/05 19:17:40 [router.go:845] [D] | GET        | /                                        | 87.0049ms        | match      | /                                        | 
+2015/02/05 19:17:40 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:17:40 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:17:40 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:17:41 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/05 19:17:50 [log.go:108] [D] Article/Delete Info:1,  qq 
+2015/02/05 19:17:50 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/02/05 19:17:50 [router.go:845] [D] | POST       | /article/delete                          | 91.0053ms        | match      | /article/delete/*                        | 
+2015/02/05 19:17:53 [log.go:108] [D] Article/Delete Info:1,  qq 
+2015/02/05 19:17:53 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/02/05 19:17:53 [router.go:845] [D] | POST       | /article/delete                          | 97.0055ms        | match      | /article/delete/*                        | 
+2015/02/05 19:17:54 [router.go:845] [D] | GET        | /                                        | 98.0056ms        | match      | /                                        | 
+2015/02/05 19:17:54 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/05 19:17:54 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/05 19:17:54 [router.go:845] [D] | POST       | /article/list                            | 3.0001ms         | match      | /article/list/*                          | 
+2015/02/05 19:17:54 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 

@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"fmt"
+	//"fmt"
 	"writer/models"
 	"zouzhe/utils"
 )
@@ -85,43 +85,92 @@ func (this *Article) List() {
 	}
 	p.Index, _ = this.GetInt("index")
 	// 读取查询条件
-	when := this.GetString("when")
-	where := this.GetString("where")
-	// 构造查询字符串
-	cond := "1=1"
-	if when != "" {
-		cond += fmt.Sprintf(" and when='%s'", when)
-	}
-	if where != "" {
-		cond += fmt.Sprintf(" and where='%s'", where)
-	}
+	parentId, _ := this.GetInt64("parentid")
+	tags := this.GetString("tags")
 
 	// 拉取
 	a := new(models.Article)
+	var as []models.Article
+	var err error
 
-	if as, err := a.List(cond, p); err != nil {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+	// 构造查询字符串
+	cond := "parentId=?"
+
+	if tags == "" {
+		as, err = a.List(p, cond, parentId)
 	} else {
+		cond += " and tags=?"
+		as, err = a.List(p, cond, parentId, tags)
+	}
+
+	if err == nil {
 		this.renderJson(utils.JsonData(true, "", as))
+	} else {
+		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+	}
+}
+
+// @Title Position
+// @Description 节点位置发生变化
+// @Param parentId  form  int  false        "父级id"
+// @Param position  form  int  false        "位置索引"
+func (this *Article) Position() {
+	a := new(models.Article)
+	a.Id, _ = this.GetInt64("id")
+	a.ParentId, _ = this.GetInt64("parentid")
+	a.Position, _ = this.GetInt("position")
+
+	this.extend(a)
+
+	if a.Id <= 0 {
+		this.renderJson(utils.JsonMessage(false, "id", "参数错误: id 必须 >0"))
+	}
+
+	if ok, err := a.SetPosition(); err == nil {
+		if ok {
+			this.renderJson(utils.JsonMessage(true, "", ""))
+		} else {
+			this.renderJson(utils.JsonMessage(false, "", ""))
+		}
+	} else {
+		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
 }
 
 // 锁定
 func (this *Article) Lock() {
-	this.status("Articles", "lock")
+	this.status("lock")
 }
 
 // 解锁
 func (this *Article) UnLock() {
-	this.status("Articles", "unlock")
+	this.status("unlock")
 }
 
 // 删除
 func (this *Article) Delete() {
-	this.status("Articles", "delete")
+	this.status("delete")
 }
 
 // 恢复
 func (this *Article) UnDelete() {
-	this.status("Articles", "undelete")
+	this.status("undelete")
+}
+
+func (this *Article) status(action string) {
+	if id, err := this.GetInt64("id"); err == nil && id > 0 {
+		a := new(models.Article)
+		a.Id = id
+
+		this.extend(a)
+
+		if err := a.SetStatus(action); err == nil {
+			this.renderJson(utils.JsonMessage(true, "", ""))
+		} else {
+			this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		}
+	} else {
+		this.renderJson(utils.JsonMessage(false, "", "参数错误"))
+	}
+
 }

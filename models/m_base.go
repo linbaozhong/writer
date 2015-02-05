@@ -90,7 +90,7 @@ func init() {
 
 	db.SetMapper(core.SameMapper{})
 
-	db.ShowInfo = true
+	//db.ShowInfo = true
 	//db.ShowDebug = true
 	db.ShowSQL = true
 	//db.ShowErr = true
@@ -139,46 +139,10 @@ func getPageCount(rows int64, page *Pagination) {
 	page.Count = int(math.Ceil(float64(rows / int64(page.Size))))
 }
 
-// 锁定
-func Lock(table string, id int64) error {
-	sql := "update `" + table + "` set locked=? where id=?"
-	_, err := db.Exec(sql, Locked, id)
-
-	fmt.Println(table, Locked, err)
-	return err
-}
-
-// 解锁
-func UnLock(table string, id int64) error {
-	sql := "update `" + table + "` set locked=? where id=?"
-	_, err := db.Exec(sql, Unlock, id)
-
-	fmt.Println(table, Unlock, err)
-	return err
-}
-
-// 移除
-func Delete(table string, id int64) error {
-	sql := "update `" + table + "` set deleted=? where id=?"
-	_, err := db.Exec(sql, Deleted, id)
-
-	fmt.Println(table, Deleted, err)
-	return err
-}
-
-// 恢复
-func UnDelete(table string, id int64) error {
-	sql := "update `" + table + "` set deleted=? where id=?"
-	_, err := db.Exec(sql, Undelete, id)
-
-	fmt.Println(table, Undelete, err)
-	return err
-}
-
 // ---------- 数据库 DAL 层 -------------------
 
 // Select 语句
-type Sqlstr struct {
+type Dal struct {
 	Field   string
 	From    string
 	Where   string
@@ -188,40 +152,40 @@ type Sqlstr struct {
 }
 
 // 生成Select语句
-func getSelect(s *Sqlstr) string {
+func (this *Dal) Select() string {
 	_sql := make([]string, 0)
-	_sql = append(_sql, "select "+s.Field+" from "+s.From)
+	_sql = append(_sql, "select "+this.Field+" from "+this.From)
 
-	if strings.TrimSpace(s.Where) != "" {
-		_sql = append(_sql, "where "+s.Where)
+	if strings.TrimSpace(this.Where) != "" {
+		_sql = append(_sql, "where "+this.Where)
 	}
 
-	if strings.TrimSpace(s.OrderBy) != "" {
-		_sql = append(_sql, "order by  "+s.OrderBy)
+	if strings.TrimSpace(this.OrderBy) != "" {
+		_sql = append(_sql, "order by  "+this.OrderBy)
 	}
 
-	if s.Size > 0 {
-		_sql = append(_sql, fmt.Sprintf("limit %d offset %d", s.Size, s.Offset))
+	if this.Size > 0 {
+		_sql = append(_sql, fmt.Sprintf("limit %d offset %d", this.Size, this.Offset))
 	}
 
 	return strings.Join(_sql, " ")
 }
 
 // 记录数目统计
-func getCount(s *Sqlstr) int64 {
+func (this *Dal) Count(params ...interface{}) int64 {
 	sqlstr := make([]string, 0)
-	sqlstr = append(sqlstr, "select count(*) as counts from "+s.From)
+	sqlstr = append(sqlstr, "select count(*) as counts from "+this.From)
 
-	if strings.TrimSpace(s.Where) != "" {
-		sqlstr = append(sqlstr, "where "+s.Where)
+	if strings.TrimSpace(this.Where) != "" {
+		sqlstr = append(sqlstr, "where "+this.Where)
 	}
 
-	return utils.Str2int64(getSingle(strings.Join(sqlstr, " "), "counts"))
+	return utils.Str2int64(this.Single(strings.Join(sqlstr, " "), "counts", params...))
 }
 
 // 返回第一行第一个字段的字符串形式
-func getSingle(sql string, field string) string {
-	if rows, err := db.Query(sql); len(rows) > 0 && err == nil {
+func (this *Dal) Single(sql string, field string, params ...interface{}) string {
+	if rows, err := db.Query(sql, params...); len(rows) > 0 && err == nil {
 		return string(rows[0][field])
 	}
 	return ""

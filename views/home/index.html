@@ -6,6 +6,7 @@
 				<form class="doc user-input native" style="display:none;">
 					<input type="hidden" name="id" id="doc-id" value="" />
 					<input type="hidden" name="parentId" id="doc-parentId" value="" />
+					<input type="hidden" name="documentId" id="doc-documentId" value="" />
 					<input type="hidden" name="position" id="doc-position" value="" />
 					<script id="myEditor" name="content" type="text/plain">
 
@@ -99,6 +100,8 @@ $(function(){
 			_form = _that.closest('form.user-input'),
 			_frame = _form.closest('.frame'),
 			_id = _form.find('input[name="id"]').val(),
+			_parentId = _form.find('input[name="parentId"]').val(),
+			_documentId = _form.find('input[name="documentId"]').val(),
 			_position = _form.find('input[name="position"]').val(),
 			_content = snow.ue.getContent().replace(/[\s]+/g,' '),
 			_contentTxt = snow.ue.getContentTxt();
@@ -128,25 +131,20 @@ $(function(){
 					title:_title,
 					content:_content,
 					tags:_tags.join(','),
+					parentId:_parentId,
+					documentId:_documentId,
 					position:_position
 				}
 				,function(result){
 					if(result.ok){
 						// 新建文档
 						if ($.trim(_id).length) {
-							alert(0);
 							// 编辑修改，修改form之前的doc
 							var __doc = _form.prev('div.doc');
 							__doc.find('.doc-content').html(_content);
 						} else {
-							alert(1);
 							// 在_form之前插入一个新doc
-							_form.after(snow.docTemplate.join('')
-								.replace('<%.id%>',result.data.articleId)
-								.replace('<%.parentId%>',result.data.parentId)
-								.replace('<%.position%>',result.data.position)
-								.replace('<%.content%>',result.data.content)
-							);
+							_form.after(snow.docTemplate.get(result.data));
 						}
 					}
 				}
@@ -240,14 +238,15 @@ $(function(){
 	}).on('click', '.frame .tools.del', function(e) {
 		e.stopPropagation();
 		var _doc = $(this).closest('div.doc');
+		// 调用删除文档api
+		$.post(snow.api.docDelete,{id:_doc.data('id')},function(result){
+			if(result.ok){
+				_doc.remove();
+				//
+				snow.docResize(_doc.closest('.frame'));
+			}
+		});
 
-		if (_doc.next().hasClass('clone')) {
-			_doc.next().hide();
-		}
-
-		_doc.remove();
-		//
-		snow.docResize(_doc.closest('.frame'));
 	}).on('click', '.frame .doc .tools.edit', function(e) {
 		e.stopPropagation();
 		// 如果有仍未提交的正在编辑中的表单，中断当前操作
@@ -258,8 +257,9 @@ $(function(){
 		var _doc = $(this).closest('div.doc').hide();
 		// 赋值
 		snow.editor.find('input[name="id"]').val(_doc.data('id'));
-		snow.editor.find('input[name="position"]').val(_doc.data('position'));
 		snow.editor.find('input[name="parentId"]').val(_doc.data('parentId'));
+		snow.editor.find('input[name="documentId"]').val(_doc.data('documentId'));
+		snow.editor.find('input[name="position"]').val('');
 
 		_doc.after(snow.editor.click().slideDown(snow.speed, function() {
 			snow.ue.setContent(_doc.find('.doc-content').html());
@@ -280,8 +280,9 @@ $(function(){
 
 		// 赋值
 		snow.editor.find('input[name="id"]').val('');
-		snow.editor.find('input[name="position"]').val(_doc.data('id'));
+		snow.editor.find('input[name="documentId"]').val('');
 		snow.editor.find('input[name="parentId"]').val(_doc.data('parentId'));
+		snow.editor.find('input[name="position"]').val(_doc.data('id'));
 
 		snow.editor.click().slideDown(snow.speed);
 	}).on('click', '.frame header .doc-plus', function(e) {
@@ -295,18 +296,19 @@ $(function(){
 
 		// 赋值
 		snow.editor.find('input[name="id"]').val('');
-		snow.editor.find('input[name="position"]').val('');
+		snow.editor.find('input[name="documentId"]').val('');
 		snow.editor.find('input[name="parentId"]').val(_doc.closest('.frame').data('parentId'));
+		snow.editor.find('input[name="position"]').val('');
 
 		_doc.append(snow.editor.click().slideDown(snow.speed));
 	});
 
 	// 文档模板
 	snow.docTemplate = [];
-	snow.docTemplate.push('<div class="doc" data-id="<%.id%>" data-parentId="<%.parentId%>" data-position="<%.position%>">');
+	snow.docTemplate.push('<div class="doc" data-id="<%.id%>" data-parentId="<%.parentId%>" data-documentId="<%.documentId%>">');
 		snow.docTemplate.push('<div class="doc-tools">');
-			snow.docTemplate.push('<a href="javascript:;" class="tools edit icon-pencil"></a>');
-			snow.docTemplate.push('<a href="javascript:;" class="tools del icon-cancel-2"></a>');
+			snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
+			snow.docTemplate.push('<a href="javascript:;" title="删除" class="tools del icon-cancel-2"></a>');
 		snow.docTemplate.push('</div>');
 		snow.docTemplate.push('<article class="doc-info">');
 			snow.docTemplate.push('<div class="doc-content">');
@@ -324,6 +326,13 @@ $(function(){
 			snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>');
 		snow.docTemplate.push('</footer>');
 	snow.docTemplate.push('</div>');
+	snow.docTemplate.get = function(doc){
+		return this.join('').replace('<%.id%>',doc.articleId)
+						.replace('<%.parentId%>',doc.parentId)
+						.replace('<%.documentId%>',doc.documentId)
+						.replace('<%.content%>',doc.content);
+	};
+	
 	/* 增加单个文档
 	 * frame:容器
 	 * doc:文档
@@ -340,16 +349,12 @@ $(function(){
 	$.post(snow.api.docList,{},function(result){
 				snow.log(result);
 		if (result.ok) {
-			var _docs = result.data
-				,_tpl = snow.docTemplate.join('');
+			var _docs = result.data;
 
 			$.each(_docs,function(index,_doc){
 				snow.addDoc(
 					snow.left.find('.frame').eq(0).data('parentId',0)
-					,_tpl.replace('<%.id%>',_doc.articleId)
-						.replace('<%.parentId%>',_doc.parentId)
-						.replace('<%.position%>',_doc.position)
-						.replace('<%.content%>',_doc.content)
+					,snow.docTemplate.get(_doc)
 				);
 
 			});
