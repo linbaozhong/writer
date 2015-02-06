@@ -24,7 +24,6 @@
 			opts = $.extend(defaults, options),
 			frameStyle = {
 				'position': 'absolute',
-				'cursor': 'pointer',
 				'overflow': 'hidden',
 				'background': opts.background
 			},
@@ -70,9 +69,9 @@
 					appendTo: '#snow-left',
 					helper: 'clone',
 					items: 'div.doc',
-					handle: ".doc-info",
+					handle: ".doc-handle",
 					placeholder: "portlet-placeholder ui-corner-all",
-					revert: true,
+					//revert: true,
 					tolerance: 'pointer',
 					opacity: 0.8,
 					over: function(e, ui) {
@@ -82,31 +81,65 @@
 						}		
 						
 						$this.open(frame);
+								if (ui.placeholder.prevAll('footer').length) {
+									ui.placeholder.after(ui.placeholder.prevAll('footer'));
+								}
 					},
 					start: function(e, ui) {
 						ui.item.show();
 					},
 					beforeStop:function(e,ui){
-						// 如果在同一队列，移动
-						if (ui.item.parent().attr('id') === $(this).attr('id')) {
+						$(this).sortable('cancel');
+						// // 如果在同一队列，移动
+						// if (ui.item.parent().attr('id') === $(this).attr('id')) {
 							
-						}else{ 	// 不同队列，克隆
-							if (ui.placeholder.prevAll('footer').length) {
-								ui.placeholder.after(ui.placeholder.prevAll('footer'));
-							}
-							// 如果不是当前用户的作品
-							if(parseInt(ui.item.data('id')) != 1){
-								ui.placeholder.replaceWith(ui.item.clone());
-								$(this).sortable('cancel');
-							}
-						}
+						// }else{ 	// 不同队列
+						// 	if($(this).data('parentId') === ui.item.data('id')){
+						// 		$(this).sortable('cancel');
+						// 	}else{
+								// if (ui.placeholder.prevAll('footer').length) {
+								// 	ui.placeholder.after(ui.placeholder.prevAll('footer'));
+								// }
+
+						// 		// 如果不是当前用户的作品,clone
+						// 		if(parseInt(ui.item.data('id')) != 1){
+						// 			ui.placeholder.replaceWith(ui.item.clone());
+						// 			$(this).sortable('cancel');
+						// 		}
+						// 	}
+						// }
+					},
+					stop:function(e,ui){
+
 					},
 					out: function(e, ui) {
 						//clearTimeout(opts.timer);	
+					},
+					change:function(e,ui){
+						//snow.log(frame);
 					}
 				}).droppable({
+					accept:'div.doc',
 					drop:function(e,ui){
+						if(ui.draggable.data('id') === $(this).data('parentId')){
+							snow.log(
+								ui.draggable.data('id'),
+								$(this).data('parentId'),
+								0,$(this).find('.portlet-placeholder').length);
+						}else{
+							$(this).find('.portlet-placeholder:eq(0)').after(ui.draggable.clone().show());
+							snow.log(ui.draggable.remove());
+						}
 						
+
+						// // 位置变更
+						// $.post(snow.api.docPosition,{
+						// 	id:ui.draggable.data('id'),
+						// 	parentId:$(this).data('parentId'),
+						// 	referId:0
+						// },function(result){
+						// 	snow.log(result);
+						// });					
 					}
 				});
 			};
@@ -135,11 +168,11 @@
 				_frame.addClass('active');
 			}
 			//
-			_sortable(_frame);
-			//
 			if ($.isFunction(fn)) {
 				fn(_frame);
 			}
+			//
+			_sortable(_frame);
 
 			refresh(_frame.parent());
 			return $this;

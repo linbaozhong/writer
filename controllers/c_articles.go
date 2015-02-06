@@ -113,18 +113,19 @@ func (this *Article) List() {
 // @Title Position
 // @Description 节点位置发生变化
 // @Param parentId  form  int  false        "父级id"
-// @Param position  form  int  false        "位置索引"
+// @Param referId  form  int  false        "参考文档id"
 func (this *Article) Position() {
 	a := new(models.Article)
 	a.Id, _ = this.GetInt64("id")
-	a.ParentId, _ = this.GetInt64("parentid")
-	a.Position, _ = this.GetInt("position")
-
-	this.extend(a)
-
+	//
 	if a.Id <= 0 {
 		this.renderJson(utils.JsonMessage(false, "id", "参数错误: id 必须 >0"))
 	}
+
+	a.ParentId, _ = this.GetInt64("parentid")
+	a.Position, _ = this.GetInt("referId")
+
+	this.extend(a)
 
 	if ok, err := a.SetPosition(); err == nil {
 		if ok {

@@ -114,12 +114,12 @@ func (this *Article) Update() (error, []Error) {
 			if _results, err := session.Query("select position from articles where id=?", this.Position); len(_results) > 0 && err == nil {
 				_article.Position = utils.Bytes2int(_results[0]["position"])
 			}
-			positionSql = "update 'articles' set position = position+2 where creator = ? and position > ?"
+			positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position > ?"
 		} else {
-			positionSql = "update 'articles' set position = position+2 where creator = ? and position >= ?"
+			positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position >= ?"
 		}
 		// 更新其后文档的position
-		if _, err = session.Exec(positionSql, this.Creator, _article.Position); err != nil {
+		if _, err = session.Exec(positionSql, this.Updator, this.ParentId, _article.Position); err != nil {
 			session.Rollback()
 			return err, nil
 		}
@@ -356,11 +356,43 @@ func (this *Article) SetStatus(action string) error {
 
 // 设置文档节点位置
 func (this *Article) SetPosition() (bool, error) {
+	session := db.NewSession()
+	defer session.Close()
+	// 事务开始
+	err := session.Begin()
+
+	if err != nil {
+		session.Rollback()
+		return err, nil
+	}
+
+	// 找到id=this.Position参考文档的position
+	var positionSql string
+	if this.Position > 0 {
+		if _results, err := session.Query("select position from articles where id=?", this.Position); len(_results) > 0 && err == nil {
+			this.Position = utils.Bytes2int(_results[0]["position"])
+		}
+		positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position > ?"
+	} else {
+		positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position >= ?"
+	}
+	// 更新其后文档的position
+	if _, err = session.Exec(positionSql, this.Updator, this.ParentId, this.Position); err != nil {
+		session.Rollback()
+		return err, nil
+	}
+
 	a := new(Articles)
 	a.Id = this.Id
 	a.ParentId = this.ParentId
 	a.Position = this.Position
 
-	_, err := db.Id(a.Id).Cols("parentId", "position", "updator", "updated", "ip").Update(a)
+	_, err := session.Id(a.Id).Cols("parentId", "position", "updator", "updated", "ip").Update(a)
+	if err != nil {
+		session.Rollback()
+		return false, err
+	}
+	// 提交事务
+	err = session.Commit()
 	return err == nil, err
 }

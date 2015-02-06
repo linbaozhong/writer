@@ -209,12 +209,16 @@ $(function(){
 		var _doc = $(this);
 
 		// 追加一个frame
-		if (!_doc.closest('.frame').next().length) {
+		if (_doc.closest('.frame').next().length){
+			_doc.closest('.frame').next().data('parentId',_doc.data('id'));
+		}else {
 			snow.chouti.add({
 				title: '',
 				url: 'it.htm',
 				active: false
 			}, function(frame) {
+				frame.data('parentId',_doc.data('id'));
+
 				frame.prepend('<footer><div class="mask" /></footer>');
 
 				frame.prepend(
@@ -224,6 +228,7 @@ $(function(){
 					width: frame.outerWidth(),
 					height: frame.outerHeight()
 				});
+
 			});
 		}
 		// 复原编辑表单
@@ -306,6 +311,7 @@ $(function(){
 	// 文档模板
 	snow.docTemplate = [];
 	snow.docTemplate.push('<div class="doc" data-id="<%.id%>" data-parentId="<%.parentId%>" data-documentId="<%.documentId%>">');
+	snow.docTemplate.push('<div class="doc-handle"></div>');
 		snow.docTemplate.push('<div class="doc-tools">');
 			snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
 			snow.docTemplate.push('<a href="javascript:;" title="删除" class="tools del icon-cancel-2"></a>');
@@ -321,7 +327,8 @@ $(function(){
 			snow.docTemplate.push('</div>');
 			snow.docTemplate.push('<div class="doc-tools">');
 				snow.docTemplate.push('<span class="tools icon-new-tab"><i>456</i></span>');
-				snow.docTemplate.push('<span class="tools icon-heart-2"><i>123</i></span>');
+				snow.docTemplate.push('<span class="tools icon-eye"><i>123</i></span>');
+				snow.docTemplate.push('<span class="tools icon-thumbs-up"><i>123</i></span>');
 			snow.docTemplate.push('</div>');
 			snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>');
 		snow.docTemplate.push('</footer>');

@@ -195,12 +195,24 @@ div.doc.ui-draggable-dragging{
 	width:556px;
 	z-index: 1000;
 }
+div.doc .doc-handle {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 21px;
+	height:20px;
+	z-index: 1;
+	display: none;
+	cursor:move;
+	background-color: whitesmoke;
+}
 div.doc .doc-tools {
 	position: absolute;
 	right: 20px;
 	z-index: 1;
 	display: none;
 }
+div.doc:hover .doc-handle,
 div.doc:hover .doc-tools,
 div.doc:hover .doc-plus {
 	display: block;
@@ -270,7 +282,7 @@ div.doc .tools.edit {
 	margin: 5px 5px 0 5px;
 }
 div.doc:hover {
-	background: #eee;
+	border:1px dotted gray;
 }
 div.doc .tools i {
 	font-size: 10px;
@@ -323,9 +335,13 @@ div.doc .tools i {
 	right: 75px;
 }*/
 .portlet-placeholder {
-	border: 1px dotted #ccc;
+	border: 1px dotted gray;
 	margin: 1em 0;
 	height: 100px;
+}
+.ui-sortable-helper{
+	height:100px !important;
+	overflow: hidden;
 }
 /*metro*/
 
