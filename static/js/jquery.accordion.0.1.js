@@ -1,4 +1,4 @@
-﻿/*
+/*
  * accordion 插件 - Ver 0.1
  * by jQuery 2.1.1
  *
@@ -86,7 +86,19 @@
 								}
 					},
 					start: function(e, ui) {
-						ui.item.show();
+						// 如果当前节点的子级已经是编辑状态,禁止拖拽
+						var _child = ui.item.closest('.frame').next('.frame');
+						if(_child.length && ui.item.data('id')===_child.data('parentId')){
+							frame.sortable('cancel');
+						}else{
+							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
+							if(true){
+								frame.sortable('helper','')
+							}else{
+								frame.sortable('helper','clone')
+								//ui.item.show();
+							}
+						}
 					},
 					beforeStop:function(e,ui){
 						$(this).sortable('cancel');
