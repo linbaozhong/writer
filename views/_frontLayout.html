@@ -19,6 +19,13 @@
 		<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/addKityFormulaDialog.js"></script>
 		<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/getKfContent.js"></script>
 		<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/defaultFilterFix.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/static/js/third-party/SyntaxHighlighter/shCore.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/static/js/third-party/SyntaxHighlighter/shAutoloader.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="/static/js/third-party/SyntaxHighlighter/styles/shCore.css" />-->
+		<link rel="stylesheet" type="text/css" href="/static/js/third-party/SyntaxHighlighter/styles/shCoreDefault.css" />
+		<link rel="stylesheet" type="text/css" href="/static/js/third-party/SyntaxHighlighter/styles/shThemeEmacs.css" />
+		
+		<script type="text/javascript" charset="utf-8" src="/static/js/third-party/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
 		<!--滚动条-->
 		<link rel="stylesheet" type="text/css" href="/static/css/jquery.mCustomScrollbar.min.css" />
 		<script src="/static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
@@ -106,6 +113,45 @@
 
 </html>
 <script type="text/javascript">
+//	$(function(){
+//		function path() {
+//      	var args = arguments, result = [];
+//          for (var i = 0; i < args.length; i++)
+//              result.push(args[i].replace('@', '/static/js/third-party/SyntaxHighlighter/scripts/'));
+//          return result
+//      };
+//
+//      SyntaxHighlighter.autoloader.apply(null, path(
+//          'applescript            @shBrushAppleScript.js',
+//          'actionscript3 as3      @shBrushAS3.js',
+//          'bash shell             @shBrushBash.js',
+//          'coldfusion cf          @shBrushColdFusion.js',
+//          'cpp c                  @shBrushCpp.js',
+//          'c# c-sharp csharp      @shBrushCSharp.js',
+//          'css                    @shBrushCss.js',
+//          'delphi pascal          @shBrushDelphi.js',
+//          'diff patch pas         @shBrushDiff.js',
+//          'erl erlang             @shBrushErlang.js',
+//          'groovy                 @shBrushGroovy.js',
+//          'java                   @shBrushJava.js',
+//          'jfx javafx             @shBrushJavaFX.js',
+//          'js jscript javascript  @shBrushJScript.js',
+//          'perl pl                @shBrushPerl.js',
+//          'php                    @shBrushPhp.js',
+//          'text plain             @shBrushPlain.js',
+//          'py python              @shBrushPython.js',
+//          'ruby rails ror rb      @shBrushRuby.js',
+//          'sass scss              @shBrushSass.js',
+//          'scala                  @shBrushScala.js',
+//          'sql                    @shBrushSql.js',
+//          'vb vbnet               @shBrushVb.js',
+//          'xml xhtml xslt html    @shBrushXml.js')
+//	     );
+//		// 代码高亮
+//		SyntaxHighlighter.all();
+//	})
+	// 代码高亮
+	SyntaxHighlighter.all();
 
 	var snow = {
 		speed: 300,
@@ -129,7 +175,12 @@
 			openFrom:$.cookie('from'),
 			accessToken:$.cookie('token')
 		},
-		checkin : $.cookie('_snow_token') && $.cookie('_snow_token').length>0
+		//是否当期文档的作者
+		author:function(article){
+			return article.data('creator') === {{.accoundId}};
+		},
+		checkin : $.cookie('_snow_token') && $.cookie('_snow_token').length>0,
+		article:{}
 	};
 
 

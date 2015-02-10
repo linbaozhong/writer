@@ -123,13 +123,14 @@ func (this *Article) Update() (error, []Error) {
 			session.Rollback()
 			return err, nil
 		}
-
-		// 先 insert documents 附表
-		if _, err = session.Insert(_document); err != nil {
-			session.Rollback()
-			return err, nil
+		// 如果关联文档不存在，创建关联文档
+		if this.DocumentId <= 0 {
+			// 先 insert documents 附表
+			if _, err = session.Insert(_document); err != nil {
+				session.Rollback()
+				return err, nil
+			}
 		}
-
 		// insert articles 主表
 		_article.DocumentId = _document.Id //主附表映射
 		_article.Position += 1
@@ -270,7 +271,7 @@ func (this *Article) _list(all bool, page *Pagination, condition string, params 
 	if strings.TrimSpace(condition) != "" {
 		_dal.Where += " and " + condition
 	}
-
+	// slice承载返回的结果
 	as := make([]Article, 0)
 	// 读取符合条件的记录总数
 	if rows := _dal.Count(params...); rows > 0 {
@@ -363,7 +364,7 @@ func (this *Article) SetPosition() (bool, error) {
 
 	if err != nil {
 		session.Rollback()
-		return err, nil
+		return false, err
 	}
 
 	// 找到id=this.Position参考文档的position
@@ -379,15 +380,15 @@ func (this *Article) SetPosition() (bool, error) {
 	// 更新其后文档的position
 	if _, err = session.Exec(positionSql, this.Updator, this.ParentId, this.Position); err != nil {
 		session.Rollback()
-		return err, nil
+		return false, err
 	}
 
 	a := new(Articles)
 	a.Id = this.Id
 	a.ParentId = this.ParentId
-	a.Position = this.Position
+	a.Position = this.Position + 1
 
-	_, err := session.Id(a.Id).Cols("parentId", "position", "updator", "updated", "ip").Update(a)
+	_, err = session.Id(a.Id).Cols("parentId", "position", "updator", "updated", "ip").Update(a)
 	if err != nil {
 		session.Rollback()
 		return false, err

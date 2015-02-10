@@ -365,7 +365,7 @@ func (this *Base) getParamsString(key string) string {
 func (this *Base) allowRequest() bool {
 
 	this.trace(this.Ctx.GetCookie("_snow_id"), this.Ctx.GetCookie("from"))
-	this.currentUser.Id, _ = strconv.ParseInt(this.Ctx.GetCookie("_snow_id"), 10, 64)
+	this.currentUser.Id = utils.Str2int64(this.Ctx.GetCookie("_snow_id"))
 
 	if this.currentUser.Id == 0 {
 		return false

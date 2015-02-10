@@ -13,20 +13,13 @@ type Article struct {
 func (this *Article) Update() {
 	article := new(models.Article)
 
-	if id, err := this.GetInt64("id"); err == nil {
-		article.Id = id
-	}
-	if parentid, err := this.GetInt64("parentId"); err == nil {
-		article.ParentId = parentid
-	}
-
+	article.Id, _ = this.GetInt64("id")
+	article.ParentId, _ = this.GetInt64("parentId")
+	article.Position, _ = this.GetInt("position")
+	article.DocumentId, _ = this.GetInt64("documentId")
 	article.Title = this.GetString("title")
 	article.Content = this.GetString("content")
 	article.Tags = this.GetString("tags")
-
-	if position, err := this.GetInt("position"); err == nil {
-		article.Position = position
-	}
 	//
 	if article.Id > 0 {
 		this.extend(article)
@@ -122,7 +115,7 @@ func (this *Article) Position() {
 		this.renderJson(utils.JsonMessage(false, "id", "参数错误: id 必须 >0"))
 	}
 
-	a.ParentId, _ = this.GetInt64("parentid")
+	a.ParentId, _ = this.GetInt64("parentId")
 	a.Position, _ = this.GetInt("referId")
 
 	this.extend(a)

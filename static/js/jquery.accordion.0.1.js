@@ -75,83 +75,87 @@
 					tolerance: 'pointer',
 					opacity: 0.8,
 					over: function(e, ui) {
+						snow.log('over');
+						// 当前文档属性
+						snow.article.parentId = frame.data('parentid')
 						//当前活动的frame保持原状
 						if (frame.hasClass('active')) {
 							return;
 						}		
 						
 						$this.open(frame);
-								if (ui.placeholder.prevAll('footer').length) {
-									ui.placeholder.after(ui.placeholder.prevAll('footer'));
-								}
+
+						if (ui.placeholder.prevAll('footer').length) {
+							ui.placeholder.after(ui.placeholder.prevAll('footer'));
+						}
 					},
 					start: function(e, ui) {
+						// 当前文档属性
+						snow.article = {
+							id : ui.item.data('id'),
+							parentId : ui.item.data('parentid'),
+							documentId : ui.item.data('documentid')
+						}
+
+						ui.item.show();
 						// 如果当前节点的子级已经是编辑状态,禁止拖拽
 						var _child = ui.item.closest('.frame').next('.frame');
-						if(_child.length && ui.item.data('id')===_child.data('parentId')){
+						
+						if(_child.length && ui.item.data('id')===_child.data('parentid')){
 							frame.sortable('cancel');
 						}else{
 							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
-							if(true){
-								frame.sortable('helper','')
+							if(snow.author(ui.item)){
+								ui.item.hide();
 							}else{
-								frame.sortable('helper','clone')
-								//ui.item.show();
 							}
-						}
+						}	
 					},
 					beforeStop:function(e,ui){
-						$(this).sortable('cancel');
-						// // 如果在同一队列，移动
-						// if (ui.item.parent().attr('id') === $(this).attr('id')) {
-							
-						// }else{ 	// 不同队列
-						// 	if($(this).data('parentId') === ui.item.data('id')){
-						// 		$(this).sortable('cancel');
-						// 	}else{
-								// if (ui.placeholder.prevAll('footer').length) {
-								// 	ui.placeholder.after(ui.placeholder.prevAll('footer'));
-								// }
-
-						// 		// 如果不是当前用户的作品,clone
-						// 		if(parseInt(ui.item.data('id')) != 1){
-						// 			ui.placeholder.replaceWith(ui.item.clone());
-						// 			$(this).sortable('cancel');
-						// 		}
-						// 	}
-						// }
+						// 如果是作者的作品,可以任意拖拽,否则，只能克隆
+						var _doc;
+						if(snow.author(ui.item)){
+							_doc = ui.item;
+						}else{
+							_doc = ui.item.clone();
+							ui.placeholder.after(_doc.data('id','0'));
+							frame.sortable('cancel');
+						}
 					},
 					stop:function(e,ui){
-
+						
 					},
 					out: function(e, ui) {
 						//clearTimeout(opts.timer);	
 					},
 					change:function(e,ui){
-						//snow.log(frame);
+						snow.log('change');
+						// 当前文档属性
+						snow.article.position = ui.placeholder.prev().data('id');
 					}
 				}).droppable({
 					accept:'div.doc',
 					drop:function(e,ui){
-						if(ui.draggable.data('id') === $(this).data('parentId')){
-							snow.log(
-								ui.draggable.data('id'),
-								$(this).data('parentId'),
-								0,$(this).find('.portlet-placeholder').length);
-						}else{
-							$(this).find('.portlet-placeholder:eq(0)').after(ui.draggable.clone().show());
-							snow.log(ui.draggable.remove());
-						}
-						
-
-						// // 位置变更
-						// $.post(snow.api.docPosition,{
-						// 	id:ui.draggable.data('id'),
-						// 	parentId:$(this).data('parentId'),
-						// 	referId:0
-						// },function(result){
-						// 	snow.log(result);
-						// });					
+						//snow.log(ui.draggable.data('parentid'),ui.draggable.prev('div.doc').data('id'),snow.article);
+						// 如果位置发生变化
+						if(ui.draggable.data('parentid') != snow.article.parentId 
+							|| ui.draggable.prev('div.doc').data('id') != snow.article.position){
+							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
+							if(snow.author(ui.draggable)){
+								// 只修改parentId和position
+								$.post(snow.api.docPosition,{
+									id : snow.article.id,
+									parentId : snow.article.parentId,
+									documentId : snow.article.documentId,
+									referId : snow.article.position
+								},function(result){
+									snow.log(result);
+								});					
+									
+							}else{
+								// 新建一个article，documentId不变
+							};
+						};
 					}
 				});
 			};
@@ -169,16 +173,18 @@
 				title: '',
 				html: '',
 				url: '',
-				active: false
+				active: false,
+				parentId:''
 			}, options);
 
 			var _frame = $('<div />').attr('id',Math.random()).addClass('frame').css(frameStyle).css({
 				left: 5000
-			}).appendTo($this);//.append(getMask()).wrap(getWrap());
+			}).appendTo($this).data('parentid',_options.parentId);
 			//活动状态
 			if (_options.active) {
 				_frame.addClass('active');
 			}
+			
 			//
 			if ($.isFunction(fn)) {
 				fn(_frame);

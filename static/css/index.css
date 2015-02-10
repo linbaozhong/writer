@@ -39,7 +39,7 @@ h5,
 h6,
 button,
 p {
-	font-family: "黑体" !important;
+	font-family: "微软雅黑", "Microsoft Yahei" !important;
 }
 body {
 	background-size: cover;
@@ -261,14 +261,29 @@ div.doc h3,
 div.doc h4,
 div.doc h5,
 div.doc h6 {
+	/*font-weight: 400 !important;*/
 	font-weight: bold;
 	line-height: initial;
 	margin: 0 0 .8em;
-	color: gray;
+	color: #555 !important;
 }
 div.doc .doc-content {
-	font-size: 1.1em;
 	margin: 0 0 .5em;
+	color: #444 !important;
+}
+div.doc .doc-children{
+	position: absolute;
+	right: -20px;
+	top:50%;
+	opacity: .1;
+	z-index: 1000;
+	text-align: center;
+	cursor: pointer;
+	color:#000;
+	font-size: 4em;
+}
+div.doc .doc-children:hover{
+	opacity: .4;
 }
 div.doc .doc-remark {
 
@@ -344,7 +359,11 @@ div.doc .tools i {
 	overflow: hidden;
 }
 /*metro*/
-
+.metro p{
+	line-height: 28px;
+	font-size: 15px;
+	color: inherit;
+}
 .metro form {
 	margin: initial;
 }
