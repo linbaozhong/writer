@@ -1,4 +1,4 @@
-﻿<!--左侧框--工作区-->
+<!--左侧框--工作区-->
 <div id="snow-left" class="bg-white">
 	<div class="chouti" style="height:100%;">
 		<div class="frame">
@@ -156,8 +156,8 @@ $(function(){
 		_form.removeClass('editing').slideUp(snow.speed, function() {
 			snow.ue.reset();
 			// 顶端新增按钮
-			if (_form.prev('div.doc-add').length) {
-				_form.prev('div.doc-add').fadeIn(function() {
+			if (_form.prev('header').find('div.doc-add').length) {
+				_form.prev('header').find('div.doc-add').fadeIn(function() {
 					snow.docResize(_frame);
 				});
 			} else if (_form.prev('div.doc').length) {
