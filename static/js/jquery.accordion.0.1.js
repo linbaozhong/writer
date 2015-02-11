@@ -220,6 +220,10 @@
 			}
 			_obj.addClass('active').siblings('.active').removeClass('active');
 		};
+		// 刷新重绘
+		$this.refresh = function(){
+			refresh($(this));
+		};
 		//
 		$(window).on('resize', function() {
 			// 刷新

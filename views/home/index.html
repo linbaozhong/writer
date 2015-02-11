@@ -17,7 +17,7 @@
 					</div>
 				</form>
 				<div class="doc-add text-center padding20">
-					<a href="javascript:;" class="doc-plus">新<i class="icon-plus on-right on-left"></i>建</a>
+					<a href="javascript:;" class="doc-plus">拖拽文档到这里 或点击<i class="icon-plus on-right on-left"></i>新建</a>
 				</div>
 			</header>
 
@@ -221,12 +221,22 @@ $(function(){
 		e.stopPropagation();
 		var _doc = $(this).closest('.doc'),
 			_parentId = _doc.data('id'),
-			_frame;
+			_frame = _doc.closest('.frame').next();
 
-		// 追加一个frame
-		if (_doc.closest('.frame').next().length){
-			_frame = _doc.closest('.frame').next().data('parentid',_parentId);
+		// 如果frame存在
+		if (_frame.length){
+			// 如果父节点未改变，返回
+			if(_parentId === _frame.data('parentid')){
+				return;
+			}else{
+				_frame.nextAll('div.frame').remove();
+				// 重绘
+				snow.chouti.refresh();
+			}
+			// 清空子节点
+			_frame.data('parentid',_parentId).children('div.doc').remove();
 		}else {
+			// 追加一个frame
 			snow.chouti.add({
 				title: '',
 				url: 'it.htm',
@@ -236,7 +246,7 @@ $(function(){
 				frame.prepend('<footer><div class="mask" /></footer>');
 
 				frame.prepend(
-					$('<header />').append('<div class="doc-add text-center padding20">' + '<a href="javascript:;" class="doc-plus">新<i class="icon-plus on-right on-left"></i>建</a>' + '</div>')
+					$('<header />').append('<div class="doc-add text-center padding20">' + '<a href="javascript:;" class="doc-plus">拖拽文档到这里 或点击<i class="icon-plus on-right on-left"></i>新建</a>' + '</div>')
 				);
 				frame.find('.mask').css({
 					width: frame.outerWidth(),
@@ -246,8 +256,6 @@ $(function(){
 				_frame = frame;
 			});
 		};
-		// 清空子节点
-		_frame.children('div.doc').remove();
 		// 加载子节点
 		$.post(snow.api.docList,{parentid:_parentId},function(result){
 			if (result.ok) {
