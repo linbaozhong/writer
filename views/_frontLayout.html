@@ -150,8 +150,6 @@
 //		// 代码高亮
 //		SyntaxHighlighter.all();
 //	})
-	// 代码高亮
-	SyntaxHighlighter.all();
 
 	var snow = {
 		speed: 300,
@@ -182,7 +180,6 @@
 		checkin : $.cookie('_snow_token') && $.cookie('_snow_token').length>0,
 		article:{}
 	};
-
 
 	snow.api = {
 		signUp:'/signUp'
@@ -233,6 +230,7 @@
 	snow.nav.right.width = snow.nav.right.width();
 	//注册登录框
 	snow.sign = $('#snow-sign').css({
+		top:-2000,
 		width: 400,
 		right: snow.nav.right.width,
 		left: snow.nav.left.width
@@ -344,8 +342,11 @@
 		dataLoading();
 		// 解决传统浏览器不支持placeholder问题
 		placeholder();
+
 		//打开登录注册框
-		openSign();
+		if(!snow.checkin){
+			openSign();
+		}
 
 	}, 100);
 

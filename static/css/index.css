@@ -222,9 +222,11 @@ div.doc .doc-info {
 	position: relative;
 }
 div.doc.active {
-	/*background: #eee;*/
-	
-	border-color: cyan;
+	border-color: #33cc88;
+}
+div.doc.active  .doc-handle{
+	display: block;
+	background-color:#33cc88;
 }
 div.doc footer {
 	padding: 10px;
@@ -273,13 +275,16 @@ div.doc .doc-content {
 }
 div.doc .doc-children{
 	position: absolute;
-	right: -20px;
+	width:38px;
+	right: 0;
 	top:50%;
 	opacity: .1;
 	z-index: 1000;
 	text-align: center;
 	cursor: pointer;
 	color:#000;
+}
+div.doc .doc-children i{
 	font-size: 4em;
 }
 div.doc .doc-children:hover{

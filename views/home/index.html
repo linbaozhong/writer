@@ -123,7 +123,7 @@ $(function(){
 			while((_result = _pattern.exec(_contentTxt)) != null){
 				_tags.push($.trim(_result[1]));
 			};
-			snow.log(_tags);
+
 			//保存
 			$.post(snow.api.docSave
 				,{
@@ -142,10 +142,14 @@ $(function(){
 							// 编辑修改，修改form之前的doc
 							var __doc = _form.prev('div.doc');
 							__doc.find('.doc-content').html(_content);
+							// 暂存内容
+							__doc.data('content',_content);
 						} else {
 							// 在_form之后插入一个新doc
 							_form.after(snow.docTemplate.get(result.data));
 						}
+						// 代码高亮
+						SyntaxHighlighter.highlight();
 					}
 				}
 			);
@@ -182,7 +186,7 @@ $(function(){
 			_last = _this.find('>footer'),
 			_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 			_step = _height / _maxHeight,
-			_top = parseInt(_first.css('marginTop')) + (delta * 20);
+			_top = parseInt(_first.css('marginTop')) + (delta * 30);
 
 		// 向上
 		if (delta > 0 && _top > 0) {
@@ -204,6 +208,15 @@ $(function(){
 	}).on('mouseenter', '.frame', function(e) {
 		// 刷新滚动条
 		snow.docResize($(this));
+	}).on('mousemove','.frame div.doc .doc-info',function(e){
+		var _this = $(this),
+			_top = e.pageY-$(this).offset().top-25;
+
+		if(_top < 20 || _top > _this.height())
+			return;
+
+		_this.children('div.doc-children').css({top:_top});
+
 	}).on('click', '.frame div.doc .doc-children', function(e) {
 		e.stopPropagation();
 		var _doc = $(this).closest('.doc'),
@@ -237,7 +250,6 @@ $(function(){
 		_frame.children('div.doc').remove();
 		// 加载子节点
 		$.post(snow.api.docList,{parentid:_parentId},function(result){
-			snow.log(result);
 			if (result.ok) {
 				var _docs = result.data;
 
@@ -248,6 +260,8 @@ $(function(){
 					);
 
 				});
+				// 代码高亮
+				SyntaxHighlighter.highlight();
 			};
 		});
 		// 复原编辑表单
@@ -286,7 +300,7 @@ $(function(){
 		snow.editor.find('input[name="position"]').val('');
 
 		_doc.after(snow.editor.click().slideDown(snow.speed, function() {
-			snow.ue.setContent(_doc.find('.doc-content').html());
+			snow.ue.setContent(_doc.data('content'));
 		}));
 
 	}).on('click', '.frame .doc .doc-plus', function(e) {
@@ -339,7 +353,7 @@ $(function(){
 			snow.docTemplate.push('<div class="doc-content">');
 			snow.docTemplate.push('<%.content%>');	
 			snow.docTemplate.push('</div>');
-			snow.docTemplate.push('<div class="doc-children">');
+			snow.docTemplate.push('<div title="子级" class="doc-children doc-tools">');
 			snow.docTemplate.push('<i class="icon-arrow-right-5"></i>');
 			snow.docTemplate.push('</div>');
 		snow.docTemplate.push('</article>');
@@ -356,11 +370,11 @@ $(function(){
 		snow.docTemplate.push('</footer>');
 	snow.docTemplate.push('</div>');
 	snow.docTemplate.get = function(doc){
-		return this.join('').replace('<%.id%>',doc.articleId)
+		return $(this.join('').replace('<%.id%>',doc.articleId)
 						.replace('<%.parentId%>',doc.parentId)
 						.replace('<%.creator%>',doc.creator)
 						.replace('<%.documentId%>',doc.documentId)
-						.replace('<%.content%>',doc.content);
+						.replace('<%.content%>',doc.content)).data('content',doc.content);
 	};
 	
 	/* 增加单个文档
@@ -377,7 +391,6 @@ $(function(){
 	}
 	// 首次加载
 	$.post(snow.api.docList,{},function(result){
-		snow.log(result);
 		if (result.ok) {
 			var _docs = result.data;
 
@@ -388,6 +401,8 @@ $(function(){
 				);
 
 			});
+			// 代码高亮
+			SyntaxHighlighter.highlight();
 		};
 	});
 	// 选中第一个文档
