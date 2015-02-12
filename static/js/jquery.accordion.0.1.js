@@ -77,7 +77,8 @@
 					over: function(e, ui) {
 						// 当前文档属性
 						snow.article.parentId = frame.data('parentid')
-
+						// 能否拖拽
+						snow.article.disable = ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index());
 						//当前活动的frame保持原状
 						if (frame.hasClass('active')) {
 							return;
@@ -95,7 +96,8 @@
 						// 当前文档属性
 						snow.article = {
 							id : ui.item.data('id'),
-							documentId : ui.item.data('documentid')
+							documentId : ui.item.data('documentid'),
+							disable:true
 						};
 
 						// 如果是作者的作品,可以任意拖拽,否则，只能克隆
@@ -107,8 +109,8 @@
 							
 					},
 					beforeStop:function(e,ui){
-						// 防止自为父节点
-						if(snow.article.id == snow.article.parentId){
+						// 防止自为父节点拖拽
+						if(snow.article.disable){
 							frame.sortable('cancel');
 							return;
 						}
@@ -121,10 +123,17 @@
 							ui.placeholder.after(_doc.data('id','0'));
 							frame.sortable('cancel');
 						}
-						//console.log('Stop',snow.article.parentId,snow.article.position);
+						
+						if(_doc.data('parentid') != snow.article.parentId){
+							// 清除激活状态
+							_doc.removeClass('active');
+						}
+						
 						// 如果位置发生变化
 						if(_doc.data('parentid') != snow.article.parentId 
 							|| _doc.data('referid') != snow.article.position){
+							// 记录新位置
+							_doc.data('parentid',snow.article.parentId).data('referid',snow.article.position)
 							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
 							if(snow.author(_doc)){
 								// 只修改parentId和position
