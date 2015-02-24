@@ -54,15 +54,15 @@ body {
 	z-index: 1000;
 	/*display: none;*/
 }
-#nav-left .tile {
+/*#nav-left li {
 	width: 100px;
 	margin-left: 10px;
 	text-align: center;
 	line-height: 55px;
 }
-#nav-left .tile.active {
+#nav-left li.active {
 	border: 2px #1ba1e2 solid;
-}
+}*/
 #nav-right {
 	position: fixed;
 	width: 75px;
@@ -302,7 +302,7 @@ div.doc .tools.edit {
 	margin: 5px 5px 0 5px;
 }
 div.doc:hover {
-	border:1px dotted gray;
+	/*border:1px dotted gray;*/
 }
 div.doc .tools i {
 	font-size: 10px;

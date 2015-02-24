@@ -19,12 +19,11 @@
 		<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/addKityFormulaDialog.js"></script>
 		<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/getKfContent.js"></script>
 		<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/defaultFilterFix.js"></script>
+		<!-- 代码高亮显示 -->
 		<script type="text/javascript" charset="utf-8" src="/static/js/third-party/SyntaxHighlighter/shCore.js"></script>
 		<script type="text/javascript" charset="utf-8" src="/static/js/third-party/SyntaxHighlighter/shAutoloader.js"></script>
-		<!--<link rel="stylesheet" type="text/css" href="/static/js/third-party/SyntaxHighlighter/styles/shCore.css" />-->
 		<link rel="stylesheet" type="text/css" href="/static/js/third-party/SyntaxHighlighter/styles/shCoreDefault.css" />
 		<link rel="stylesheet" type="text/css" href="/static/js/third-party/SyntaxHighlighter/styles/shThemeEmacs.css" />
-		
 		<script type="text/javascript" charset="utf-8" src="/static/js/third-party/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
 		<!--滚动条-->
 		<link rel="stylesheet" type="text/css" href="/static/css/jquery.mCustomScrollbar.min.css" />
@@ -35,13 +34,14 @@
 
 	<body class="metro">
 		<!--左侧导航条-->
-		<nav id="nav-left" class="bg-dark fg-white shadow padding10">
-			<div class="tile half bg-dark">
+		<nav id="nav-left" class="bg-dark">
+			<!-- <div class="tile half bg-dark">
 				教育
 			</div>
 			<div class="tile half bg-dark">
 				分类
-			</div>
+			</div> -->
+			<ul class="fg-white" style="margin:0;padding:0;"><li>教育</li><li>分类</li></ul>
 		</nav>
 
 		<!--右侧导航条-->
@@ -56,6 +56,11 @@
 				<div class="tile half bg-cyan" data-hint="书签" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
 					<div class="tile-content icon">
 						<i class="icon-air"></i>
+					</div>
+				</div>
+				<div class="tile half bg-cyan">
+					<div class="tile-content text-center text-bold" style="margin-top:30%;">
+					中文
 					</div>
 				</div>
 
@@ -113,43 +118,6 @@
 
 </html>
 <script type="text/javascript">
-//	$(function(){
-//		function path() {
-//      	var args = arguments, result = [];
-//          for (var i = 0; i < args.length; i++)
-//              result.push(args[i].replace('@', '/static/js/third-party/SyntaxHighlighter/scripts/'));
-//          return result
-//      };
-//
-//      SyntaxHighlighter.autoloader.apply(null, path(
-//          'applescript            @shBrushAppleScript.js',
-//          'actionscript3 as3      @shBrushAS3.js',
-//          'bash shell             @shBrushBash.js',
-//          'coldfusion cf          @shBrushColdFusion.js',
-//          'cpp c                  @shBrushCpp.js',
-//          'c# c-sharp csharp      @shBrushCSharp.js',
-//          'css                    @shBrushCss.js',
-//          'delphi pascal          @shBrushDelphi.js',
-//          'diff patch pas         @shBrushDiff.js',
-//          'erl erlang             @shBrushErlang.js',
-//          'groovy                 @shBrushGroovy.js',
-//          'java                   @shBrushJava.js',
-//          'jfx javafx             @shBrushJavaFX.js',
-//          'js jscript javascript  @shBrushJScript.js',
-//          'perl pl                @shBrushPerl.js',
-//          'php                    @shBrushPhp.js',
-//          'text plain             @shBrushPlain.js',
-//          'py python              @shBrushPython.js',
-//          'ruby rails ror rb      @shBrushRuby.js',
-//          'sass scss              @shBrushSass.js',
-//          'scala                  @shBrushScala.js',
-//          'sql                    @shBrushSql.js',
-//          'vb vbnet               @shBrushVb.js',
-//          'xml xhtml xslt html    @shBrushXml.js')
-//	     );
-//		// 代码高亮
-//		SyntaxHighlighter.all();
-//	})
 
 	var snow = {
 		speed: 300,
