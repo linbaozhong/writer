@@ -173,20 +173,23 @@ func (this *Dal) Select() string {
 
 // 记录数目统计
 func (this *Dal) Count(params ...interface{}) int64 {
-	sqlstr := make([]string, 0)
-	sqlstr = append(sqlstr, "select count(*) as counts from "+this.From)
+	//sqlstr := make([]string, 0)
+	//sqlstr = append(sqlstr, "select count(*) as counts from "+this.From)
 
-	if strings.TrimSpace(this.Where) != "" {
-		sqlstr = append(sqlstr, "where "+this.Where)
-	}
+	this.Field = "count(*) as counts"
 
-	return utils.Str2int64(this.Single(strings.Join(sqlstr, " "), "counts", params...))
+	//if strings.TrimSpace(this.Where) != "" {
+	//	sqlstr = append(sqlstr, "where "+this.Where)
+	//}
+
+	//return utils.Str2int64(this.Single(strings.Join(sqlstr, " "), "counts", params...))
+	return utils.Str2int64(this.Single("counts", params...))
 }
 
 // 返回第一行第一个字段的字符串形式
-func (this *Dal) Single(sql string, field string, params ...interface{}) string {
-	if rows, err := db.Query(sql, params...); len(rows) > 0 && err == nil {
-		return string(rows[0][field])
+func (this *Dal) Single(field string, params ...interface{}) string {
+	if rows, err := db.Query(this.Select(), params...); len(rows) > 0 && err == nil {
+		return strings.TrimSpace(string(rows[0][field]))
 	}
 	return ""
 }

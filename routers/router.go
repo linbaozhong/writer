@@ -12,6 +12,8 @@ func init() {
 
 	home := &controllers.Home{}
 	beego.Router("/", home, "get:Get")
+	beego.Router("/r", home, "get:Read")
+	beego.AutoRouter(home)
 
 	conn := &controllers.Connect{}
 	beego.Router("/connect/qq_error/:msg", conn)
@@ -27,5 +29,6 @@ func init() {
 	beego.Router("/passwordreset", act, "get:PasswordReset")
 
 	article := &controllers.Article{}
+	beego.Router("/w", article, "get:Write")
 	beego.AutoRouter(article)
 }

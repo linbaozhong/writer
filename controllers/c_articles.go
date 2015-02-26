@@ -10,6 +10,14 @@ type Article struct {
 	Auth
 }
 
+func (this *Article) Write() {
+	this.Layout = "_frontLayout.html"
+	this.LayoutSections = make(map[string]string)
+	this.Data["account"] = this.currentUser
+
+	this.setTplNames("write")
+}
+
 func (this *Article) Update() {
 	article := new(models.Article)
 
@@ -64,7 +72,7 @@ func (this *Article) Get() {
 }
 
 // @Title List
-// @Description 分页拉取问题列表
+// @Description 分页拉取文档列表
 // @Param   size  form  int  false        "每页的记录条数"
 // @Success 200 {object} utils.Response
 // @Failure 200 {object} utils.Response

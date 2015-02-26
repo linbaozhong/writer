@@ -35,7 +35,7 @@
 				// 
 				_width = _width > opts.size.body ? opts.size.body : _width;
 				// 间距
-				opts.space = _width - 1;
+				opts.space = _width;
 				// 渲染frame
 				_frames.css({
 					'height': self.height(),
@@ -56,7 +56,7 @@
 							left: _left
 						}, opts.speed);
 					}
-					_left += _frame.hasClass('active') ? opts.size.body - 1 : opts.space;
+					_left += _frame.hasClass('active') ? opts.size.body : opts.space;
 				});
 			},
 
@@ -223,7 +223,7 @@
 					var __frame=$(this);
 
 					__frame.stop().animate({
-							left: (__frame.index()-1) * opts.space + opts.size.body-1
+							left: (__frame.index()-1) * opts.space + opts.size.body
 					}, opts.speed);
 				});
 			}
@@ -238,11 +238,6 @@
 			// 刷新
 			$this.each(function() {
 				var self = $(this);
-
-				self.css({
-					height: self.parent().height()
-				});
-
 				// 刷新
 				refresh(self);
 			});

@@ -40,6 +40,7 @@ h6,
 button,
 p {
 	font-family: "微软雅黑", "Microsoft Yahei" !important;
+	list-style: none;
 }
 body {
 	background-size: cover;
@@ -50,19 +51,24 @@ body {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	padding: 50px 0;
+	padding: 100px 0 50px;
 	z-index: 1000;
 	/*display: none;*/
 }
-/*#nav-left li {
-	width: 100px;
-	margin-left: 10px;
-	text-align: center;
-	line-height: 55px;
+#nav-left li {
+	width: 100%;
+	line-height: 2em;
+	cursor:pointer;
+	padding:0 10px;
+}
+#nav-left li:hover{
+	/*background: #1ba1e2;*/
+	background:#202020;
 }
 #nav-left li.active {
-	border: 2px #1ba1e2 solid;
-}*/
+	background:white;
+	color:black;
+}
 #nav-right {
 	position: fixed;
 	width: 75px;
@@ -71,7 +77,54 @@ body {
 	bottom: 0;
 	padding: 50px 0;
 	z-index: 1000;
+	text-align: right;
 	/*display: none;*/
+}
+#nav-right li{
+	width:100%;
+	height:55px;
+	margin-bottom: 10px;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-size: .8em;
+	cursor:pointer;
+	position: relative;
+	background: #333;
+}
+#nav-right li:hover{
+	background: #1ba1e2;
+}
+#nav-right li .icon{
+	font-size: 1.5em;
+}
+#nav-right li#snow-lang{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 75px;
+}
+#snow-lang .snow-languages{
+	position:absolute;
+	height:100%;
+	top:0;
+	right:-552px;
+	text-align: left;
+	font-size: larger;
+	background: #1ba1e2;
+	width:552px;
+	z-index: -1;
+}
+#snow-lang .snow-languages a{
+	height: 55px;
+	display: inline-block;
+	width: 75px;
+	padding: 15px 5px;
+	text-align: center;
+	color: white;
+}
+#snow-lang .snow-languages a:hover{
+	background:#333;
 }
 div.nav-info-box {
 	z-index: 900;
@@ -108,8 +161,6 @@ div.nav-info-box {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	/*margin-left: 20px;*/
-	
 	z-index: 1;
 }
 /*#snow-left .content {
@@ -121,6 +172,7 @@ div.nav-info-box {
 	width: 100%;
 	
 } */
+
 /*列表项*/
 
 .horizontal-list ul,
@@ -168,8 +220,11 @@ div.nav-info-box {
 .frame {
 	text-align: left;
 	padding: 20px 30px;
-	border: 1px solid #eee;
+	border-right: 1px solid #eee;
 	z-index: 2;
+	min-height: 100%;
+	width: 50%;
+	position: absolute;
 }
 .frame .doc-plus {
 	font-size: 14px;
@@ -302,7 +357,7 @@ div.doc .tools.edit {
 	margin: 5px 5px 0 5px;
 }
 div.doc:hover {
-	/*border:1px dotted gray;*/
+	border:1px dashed #eee;
 }
 div.doc .tools i {
 	font-size: 10px;
@@ -399,7 +454,7 @@ div.doc .tools i {
 /**/
 
 .accordion {
-	border: 1px solid #EEEEEE;
+	/*border: 1px solid #EEEEEE;*/
 }
 .accordion.horizontal::after {
 	clear: both;
