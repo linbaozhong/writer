@@ -111,11 +111,10 @@
 				// 清空子节点
 				_frame.data('parentid', _id).children('div.doc').remove();
 			} else {
-				alert();
 				return;
 			};
 			// 加载目录
-			$.post(snow.api.catalog + '/' + _id, {}, function(result) {
+			$.post(snow.api.catalog, {parentId:_id}, function(result) {
 				if (result.ok) {
 					var _docs = result.data,
 						_catalog = $('#catalog').append('<h2 style="margin-bottom:28px;">目录</h2>'),

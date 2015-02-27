@@ -133,20 +133,23 @@
 				,_last = _frame.find('>footer')
 				,_top = parseInt(_first.css('marginTop')) - $('#doc-'+id).offset().top;
 				
+
 			_first.animate({
 				marginTop: _top
 			},function(){
-				var _bottom = _last.offset().top
-				console.log(_bottom , _frame.height());
-				if(_bottom < _frame.height()){
-					_top = _top - (_bottom - _frame.height());
+				
+				if(_last.offset().top < _frame.innerHeight()){
+					_top = _top - (_last.offset().top - _frame.innerHeight());
 				}
+		
 				_first.css({
 					marginTop: _top
 				});
+				// 保存当前位置
+				_frame.data('position', _top);
+				// 刷新滚动条
+				snow.docResize(_frame);
 			});
-			// 保存当前位置
-			_frame.data('position', _top);
 		});
 		
 	});

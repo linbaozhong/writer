@@ -195,10 +195,10 @@
 		containment: "parent",
 		drag: function(e, ui) {
 			var _this = $(this).css('left', 0).closest('.frame'),
-				//_height = _this.outerHeight(),
+				_height = _this.outerHeight(),
 				_first = _this.find('>header'),
-				//_last = _this.find('>footer'),
-				//_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
+				_last = _this.find('>footer'),
+				_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 				_step = _height / _maxHeight,
 				_top = ui.position.top / _step * (-1);
 
