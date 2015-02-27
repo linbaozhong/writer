@@ -269,13 +269,13 @@ func (this *Article) List(page *Pagination, condition string, params ...interfac
 	return this._list(true, page, condition, params...)
 }
 
-// 分页列表
+// 分页列表全部的
 func (this *Article) ListEx(page *Pagination, condition string, params ...interface{}) ([]Article, error) {
 	return this._list(false, page, condition, params...)
 }
 
 // 分页列表
-func (this *Article) _list(all bool, page *Pagination, condition string, params ...interface{}) ([]Article, error) {
+func (this *Article) _list(view bool, page *Pagination, condition string, params ...interface{}) ([]Article, error) {
 	// Dal对象
 	_dal := &Dal{}
 	_dal.From = "articles,documents"
@@ -283,7 +283,7 @@ func (this *Article) _list(all bool, page *Pagination, condition string, params 
 	_dal.OrderBy = "articles.parentId,articles.position"
 
 	// 可见的
-	if all {
+	if view {
 		_dal.Where += fmt.Sprintf(" and articles.status=%d and articles.deleted=%d and documents.status=%d and documents.deleted=%d", Unlock, Undelete, Unlock, Undelete)
 	}
 	// 条件
@@ -456,4 +456,47 @@ func (this *Article) Catalog(id int64) ([]Article, error) {
 
 	err := db.Sql(_dal.Select()).Find(&as)
 	return as, err
+}
+
+// 内容分页列表（可见子孙节点）
+func (this *Article) GetContent(page *Pagination, id int64, condition string, params ...interface{}) ([]Article, error) {
+	return this._content(true, page, id, condition, params...)
+}
+
+// 内容分页列表（全部子孙节点）
+func (this *Article) GetContentEx(page *Pagination, id int64, condition string, params ...interface{}) ([]Article, error) {
+	return this._content(false, page, id, condition, params...)
+}
+
+// 内容分页列表（子孙节点）
+func (this *Article) _content(view bool, page *Pagination, id int64, condition string, params ...interface{}) ([]Article, error) {
+	// Dal对象
+	_dal := &Dal{}
+	_dal.From = "articles,documents"
+	_dal.Where = fmt.Sprintf("documents.id = articles.documentId and articles.parentId>0 and articles.depth like '%d,%s'", id, "%")
+	_dal.OrderBy = "articles.depth,articles.position"
+
+	// 可见的
+	if view {
+		_dal.Where += fmt.Sprintf(" and articles.status=%d and articles.deleted=%d and documents.status=%d and documents.deleted=%d", Unlock, Undelete, Unlock, Undelete)
+	}
+	// 条件
+	if strings.TrimSpace(condition) != "" {
+		_dal.Where += " and " + condition
+	}
+	// slice承载返回的结果
+	as := make([]Article, 0)
+	// 读取符合条件的记录总数
+	if rows := _dal.Count(params...); rows > 0 {
+
+		getPageCount(rows, page)
+
+		_dal.Size = page.Size
+		_dal.Offset = page.Index * page.Size
+
+		_dal.Field = "articles.*,documents.title,documents.content"
+		err := db.Sql(_dal.Select(), params...).Find(&as)
+		return as, err
+	}
+	return as, nil
 }

@@ -1,6 +1,18 @@
 <style type="text/css">
-	#snow-left .liulan .doc-content{
-		cursor:pointer;
+	#snow-left .liulan .doc-content {
+		cursor: pointer;
+	}
+	div.liulan #catalog h1,
+	#catalog h2,
+	#catalog h3,
+	#catalog h4,
+	#catalog h5,
+	#catalog h6 {
+		color: #555 !important;
+		line-height: 22px !important;
+	}
+	div.liulan #catalog .snow-catalog {
+		padding-left: 2em;
 	}
 </style>
 <!--左侧框--工作区-->
@@ -12,60 +24,58 @@
 			</header>
 
 			<footer>
-				<div class="mask" />
+
 			</footer>
 		</div>
 		<div class="frame" style="left:50%;">
 			<header>
 
 			</header>
-
+			<div id="catalog"></div>
 			<footer>
-				<div class="mask" />
+
 			</footer>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-	
-	$(function(){
+	$(function() {
 		// 文档模板
 		snow.docTemplate = [];
 		snow.docTemplate.push('<div class="doc" data-id="<%.id%>" data-parentid="<%.parentId%>" data-documentid="<%.documentId%>" data-creator="<%.creator%>">');
 		snow.docTemplate.push('<header class="doc-handle"></header>');
-//			snow.docTemplate.push('<div class="doc-tools">');
-//				snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
-//				snow.docTemplate.push('<a href="javascript:;" title="分支" class="tools del icon-github-6"></a>');
-//			snow.docTemplate.push('</div>');
-			snow.docTemplate.push('<article class="doc-info">');
-				snow.docTemplate.push('<div class="doc-content">');
-				snow.docTemplate.push('<%.content%>');	
-				snow.docTemplate.push('</div>');
-//				snow.docTemplate.push('<div title="下级" class="doc-children doc-tools">');
-//				snow.docTemplate.push('<i class="icon-arrow-right-5"></i>');
-//				snow.docTemplate.push('</div>');
-			snow.docTemplate.push('</article>');
-			snow.docTemplate.push('<footer class="text-center">');
-				snow.docTemplate.push('<div class="pos-abs">');
-					snow.docTemplate.push('<span class="doc-remark"></span>');
-				snow.docTemplate.push('</div>');
-				snow.docTemplate.push('<div class="doc-tools">');
-					snow.docTemplate.push('<span class="tools icon-eye"><i>123</i></span>');
-					snow.docTemplate.push('<span class="tools icon-new-tab"><i>456</i></span>');
-					snow.docTemplate.push('<span class="tools icon-thumbs-up"><i>123</i></span>');
-					snow.docTemplate.push('<span class="tools icon-github-6"><i>123</i></span>');
-				snow.docTemplate.push('</div>');
-//				snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>');
-			snow.docTemplate.push('</footer>');
+		//			snow.docTemplate.push('<div class="doc-tools">');
+		//				snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
+		//				snow.docTemplate.push('<a href="javascript:;" title="分支" class="tools del icon-github-6"></a>');
+		//			snow.docTemplate.push('</div>');
+		snow.docTemplate.push('<article class="doc-info">');
+		snow.docTemplate.push('<div class="doc-content">');
+		snow.docTemplate.push('<%.content%>');
 		snow.docTemplate.push('</div>');
-		snow.docTemplate.get = function(doc){
-			return $(this.join('').replace('<%.id%>',doc.articleId)
-							.replace('<%.parentId%>',doc.parentId)
-							.replace('<%.creator%>',doc.creator)
-							.replace('<%.documentId%>',doc.documentId)
-							.replace('<%.content%>',doc.content)).data('content',doc.content);
+		//				snow.docTemplate.push('<div title="下级" class="doc-children doc-tools">');
+		//				snow.docTemplate.push('<i class="icon-arrow-right-5"></i>');
+		//				snow.docTemplate.push('</div>');
+		snow.docTemplate.push('</article>');
+		snow.docTemplate.push('<footer class="text-center">');
+		snow.docTemplate.push('<div class="pos-abs">');
+		snow.docTemplate.push('<span class="doc-remark"></span>');
+		snow.docTemplate.push('</div>');
+		snow.docTemplate.push('<div class="doc-tools">');
+		snow.docTemplate.push('<span class="tools icon-eye"><i>123</i></span>');
+		snow.docTemplate.push('<span class="tools icon-new-tab"><i>456</i></span>');
+		snow.docTemplate.push('<span class="tools icon-thumbs-up"><i>123</i></span>');
+		snow.docTemplate.push('<span class="tools icon-github-6"><i>123</i></span>');
+		snow.docTemplate.push('</div>');
+		//				snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>');
+		snow.docTemplate.push('</footer>');
+		snow.docTemplate.push('</div>');
+		snow.docTemplate.get = function(doc) {
+			return $(this.join('').replace(/<%.id%>/g, doc.articleId)
+				.replace(/<%.parentId%>/g, doc.parentId)
+				.replace(/<%.creator%>/g, doc.creator)
+				.replace(/<%.documentId%>/g, doc.documentId)
+				.replace(/<%.content%>/g, doc.content)).data('content', doc.content);
 		};
-		
 		/* 增加单个文档
 		 * frame:容器
 		 * doc:文档
@@ -77,63 +87,62 @@
 			} else {
 				frame.find('>footer').before(doc);
 			}
-		}
+		};
 		// 首次加载
-		$.post(snow.api.books,{},function(result){
+		$.post(snow.api.books, {}, function(result) {
 			if (result.ok) {
 				var _docs = result.data;
-	
-				$.each(_docs,function(index,_doc){
+				$.each(_docs, function(index, _doc) {
 					snow.addDoc(
-						snow.left.find('.frame').eq(0).data('parentid',0)
-						,snow.docTemplate.get(_doc)
+						snow.left.find('.frame').eq(0).data('parentid', 0), snow.docTemplate.get(_doc)
 					);
-	
 				});
 				// 代码高亮
 				SyntaxHighlighter.highlight();
 			};
 		});
-	
-
 		snow.left.on('click', '.frame div.doc .doc-content', function(e) {
 			e.stopPropagation();
 			var _doc = $(this).closest('.doc'),
-				_parentId = _doc.data('id'),
+				_id = _doc.data('id'),
 				_frame = _doc.closest('.frame').next();
-	
 			// 如果frame存在
-			if (_frame.length){
+			if (_frame.length) {
 				// 清空子节点
-				_frame.data('parentid',_parentId).children('div.doc').remove();
-			}else {
+				_frame.data('parentid', _id).children('div.doc').remove();
+			} else {
 				alert();
 				return;
 			};
-			// 加载子节点
-			$.post(snow.api.docList,{parentid:_parentId},function(result){
+			// 加载目录
+			$.post(snow.api.catalog + '/' + _id, {}, function(result) {
 				if (result.ok) {
-					var _docs = result.data;
-	
-					$.each(_docs,function(index,_doc){
-						snow.addDoc(
-							_frame.data('parentid',_parentId)
-							,snow.docTemplate.get(_doc)
-						);
-	
+					var _docs = result.data,
+						_catalog = $('#catalog').append('<h2 style="margin-bottom:28px;">目录</h2>'),
+						_tpl = function(_d, one) {
+							return '<h4 id="title-<%.id%>" class="<%.class%>"><%.title%></h4>'
+								.replace(/<%.id%>/g, _d.articleId)
+								.replace(/<%.title%>/g, _d.title)
+								.replace(/<%.class%>/g, (one ? '' : 'snow-catalog'))
+						};
+					$.each(_docs, function(index, _d) {
+						if (_d.title == '') {
+							return;
+						}
+						if (_d.parentId == _id) {
+							_catalog.append(_tpl(_d, true));
+						} else {
+							$('#title-' + _d.parentId).append(_tpl(_d));
+						}
 					});
-					// 代码高亮
-					SyntaxHighlighter.highlight();
 				};
 			});
 			// 复原编辑表单
 			if (!_doc.hasClass('active')) {
 				_doc.siblings('.active').removeClass('active');
-	
 				// 激活doc
 				_doc.addClass('active');
 			}
 		});
-
 	});
 </script>

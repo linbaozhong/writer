@@ -5432,3 +5432,505 @@
 2015/02/26 18:01:12 [log.go:108] [D] Article/Position Info:zh-CN 
 2015/02/26 18:01:12 [router.go:845] [D] | POST       | /article/position                        | 129.0074ms       | match      | /article/position/*                      | 
 2015/02/26 18:02:09 [router.go:845] [D] | GET        | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 09:58:32 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 09:58:32 [app.go:96] [I] http server Running on :8088
+2015/02/27 10:13:07 [router.go:845] [D] | GET        | /                                        | 136.0077ms       | match      | /                                        | 
+2015/02/27 10:13:09 [router.go:845] [D] | POST       | /home/books                              | 285.0163ms       | match      | /home/books/*                            | 
+2015/02/27 10:13:13 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 10:32:07 [router.go:845] [D] | GET        | /                                        | 68.0039ms        | match      | /                                        | 
+2015/02/27 10:32:08 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 10:32:45 [router.go:845] [D] | GET        | /                                        | 58.0033ms        | match      | /                                        | 
+2015/02/27 10:32:46 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 10:34:03 [router.go:845] [D] | GET        | /                                        | 106.0061ms       | match      | /                                        | 
+2015/02/27 10:34:03 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 10:34:14 [router.go:845] [D] | GET        | /                                        | 63.0036ms        | match      | /                                        | 
+2015/02/27 10:34:14 [router.go:845] [D] | POST       | /home/books                              | 1ms              | match      | /home/books/*                            | 
+2015/02/27 10:36:30 [router.go:845] [D] | GET        | /                                        | 89.0051ms        | match      | /                                        | 
+2015/02/27 10:36:30 [router.go:845] [D] | POST       | /home/books                              | 52.0029ms        | match      | /home/books/*                            | 
+2015/02/27 10:36:32 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 10:36:53 [router.go:845] [D] | GET        | /                                        | 57.0033ms        | match      | /                                        | 
+2015/02/27 10:36:53 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 10:36:53 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 10:38:39 [router.go:845] [D] | GET        | /                                        | 60.0034ms        | match      | /                                        | 
+2015/02/27 10:38:39 [router.go:845] [D] | POST       | /home/books                              | 1ms              | match      | /home/books/*                            | 
+2015/02/27 10:38:40 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 10:40:54 [router.go:845] [D] | GET        | /                                        | 56.0032ms        | match      | /                                        | 
+2015/02/27 10:40:54 [router.go:845] [D] | POST       | /home/books                              | 1ms              | match      | /home/books/*                            | 
+2015/02/27 10:40:55 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 10:46:09 [router.go:845] [D] | GET        | /                                        | 62.0036ms        | match      | /                                        | 
+2015/02/27 10:46:10 [router.go:845] [D] | POST       | /home/books                              | 8.0005ms         | match      | /home/books/*                            | 
+2015/02/27 10:46:27 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 10:47:57 [router.go:845] [D] | GET        | /                                        | 62.0035ms        | match      | /                                        | 
+2015/02/27 10:47:57 [router.go:845] [D] | POST       | /home/books                              | 80.0046ms        | match      | /home/books/*                            | 
+2015/02/27 10:47:59 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 10:51:19 [router.go:845] [D] | GET        | /                                        | 75.0043ms        | match      | /                                        | 
+2015/02/27 10:51:19 [router.go:845] [D] | POST       | /home/books                              | 1ms              | match      | /home/books/*                            | 
+2015/02/27 10:51:20 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 10:53:42 [router.go:845] [D] | GET        | /                                        | 63.0036ms        | match      | /                                        | 
+2015/02/27 10:53:43 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 10:53:44 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 10:54:38 [router.go:845] [D] | GET        | /                                        | 102.0059ms       | match      | /                                        | 
+2015/02/27 10:54:38 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 10:54:39 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 10:56:08 [router.go:845] [D] | GET        | /                                        | 71.004ms         | match      | /                                        | 
+2015/02/27 10:56:08 [router.go:845] [D] | POST       | /home/books                              | 1ms              | match      | /home/books/*                            | 
+2015/02/27 10:56:08 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 10:57:45 [router.go:845] [D] | GET        | /                                        | 88.005ms         | match      | /                                        | 
+2015/02/27 10:57:45 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 10:57:46 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:01:58 [router.go:845] [D] | GET        | /                                        | 60.0034ms        | match      | /                                        | 
+2015/02/27 11:01:58 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 11:01:59 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:03:06 [router.go:845] [D] | GET        | /                                        | 55.0032ms        | match      | /                                        | 
+2015/02/27 11:03:06 [router.go:845] [D] | POST       | /home/books                              | 1ms              | match      | /home/books/*                            | 
+2015/02/27 11:03:07 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:03:08 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:03:28 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 11:04:06 [router.go:845] [D] | GET        | /                                        | 65.0037ms        | match      | /                                        | 
+2015/02/27 11:04:07 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 11:04:07 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:07:05 [router.go:845] [D] | GET        | /                                        | 54.0031ms        | match      | /                                        | 
+2015/02/27 11:07:05 [router.go:845] [D] | POST       | /home/books                              | 5.0002ms         | match      | /home/books/*                            | 
+2015/02/27 11:07:05 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:08:07 [router.go:845] [D] | GET        | /                                        | 64.0036ms        | match      | /                                        | 
+2015/02/27 11:08:07 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 11:08:08 [router.go:845] [D] | POST       | /home/catalog/27                         | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:08:24 [router.go:845] [D] | GET        | /                                        | 71.004ms         | match      | /                                        | 
+2015/02/27 11:08:25 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 11:08:32 [router.go:845] [D] | POST       | /home/catalog/27                         | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:09:45 [router.go:845] [D] | GET        | /                                        | 77.0044ms        | match      | /                                        | 
+2015/02/27 11:09:45 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 11:09:46 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 11:11:34 [router.go:845] [D] | GET        | /                                        | 56.0032ms        | match      | /                                        | 
+2015/02/27 11:11:34 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 11:11:35 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:13:16 [router.go:845] [D] | GET        | /                                        | 59.0034ms        | match      | /                                        | 
+2015/02/27 11:13:16 [router.go:845] [D] | POST       | /home/books                              | 5.0003ms         | match      | /home/books/*                            | 
+2015/02/27 11:13:17 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:14:44 [router.go:845] [D] | GET        | /                                        | 60.0035ms        | match      | /                                        | 
+2015/02/27 11:14:44 [router.go:845] [D] | POST       | /home/books                              | 7.0004ms         | match      | /home/books/*                            | 
+2015/02/27 11:14:45 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:17:27 [router.go:845] [D] | GET        | /                                        | 44.0025ms        | match      | /                                        | 
+2015/02/27 11:17:27 [router.go:845] [D] | POST       | /home/books                              | 4.0002ms         | match      | /home/books/*                            | 
+2015/02/27 11:17:28 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:31:22 [router.go:845] [D] | GET        | /r                                       | 116.0067ms       | match      | /r                                       | 
+2015/02/27 11:40:20 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 11:40:23 [app.go:96] [I] http server Running on :8088
+2015/02/27 11:41:30 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 11:41:30 [app.go:96] [I] http server Running on :8088
+2015/02/27 11:48:50 [router.go:845] [D] | GET        | /                                        | 59.0034ms        | match      | /                                        | 
+2015/02/27 11:48:50 [router.go:845] [D] | POST       | /home/books                              | 7.0004ms         | match      | /home/books/*                            | 
+2015/02/27 11:48:56 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 11:49:01 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 11:49:01 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 11:49:01 [router.go:845] [D] | GET        | /w                                       | 127.0072ms       | match      | /w                                       | 
+2015/02/27 11:49:02 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/27 11:49:02 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/27 11:49:02 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/27 11:49:02 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 11:49:05 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/27 11:49:05 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/27 11:49:05 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/27 11:49:12 [router.go:845] [D] | GET        | /                                        | 43.0025ms        | match      | /                                        | 
+2015/02/27 11:49:12 [router.go:845] [D] | POST       | /home/books                              | 1ms              | match      | /home/books/*                            | 
+2015/02/27 11:49:16 [router.go:845] [D] | GET        | /r/27                                    | 1.0001ms         | notmatch   | 
+2015/02/27 11:49:49 [router.go:845] [D] | GET        | /                                        | 68.0039ms        | match      | /                                        | 
+2015/02/27 11:49:49 [router.go:845] [D] | POST       | /home/books                              | 3.0001ms         | match      | /home/books/*                            | 
+2015/02/27 11:50:10 [router.go:845] [D] | GET        | /r/27                                    | 1ms              | notmatch   | 
+2015/02/27 11:51:52 [router.go:845] [D] | GET        | /r/27                                    | 2.0001ms         | notmatch   | 
+2015/02/27 11:52:28 [router.go:845] [D] | GET        | /r/27                                    | 1ms              | notmatch   | 
+2015/02/27 11:52:59 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 11:52:59 [app.go:96] [I] http server Running on :8088
+2015/02/27 11:53:05 [router.go:845] [D] | GET        | /r/27                                    | 1.0001ms         | notmatch   | 
+2015/02/27 11:53:41 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 11:53:41 [app.go:96] [I] http server Running on :8088
+2015/02/27 11:53:44 [router.go:845] [D] | GET        | /r/27                                    | 3.0001ms         | notmatch   | 
+2015/02/27 11:57:22 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 11:57:22 [app.go:96] [I] http server Running on :8088
+2015/02/27 11:57:27 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 11:57:27 [router.go:845] [D] | GET        | /r/27                                    | 100.0057ms       | match      | /r/:id                                   | 
+2015/02/27 11:58:11 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 11:58:11 [router.go:845] [D] | GET        | /r/27                                    | 62.0036ms        | match      | /r/:id                                   | 
+2015/02/27 11:59:37 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 11:59:37 [router.go:845] [D] | GET        | /r/27                                    | 58.0033ms        | match      | /r/:id                                   | 
+2015/02/27 11:59:37 [router.go:845] [D] | POST       | /home/catalog/27                         | 3.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:05:28 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:05:28 [router.go:845] [D] | GET        | /r/27                                    | 47.0027ms        | match      | /r/:id                                   | 
+2015/02/27 12:05:28 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:06:45 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:06:45 [router.go:845] [D] | GET        | /r/27                                    | 67.0038ms        | match      | /r/:id                                   | 
+2015/02/27 12:06:45 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:07:14 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:07:14 [router.go:845] [D] | GET        | /r/27                                    | 52.003ms         | match      | /r/:id                                   | 
+2015/02/27 12:07:14 [router.go:845] [D] | POST       | /home/catalog/27                         | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:09:51 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:09:51 [router.go:845] [D] | GET        | /r/27                                    | 49.0028ms        | match      | /r/:id                                   | 
+2015/02/27 12:09:51 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 12:13:18 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:13:18 [router.go:845] [D] | GET        | /r/27                                    | 47.0027ms        | match      | /r/:id                                   | 
+2015/02/27 12:13:18 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:15:08 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:15:08 [router.go:845] [D] | GET        | /r/27                                    | 55.0031ms        | match      | /r/:id                                   | 
+2015/02/27 12:15:09 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 12:20:36 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:20:36 [router.go:845] [D] | GET        | /r/27                                    | 36.0021ms        | match      | /r/:id                                   | 
+2015/02/27 12:20:36 [router.go:845] [D] | POST       | /home/catalog/27                         | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:27:44 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:27:44 [router.go:845] [D] | GET        | /r/27                                    | 55.0032ms        | match      | /r/:id                                   | 
+2015/02/27 12:27:44 [router.go:845] [D] | POST       | /home/catalog/27                         | 3.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:31:40 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:31:40 [router.go:845] [D] | GET        | /r/27                                    | 68.0039ms        | match      | /r/:id                                   | 
+2015/02/27 12:31:41 [router.go:845] [D] | POST       | /home/catalog/27                         | 8.0004ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:33:23 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:33:23 [router.go:845] [D] | GET        | /r/27                                    | 36.002ms         | match      | /r/:id                                   | 
+2015/02/27 12:33:23 [router.go:845] [D] | POST       | /home/catalog/27                         | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:33:35 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:33:35 [router.go:845] [D] | GET        | /r/27                                    | 36.002ms         | match      | /r/:id                                   | 
+2015/02/27 12:33:36 [router.go:845] [D] | POST       | /home/catalog/27                         | 8.0005ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:35:42 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:35:42 [router.go:845] [D] | GET        | /r/27                                    | 36.0021ms        | match      | /r/:id                                   | 
+2015/02/27 12:35:42 [router.go:845] [D] | POST       | /home/catalog/27                         | 7.0004ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:36:11 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:36:11 [router.go:845] [D] | GET        | /r/27                                    | 37.0021ms        | match      | /r/:id                                   | 
+2015/02/27 12:36:11 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:36:28 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 12:36:28 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 12:36:28 [router.go:845] [D] | GET        | /w                                       | 103.0058ms       | match      | /w                                       | 
+2015/02/27 12:36:29 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/27 12:36:29 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/27 12:36:29 [router.go:845] [D] | POST       | /article/list                            | 2.0001ms         | match      | /article/list/*                          | 
+2015/02/27 12:36:29 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 12:37:31 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 12:37:31 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 12:37:31 [router.go:845] [D] | GET        | /w                                       | 104.0059ms       | match      | /w                                       | 
+2015/02/27 12:37:32 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/27 12:37:32 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/27 12:37:32 [router.go:845] [D] | POST       | /article/list                            | 1ms              | match      | /article/list/*                          | 
+2015/02/27 12:37:32 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 12:40:16 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/27 12:40:16 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/27 12:40:16 [router.go:845] [D] | POST       | /article/list                            | 4.0002ms         | match      | /article/list/*                          | 
+2015/02/27 12:40:30 [log.go:108] [D] Article/List Info:1,  qq 
+2015/02/27 12:40:30 [log.go:108] [D] Article/List Info:zh-CN 
+2015/02/27 12:40:30 [router.go:845] [D] | POST       | /article/list                            | 3.0002ms         | match      | /article/list/*                          | 
+2015/02/27 12:40:59 [log.go:108] [D] Home/Read Info:27 
+2015/02/27 12:40:59 [router.go:845] [D] | GET        | /r/27                                    | 47.0026ms        | match      | /r/:id                                   | 
+2015/02/27 12:40:59 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:41:14 [router.go:845] [D] | GET        | /                                        | 56.0032ms        | match      | /                                        | 
+2015/02/27 12:41:14 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 12:41:16 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 12:42:14 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 12:42:14 [app.go:96] [I] http server Running on :8088
+2015/02/27 12:43:27 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 12:43:27 [app.go:96] [I] http server Running on :8088
+2015/02/27 12:48:43 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 12:48:44 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:10:39 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:10:39 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:15:27 [router.go:845] [D] | POST       | /home/catalog/27                         | 3.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:15:43 [router.go:845] [D] | GET        | /r/27                                    | 2.0002ms         | notmatch   | 
+2015/02/27 13:17:04 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:17:04 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:17:06 [router.go:845] [D] | GET        | /r/27                                    | 1ms              | notmatch   | 
+2015/02/27 13:17:41 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:17:41 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:18:53 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:18:53 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:18:57 [router.go:845] [D] | GET        | /                                        | 89.0051ms        | match      | /                                        | 
+2015/02/27 13:18:58 [router.go:845] [D] | POST       | /home/books                              | 7.0004ms         | match      | /home/books/*                            | 
+2015/02/27 13:19:23 [router.go:845] [D] | GET        | /                                        | 55.0031ms        | match      | /                                        | 
+2015/02/27 13:19:24 [router.go:845] [D] | POST       | /home/books                              | 4.0003ms         | match      | /home/books/*                            | 
+2015/02/27 13:20:10 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:20:11 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:20:13 [router.go:845] [D] | POST       | /home/books                              | 4.0002ms         | match      | /home/books/*                            | 
+2015/02/27 13:20:15 [router.go:845] [D] | POST       | /article/list                            | 1.0001ms         | notmatch   | 
+2015/02/27 13:20:15 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 13:20:28 [log.go:108] [D] Home/Read Info:0,  0 
+2015/02/27 13:20:28 [router.go:845] [D] | GET        | /                                        | 57.0033ms        | match      | /                                        | 
+2015/02/27 13:20:28 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 13:21:31 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:21:32 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:21:37 [log.go:108] [D] Home/Read Info:0,  0 
+2015/02/27 13:21:37 [router.go:845] [D] | GET        | /                                        | 59.0033ms        | match      | /                                        | 
+2015/02/27 13:21:38 [router.go:845] [D] | POST       | /home/books                              | 3.0002ms         | match      | /home/books/*                            | 
+2015/02/27 13:22:40 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:22:40 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:22:46 [log.go:108] [D] Home/Read Info:27,  0 
+2015/02/27 13:22:46 [router.go:845] [D] | GET        | /r/27                                    | 65.0038ms        | match      | /r/:articleId                            | 
+2015/02/27 13:23:35 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:23:35 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:23:40 [router.go:845] [D] | GET        | /r/27                                    | 5.0003ms         | notmatch   | 
+2015/02/27 13:23:48 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:23:48 [router.go:845] [D] | GET        | /r/27/2                                  | 61.0035ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:23:48 [router.go:845] [D] | GET        | /r/static/js/metro-global.js             | 1.0001ms         | notmatch   | 
+2015/02/27 13:23:48 [router.go:845] [D] | GET        | /r/static/js/metro-core.js               | 2.0002ms         | notmatch   | 
+2015/02/27 13:23:48 [router.go:845] [D] | GET        | /r/static/js/metro-hint.js               | 0                | notmatch   | 
+2015/02/27 13:23:48 [router.go:845] [D] | GET        | /r/static/js/metro-initiator.js          | 1.0001ms         | notmatch   | 
+2015/02/27 13:23:49 [router.go:845] [D] | GET        | /r/static/inc/_signin.html               | 0                | notmatch   | 
+2015/02/27 13:23:49 [router.go:845] [D] | GET        | /r/static/inc/_signup.html               | 1ms              | notmatch   | 
+2015/02/27 13:26:08 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:26:08 [router.go:845] [D] | GET        | /r/27/2                                  | 53.003ms         | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:26:08 [router.go:845] [D] | GET        | /r/static/js/metro-global.js             | 0                | notmatch   | 
+2015/02/27 13:26:08 [router.go:845] [D] | GET        | /r/static/js/metro-core.js               | 0                | notmatch   | 
+2015/02/27 13:26:08 [router.go:845] [D] | GET        | /r/static/js/metro-hint.js               | 1ms              | notmatch   | 
+2015/02/27 13:26:08 [router.go:845] [D] | GET        | /r/static/js/metro-initiator.js          | 0                | notmatch   | 
+2015/02/27 13:26:08 [router.go:845] [D] | GET        | /r/static/inc/_signin.html               | 0                | notmatch   | 
+2015/02/27 13:26:08 [router.go:845] [D] | GET        | /r/static/inc/_signup.html               | 0                | notmatch   | 
+2015/02/27 13:26:29 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:26:29 [router.go:845] [D] | GET        | /r/27/2                                  | 66.0038ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:26:30 [router.go:845] [D] | GET        | /r/static/inc/_signin.html               | 1.0001ms         | notmatch   | 
+2015/02/27 13:26:30 [router.go:845] [D] | GET        | /r/static/inc/_signup.html               | 1.0001ms         | notmatch   | 
+2015/02/27 13:27:44 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:27:44 [router.go:845] [D] | GET        | /r/27/2                                  | 77.0045ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:27:44 [router.go:845] [D] | POST       | /home/catalog/27                         | 3.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:27:44 [router.go:845] [D] | POST       | /r/27/home/content/27                    | 1.0001ms         | notmatch   | 
+2015/02/27 13:27:44 [router.go:845] [D] | GET        | /r/static/inc/_signin.html               | 1.0001ms         | notmatch   | 
+2015/02/27 13:27:44 [router.go:845] [D] | GET        | /r/static/inc/_signup.html               | 1.0001ms         | notmatch   | 
+2015/02/27 13:29:03 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:29:03 [router.go:845] [D] | GET        | /r/27/2                                  | 52.003ms         | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:29:03 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:29:03 [router.go:845] [D] | POST       | /r/27/home/content/27                    | 1.0001ms         | notmatch   | 
+2015/02/27 13:30:03 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:30:03 [router.go:845] [D] | GET        | /r/27/2                                  | 58.0034ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:30:03 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:30:03 [router.go:845] [D] | POST       | /home/content/27                         | 2.0001ms         | match      | /home/content/*                          | 
+2015/02/27 13:31:55 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:31:55 [router.go:845] [D] | GET        | /r/27/2                                  | 56.0032ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:31:55 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:31:55 [router.go:845] [D] | POST       | /home/content/27                         | 1.0001ms         | match      | /home/content/*                          | 
+2015/02/27 13:32:50 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:32:50 [router.go:845] [D] | GET        | /r/27/2                                  | 80.0046ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:32:50 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:32:50 [router.go:845] [D] | POST       | /home/content/27                         | 1ms              | match      | /home/content/*                          | 
+2015/02/27 13:33:43 [router.go:845] [D] | GET        | /home/content/27                         | 1ms              | match      | /home/content/*                          | 
+2015/02/27 13:35:50 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:35:50 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:35:55 [router.go:845] [D] | GET        | /home/content/27                         | 4.0002ms         | match      | /home/content/*                          | 
+2015/02/27 13:38:03 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:38:03 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:38:18 [router.go:845] [D] | GET        | /home/content/27                         | 7.0004ms         | match      | /home/content/*                          | 
+2015/02/27 13:38:23 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:38:23 [router.go:845] [D] | GET        | /r/27/2                                  | 73.0042ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:38:23 [router.go:845] [D] | POST       | /home/catalog/27                         | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:38:23 [router.go:845] [D] | POST       | /home/content/27                         | 11.0007ms        | match      | /home/content/*                          | 
+2015/02/27 13:40:01 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:40:01 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:40:42 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:40:42 [router.go:845] [D] | GET        | /r/27/2                                  | 68.0038ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:40:42 [router.go:845] [D] | POST       | /home/content                            | 7.0004ms         | match      | /home/content/*                          | 
+2015/02/27 13:40:42 [router.go:845] [D] | POST       | /home/catalog/27                         | 11.0006ms        | match      | /home/catalog/*                          | 
+2015/02/27 13:41:29 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:41:29 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:41:42 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:41:42 [router.go:845] [D] | GET        | /r/27/2                                  | 55.0031ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:41:42 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:41:42 [router.go:845] [D] | POST       | /home/content                            | 7.0004ms         | match      | /home/content/*                          | 
+2015/02/27 13:42:15 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 13:42:15 [app.go:96] [I] http server Running on :8088
+2015/02/27 13:42:28 [log.go:108] [D] Home/Read Info:27,  2 
+2015/02/27 13:42:28 [router.go:845] [D] | GET        | /r/27/2                                  | 49.0028ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:42:28 [router.go:845] [D] | POST       | /home/catalog/27                         | 4.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:42:28 [router.go:845] [D] | POST       | /home/content                            | 5.0003ms         | match      | /home/content/*                          | 
+2015/02/27 13:42:33 [router.go:845] [D] | GET        | /                                        | 54.003ms         | match      | /                                        | 
+2015/02/27 13:42:34 [router.go:845] [D] | POST       | /home/books                              | 4.0002ms         | match      | /home/books/*                            | 
+2015/02/27 13:42:35 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:42:44 [router.go:845] [D] | GET        | /r/27                                    | 1ms              | notmatch   | 
+2015/02/27 13:42:54 [log.go:108] [D] Home/Read Info:27,  0 
+2015/02/27 13:42:54 [router.go:845] [D] | GET        | /r/27/0                                  | 58.0034ms        | match      | /r/:articleId/:docId                     | 
+2015/02/27 13:42:54 [router.go:845] [D] | POST       | /home/catalog/27                         | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 13:42:54 [router.go:845] [D] | POST       | /home/content                            | 3.0002ms         | match      | /home/content/*                          | 
+2015/02/27 14:09:41 [router.go:845] [D] | GET        | /                                        | 66.0037ms        | match      | /                                        | 
+2015/02/27 14:09:42 [router.go:845] [D] | POST       | /home/books                              | 6.0003ms         | match      | /home/books/*                            | 
+2015/02/27 14:09:43 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:09:50 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 14:09:50 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 14:09:50 [router.go:845] [D] | GET        | /w                                       | 124.0071ms       | match      | /w                                       | 
+2015/02/27 14:09:51 [router.go:845] [D] | POST       | /home/books                              | 3.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:09:51 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 14:09:53 [router.go:845] [D] | POST       | /w                                       | 1ms              | notmatch   | 
+2015/02/27 14:11:14 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 14:11:14 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 14:11:14 [router.go:845] [D] | GET        | /w                                       | 110.0063ms       | match      | /w                                       | 
+2015/02/27 14:11:14 [router.go:845] [D] | POST       | /home/books                              | 2.0002ms         | match      | /home/books/*                            | 
+2015/02/27 14:11:14 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 14:11:16 [router.go:845] [D] | POST       | /w                                       | 1.0001ms         | notmatch   | 
+2015/02/27 14:12:10 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 14:12:10 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 14:12:10 [router.go:845] [D] | GET        | /w                                       | 116.0066ms       | match      | /w                                       | 
+2015/02/27 14:12:10 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:12:10 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 14:12:12 [router.go:845] [D] | POST       | /home/books                              | 4.0002ms         | match      | /home/books/*                            | 
+2015/02/27 14:22:23 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:22:23 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:24:59 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:24:59 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:25:56 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:25:56 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:26:01 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 14:26:01 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 14:26:01 [router.go:845] [D] | GET        | /w                                       | 114.0065ms       | match      | /w                                       | 
+2015/02/27 14:26:02 [router.go:845] [D] | POST       | /home/books                              | 4.0002ms         | match      | /home/books/*                            | 
+2015/02/27 14:26:02 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 14:26:04 [router.go:845] [D] | POST       | /home/books                              | 4.0002ms         | match      | /home/books/*                            | 
+2015/02/27 14:26:06 [router.go:845] [D] | POST       | /home/books                              | 3.0002ms         | match      | /home/books/*                            | 
+2015/02/27 14:26:09 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:26:16 [router.go:845] [D] | GET        | /                                        | 76.0044ms        | match      | /                                        | 
+2015/02/27 14:26:16 [router.go:845] [D] | POST       | /home/books                              | 2.0002ms         | match      | /home/books/*                            | 
+2015/02/27 14:26:17 [router.go:845] [D] | POST       | /home/catalog/27                         | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 14:26:30 [router.go:845] [D] | GET        | /                                        | 66.0038ms        | match      | /                                        | 
+2015/02/27 14:26:30 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:26:46 [router.go:845] [D] | GET        | /r/27                                    | 1.0001ms         | notmatch   | 
+2015/02/27 14:27:24 [router.go:845] [D] | GET        | /                                        | 49.0028ms        | match      | /                                        | 
+2015/02/27 14:27:25 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:28:17 [router.go:845] [D] | GET        | /                                        | 60.0035ms        | match      | /                                        | 
+2015/02/27 14:28:17 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:30:44 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:30:44 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:30:48 [router.go:845] [D] | GET        | /                                        | 61.0035ms        | match      | /                                        | 
+2015/02/27 14:30:48 [router.go:845] [D] | GET        | /r/27                                    | 1.0001ms         | notmatch   | 
+2015/02/27 14:30:48 [router.go:845] [D] | POST       | /home/books                              | 13.0007ms        | match      | /home/books/*                            | 
+2015/02/27 14:31:31 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:31:31 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:31:38 [router.go:845] [D] | GET        | /r/27/0                                  | 58.0033ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:31:38 [router.go:845] [D] | POST       | /home/catalog/27                         | 9.0005ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:31:38 [router.go:845] [D] | POST       | /home/content                            | 13.0008ms        | match      | /home/content/*                          | 
+2015/02/27 14:33:45 [router.go:845] [D] | GET        | /r/27/3                                  | 47.0027ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:33:45 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:33:45 [router.go:845] [D] | POST       | /home/content                            | 6.0003ms         | match      | /home/content/*                          | 
+2015/02/27 14:34:22 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:34:22 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:34:27 [router.go:845] [D] | GET        | /r/27/3                                  | 46.0026ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:34:27 [router.go:845] [D] | POST       | /home/catalog/27                         | 2.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:34:27 [router.go:845] [D] | POST       | /home/content                            | 12.0006ms        | match      | /home/content/*                          | 
+2015/02/27 14:36:29 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:36:29 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:53:08 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 14:53:08 [app.go:96] [I] http server Running on :8088
+2015/02/27 14:53:18 [router.go:845] [D] | GET        | /r/27/3                                  | 57.0032ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:53:18 [router.go:845] [D] | POST       | /home/catalog                            | 7.0004ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:53:18 [router.go:845] [D] | POST       | /home/content                            | 11.0007ms        | match      | /home/content/*                          | 
+2015/02/27 14:54:09 [router.go:845] [D] | GET        | /r/27/3                                  | 60.0034ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:54:09 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:54:09 [router.go:845] [D] | POST       | /home/content                            | 8.0005ms         | match      | /home/content/*                          | 
+2015/02/27 14:55:29 [router.go:845] [D] | GET        | /r/27/3                                  | 40.0022ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:55:29 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:55:29 [router.go:845] [D] | POST       | /home/content                            | 13.0008ms        | match      | /home/content/*                          | 
+2015/02/27 14:56:04 [router.go:845] [D] | GET        | /r/27/0                                  | 52.003ms         | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:56:04 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 14:56:04 [router.go:845] [D] | POST       | /home/content                            | 6.0003ms         | match      | /home/content/*                          | 
+2015/02/27 14:58:59 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/27 14:58:59 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/27 14:58:59 [router.go:845] [D] | GET        | /w                                       | 112.0064ms       | match      | /w                                       | 
+2015/02/27 14:59:00 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:59:00 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/27 14:59:02 [router.go:845] [D] | POST       | /home/books                              | 5.0003ms         | match      | /home/books/*                            | 
+2015/02/27 14:59:04 [router.go:845] [D] | POST       | /home/books                              | 1.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:59:08 [router.go:845] [D] | POST       | /home/books                              | 2.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:59:10 [router.go:845] [D] | POST       | /home/books                              | 3.0001ms         | match      | /home/books/*                            | 
+2015/02/27 14:59:15 [router.go:845] [D] | POST       | /home/books                              | 3.0002ms         | match      | /home/books/*                            | 
+2015/02/27 14:59:21 [log.go:108] [D] Article/Position Info:1,  qq 
+2015/02/27 14:59:21 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/02/27 14:59:21 [router.go:845] [D] | POST       | /article/position                        | 185.0106ms       | match      | /article/position/*                      | 
+2015/02/27 14:59:27 [router.go:845] [D] | GET        | /r/27/0                                  | 53.003ms         | match      | /r/:parentId/:articleId                  | 
+2015/02/27 14:59:27 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 14:59:27 [router.go:845] [D] | POST       | /home/content                            | 10.0006ms        | match      | /home/content/*                          | 
+2015/02/27 15:00:25 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 15:00:25 [app.go:96] [I] http server Running on :8088
+2015/02/27 15:00:31 [router.go:845] [D] | GET        | /r/27/0                                  | 75.0043ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:00:31 [router.go:845] [D] | POST       | /home/catalog                            | 3.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:00:31 [router.go:845] [D] | POST       | /home/content                            | 7.0004ms         | match      | /home/content/*                          | 
+2015/02/27 15:01:01 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/27 15:01:01 [app.go:96] [I] http server Running on :8088
+2015/02/27 15:05:26 [router.go:845] [D] | GET        | /r/27/0                                  | 56.0032ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:05:26 [router.go:845] [D] | POST       | /home/catalog                            | 3.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:05:26 [router.go:845] [D] | POST       | /home/content                            | 13.0008ms        | match      | /home/content/*                          | 
+2015/02/27 15:13:48 [router.go:845] [D] | GET        | /r/27/0                                  | 50.0029ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:13:48 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 15:13:49 [router.go:845] [D] | POST       | /home/content                            | 10.0005ms        | match      | /home/content/*                          | 
+2015/02/27 15:22:23 [router.go:845] [D] | GET        | /r/27/0                                  | 58.0033ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:22:23 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:22:23 [router.go:845] [D] | POST       | /home/content                            | 5.0003ms         | match      | /home/content/*                          | 
+2015/02/27 15:22:57 [router.go:845] [D] | GET        | /r/27/0                                  | 57.0032ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:22:57 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 15:22:57 [router.go:845] [D] | POST       | /home/content                            | 13.0007ms        | match      | /home/content/*                          | 
+2015/02/27 15:24:50 [router.go:845] [D] | GET        | /r/27/0                                  | 76.0044ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:24:50 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 15:24:50 [router.go:845] [D] | POST       | /home/content                            | 10.0006ms        | match      | /home/content/*                          | 
+2015/02/27 15:27:19 [router.go:845] [D] | GET        | /r/27/0                                  | 72.0041ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:27:19 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:27:19 [router.go:845] [D] | POST       | /home/content                            | 6.0003ms         | match      | /home/content/*                          | 
+2015/02/27 15:28:27 [router.go:845] [D] | GET        | /r/27/0                                  | 51.0029ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:28:27 [router.go:845] [D] | POST       | /home/catalog                            | 2.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:28:27 [router.go:845] [D] | POST       | /home/content                            | 12.0007ms        | match      | /home/content/*                          | 
+2015/02/27 15:36:40 [router.go:845] [D] | GET        | /r/27/0                                  | 42.0024ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:36:41 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:36:41 [router.go:845] [D] | POST       | /home/content                            | 4.0002ms         | match      | /home/content/*                          | 
+2015/02/27 15:37:38 [router.go:845] [D] | GET        | /r/27/0                                  | 53.003ms         | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:37:38 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:37:38 [router.go:845] [D] | POST       | /home/content                            | 10.0006ms        | match      | /home/content/*                          | 
+2015/02/27 15:45:49 [router.go:845] [D] | GET        | /r/27/0                                  | 49.0028ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:45:49 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:45:49 [router.go:845] [D] | POST       | /home/content                            | 13.0007ms        | match      | /home/content/*                          | 
+2015/02/27 15:48:34 [router.go:845] [D] | GET        | /r/27/0                                  | 42.0024ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:48:34 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:48:34 [router.go:845] [D] | POST       | /home/content                            | 11.0007ms        | match      | /home/content/*                          | 
+2015/02/27 15:51:20 [router.go:845] [D] | GET        | /r/27/0                                  | 45.0026ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 15:51:20 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 15:51:20 [router.go:845] [D] | POST       | /home/content                            | 10.0006ms        | match      | /home/content/*                          | 
+2015/02/27 16:01:56 [router.go:845] [D] | GET        | /r/27/0                                  | 44.0025ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:01:56 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 16:01:56 [router.go:845] [D] | POST       | /home/content                            | 6.0003ms         | match      | /home/content/*                          | 
+2015/02/27 16:08:07 [router.go:845] [D] | GET        | /r/27/0                                  | 43.0024ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:08:08 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 16:08:08 [router.go:845] [D] | POST       | /home/content                            | 4.0002ms         | match      | /home/content/*                          | 
+2015/02/27 16:08:54 [router.go:845] [D] | GET        | /r/27/0                                  | 45.0026ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:08:55 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 16:08:55 [router.go:845] [D] | POST       | /home/content                            | 6.0003ms         | match      | /home/content/*                          | 
+2015/02/27 16:10:44 [router.go:845] [D] | GET        | /r/27/0                                  | 56.0032ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:10:45 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 16:10:45 [router.go:845] [D] | POST       | /home/content                            | 22.0013ms        | match      | /home/content/*                          | 
+2015/02/27 16:14:05 [router.go:845] [D] | GET        | /r/27/0                                  | 42.0024ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:14:05 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 16:14:05 [router.go:845] [D] | POST       | /home/content                            | 6.0003ms         | match      | /home/content/*                          | 
+2015/02/27 16:14:23 [router.go:845] [D] | GET        | /r/27/0                                  | 50.0028ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:14:23 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 16:14:23 [router.go:845] [D] | POST       | /home/content                            | 14.0008ms        | match      | /home/content/*                          | 
+2015/02/27 16:17:02 [router.go:845] [D] | GET        | /r/27/0                                  | 61.0035ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:17:02 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 16:17:02 [router.go:845] [D] | POST       | /home/content                            | 11.0006ms        | match      | /home/content/*                          | 
+2015/02/27 16:22:06 [router.go:845] [D] | GET        | /r/27/0                                  | 48.0027ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:22:06 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 16:22:06 [router.go:845] [D] | POST       | /home/content                            | 3.0002ms         | match      | /home/content/*                          | 
+2015/02/27 16:24:06 [router.go:845] [D] | GET        | /r/27/0                                  | 55.0032ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:24:06 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 16:24:06 [router.go:845] [D] | POST       | /home/content                            | 3.0002ms         | match      | /home/content/*                          | 
+2015/02/27 16:25:07 [router.go:845] [D] | GET        | /r/27/0                                  | 45.0026ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:25:08 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 16:25:08 [router.go:845] [D] | POST       | /home/content                            | 11.0007ms        | match      | /home/content/*                          | 
+2015/02/27 16:57:19 [router.go:845] [D] | GET        | /r/27/0                                  | 65.0037ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:57:19 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 16:57:19 [router.go:845] [D] | POST       | /home/content                            | 52.003ms         | match      | /home/content/*                          | 
+2015/02/27 16:58:27 [router.go:845] [D] | GET        | /r/27/0                                  | 52.003ms         | match      | /r/:parentId/:articleId                  | 
+2015/02/27 16:58:28 [router.go:845] [D] | POST       | /home/catalog                            | 2.0002ms         | match      | /home/catalog/*                          | 
+2015/02/27 16:58:28 [router.go:845] [D] | POST       | /home/content                            | 9.0005ms         | match      | /home/content/*                          | 
+2015/02/27 17:00:29 [router.go:845] [D] | GET        | /r/27/0                                  | 55.0032ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 17:00:29 [router.go:845] [D] | POST       | /home/catalog                            | 1ms              | match      | /home/catalog/*                          | 
+2015/02/27 17:00:29 [router.go:845] [D] | POST       | /home/content                            | 8.0005ms         | match      | /home/content/*                          | 
+2015/02/27 17:02:40 [router.go:845] [D] | GET        | /r/27/0                                  | 55.0031ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 17:02:40 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 17:02:40 [router.go:845] [D] | POST       | /home/content                            | 4.0003ms         | match      | /home/content/*                          | 
+2015/02/27 17:06:29 [router.go:845] [D] | GET        | /r/27/0                                  | 51.0029ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 17:06:29 [router.go:845] [D] | POST       | /home/catalog                            | 1.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 17:06:29 [router.go:845] [D] | POST       | /home/content                            | 7.0004ms         | match      | /home/content/*                          | 
+2015/02/27 17:07:19 [router.go:845] [D] | GET        | /r/27/0                                  | 49.0028ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 17:07:19 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 17:07:19 [router.go:845] [D] | POST       | /home/content                            | 17.0009ms        | match      | /home/content/*                          | 
+2015/02/27 17:08:42 [router.go:845] [D] | GET        | /r/27/0                                  | 51.0029ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 17:08:42 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 17:08:42 [router.go:845] [D] | POST       | /home/content                            | 7.0004ms         | match      | /home/content/*                          | 
+2015/02/27 17:09:38 [router.go:845] [D] | GET        | /r/27/0                                  | 54.0031ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 17:09:38 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 17:09:38 [router.go:845] [D] | POST       | /home/content                            | 4.0002ms         | match      | /home/content/*                          | 
+2015/02/27 17:11:45 [router.go:845] [D] | GET        | /r/27/0                                  | 56.0032ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/27 17:11:45 [router.go:845] [D] | POST       | /home/catalog                            | 2.0001ms         | match      | /home/catalog/*                          | 
+2015/02/27 17:11:45 [router.go:845] [D] | POST       | /home/content                            | 8.0004ms         | match      | /home/content/*                          | 

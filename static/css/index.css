@@ -55,17 +55,19 @@ body {
 	z-index: 1000;
 	/*display: none;*/
 }
-#nav-left li {
+#nav-left #tags div {
 	width: 100%;
 	line-height: 2em;
 	cursor:pointer;
-	padding:0 10px;
 }
-#nav-left li:hover{
-	/*background: #1ba1e2;*/
+#nav-left #tags .snow-catalog-item{
+	padding:0 10px;
+	white-space: nowrap;
+}
+#nav-left #tags .snow-catalog-item:hover{
 	background:#202020;
 }
-#nav-left li.active {
+#nav-left #tags .snow-catalog-item.active {
 	background:white;
 	color:black;
 }

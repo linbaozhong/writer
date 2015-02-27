@@ -15,7 +15,18 @@ func (this *Home) Get() {
 
 // 阅读
 func (this *Home) Read() {
-	this.setTplNames("read")
+	parentId, _ := this.getParamsInt64(":parentid")
+	articleId, _ := this.getParamsInt64(":articleid")
+
+	if parentId <= 0 {
+		// 跳转到首页
+		this.Redirect("/", 302)
+		this.end()
+	} else {
+		this.Data["articleId"] = articleId
+		this.Data["parentId"] = parentId
+		this.setTplNames("read")
+	}
 }
 
 // 分页拉取书籍列表
@@ -28,7 +39,7 @@ func (this *Home) Books() {
 	}
 	p.Index, _ = this.GetInt("index")
 	// 读取查询条件
-	parentId := 0
+	parentId, _ := this.GetInt64("parentId")
 	tags := this.GetString("tags")
 
 	// 拉取
@@ -51,12 +62,11 @@ func (this *Home) Books() {
 	} else {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
-
 }
 
 // 读取目录
 func (this *Home) Catalog() {
-	id, _ := this.getParamsInt64("0")
+	id, _ := this.GetInt64("parentId")
 
 	if id <= 0 {
 		this.renderJson(utils.JsonMessage(false, "", "参数错误"))
@@ -64,6 +74,33 @@ func (this *Home) Catalog() {
 
 	a := new(models.Article)
 	as, err := a.Catalog(id)
+
+	if err == nil {
+		this.renderJson(utils.JsonData(true, "", as))
+	} else {
+		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+	}
+}
+
+// 分页读取内容
+func (this *Home) Content() {
+	// 读取分页规则
+	p := new(models.Pagination)
+
+	if size, err := this.GetInt("size"); err != nil || size == 0 {
+		p.Size = 10000
+	}
+	p.Index, _ = this.GetInt("index")
+	// 读取查询条件
+	parentId, _ := this.GetInt64("parentId")
+	articleId, _ := this.GetInt64("articleId")
+
+	// 构造查询字符串
+	cond := "articles.id >= ?"
+
+	// 拉取
+	a := new(models.Article)
+	as, err := a.GetContent(p, parentId, cond, articleId)
 
 	if err == nil {
 		this.renderJson(utils.JsonData(true, "", as))

@@ -71,45 +71,45 @@ func (this *Article) Get() {
 	}
 }
 
-// @Title List
-// @Description 分页拉取文档列表
-// @Param   size  form  int  false        "每页的记录条数"
-// @Success 200 {object} utils.Response
-// @Failure 200 {object} utils.Response
-// @router /List [post]
-func (this *Article) List() {
-	// 读取分页规则
-	p := new(models.Pagination)
+//// @Title List
+//// @Description 分页拉取文档列表
+//// @Param   size  form  int  false        "每页的记录条数"
+//// @Success 200 {object} utils.Response
+//// @Failure 200 {object} utils.Response
+//// @router /List [post]
+//func (this *Article) List() {
+//	// 读取分页规则
+//	p := new(models.Pagination)
 
-	if size, err := this.GetInt("size"); err != nil || size == 0 {
-		p.Size = 20
-	}
-	p.Index, _ = this.GetInt("index")
-	// 读取查询条件
-	parentId, _ := this.GetInt64("parentid")
-	tags := this.GetString("tags")
+//	if size, err := this.GetInt("size"); err != nil || size == 0 {
+//		p.Size = 20
+//	}
+//	p.Index, _ = this.GetInt("index")
+//	// 读取查询条件
+//	parentId, _ := this.GetInt64("parentid")
+//	tags := this.GetString("tags")
 
-	// 拉取
-	a := new(models.Article)
-	var as []models.Article
-	var err error
+//	// 拉取
+//	a := new(models.Article)
+//	var as []models.Article
+//	var err error
 
-	// 构造查询字符串
-	cond := "parentId=?"
+//	// 构造查询字符串
+//	cond := "parentId=?"
 
-	if tags == "" {
-		as, err = a.List(p, cond, parentId)
-	} else {
-		cond += " and tags=?"
-		as, err = a.List(p, cond, parentId, tags)
-	}
+//	if tags == "" {
+//		as, err = a.List(p, cond, parentId)
+//	} else {
+//		cond += " and tags=?"
+//		as, err = a.List(p, cond, parentId, tags)
+//	}
 
-	if err == nil {
-		this.renderJson(utils.JsonData(true, "", as))
-	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
-	}
-}
+//	if err == nil {
+//		this.renderJson(utils.JsonData(true, "", as))
+//	} else {
+//		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+//	}
+//}
 
 // @Title Position
 // @Description 节点位置发生变化
