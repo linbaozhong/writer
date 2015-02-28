@@ -133,7 +133,6 @@ func (this *Connect) QQ_Callback() {
 	this.cookie("nickname", _account.NickName)
 	this.cookie("avatar", _account.Avatar_1)
 
-	this.trace(_account)
 	//
 	this.Data["sign"] = _account
 
@@ -273,13 +272,15 @@ func (this *Connect) SignTrace() {
 		return
 	}
 
-	var _m_account *models.Accounts
+	_m_account := new(models.Accounts)
 	// 如果_account.Id>0 检查该账户是否存在
 	if _account.Id > 0 {
-		_m_account = &models.Accounts{Id: _account.Id}
+		_m_account.Id = _account.Id
 	} else {
-		_m_account = &models.Accounts{OpenId: _account.OpenId, OpenFrom: _account.From}
+		_m_account.OpenId = _account.OpenId
+		_m_account.OpenFrom = _account.From
 	}
+
 	// 账户是否存在
 	has, err := _m_account.Exists()
 	if err != nil {
@@ -287,6 +288,7 @@ func (this *Connect) SignTrace() {
 		this.renderJson(utils.JsonData(false, "", err))
 		return
 	}
+
 	// 如果账户存在
 	if has {
 		this.trace("记录登录日志")
@@ -346,5 +348,5 @@ func (this *Connect) SignTrace() {
 	// 保存登录状态
 	this.loginIn(_m_account.Id, _m_account.OpenFrom)
 
-	this.renderJson(utils.JsonMessage(true, "", ""))
+	this.renderJson(utils.JsonData(true, "", _m_account))
 }

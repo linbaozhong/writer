@@ -106,7 +106,7 @@
 			};
 		});
 		// 首次加载内容
-		$.post(snow.api.content, {parentId:'{{.parentId}}',articleId:'{{.articleId}}'}, function(result) {
+		$.post(snow.api.content, {parentId:'{{.parentId}}'}, function(result) {
 			if (result.ok) {
 				var _docs = result.data
 					,_frame = snow.left.find('.frame').eq(0).data('parentid', 0);
@@ -122,20 +122,34 @@
 				});
 				// 代码高亮
 				SyntaxHighlighter.highlight();
+				// 定位到指定的节点（章节）
+				snow.moveToArticle('{{.articleId}}');
 			};
 		});
 		
 		// 目录事件
 		$('#tags').on('click','.snow-catalog-item',function(){
-			var id = $(this).data('id')
-				,_frame = snow.left.find('.frame').eq(0)
+			$('#tags').find('.snow-catalog-item.active').removeClass('active');
+			
+			// 定位到指定的节点（章节）
+			snow.moveToArticle($(this).addClass('active').data('id'));
+		});
+		
+		// 定位到指定节点（章节）
+		snow.moveToArticle = function(articleId){
+			// 无效节点，跳过
+			if(!$('#doc-'+articleId).length){
+				return;
+			}
+			
+			var _frame = snow.left.find('.frame').eq(0)
 				,_first = _frame.find('>header')
 				,_last = _frame.find('>footer')
-				,_top = parseInt(_first.css('marginTop')) - $('#doc-'+id).offset().top;
+				,_top = parseInt(_first.css('marginTop')) - $('#doc-'+articleId).offset().top;
 				
 			// 防止漏出"底裤"
-			if(_frame.innerHeight() > _last.offset().top - $('#doc-'+id).offset().top){
-				_top = _top + _frame.innerHeight() - (_last.offset().top - $('#doc-'+id).offset().top);
+			if(_frame.innerHeight() > _last.offset().top - $('#doc-'+articleId).offset().top){
+				_top = _top + _frame.innerHeight() - (_last.offset().top - $('#doc-'+articleId).offset().top);
 			}
 
 			_first.animate({
@@ -144,9 +158,8 @@
 				// 保存当前位置
 				_frame.data('position', _top);
 				// 刷新滚动条
-				//snow.docResize(_frame);
-			});
-		});
-		
+				snow.autoScroll(_frame);
+			});			
+		};
 	});
 </script>

@@ -136,10 +136,13 @@ func (this *Article) Update() (error, []Error) {
 		// insert articles 主表
 		_article.DocumentId = _document.Id //主附表映射
 		_article.Position += 1
-		if _, err = session.Insert(_article); err != nil {
-			session.Rollback()
-			return err, nil
-		} else {
+		// 为返回对象赋值
+		this.DocumentId = _article.DocumentId
+		this.Position = _article.Position
+
+		if _, err = session.Insert(_article); err == nil {
+			// 为返回对象赋值
+			this.Id = _article.Id
 			// 层次深度 depth = 父条目depth + 本条目Id
 			if _article.Id > 0 {
 				// Dal对象
@@ -157,6 +160,9 @@ func (this *Article) Update() (error, []Error) {
 					return err, nil
 				}
 			}
+		} else {
+			session.Rollback()
+			return err, nil
 		}
 	} else {
 		// Update articles 主表

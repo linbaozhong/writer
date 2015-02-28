@@ -48,12 +48,12 @@ func (this *Home) Books() {
 	var err error
 
 	// 构造查询字符串
-	cond := "parentId=?"
+	cond := "parentId = ?"
 
 	if tags == "" {
 		as, err = a.List(p, cond, parentId)
 	} else {
-		cond += " and tags=?"
+		cond += " and tags = ?"
 		as, err = a.List(p, cond, parentId, tags)
 	}
 

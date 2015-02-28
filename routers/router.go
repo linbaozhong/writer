@@ -12,6 +12,7 @@ func init() {
 
 	home := &controllers.Home{}
 	beego.Router("/", home, "get:Get")
+	beego.Router("/r/:parentId", home, "get:Read")
 	beego.Router("/r/:parentId/:articleId", home, "get:Read")
 	beego.AutoRouter(home)
 

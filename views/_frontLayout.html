@@ -58,12 +58,26 @@
 
 			</div>-->
 			<ul style="margin:0;padding:0;">
-				<li class="" data-hint="登录" data-hint-position="left" data-click="transform" data-role="1" data-rel="signin">
+				<li id="avatar" class="image-container" style="height: 90px;display:none;" href="/w" target="_blank" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
+					<img src="" class="cycle" href="/w" target="_blank" />
+					<div class="nickname" href="/w" target="_blank" style="color:#fff !important">
+					</div>
+				</li>
+
+				<li id="login" class="" style="display:none;" data-hint="登录" data-hint-position="left" data-click="transform" data-role="1" data-rel="signin">
 					<div class="icon">
 						<i class="icon-key-2"></i>
 					</div>
 					<div class="small-size">
 						登录
+					</div>
+				</li>
+				<li id="logout" class="" style="display:none;" data-hint="注销" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
+					<div class="icon">
+						<i class="icon-key-2"></i>
+					</div>
+					<div class="small-size">
+						注销
 					</div>
 				</li>
 				<li class="" data-hint="收藏夹" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
@@ -146,6 +160,7 @@
 
 </html>
 <script type="text/javascript">
+
 	var snow = {
 		speed: 300,
 		width: $(window).width(),
@@ -170,7 +185,28 @@
 		author:function(article){
 			return article.data('creator') === {{.account.Id}};
 		},
-		checkin : $.cookie('_snow_token') && $.cookie('_snow_token').length>0,
+		checkin : function(u){
+			if(u){
+				var _avatar = $('#avatar').data('hint',u.NickName).show();
+				_avatar.find('img').attr('src',u.Avatar_1);
+				_avatar.find('.nickname').text(u.NickName);
+				$('#logout').show();
+				$('#login').hide();
+				return true;
+			}else if($.cookie('_snow_token') && $.cookie('_snow_token').length){
+				var _avatar = $('#avatar').data('hint',$.cookie('nickname')).show();
+				_avatar.find('img').attr('src',$.cookie('avatar'));
+				_avatar.find('.nickname').text($.cookie('nickname'));
+				$('#logout').show();
+				$('#login').hide();
+				return true;
+			}else{
+				$('#avatar').hide();
+				$('#logout').hide();
+				$('#login').show();
+				return false;
+			}
+		},
 		article:{}
 	};
 
@@ -183,7 +219,6 @@
 		,catalog:'/home/catalog'
 		,content:'/home/content'
 		,docSave:'/article/update'
-//		,docList:'/article/list'
 		,docDelete:'/article/delete'
 		,docPosition:'/article/position'
 	};
@@ -295,10 +330,8 @@
 		snow.account.openFrom = u.From;
 		snow.account.openId = u.OpenId;
 		snow.account.accessToken = u.Token;
-
-		//checkin();
-		snow.log(u);
-		$(".getout").click();
+		
+			console.log(u);		
 
 		//记录登录状态
 		$.post(snow.api.signTrace,{
@@ -311,7 +344,12 @@
 			avatar_1:u.Avatar_1,
 			avatar_2:u.Avatar_2
 		},function(d){
-			snow.log(d);
+			console.log(d);
+			if(d.ok){
+				$(".getout").click();
+				// 变更登录状态
+				snow.checkin(d.data);
+			}
 		});
 	}
 
@@ -345,8 +383,8 @@
 		placeholder();
 
 		//打开登录注册框
-		if(!snow.checkin){
-			openSign();
+		if(!snow.checkin()){
+			//openSign();
 		}
 
 	}, 100);
@@ -387,7 +425,7 @@
 	});
 
 	// resize事件
-	snow.docResize = function(_this) {
+	snow.autoScroll = function(_this) {
 		//滚动条
 		_this.append(snow.scrollbar);
 
@@ -460,7 +498,7 @@
 
 	}).on('mouseenter', '.frame', function(e) {
 		// 刷新滚动条
-		snow.docResize($(this));
+		snow.autoScroll($(this));
 	});
 		
 	//关闭登陆框
@@ -481,4 +519,27 @@
 	$("#qqLogin").click(function() {
 		window.open('/connect/qq_login','sign_dialog','width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
 	});
+	// 注销
+	$('#logout').click(function(){
+		$.post(snow.api.signOut,{},function(d){
+			if (d.ok) {
+				snow.go('/');
+			}
+		});
+	});
+	
+	//
+	// 通用方法，只要包含超链接href属性的，都转为超链接
+	document.onclick = function(e){
+		var _href = e.target.getAttribute('href');
+		if(e.target.tagName.toLowerCase()!='a' && _href && _href.trim().length){
+			var el = document.createElement("a"),_target = e.target.getAttribute('target');
+			document.body.appendChild(el);
+			el.href = _href; //url 是你得到的连接
+			el.target = _target ? _target : ''; //指定在新窗口打开
+			el.click();
+			document.body.removeChild(el);
+		}
+	};
+
 </script>

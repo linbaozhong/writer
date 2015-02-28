@@ -8,7 +8,6 @@
 	#catalog h4,
 	#catalog h5,
 	#catalog h6 {
-		color: #555 !important;
 		line-height: 22px !important;
 	}
 	div.liulan #catalog .snow-catalog {
@@ -119,7 +118,8 @@
 					var _docs = result.data,
 						_catalog = $('#catalog').append('<h2 style="margin-bottom:28px;">目录</h2>'),
 						_tpl = function(_d, one) {
-							return '<h4 id="title-<%.id%>" class="<%.class%>"><%.title%></h4>'
+							return '<h4 id="title-<%.id%>" class="<%.class%>" href="/r/<%.parentId%>/<%.id%>" target="_blank"><%.title%></h4>'
+								.replace(/<%.parentId%>/g, _id)
 								.replace(/<%.id%>/g, _d.articleId)
 								.replace(/<%.title%>/g, _d.title)
 								.replace(/<%.class%>/g, (one ? '' : 'snow-catalog'))

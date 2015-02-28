@@ -1,3 +1,10 @@
+*[href]{
+	cursor: pointer;
+	color:#2e92cf !important;
+}
+*[href]:hover{
+	color:rgba(45, 173, 237, 0.8) !important;
+}
 body,
 div,
 dl,
@@ -45,6 +52,7 @@ p {
 body {
 	background-size: cover;
 }
+
 #nav-left {
 	position: fixed;
 	width: 120px;
@@ -123,7 +131,7 @@ body {
 	width: 75px;
 	padding: 15px 5px;
 	text-align: center;
-	color: white;
+	color: white !important;
 }
 #snow-lang .snow-languages a:hover{
 	background:#333;

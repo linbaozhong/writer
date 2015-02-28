@@ -63,7 +63,7 @@ $(function(){
 		var _form = $(this);
 		if (_form.hasClass('editing') && _form.find('textarea').val() == '') {} else if (!_form.hasClass('editing')) {
 			_form.addClass('editing').slideDown(function() {
-				snow.docResize(_form.closest('.frame'));
+				snow.autoScroll(_form.closest('.frame'));
 			});
 		}
 	}).on('click', 'button', function(e) { //表单保存(取消)事件
@@ -134,14 +134,14 @@ $(function(){
 			// 顶端新增按钮
 			if (_form.prev('header').find('div.doc-add').length) {
 				_form.prev('header').find('div.doc-add').fadeIn(function() {
-					snow.docResize(_frame);
+					snow.autoScroll(_frame);
 				});
 			} else if (_form.prev('div.doc').length) {
 				_form.prev('div.doc').fadeIn(function() {
-					snow.docResize(_frame);
+					snow.autoScroll(_frame);
 				});
 			} else {
-				snow.docResize(_frame);
+				snow.autoScroll(_frame);
 			}
 		});
 	});
@@ -227,7 +227,7 @@ $(function(){
 			if(result.ok){
 				_doc.remove();
 				//
-				snow.docResize(_doc.closest('.frame'));
+				snow.autoScroll(_doc.closest('.frame'));
 			}
 		});
 
