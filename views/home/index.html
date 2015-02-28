@@ -90,10 +90,11 @@
 		// 首次加载
 		$.post(snow.api.books, {}, function(result) {
 			if (result.ok) {
-				var _docs = result.data;
+				var _docs = result.data
+					,_frame = snow.left.find('.frame').eq(0).data('parentid', 0);
 				$.each(_docs, function(index, _doc) {
 					snow.addDoc(
-						snow.left.find('.frame').eq(0).data('parentid', 0), snow.docTemplate.get(_doc)
+						_frame, snow.docTemplate.get(_doc)
 					);
 				});
 				// 代码高亮

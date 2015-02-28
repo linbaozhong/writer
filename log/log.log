@@ -6684,3 +6684,167 @@
 2015/02/28 18:22:31 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.731099s        | match      | /connect/qq_callback/*                   | 
 2015/02/28 18:22:31 [log.go:108] [D] Connect/SignTrace Info:SQL logic error or missing database 
 2015/02/28 18:22:31 [router.go:845] [D] | POST       | /connect/signtrace                       | 2.0002ms         | match      | /connect/signtrace/*                     | 
+2015/02/28 19:58:54 [log.go:108] [D] Loading language: en-US 
+2015/02/28 19:58:54 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 19:58:54 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 19:58:54 [app.go:96] [I] http server Running on :8088
+2015/02/28 20:00:05 [log.go:108] [D] Loading language: en-US 
+2015/02/28 20:00:05 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 20:00:05 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 20:00:05 [app.go:96] [I] http server Running on :8088
+2015/02/28 20:00:30 [router.go:845] [D] | GET        | /                                        | 140.008ms        | match      | /                                        | 
+2015/02/28 20:00:32 [router.go:845] [D] | POST       | /home/books                              | 48.0027ms        | match      | /home/books/*                            | 
+2015/02/28 20:03:53 [router.go:845] [D] | GET        | /                                        | 155.0089ms       | match      | /                                        | 
+2015/02/28 20:03:53 [router.go:845] [D] | POST       | /home/books                              | 6.0003ms         | match      | /home/books/*                            | 
+2015/02/28 20:04:05 [router.go:845] [D] | POST       | /signOut                                 | 0                | match      | /signout                                 | 
+2015/02/28 20:04:05 [staticfile.go:62] [W] GetFileAttributesEx static/inc/_.html: The system cannot find the file specified. 
+2015/02/28 20:04:05 [router.go:845] [D] | GET        | /                                        | 150.0086ms       | match      | /                                        | 
+2015/02/28 20:04:06 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/02/28 20:04:52 [router.go:845] [D] | GET        | /connect/qq_login                        | 1ms              | match      | /connect/qq_login/*                      | 
+2015/02/28 20:05:42 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.8071033s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 20:05:42 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 20:05:42 [router.go:845] [D] | POST       | /connect/signtrace                       | 14.0008ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 20:26:08 [router.go:845] [D] | GET        | /connect/qq_login                        | 1ms              | match      | /connect/qq_login/*                      | 
+2015/02/28 20:26:17 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.7491573s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 20:26:17 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 20:26:17 [router.go:845] [D] | POST       | /connect/signtrace                       | 60.0035ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 20:27:38 [router.go:845] [D] | POST       | /home/catalog                            | 10.0006ms        | match      | /home/catalog/*                          | 
+2015/02/28 20:27:53 [router.go:845] [D] | GET        | /r/32/28                                 | 101.0058ms       | match      | /r/:parentId/:articleId                  | 
+2015/02/28 20:27:54 [router.go:845] [D] | POST       | /home/catalog                            | 44.0025ms        | match      | /home/catalog/*                          | 
+2015/02/28 20:27:54 [router.go:845] [D] | POST       | /home/content                            | 49.0028ms        | match      | /home/content/*                          | 
+2015/02/28 20:38:27 [router.go:845] [D] | GET        | /r/32/1                                  | 111.0064ms       | match      | /r/:parentId/:articleId                  | 
+2015/02/28 20:38:28 [router.go:845] [D] | POST       | /home/catalog                            | 40.0023ms        | match      | /home/catalog/*                          | 
+2015/02/28 20:38:28 [router.go:845] [D] | POST       | /home/content                            | 104.0059ms       | match      | /home/content/*                          | 
+2015/02/28 20:38:44 [router.go:845] [D] | GET        | /r/32/1                                  | 153.0087ms       | match      | /r/:parentId/:articleId                  | 
+2015/02/28 20:38:44 [router.go:845] [D] | POST       | /home/catalog                            | 49.0028ms        | match      | /home/catalog/*                          | 
+2015/02/28 20:38:44 [router.go:845] [D] | POST       | /home/content                            | 27.0016ms        | match      | /home/content/*                          | 
+2015/02/28 20:42:27 [router.go:845] [D] | GET        | /r/32/1                                  | 136.0078ms       | match      | /r/:parentId/:articleId                  | 
+2015/02/28 20:42:27 [router.go:845] [D] | POST       | /home/catalog                            | 66.0038ms        | match      | /home/catalog/*                          | 
+2015/02/28 20:42:27 [router.go:845] [D] | POST       | /home/content                            | 57.0033ms        | match      | /home/content/*                          | 
+2015/02/28 20:42:40 [router.go:845] [D] | GET        | /r/32/27                                 | 97.0055ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/28 20:42:40 [router.go:845] [D] | POST       | /home/catalog                            | 73.0042ms        | match      | /home/catalog/*                          | 
+2015/02/28 20:42:40 [router.go:845] [D] | POST       | /home/content                            | 63.0036ms        | match      | /home/content/*                          | 
+2015/02/28 20:42:44 [router.go:845] [D] | GET        | /r/32/30                                 | 76.0043ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/28 20:42:45 [router.go:845] [D] | POST       | /home/catalog                            | 66.0038ms        | match      | /home/catalog/*                          | 
+2015/02/28 20:42:45 [router.go:845] [D] | POST       | /home/content                            | 120.0069ms       | match      | /home/content/*                          | 
+2015/02/28 21:06:38 [log.go:108] [D] Loading language: en-US 
+2015/02/28 21:06:38 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 21:06:38 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 21:06:38 [app.go:96] [I] http server Running on :8088
+2015/02/28 21:07:13 [router.go:845] [D] | GET        | /connect/qq_login                        | 1.0001ms         | match      | /connect/qq_login/*                      | 
+2015/02/28 21:07:21 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.6630951s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 21:07:21 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 21:07:21 [router.go:845] [D] | POST       | /connect/signtrace                       | 11.0007ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 21:18:48 [log.go:108] [D] Loading language: en-US 
+2015/02/28 21:18:48 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 21:18:48 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 21:18:48 [app.go:96] [I] http server Running on :8088
+2015/02/28 21:18:59 [log.go:108] [D] Home/index Info:false,  invalid 
+2015/02/28 21:19:00 [router.go:845] [D] | GET        | /                                        | 191.011ms        | match      | /                                        | 
+2015/02/28 21:19:00 [router.go:845] [D] | POST       | /home/books                              | 11.0007ms        | match      | /home/books/*                            | 
+2015/02/28 21:20:11 [log.go:108] [D] Loading language: en-US 
+2015/02/28 21:20:11 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 21:20:11 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 21:20:11 [app.go:96] [I] http server Running on :8088
+2015/02/28 21:23:41 [log.go:108] [D] Loading language: en-US 
+2015/02/28 21:23:41 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 21:23:41 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 21:23:41 [app.go:96] [I] http server Running on :8088
+2015/02/28 21:23:50 [router.go:845] [D] | GET        | /                                        | 211.012ms        | match      | /                                        | 
+2015/02/28 21:23:51 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/02/28 21:24:33 [router.go:845] [D] | GET        | /                                        | 172.0099ms       | match      | /                                        | 
+2015/02/28 21:24:33 [router.go:845] [D] | POST       | /home/books                              | 56.0032ms        | match      | /home/books/*                            | 
+2015/02/28 21:24:34 [router.go:845] [D] | GET        | /                                        | 163.0093ms       | match      | /                                        | 
+2015/02/28 21:24:35 [router.go:845] [D] | POST       | /home/books                              | 11.0006ms        | match      | /home/books/*                            | 
+2015/02/28 21:24:37 [router.go:845] [D] | GET        | /                                        | 218.0124ms       | match      | /                                        | 
+2015/02/28 21:24:37 [router.go:845] [D] | POST       | /home/books                              | 6.0003ms         | match      | /home/books/*                            | 
+2015/02/28 21:25:22 [router.go:845] [D] | GET        | /                                        | 182.0104ms       | match      | /                                        | 
+2015/02/28 21:25:22 [router.go:845] [D] | POST       | /home/books                              | 11.0007ms        | match      | /home/books/*                            | 
+2015/02/28 21:25:43 [log.go:108] [D] Loading language: en-US 
+2015/02/28 21:25:43 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 21:25:43 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 21:25:43 [app.go:96] [I] http server Running on :8088
+2015/02/28 21:26:19 [router.go:845] [D] | GET        | /                                        | 131.0075ms       | match      | /                                        | 
+2015/02/28 21:26:19 [router.go:845] [D] | POST       | /home/books                              | 99.0057ms        | match      | /home/books/*                            | 
+2015/02/28 21:30:59 [router.go:845] [D] | GET        | /                                        | 234.0134ms       | match      | /                                        | 
+2015/02/28 21:30:59 [router.go:845] [D] | POST       | /home/books                              | 185.0106ms       | match      | /home/books/*                            | 
+2015/02/28 21:31:19 [router.go:845] [D] | POST       | /home/catalog                            | 14.0008ms        | match      | /home/catalog/*                          | 
+2015/02/28 21:34:08 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 21:34:16 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.4480829s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 21:34:16 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 21:34:16 [router.go:845] [D] | POST       | /connect/signtrace                       | 18.0011ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 21:49:04 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 21:49:11 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.329076s        | match      | /connect/qq_callback/*                   | 
+2015/02/28 21:49:12 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 21:49:12 [router.go:845] [D] | POST       | /connect/signtrace                       | 13.0008ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 21:53:42 [log.go:108] [D] Loading language: en-US 
+2015/02/28 21:53:42 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 21:53:42 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 21:53:42 [app.go:96] [I] http server Running on :8088
+2015/02/28 21:55:09 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 21:55:17 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.6470942s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 21:55:17 [log.go:108] [D] Connect/SignTrace Info:创建新的账户 
+2015/02/28 21:55:17 [router.go:845] [D] | POST       | /connect/signtrace                       | 14.0008ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 21:59:38 [log.go:108] [D] Loading language: en-US 
+2015/02/28 21:59:38 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 21:59:38 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 21:59:38 [app.go:96] [I] http server Running on :8088
+2015/02/28 22:12:24 [router.go:845] [D] | GET        | /                                        | 207.0119ms       | match      | /                                        | 
+2015/02/28 22:12:24 [router.go:845] [D] | POST       | /home/books                              | 29.0016ms        | match      | /home/books/*                            | 
+2015/02/28 22:12:39 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 22:12:48 [router.go:845] [D] | GET        | /connect/qq_callback                     | 2.6541518s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 22:13:01 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 22:13:01 [router.go:845] [D] | POST       | /connect/signtrace                       | 7.0004ms         | match      | /connect/signtrace/*                     | 
+2015/02/28 22:23:32 [log.go:108] [D] Loading language: en-US 
+2015/02/28 22:23:32 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 22:23:32 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 22:23:32 [app.go:96] [I] http server Running on :8088
+2015/02/28 22:25:10 [router.go:845] [D] | GET        | /                                        | 226.0129ms       | match      | /                                        | 
+2015/02/28 22:25:11 [router.go:845] [D] | POST       | /home/books                              | 18.0011ms        | match      | /home/books/*                            | 
+2015/02/28 22:26:04 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 22:26:13 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.6360936s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 22:26:13 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 22:26:13 [router.go:845] [D] | POST       | /connect/signtrace                       | 34.0019ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 22:27:16 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 22:27:23 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.2380708s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 22:27:23 [log.go:108] [D] Connect/SignTrace Info:no such table: Accounts 
+2015/02/28 22:27:23 [router.go:845] [D] | POST       | /connect/signtrace                       | 10.0006ms        | match      | /connect/signtrace/*                     | 
+2015/02/28 22:30:54 [log.go:108] [D] Loading language: en-US 
+2015/02/28 22:30:54 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 22:30:54 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 22:30:54 [app.go:96] [I] http server Running on :8088
+2015/02/28 22:38:32 [log.go:108] [D] Loading language: en-US 
+2015/02/28 22:38:32 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 22:38:32 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 22:38:32 [app.go:96] [I] http server Running on :8088
+2015/02/28 22:40:17 [log.go:108] [D] Loading language: en-US 
+2015/02/28 22:40:17 [log.go:108] [D] Loading language: zh-CN 
+2015/02/28 22:40:17 [main.go:17] [I] writer 0.1.14.1105 
+2015/02/28 22:40:17 [app.go:96] [I] http server Running on :8088
+2015/02/28 22:40:23 [router.go:845] [D] | GET        | /                                        | 194.0111ms       | match      | /                                        | 
+2015/02/28 22:40:23 [router.go:845] [D] | POST       | /home/books                              | 20.0011ms        | match      | /home/books/*                            | 
+2015/02/28 22:40:27 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 22:40:34 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.6000916s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 22:40:34 [log.go:108] [D] Connect/SignTrace Info:创建新的账户 
+2015/02/28 22:40:35 [router.go:845] [D] | POST       | /connect/signtrace                       | 146.0083ms       | match      | /connect/signtrace/*                     | 
+2015/02/28 22:48:12 [router.go:845] [D] | GET        | /                                        | 212.0121ms       | match      | /                                        | 
+2015/02/28 22:48:13 [router.go:845] [D] | POST       | /home/books                              | 139.0079ms       | match      | /home/books/*                            | 
+2015/02/28 22:48:24 [router.go:845] [D] | POST       | /signOut                                 | 0                | match      | /signout                                 | 
+2015/02/28 22:48:24 [staticfile.go:62] [W] GetFileAttributesEx static/inc/_.html: The system cannot find the file specified. 
+2015/02/28 22:48:25 [router.go:845] [D] | GET        | /                                        | 420.0241ms       | match      | /                                        | 
+2015/02/28 22:48:25 [router.go:845] [D] | POST       | /home/books                              | 136.0077ms       | match      | /home/books/*                            | 
+2015/02/28 22:48:29 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/02/28 22:48:37 [router.go:845] [D] | GET        | /connect/qq_callback                     | 1.2500715s       | match      | /connect/qq_callback/*                   | 
+2015/02/28 22:48:37 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2015/02/28 22:48:37 [router.go:845] [D] | POST       | /connect/signtrace                       | 127.0072ms       | match      | /connect/signtrace/*                     | 
+2015/02/28 22:48:50 [router.go:845] [D] | POST       | /home/catalog                            | 13.0007ms        | match      | /home/catalog/*                          | 
+2015/02/28 22:48:54 [router.go:845] [D] | GET        | /r/32/1                                  | 105.006ms        | match      | /r/:parentId/:articleId                  | 
+2015/02/28 22:48:55 [router.go:845] [D] | POST       | /home/catalog                            | 13.0007ms        | match      | /home/catalog/*                          | 
+2015/02/28 22:48:55 [router.go:845] [D] | POST       | /home/content                            | 105.006ms        | match      | /home/content/*                          | 
+2015/02/28 22:51:43 [staticfile.go:62] [W] GetFileAttributesEx static/inc/_.html: The system cannot find the file specified. 
+2015/02/28 22:51:43 [log.go:108] [D] Article/Write Info:1,  qq 
+2015/02/28 22:51:43 [log.go:108] [D] Article/write Info:zh-CN 
+2015/02/28 22:51:43 [router.go:845] [D] | GET        | /w                                       | 187.0107ms       | match      | /w                                       | 
+2015/02/28 22:51:44 [router.go:845] [D] | POST       | /home/books                              | 92.0053ms        | match      | /home/books/*                            | 
+2015/02/28 22:51:44 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/02/28 22:51:49 [router.go:845] [D] | POST       | /home/books                              | 82.0047ms        | match      | /home/books/*                            | 

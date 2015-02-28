@@ -129,10 +129,8 @@
 		
 		// 目录事件
 		$('#tags').on('click','.snow-catalog-item',function(){
-			$('#tags').find('.snow-catalog-item.active').removeClass('active');
-			
 			// 定位到指定的节点（章节）
-			snow.moveToArticle($(this).addClass('active').data('id'));
+			snow.moveToArticle($(this).data('id'));
 		});
 		
 		// 定位到指定节点（章节）
@@ -159,7 +157,11 @@
 				_frame.data('position', _top);
 				// 刷新滚动条
 				snow.autoScroll(_frame);
-			});			
+			});	
+
+			// 重绘目录
+			$('#tags').find('.snow-catalog-item.active').removeClass('active');
+			$('#title-'+articleId+' > .snow-catalog-item').addClass('active');
 		};
 	});
 </script>

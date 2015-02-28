@@ -21,7 +21,7 @@
 		<!--滚动条-->
 		<link rel="stylesheet" type="text/css" href="/static/css/jquery.mCustomScrollbar.min.css" />
 		<script src="/static/js/jquery.accordion.0.1.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="/static/js/metro-loader.js" type="text/javascript" charset="utf-8"></script>-->
 		<link rel="stylesheet" type="text/css" href="/static/css/index.css" />
 	</head>
 
@@ -187,9 +187,9 @@
 		},
 		checkin : function(u){
 			if(u){
-				var _avatar = $('#avatar').data('hint',u.NickName).show();
-				_avatar.find('img').attr('src',u.Avatar_1);
-				_avatar.find('.nickname').text(u.NickName);
+				var _avatar = $('#avatar').data('hint',u.nickName).show();
+				_avatar.find('img').attr('src',u.avatar_1);
+				_avatar.find('.nickname').text(u.nickName);
 				$('#logout').show();
 				$('#login').hide();
 				return true;
@@ -331,8 +331,8 @@
 		snow.account.openId = u.OpenId;
 		snow.account.accessToken = u.Token;
 		
-			console.log(u);		
-
+		//console.log(u);		
+		
 		//记录登录状态
 		$.post(snow.api.signTrace,{
 			from:u.From,
@@ -344,14 +344,13 @@
 			avatar_1:u.Avatar_1,
 			avatar_2:u.Avatar_2
 		},function(d){
-			console.log(d);
 			if(d.ok){
 				$(".getout").click();
 				// 变更登录状态
 				snow.checkin(d.data);
 			}
 		});
-	}
+	};
 
 	//
 	$(window).resize(function() {

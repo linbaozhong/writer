@@ -7,7 +7,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-	"zouzhe/models"
+	"writer/models"
 	"zouzhe/utils"
 
 	"github.com/astaxie/beego/httplib"
@@ -334,7 +334,7 @@ func (this *Connect) SignTrace() {
 
 		this.extend(_m_account)
 		// errs:记录返回的数据校验错误
-		_, err, errs := _m_account.Post()
+		err, errs := _m_account.Post()
 
 		if err != nil {
 			this.renderJson(utils.JsonData(false, "", errs))
