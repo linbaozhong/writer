@@ -133,22 +133,18 @@
 				,_last = _frame.find('>footer')
 				,_top = parseInt(_first.css('marginTop')) - $('#doc-'+id).offset().top;
 				
+			// 防止漏出"底裤"
+			if(_frame.innerHeight() > _last.offset().top - $('#doc-'+id).offset().top){
+				_top = _top + _frame.innerHeight() - (_last.offset().top - $('#doc-'+id).offset().top);
+			}
 
 			_first.animate({
 				marginTop: _top
 			},function(){
-				
-				if(_last.offset().top < _frame.innerHeight()){
-					_top = _top - (_last.offset().top - _frame.innerHeight());
-				}
-		
-				_first.css({
-					marginTop: _top
-				});
 				// 保存当前位置
 				_frame.data('position', _top);
 				// 刷新滚动条
-				snow.docResize(_frame);
+				//snow.docResize(_frame);
 			});
 		});
 		
