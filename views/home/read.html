@@ -30,9 +30,16 @@
 	</div>
 </div>
 <script type="text/javascript">
-	$('#nav-left').css('width', 350);
-	
 	$(function() {
+		snow.nav.left.hover(
+			function(){
+				snow.nav.left.stop().animate({width:380});
+			},
+			function(){
+				snow.nav.left.stop().animate({width:snow.nav.left.width});
+			}
+		);
+
 		// 文档模板
 		snow.docTemplate = [];
 		snow.docTemplate.push('<div id="doc-<%.id%>" class="doc" data-id="<%.id%>" data-parentid="<%.parentId%>" data-documentid="<%.documentId%>" data-creator="<%.creator%>">');
@@ -127,7 +134,7 @@
 			};
 		});
 		
-		// 目录事件
+		// 左侧标签区事件
 		$('#tags').on('click','.snow-catalog-item',function(){
 			// 定位到指定的节点（章节）
 			snow.moveToArticle($(this).data('id'));

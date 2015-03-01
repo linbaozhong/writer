@@ -58,12 +58,6 @@
 
 			</div>-->
 			<ul style="margin:0;padding:0;">
-				<li id="avatar" class="image-container" style="height: 90px;display:none;" href="/w" target="_blank" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
-					<img src="" class="cycle" href="/w" target="_blank" />
-					<div class="nickname" href="/w" target="_blank" style="color:#fff !important">
-					</div>
-				</li>
-
 				<li id="login" class="" style="display:none;" data-hint="登录" data-hint-position="left" data-click="transform" data-role="1" data-rel="signin">
 					<div class="icon">
 						<i class="icon-key-2"></i>
@@ -72,7 +66,12 @@
 						登录
 					</div>
 				</li>
-				<li id="logout" class="" style="display:none;" data-hint="注销" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
+				<li id="avatar" class="snow-profile image-container" style="height: 90px;display:none;" href="/w" target="_blank" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
+					<img src="" class="cycle" href="/w" target="_blank" />
+					<div class="nickname" href="/w" target="_blank" style="color:#fff !important">
+					</div>
+				</li>
+				<li id="logout" class="snow-profile" style="display:none;" data-hint="注销" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
 					<div class="icon">
 						<i class="icon-key-2"></i>
 					</div>
@@ -80,7 +79,7 @@
 						注销
 					</div>
 				</li>
-				<li class="" data-hint="收藏夹" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
+				<li class="snow-profile" style="display:none;" data-hint="收藏夹" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
 					<div class="icon">
 						<i class="icon-air"></i>
 					</div>
@@ -187,22 +186,21 @@
 		},
 		checkin : function(u){
 			if(u){
-				var _avatar = $('#avatar').data('hint',u.nickName).show();
+				var _avatar = $('#avatar').data('hint',u.nickName);
 				_avatar.find('img').attr('src',u.avatar_1);
 				_avatar.find('.nickname').text(u.nickName);
-				$('#logout').show();
+				$('.snow-profile',snow.right).show();
 				$('#login').hide();
 				return true;
 			}else if($.cookie('_snow_token') && $.cookie('_snow_token').length){
-				var _avatar = $('#avatar').data('hint',$.cookie('nickname')).show();
+				var _avatar = $('#avatar').data('hint',$.cookie('nickname'));
 				_avatar.find('img').attr('src',$.cookie('avatar'));
 				_avatar.find('.nickname').text($.cookie('nickname'));
-				$('#logout').show();
+				$('.snow-profile',snow.right).show();
 				$('#login').hide();
 				return true;
 			}else{
-				$('#avatar').hide();
-				$('#logout').hide();
+				$('.snow-profile',snow.right).hide();
 				$('#login').show();
 				return false;
 			}
@@ -217,6 +215,7 @@
 		,signTrace:'/connect/signtrace'
 		,books:'/home/books'
 		,catalog:'/home/catalog'
+		,tags:'/home/tags'
 		,content:'/home/content'
 		,docSave:'/article/update'
 		,docDelete:'/article/delete'
@@ -392,6 +391,19 @@
 	snow.nav.left.on('click', 'li', function(e) {
 		var _that = $(this).addClass('active').siblings('.active').removeClass('active');
 	});
+	// 个人中心
+	$('#avatar').hover(
+		function(){
+			$('.snow-profile',this).animate({
+				right:75
+			});
+		},
+		function(){
+			$('.snow-profile',this).animate({
+				right:-552
+			});
+		}
+	);
 	// 语种选择
 	$('#snow-lang').hover(
 		function(){

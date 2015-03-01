@@ -64,6 +64,21 @@ func (this *Home) Books() {
 	}
 }
 
+// 读取最常用标签
+func (this *Home) Tags() {
+	t := new(models.Tags)
+
+	if ts, err := t.List(); err == nil {
+		this.renderJson(utils.JsonData(true, "", ts))
+	} else {
+		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+	}
+	//// 检查当前用户是否本地用户
+	//if this.allowRequest() {
+
+	//}
+}
+
 // 读取目录
 func (this *Home) Catalog() {
 	id, _ := this.GetInt64("parentId")

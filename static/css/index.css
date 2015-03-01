@@ -55,13 +55,13 @@ body {
 
 #nav-left {
 	position: fixed;
-	width: 120px;
+	width: 150px;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	padding: 100px 0 50px;
 	z-index: 1000;
-	/*display: none;*/
+	overflow: hidden;
 }
 #nav-left #tags div {
 	width: 100%;
