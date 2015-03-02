@@ -81,7 +81,7 @@
 				</li>
 				<li class="snow-profile" style="display:none;" data-hint="收藏夹" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
 					<div class="icon">
-						<i class="icon-air"></i>
+						<i class="icon-bookmark-4"></i>
 					</div>
 					<div>
 						收藏夹
@@ -364,6 +364,22 @@
 			right: snow.nav.right.width,
 			left: snow.nav.left.width
 		});
+		
+		// 重绘工作区
+		if(snow.left.find('.snow-index').length || snow.left.find('.snow-read').length){
+			var _frames = snow.left.find('.frame'),_width = snow.left.width();
+			if (_width < 2*600 && _frames.eq(0).width() < 600) {
+				_frames.eq(0).css('width',600);
+				_frames.eq(1).css({
+					width:_width - 600,
+					left:600
+				})
+			}else{
+				_frames.css('width','50%');
+				_frames.eq(1).css('left','50%');
+			}
+		}
+
 		//
 		snow.left.find('.frame').each(function(){
 			var _this = $(this);
