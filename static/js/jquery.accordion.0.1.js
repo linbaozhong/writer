@@ -79,7 +79,8 @@
 						// 当前文档属性
 						snow.article.parentId = frame.data('parentid')
 						// 能否拖拽，当前激活文档不能向右拖
-						snow.article.disable = ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index());
+						snow.article.disable = (ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index()))
+							|| ((frame.index()!=ui.item.closest('.frame').index()) && frame.find('#'+ui.item.attr('id')).length);
 						//当前活动的frame保持原状
 						if (frame.hasClass('active')) {
 							return;
@@ -111,10 +112,11 @@
 					},
 					beforeStop:function(e,ui){
 						// 防止自为父节点拖拽和重复文档，并且只能对自己的frame操作
-						if(!snow.article.frame.hasClass('snow-me') || snow.article.disable || ((frame.index()!=snow.article.frame.index()) && snow.article.frame.find('#'+ui.item.attr('id')).length)){
+						if(!snow.article.frame.hasClass('snow-me') || snow.article.disable){
 							frame.sortable('cancel');
 							return;
 						}
+						
 						// 如果是作者的作品,可以任意拖拽,否则，只能克隆
 						var _doc;
 						if(snow.owner(ui.item)){
@@ -149,6 +151,14 @@
 									
 							}else{
 								// 新建一个article，documentId不变
+								$.post(snow.api.docSave,{
+									id : 0,
+									parentId:snow.article.parentId,
+									documentId:snow.article.documentId,
+									position:snow.article.position
+								},function(result){
+									snow.log(result);
+								});		
 							};
 						};
 					},

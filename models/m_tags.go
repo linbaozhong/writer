@@ -6,8 +6,8 @@ type Tags struct {
 	Times int64  `json:"times"`
 }
 type TagArticle struct {
-	TagId     int64
-	ArticleId int64
+	TagId      int64
+	DocumentId int64
 }
 
 // 标签是否存在

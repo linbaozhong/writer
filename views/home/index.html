@@ -212,8 +212,8 @@ $(function(){
 		}else {
 			_frame = snow.chouti.appendFrame(_parentId);
 		};
-		// 
-		if (_frame.prev().hasClass('snow-me')) {
+		// _frame.prev().hasClass('snow-me')
+		if (snow.owner(_doc)) {
 			_frame.addClass('snow-me');
 		}else{
 			_frame.removeClass('snow-me');

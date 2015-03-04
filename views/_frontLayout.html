@@ -164,6 +164,7 @@
 		left: $('#snow-left'),
 		scrollbar: $('#scrollbar_vertical'),
 		account : {
+			id:{{.account.Id}},
 			nickName:$.cookie('nickname'),
 			avatar:$.cookie('avatar'),
 			openFrom:$.cookie('from'),
@@ -171,21 +172,23 @@
 		},
 		//是否当期文档的作者
 		owner:function(article){
-			console.log(article.data('creator'));
-			return article.data('creator') == {{.account.Id}};
+			return article.data('creator') == snow.account.id;
 		},
 		checkin : function(u){
 			if(u){
 				var _avatar = $('#avatar').data('hint',u.nickName);
 				_avatar.find('img').attr('src',u.avatar_1);
 				_avatar.find('.nickname').text(u.nickName);
+
+				snow.account.id = u.accoundId;
+
 				$('.snow-profile',snow.right).show();
 				$('#login').hide();
 				return true;
 			}else if($.cookie('_snow_token') && $.cookie('_snow_token').length){
-				var _avatar = $('#avatar').data('hint',$.cookie('nickname'));
-				_avatar.find('img').attr('src',$.cookie('avatar'));
-				_avatar.find('.nickname').text($.cookie('nickname'));
+				var _avatar = $('#avatar').data('hint',snow.account.nickName);
+				_avatar.find('img').attr('src',snow.account.avatar);
+				_avatar.find('.nickname').text(snow.account.nickName);
 				$('.snow-profile',snow.right).show();
 				$('#login').hide();
 				return true;

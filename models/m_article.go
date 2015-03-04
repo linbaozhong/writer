@@ -221,7 +221,7 @@ func (this *Article) Update() (error, []Error) {
 		}
 		// 清除旧的标签-文章的索引
 		_del := new(TagArticle)
-		_, err = session.Where("articleId = ?", this.Id).Delete(_del)
+		_, err = session.Where("documentId = ?", this.Id).Delete(_del)
 		if err != nil {
 			session.Rollback()
 			return err, nil
@@ -229,7 +229,7 @@ func (this *Article) Update() (error, []Error) {
 		// 建立新的标签-文章的索引
 		tagArticles := make([]TagArticle, 0)
 		for _, id := range ids {
-			tagArticles = append(tagArticles, TagArticle{TagId: id, ArticleId: this.Id})
+			tagArticles = append(tagArticles, TagArticle{TagId: id, DocumentId: this.Id})
 		}
 		fmt.Println(tagArticles)
 		_, err = session.Insert(tagArticles)
