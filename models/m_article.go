@@ -115,9 +115,9 @@ func (this *Article) Update() (error, []Error) {
 			if _results, err := session.Query("select position from articles where id=?", this.Position); len(_results) > 0 && err == nil {
 				_article.Position = utils.Bytes2int(_results[0]["position"])
 			}
-			positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position > ?"
+			positionSql = "update articles set position = position+2 where creator = ? and parentId = ? and position > ?"
 		} else {
-			positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position >= ?"
+			positionSql = "update articles set position = position+2 where creator = ? and parentId = ? and position >= ?"
 		}
 		// 更新其后文档的position
 		if _, err = session.Exec(positionSql, this.Updator, this.ParentId, _article.Position); err != nil {

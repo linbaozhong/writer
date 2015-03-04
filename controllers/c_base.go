@@ -520,6 +520,7 @@ func (this *Base) loginIn(id int64, from string) {
 // 签出
 func (this *Base) loginOut() {
 	this.cookie("_snow_token", "")
+	this.cookie("_snow_id", "")
 }
 
 /*

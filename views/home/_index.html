@@ -1,0 +1,185 @@
+<style type="text/css">
+	#snow-left .snow-index .doc-content {
+		cursor: pointer;
+	}
+	div.snow-index #catalog h1,
+	#catalog h2,
+	#catalog h3,
+	#catalog h4,
+	#catalog h5,
+	#catalog h6 {
+		line-height: 22px !important;
+	}
+	div.snow-index #catalog .snow-catalog {
+		padding-left: 2em;
+	}
+</style>
+<!--左侧框--工作区-->
+<div id="snow-left" class="bg-white">
+	<div class="snow-index" style="height:100%;">
+		<div class="frame">
+			<header>
+
+			</header>
+
+			<footer>
+
+			</footer>
+		</div>
+		<div class="frame" style="left:50%;">
+			<header>
+
+			</header>
+			<div id="catalog"></div>
+			<footer>
+
+			</footer>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		// 加载最常用标签
+		$.post(snow.api.tags, {}, function(result) {
+			
+			if (result.ok) {
+				var _docs = result.data,
+					_catalog = $('#tags').empty(),
+					_tpl = function(_d, one) {
+						return '<div id="title-<%.id%>" class="<%.class%>"><div class="snow-catalog-item" data-id="<%.id%>"><%.title%></div></div>'
+							.replace(/<%.id%>/g, _d.tagsId)
+							.replace(/<%.title%>/g, _d.name)
+							.replace(/<%.class%>/g, 'snow-catalog')
+					};
+				$.each(_docs, function(index, _d) {
+					if (_d.name == '') {
+						return;
+					}
+					
+					_catalog.append(_tpl(_d, true));
+					
+				});
+			};
+		});
+		// 左侧标签区事件
+		$('#tags').on('click','.snow-catalog-item',function(){
+			// 定位到指定的节点（章节）
+			snow.search($(this).data('id'));
+		});
+		// 按标签搜索
+		snow.search = function(tagId){
+			// 按标签搜索
+			
+			// 重绘标签
+			$('#tags').find('.snow-catalog-item.active').removeClass('active');
+			$('#title-'+tagId+' > .snow-catalog-item').addClass('active');
+		};
+
+		// 文档模板
+		snow.docTemplate = [];
+		snow.docTemplate.push('<div class="doc" data-id="<%.id%>" data-parentid="<%.parentId%>" data-documentid="<%.documentId%>" data-creator="<%.creator%>">');
+		snow.docTemplate.push('<header class="doc-handle"></header>');
+		//			snow.docTemplate.push('<div class="doc-tools">');
+		//				snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
+		//				snow.docTemplate.push('<a href="javascript:;" title="分支" class="tools del icon-github-6"></a>');
+		//			snow.docTemplate.push('</div>');
+		snow.docTemplate.push('<article class="doc-info">');
+		snow.docTemplate.push('<div class="doc-content">');
+		snow.docTemplate.push('<%.content%>');
+		snow.docTemplate.push('</div>');
+		//				snow.docTemplate.push('<div title="下级" class="doc-children doc-tools">');
+		//				snow.docTemplate.push('<i class="icon-arrow-right-5"></i>');
+		//				snow.docTemplate.push('</div>');
+		snow.docTemplate.push('</article>');
+		snow.docTemplate.push('<footer class="text-center">');
+		snow.docTemplate.push('<div class="pos-abs">');
+		snow.docTemplate.push('<span class="doc-remark"></span>');
+		snow.docTemplate.push('</div>');
+		snow.docTemplate.push('<div class="doc-tools">');
+		snow.docTemplate.push('<span class="tools icon-eye"><i>123</i></span>');
+		snow.docTemplate.push('<span class="tools icon-new-tab"><i>456</i></span>');
+		snow.docTemplate.push('<span class="tools icon-thumbs-up"><i>123</i></span>');
+		snow.docTemplate.push('<span class="tools icon-github-6"><i>123</i></span>');
+		snow.docTemplate.push('</div>');
+		//				snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>');
+		snow.docTemplate.push('</footer>');
+		snow.docTemplate.push('</div>');
+		snow.docTemplate.get = function(doc) {
+			return $(this.join('').replace(/<%.id%>/g, doc.articleId)
+				.replace(/<%.parentId%>/g, doc.parentId)
+				.replace(/<%.creator%>/g, doc.creator)
+				.replace(/<%.documentId%>/g, doc.documentId)
+				.replace(/<%.content%>/g, doc.content)).data('content', doc.content);
+		};
+		/* 增加单个文档
+		 * frame:容器
+		 * doc:文档
+		 * before:文档位置，true表示最前，false表示最后
+		 */
+		snow.addDoc = function(frame, doc, before) {
+			if (before) {
+				frame.find('>header').after(doc);
+			} else {
+				frame.find('>footer').before(doc);
+			}
+		};
+		// 首次加载
+		$.post(snow.api.books, {}, function(result) {
+			if (result.ok) {
+				var _docs = result.data
+					,_frame = snow.left.find('.frame').eq(0).data('parentid', 0);
+				$.each(_docs, function(index, _doc) {
+					snow.addDoc(
+						_frame, snow.docTemplate.get(_doc)
+					);
+				});
+				// 代码高亮
+				SyntaxHighlighter.highlight();
+			};
+		});
+		snow.left.on('click', '.frame div.doc .doc-content', function(e) {
+			e.stopPropagation();
+			var _doc = $(this).closest('.doc'),
+				_id = _doc.data('id'),
+				_frame = _doc.closest('.frame').next();
+			// 如果frame存在
+			if (_frame.length && _frame.data('parentid') != _id) {
+				// 清空子节点
+				_frame.data('parentid', _id).children('div.doc').remove();
+			} else {
+				return;
+			};
+			
+			// 加载目录
+			$.post(snow.api.catalog, {parentId:_id}, function(result) {
+				if (result.ok) {
+					var _docs = result.data,
+						_catalog = $('#catalog').data('id',_id).empty().append('<h2 style="margin-bottom:28px;">目录</h2>'),
+						_tpl = function(_d, one) {
+							return '<h4 id="title-<%.id%>" class="<%.class%>" href="/r/<%.parentId%>/<%.id%>" target="_blank"><%.title%></h4>'
+								.replace(/<%.parentId%>/g, _id)
+								.replace(/<%.id%>/g, _d.articleId)
+								.replace(/<%.title%>/g, _d.title)
+								.replace(/<%.class%>/g, (one ? '' : 'snow-catalog'))
+						};
+					$.each(_docs, function(index, _d) {
+						if (_d.title == '') {
+							return;
+						}
+						if (_d.parentId == _id) {
+							_catalog.append(_tpl(_d, true));
+						} else {
+							$('#title-' + _d.parentId).append(_tpl(_d));
+						}
+					});
+				};
+			});
+			// 复原编辑表单
+			if (!_doc.hasClass('active')) {
+				_doc.siblings('.active').removeClass('active');
+				// 激活doc
+				_doc.addClass('active');
+			}
+		});
+	});
+</script>

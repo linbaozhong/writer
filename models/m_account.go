@@ -2,7 +2,7 @@ package models
 
 import (
 	// "errors"
-	// "fmt"
+	"fmt"
 	"github.com/astaxie/beego/validation"
 )
 
@@ -29,6 +29,7 @@ type Accounts struct {
 
 // 账号是否存在
 func (this *Accounts) Exists() (bool, error) {
+	fmt.Println(this)
 	return db.Get(this)
 }
 

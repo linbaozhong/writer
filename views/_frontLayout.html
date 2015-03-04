@@ -28,35 +28,16 @@
 	<body class="metro">
 		<!--左侧导航条-->
 		<nav id="nav-left" class="bg-dark">
-			<a href="/"><div id="logo" class="place-top-left text-center fg-white" style="width:100%;height: 70px;line-height: 70px;background: #1ba1e2;font-size: larger;font-weight: bold;cursor: pointer;">
+			<a href="/"><div id="logo" class="text-center fg-white">
 				参考书
 			</div></a>
 			<div id="tags" class="fg-white text-bold" style="margin:0;padding:0;">
-				<div class="snow-catalog-item">教育</div>
-				<div class="snow-catalog-item">分类</div>
+
 			</div>
 		</nav>
 
 		<!--右侧导航条-->
 		<nav id="nav-right" class="bg-dark fg-white shadow">
-			<!--<div style="padding:10px;">
-				<div class="tile half bg-cyan" data-hint="登录/注册" data-hint-position="left" data-click="transform" data-role="1" data-rel="signin">
-					<div class="tile-content icon">
-						<i class="icon-key-2"></i>
-					</div>
-				</div>
-				<div class="tile half bg-cyan" data-hint="书签" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
-					<div class="tile-content icon">
-						<i class="icon-air"></i>
-					</div>
-				</div>
-				<div id="snow-lang" class="tile half bg-cyan">
-					<div class="tile-content text-center text-bold" style="margin-top:30%;">
-					中文
-					</div>
-				</div>
-
-			</div>-->
 			<ul style="margin:0;padding:0;">
 				<li id="login" class="" style="display:none;" data-hint="登录" data-hint-position="left" data-click="transform" data-role="1" data-rel="signin">
 					<div class="icon">
@@ -66,14 +47,14 @@
 						登录
 					</div>
 				</li>
-				<li id="avatar" class="snow-profile image-container" style="height: 90px;display:none;" href="/w" target="_blank" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
-					<img src="" class="cycle" href="/w" target="_blank" />
-					<div class="nickname" href="/w" target="_blank" style="color:#fff !important">
+				<li id="avatar" class="snow-profile image-container" style="height: 90px;display:none;" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
+					<img src="" class="cycle"  />
+					<div class="nickname"  style="color:#fff !important">
 					</div>
 				</li>
 				<li id="logout" class="snow-profile" style="display:none;" data-hint="注销" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
 					<div class="icon">
-						<i class="icon-key-2"></i>
+						<i class="icon-exit"></i>
 					</div>
 					<div class="small-size">
 						注销
@@ -85,6 +66,14 @@
 					</div>
 					<div>
 						收藏夹
+					</div>
+				</li>
+				<li class="snow-profile" style="display:none;" data-hint="笔记" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
+					<div class="icon">
+						<i class="icon-clipboard-2"></i>
+					</div>
+					<div>
+						笔记
 					</div>
 				</li>
 				<li id="snow-lang" class="">
@@ -181,8 +170,9 @@
 			accessToken:$.cookie('token')
 		},
 		//是否当期文档的作者
-		author:function(article){
-			return article.data('creator') === {{.account.Id}};
+		owner:function(article){
+			console.log(article.data('creator'));
+			return article.data('creator') == {{.account.Id}};
 		},
 		checkin : function(u){
 			if(u){
@@ -214,6 +204,7 @@
 		,signOut:'/signOut'
 		,signTrace:'/connect/signtrace'
 		,books:'/home/books'
+		,mybooks:'/home/books/my'
 		,catalog:'/home/catalog'
 		,tags:'/home/tags'
 		,content:'/home/content'
@@ -256,6 +247,9 @@
 		left: $('#nav-left'),
 		right: $('#nav-right')
 	};
+	if(!snow.left.find('.snow-read').length){
+		snow.nav.left.css('width',0);
+	}
 	snow.nav.left.width = snow.nav.left.width();
 	snow.nav.right.width = snow.nav.right.width();
 	//注册登录框
@@ -407,19 +401,8 @@
 	snow.nav.left.on('click', 'li', function(e) {
 		var _that = $(this).addClass('active').siblings('.active').removeClass('active');
 	});
-	// 个人中心
-	$('#avatar').hover(
-		function(){
-			$('.snow-profile',this).animate({
-				right:75
-			});
-		},
-		function(){
-			$('.snow-profile',this).animate({
-				right:-552
-			});
-		}
-	);
+
+	// 右导航条---事件
 	// 语种选择
 	$('#snow-lang').hover(
 		function(){
@@ -433,21 +416,43 @@
 			});
 		}
 	);
-	// 右导航条---事件
+	// 登录 --- 事件
+	$('#login').click(function(){
+		openSign();
+	});
+	
+	// 头像 --- 事件
+	$('#avatar').click(function(){
+		var _parentId = 0,
+			_frame = snow.left.find('.frame.snow-me');
+			
+		if(!_frame.length){
+			// 追加一个frame
+			_frame = snow.chouti.appendFrame(_parentId).addClass('snow-me');
+		}
+		
+		// 加载子节点
+		$.post(snow.api.mybooks,{parentId:_parentId},function(result){
+			if (result.ok) {
+				snow.chouti.appendDoc(_frame,result.data);
+			};
+		});
+	});
+	
 	snow.nav.right.on('click', 'li', function(e) {
 		var _that = $(this);
 		if (_that.data('rel') == 'signin') {
-			openSign();
+			
 		} else {
-			//
-			$('div.nav-info').load(snow.inc(_that.data('rel')), function() {
-				$('div.nav-info-box').css({
-					width: $('div.nav-info').eq(0).width()
-				});
-			});
-			$('div.nav-info-box,div.nav-info').animate({
-				right: snow.nav.right.width
-			});
+//			//
+//			$('div.nav-info').load(snow.inc(_that.data('rel')), function() {
+//				$('div.nav-info-box').css({
+//					width: $('div.nav-info').eq(0).width()
+//				});
+//			});
+//			$('div.nav-info-box,div.nav-info').animate({
+//				right: snow.nav.right.width
+//			});
 		}
 	});
 

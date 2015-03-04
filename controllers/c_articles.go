@@ -12,7 +12,7 @@ type Article struct {
 
 func (this *Article) Write() {
 	this.Layout = "_frontLayout.html"
-	this.LayoutSections = make(map[string]string)
+	//this.LayoutSections = make(map[string]string)
 	this.Data["account"] = this.currentUser
 
 	this.setTplNames("write")

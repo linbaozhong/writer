@@ -59,7 +59,7 @@ body {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	padding: 100px 0 50px;
+	padding: 120px 0 50px;
 	z-index: 1000;
 	overflow: hidden;
 }
@@ -93,7 +93,7 @@ body {
 #nav-right li{
 	width:100%;
 	height:55px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	color: white;
 	text-align: center;
 	padding: 10px;
@@ -113,6 +113,19 @@ body {
 	bottom: 0;
 	right: 0;
 	width: 75px;
+}
+#logo{
+	width: 160px;
+	height: 70px;
+	line-height: 70px;
+	background: #1ba1e2;
+	font-size: larger;
+	font-weight: bold;
+	cursor: pointer;
+	position: fixed;
+	transform: rotate(-45deg);
+	left: -48px;
+	top: -3px;
 }
 #snow-lang .snow-languages{
 	position:absolute;
@@ -230,14 +243,22 @@ div.nav-info-box {
 .frame {
 	text-align: left;
 	padding: 20px 30px;
-	border-right: 1px solid #eee;
 	z-index: 2;
 	min-height: 100%;
 	width: 50%;
 	position: absolute;
 }
+.frame:nth-child(n+1){
+	border-left:#bbb solid 1px;
+}
+.frame.snow-me{
+	border-color:#33cc88;
+}
 .frame .doc-plus {
 	font-size: 14px;
+}
+.frame .doc-add{
+	padding: 10px 20px 20px;
 }
 .frame .mask {
 	position: absolute;
@@ -246,6 +267,9 @@ div.nav-info-box {
 	background: black;
 	opacity: .2;
 	z-index: 2;
+}
+.frame.snow-me .mask{
+	background: #33cc88;
 }
 .frame.active .mask {
 	display: none;

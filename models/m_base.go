@@ -2,13 +2,13 @@ package models
 
 import (
 	"errors"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
-	//_ "github.com/go-sql-driver/mysql"
-	"fmt"
+	_ "github.com/go-sql-driver/mysql"
+	//_ "github.com/mattn/go-sqlite3"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
-	_ "github.com/mattn/go-sqlite3"
 	"math"
 	"strings"
 	"zouzhe/utils"
@@ -81,8 +81,8 @@ var db *xorm.Engine
 
 func init() {
 	var err error
-	//db, err = xorm.NewEngine("mysql", "root:goldapple@127.0.0.1:3306/writer?charset=utf8")
-	db, err = xorm.NewEngine("sqlite3", "./data/writer.db")
+	db, err = xorm.NewEngine("mysql", "writer:writer2015@tcp(dbwriter.mysql.rds.aliyuncs.com:3306)/writer?charset=utf8")
+	//db, err = xorm.NewEngine("sqlite3", "./data/writer.db")
 
 	if err != nil {
 		beego.Trace(err)

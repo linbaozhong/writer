@@ -10,6 +10,9 @@ type Home struct {
 }
 
 func (this *Home) Get() {
+
+	this.Data["account"] = this.currentUser
+
 	this.setTplNames("index")
 }
 
@@ -31,6 +34,9 @@ func (this *Home) Read() {
 
 // 分页拉取书籍列表
 func (this *Home) Books() {
+	// 是否读取当前用户的文档
+	my := this.getParamsString("0")
+
 	// 读取分页规则
 	p := new(models.Pagination)
 
@@ -48,13 +54,20 @@ func (this *Home) Books() {
 	var err error
 
 	// 构造查询字符串
-	cond := "parentId = ?"
+	cond := "articles.parentId = ?"
 
-	if tags == "" {
-		as, err = a.List(p, cond, parentId)
+	if my == "" {
+		if tags == "" {
+			as, err = a.List(p, cond, parentId)
+		} else {
+			as, err = a.List(p, cond+" and articles.tags = ?", parentId, tags)
+		}
 	} else {
-		cond += " and tags = ?"
-		as, err = a.List(p, cond, parentId, tags)
+		if tags == "" {
+			as, err = a.List(p, cond+" and articles.creator = ?", parentId, this.currentUser.Id)
+		} else {
+			as, err = a.List(p, cond+" and articles.tags = ? and articles.creator = ?", parentId, tags, this.currentUser.Id)
+		}
 	}
 
 	if err == nil {

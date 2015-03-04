@@ -75,9 +75,10 @@
 					tolerance: 'pointer',
 					opacity: 0.8,
 					over: function(e, ui) {
+						snow.article.frame = frame;
 						// 当前文档属性
 						snow.article.parentId = frame.data('parentid')
-						// 能否拖拽
+						// 能否拖拽，当前激活文档不能向右拖
 						snow.article.disable = ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index());
 						//当前活动的frame保持原状
 						if (frame.hasClass('active')) {
@@ -101,7 +102,7 @@
 						};
 
 						// 如果是作者的作品,可以任意拖拽,否则，只能克隆
-						if(snow.author(ui.item)){
+						if(snow.owner(ui.item)){
 							ui.item.hide();
 						}else{
 							ui.item.show();
@@ -109,14 +110,14 @@
 							
 					},
 					beforeStop:function(e,ui){
-						// 防止自为父节点拖拽
-						if(snow.article.disable){
+						// 防止自为父节点拖拽和重复文档，并且只能对自己的frame操作
+						if(!snow.article.frame.hasClass('snow-me') || snow.article.disable || ((frame.index()!=snow.article.frame.index()) && snow.article.frame.find('#'+ui.item.attr('id')).length)){
 							frame.sortable('cancel');
 							return;
 						}
 						// 如果是作者的作品,可以任意拖拽,否则，只能克隆
 						var _doc;
-						if(snow.author(ui.item)){
+						if(snow.owner(ui.item)){
 							_doc = ui.item;
 						}else{
 							_doc = ui.item.clone();
@@ -135,7 +136,7 @@
 							// 记录新位置
 							_doc.data('parentid',snow.article.parentId).data('referid',snow.article.position)
 							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
-							if(snow.author(_doc)){
+							if(snow.owner(_doc)){
 								// 只修改parentId和position
 								$.post(snow.api.docPosition,{
 									id : snow.article.id,

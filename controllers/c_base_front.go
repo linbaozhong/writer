@@ -6,6 +6,7 @@ type Front struct {
 
 func (this *Front) Prepare() {
 	this.Base.Prepare()
+	this.allowRequest()
 
 	this.Layout = "_frontLayout.html"
 	this.LayoutSections = make(map[string]string)
