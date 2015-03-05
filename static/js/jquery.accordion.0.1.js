@@ -77,7 +77,7 @@
 					over: function(e, ui) {
 						snow.article.frame = frame;
 						// 当前文档属性
-						snow.article.parentId = frame.data('parentid')
+						snow.article.moreId = frame.data('moreid')
 						// 能否拖拽，当前激活文档不能向右拖
 						snow.article.disable = (ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index()))
 							|| ((frame.index()!=ui.item.closest('.frame').index()) && frame.find('#'+ui.item.attr('id')).length);
@@ -127,16 +127,16 @@
 							frame.sortable('cancel');
 						}
 						
-						if(_doc.data('parentid') != snow.article.parentId){
+						if(_doc.data('moreid') != snow.article.moreId){
 							// 清除激活状态
 							_doc.removeClass('active');
 						}
 						
 						// 如果位置发生变化
-						if(_doc.data('parentid') != snow.article.parentId 
+						if(_doc.data('moreid') != snow.article.moreId 
 							|| _doc.data('referid') != snow.article.position){
 							// 记录新位置
-							_doc.data('parentid',snow.article.parentId).data('referid',snow.article.position)
+							_doc.data('moreid',snow.article.moreId).data('referid',snow.article.position)
 							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
 							if(snow.owner(_doc)){
 								// 只修改parentId和position
@@ -183,12 +183,12 @@
 				html: '',
 				url: '',
 				active: false,
-				parentId:''
+				moreId:''
 			}, options);
 
 			var _frame = $('<div />').attr('id',Math.random()).addClass('frame').css(frameStyle).css({
 				left: 5000
-			}).appendTo($this).data('parentid',_options.parentId);
+			}).appendTo($this).data('moreid',_options.moreId);
 			//活动状态
 			if (_options.active) {
 				_frame.addClass('active');

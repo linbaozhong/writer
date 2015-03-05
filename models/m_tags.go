@@ -5,7 +5,8 @@ type Tags struct {
 	Name  string `json:"name" valid:"MaxSize(100)"`
 	Times int64  `json:"times"`
 }
-type TagArticle struct {
+type TagDocument struct {
+	Id         int64
 	TagId      int64
 	DocumentId int64
 }

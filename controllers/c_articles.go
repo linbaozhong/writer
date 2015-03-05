@@ -22,8 +22,9 @@ func (this *Article) Update() {
 	article := new(models.Article)
 
 	article.Id, _ = this.GetInt64("id")
+	article.MoreId, _ = this.GetInt64("moreId")
 	article.ParentId, _ = this.GetInt64("parentId")
-	article.Position, _ = this.GetInt("position")
+	//article.Position, _ = this.GetInt("position")
 	article.DocumentId, _ = this.GetInt64("documentId")
 	article.Title = this.GetString("title")
 	article.Content = this.GetString("content")

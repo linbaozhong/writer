@@ -5,9 +5,10 @@
 			<header>
 				<form class="doc user-input native" style="display:none;">
 					<input type="hidden" name="id" id="doc-id" value="" />
+					<input type="hidden" name="moreId" id="doc-moreId" value="" />
 					<input type="hidden" name="parentId" id="doc-parentId" value="" />
 					<input type="hidden" name="documentId" id="doc-documentId" value="" />
-					<input type="hidden" name="position" id="doc-position" value="" />
+					<!--<input type="hidden" name="position" id="doc-position" value="" />-->
 					<script id="myEditor" name="content" type="text/plain">
 
 					</script>
@@ -81,6 +82,8 @@ $(function(){
 	};
 	// 向frame中追加文档
 	snow.chouti.appendDoc = function(_frame,_docs){
+		// 清空子节点
+		_frame.children('div.doc').remove();
 		$.each(_docs,function(index,_doc){
 			snow.addDoc(
 				_frame
@@ -107,9 +110,10 @@ $(function(){
 			_form = _that.closest('form.user-input'),
 			_frame = _form.closest('.frame'),
 			_id = _form.find('input[name="id"]').val(),
+			_moreId = _form.find('input[name="moreId"]').val(),
 			_parentId = _form.find('input[name="parentId"]').val(),
 			_documentId = _form.find('input[name="documentId"]').val(),
-			_position = _form.find('input[name="position"]').val(),
+			//_position = _form.find('input[name="position"]').val(),
 			_content = snow.ue.getContent(),//.replace(/[\s]+/g,' '),
 			_contentTxt = snow.ue.getContentTxt();
 
@@ -138,9 +142,9 @@ $(function(){
 					title:_title,
 					content:_content,
 					tags:_tags.join(','),
+					moreId:_moreId,
 					parentId:_parentId,
-					documentId:_documentId,
-					position:_position
+					documentId:_documentId
 				}
 				,function(result){
 					if(result.ok){
@@ -194,32 +198,32 @@ $(function(){
 	}).on('click', '.frame div.doc .doc-children', function(e) {
 		e.stopPropagation();
 		var _doc = $(this).closest('.doc'),
-			_parentId = _doc.data('id'),
+			_moreId = _doc.data('moreid'),
 			_frame = _doc.closest('.frame').next();
 
 		// 如果frame存在
 		if (_frame.length){
 			// 如果父节点未改变，返回
-			if(_parentId === _frame.data('parentid')){
+			if(_moreId === _frame.data('moreid')){
 				return;
 			}else{
 				_frame.nextAll('div.frame').remove();
 				// 重绘
 				snow.chouti.refresh();
 			}
-			// 清空子节点
-			_frame.data('parentid',_parentId).children('div.doc').remove();
+			// 标记父id
+			_frame.data('moreid',_moreId);
 		}else {
-			_frame = snow.chouti.appendFrame(_parentId);
+			_frame = snow.chouti.appendFrame(_moreId);
 		};
-		// _frame.prev().hasClass('snow-me')
+		// 
 		if (snow.owner(_doc)) {
 			_frame.addClass('snow-me');
 		}else{
 			_frame.removeClass('snow-me');
 		}
 		// 加载子节点
-		$.post(snow.api.books,{parentId:_parentId},function(result){
+		$.post(snow.api.books,{moreId:_moreId},function(result){
 			if (result.ok) {
 				snow.chouti.appendDoc(_frame,result.data);
 			};
@@ -275,9 +279,10 @@ $(function(){
 		// 赋值
 		_doc.hide();
 		snow.editor.find('input[name="id"]').val(_doc.data('id'));
+		snow.editor.find('input[name="moreId"]').val(_doc.data('moreid'));
 		snow.editor.find('input[name="parentId"]').val(_doc.data('parentid'));
 		snow.editor.find('input[name="documentId"]').val(_doc.data('documentid'));
-		snow.editor.find('input[name="position"]').val('');
+		//snow.editor.find('input[name="position"]').val('');
 
 		_doc.after(snow.editor.click().slideDown(snow.speed, function() {
 			snow.ue.setContent(_doc.data('content'));
@@ -305,9 +310,10 @@ $(function(){
 
 		// 赋值
 		snow.editor.find('input[name="id"]').val('');
-		snow.editor.find('input[name="documentId"]').val('');
+		snow.editor.find('input[name="moreId"]').val(_doc.data('moreid'));
 		snow.editor.find('input[name="parentId"]').val(_doc.data('parentid'));
-		snow.editor.find('input[name="position"]').val(_doc.data('id'));
+		snow.editor.find('input[name="documentId"]').val('');
+		//snow.editor.find('input[name="position"]').val(_doc.data('moreid'));
 
 		snow.editor.click().slideDown(snow.speed);
 	}).on('click', '.frame header .doc-plus', function(e) {
@@ -327,16 +333,17 @@ $(function(){
 
 		// 赋值
 		snow.editor.find('input[name="id"]').val('');
+		snow.editor.find('input[name="moreId"]').val(_doc.closest('.frame').data('moreid'));
+		snow.editor.find('input[name="parentId"]').val('');
 		snow.editor.find('input[name="documentId"]').val('');
-		snow.editor.find('input[name="parentId"]').val(_doc.closest('.frame').data('parentid'));
-		snow.editor.find('input[name="position"]').val('');
+		//snow.editor.find('input[name="position"]').val('');
 
 		_doc.after(snow.editor.click().slideDown(snow.speed));
 	});
 
 	// 文档模板
 	snow.docTemplate = [];
-	snow.docTemplate.push('<div class="doc" id="doc-<%.creator%>-<%.id%>" data-id="<%.id%>" data-parentid="<%.parentId%>" data-documentid="<%.documentId%>" data-creator="<%.creator%>">');
+	snow.docTemplate.push('<div class="doc" id="doc-<%.creator%>-<%.id%>" data-id="<%.id%>" data-moreid="<%.moreId%>" data-parentid="<%.parentId%>" data-documentid="<%.documentId%>" data-creator="<%.creator%>">');
 	snow.docTemplate.push('<header class="doc-handle"></header>');
 		snow.docTemplate.push('<div class="doc-tools">');
 			snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
@@ -364,6 +371,7 @@ $(function(){
 	snow.docTemplate.push('</div>');
 	snow.docTemplate.get = function(doc){
 		return $(this.join('').replace(/<%.id%>/g,doc.articleId)
+						.replace(/<%.moreId%>/g,doc.moreId)
 						.replace(/<%.parentId%>/g,doc.parentId)
 						.replace(/<%.creator%>/g,doc.creator)
 						.replace(/<%.documentId%>/g,doc.documentId)
@@ -386,7 +394,7 @@ $(function(){
 	$.post(snow.api.books,{},function(result){
 		if (result.ok) {
 			var _docs = result.data
-				,_frame = snow.left.find('.frame').eq(0).data('parentid',0);
+				,_frame = snow.left.find('.frame').eq(0).data('moreid',0);
 
 			$.each(_docs,function(index,_doc){
 				snow.addDoc(

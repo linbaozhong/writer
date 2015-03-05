@@ -11,12 +11,13 @@ import (
 // article视图
 type Article struct {
 	Id         int64  `json:"articleId"`
+	DocumentId int64  `json:"documentId"`
 	Title      string `json:"title" valid:"MaxSize(250)"`
 	Content    string `json:"content"`
 	Tags       string `json:"tags" valid:"MaxSize(250)"`
+	MoreId     int64  `json:"moreId"`
 	ParentId   int64  `json:"parentId"`
 	Position   int    `json:"position"`
-	DocumentId int64  `json:"documentId"`
 	Status     int    `json:"status" valid:"Range(0,1)"`
 	Deleted    int    `json:"deleted" valid:"Range(0,1)"`
 	Creator    int64  `json:"creator"`
@@ -29,9 +30,6 @@ type Article struct {
 // Articles表
 type Articles struct {
 	Id         int64  `json:"articleId"`
-	ParentId   int64  `json:"parentId"`
-	Position   int    `json:"position"`
-	Depth      string `json:"depth"`
 	DocumentId int64  `json:"documentId"`
 	Status     int    `json:"status" valid:"Range(0,1)"`
 	Deleted    int    `json:"deleted" valid:"Range(0,1)"`
@@ -40,6 +38,18 @@ type Articles struct {
 	Updator    int64  `json:"updator"`
 	Updated    int64  `json:"updated"`
 	Ip         string `json:"ip" valid:"MaxSize(23)"`
+}
+
+// ArticleMore表 -- article多对多映射
+type ArticleMore struct {
+	Id        int64  `json:"moreId"`
+	ArticleId int64  `json:"articleId"`
+	ParentId  int64  `json:"parentId"`
+	Position  int    `json:"position"`
+	Depth     string `json:"depth"`
+	Updator   int64  `json:"updator"`
+	Updated   int64  `json:"updated"`
+	Ip        string `json:"ip" valid:"MaxSize(23)"`
 }
 
 // Documents表
@@ -87,13 +97,19 @@ func (this *Article) Update() (error, []Error) {
 	// articles对象
 	_article := new(Articles)
 	_article.Id = this.Id
-	_article.ParentId = this.ParentId
 	_article.DocumentId = this.DocumentId
 	_article.Creator = this.Creator
 	_article.Created = this.Created
 	_article.Updator = this.Updator
 	_article.Updated = this.Updated
 	_article.Ip = this.Ip
+
+	// articlemore对象
+	_more := new(ArticleMore)
+	_more.ParentId = this.ParentId
+	_more.Updator = this.Updator
+	_more.Updated = this.Updated
+	_more.Ip = this.Ip
 
 	// documents对象
 	_document := new(Documents)
@@ -111,16 +127,18 @@ func (this *Article) Update() (error, []Error) {
 	if this.Id == 0 {
 		// 找到id=this.Position参考文档的position
 		var positionSql string
-		if this.Position > 0 {
-			if _results, err := session.Query("select position from articles where id=?", this.Position); len(_results) > 0 && err == nil {
-				_article.Position = utils.Bytes2int(_results[0]["position"])
+		if this.MoreId > 0 {
+			if _results, err := session.Query("select position,depth,articleid from articlemore where id=?", this.MoreId); len(_results) > 0 && err == nil {
+				_more.Position = utils.Bytes2int(_results[0]["position"])
+				_more.Depth = string(_results[0]["depth"])
+				_more.ParentId = utils.Bytes2int64(_results[0]["articleid"])
 			}
-			positionSql = "update articles set position = position+2 where creator = ? and parentId = ? and position > ?"
+			positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position > ?"
 		} else {
-			positionSql = "update articles set position = position+2 where creator = ? and parentId = ? and position >= ?"
+			positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position >= ?"
 		}
 		// 更新其后文档的position
-		if _, err = session.Exec(positionSql, this.Updator, this.ParentId, _article.Position); err != nil {
+		if _, err = session.Exec(positionSql, this.Updated, this.Ip, _more.ParentId, _more.Position); err != nil {
 			session.Rollback()
 			return err, nil
 		}
@@ -135,27 +153,22 @@ func (this *Article) Update() (error, []Error) {
 
 		// insert articles 主表
 		_article.DocumentId = _document.Id //主附表映射
-		_article.Position += 1
 		// 为返回对象赋值
 		this.DocumentId = _article.DocumentId
-		this.Position = _article.Position
-
+		this.Position = _more.Position
+		// 创建新文档
 		if _, err = session.Insert(_article); err == nil {
 			// 为返回对象赋值
 			this.Id = _article.Id
 			// 层次深度 depth = 父条目depth + 本条目Id
 			if _article.Id > 0 {
-				// Dal对象
-				_dal := &Dal{}
-				_dal.Field = "depth"
-				_dal.From = "articles"
-				_dal.Where = "id = ?"
-				// 父条目depth
-				if _article.ParentId > 0 {
-					_article.Depth = fmt.Sprintf("%s%d,", _dal.Single("depth", _article.ParentId), _article.ParentId)
-				}
-				// Update articles 主表
-				if _, err = session.Id(_article.Id).Cols("depth").Update(_article); err != nil {
+				_more.Position += 1
+				_more.ArticleId = _article.Id
+				_more.Depth = fmt.Sprintf("%s%d,", _more.Depth, _more.ParentId)
+
+				// Update articlemore 多对多表
+				if _, err = session.Insert(_more); err != nil {
+					fmt.Println(err)
 					session.Rollback()
 					return err, nil
 				}
@@ -220,19 +233,19 @@ func (this *Article) Update() (error, []Error) {
 			}
 		}
 		// 清除旧的标签-文章的索引
-		_del := new(TagArticle)
+		_del := new(TagDocument)
 		_, err = session.Where("documentId = ?", this.Id).Delete(_del)
 		if err != nil {
 			session.Rollback()
 			return err, nil
 		}
 		// 建立新的标签-文章的索引
-		tagArticles := make([]TagArticle, 0)
+		tagDocuments := make([]TagDocument, 0)
 		for _, id := range ids {
-			tagArticles = append(tagArticles, TagArticle{TagId: id, DocumentId: this.Id})
+			tagDocuments = append(tagDocuments, TagDocument{TagId: id, DocumentId: this.Id})
 		}
-		fmt.Println(tagArticles)
-		_, err = session.Insert(tagArticles)
+		fmt.Println(tagDocuments)
+		_, err = session.Insert(tagDocuments)
 		if err != nil {
 			session.Rollback()
 			return err, nil
@@ -284,9 +297,9 @@ func (this *Article) ListEx(page *Pagination, condition string, params ...interf
 func (this *Article) _list(view bool, page *Pagination, condition string, params ...interface{}) ([]Article, error) {
 	// Dal对象
 	_dal := &Dal{}
-	_dal.From = "articles,documents"
-	_dal.Where = "documents.id = articles.documentId"
-	_dal.OrderBy = "articles.parentId,articles.position"
+	_dal.From = "articlemore,articles,documents"
+	_dal.Where = "articlemore.articleId = articles.id and documents.id = articles.documentId"
+	_dal.OrderBy = "articlemore.parentId,articlemore.position"
 
 	// 可见的
 	if view {
@@ -306,7 +319,7 @@ func (this *Article) _list(view bool, page *Pagination, condition string, params
 		_dal.Size = page.Size
 		_dal.Offset = page.Index * page.Size
 
-		_dal.Field = "articles.*,documents.title,documents.content"
+		_dal.Field = "articlemore.id as moreid,articlemore.parentid,articlemore.position,articles.*,documents.title,documents.content"
 		err := db.Sql(_dal.Select(), params...).Find(&as)
 		return as, err
 	}
@@ -396,21 +409,21 @@ func (this *Article) SetPosition() (bool, error) {
 	// 找到id=this.Position参考文档的position
 	var positionSql string
 	if this.Position > 0 {
-		if _results, err := session.Query("select position from articles where id=?", this.Position); len(_results) > 0 && err == nil {
+		if _results, err := session.Query("select position from articlemore where parentid=? and articleid=?", this.ParentId, this.Position); len(_results) > 0 && err == nil {
 			this.Position = utils.Bytes2int(_results[0]["position"])
 		}
-		positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position > ?"
+		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where updator = ? and parentId = ? and position > ?"
 	} else {
-		positionSql = "update 'articles' set position = position+2 where creator = ? and parentId = ? and position >= ?"
+		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where updator = ? and parentId = ? and position >= ?"
 	}
 	// 更新其后文档的position
-	if _, err = session.Exec(positionSql, this.Updator, this.ParentId, this.Position); err != nil {
+	if _, err = session.Exec(positionSql, this.Updated, this.Ip, this.Updator, this.ParentId, this.Position); err != nil {
 		session.Rollback()
 		return false, err
 	}
 
-	a := new(Articles)
-	a.Id = this.Id
+	a := new(ArticleMore)
+	a.ArticleId = this.Id
 	a.ParentId = this.ParentId
 	a.Position = this.Position + 1
 	a.Updated = this.Updated
@@ -429,7 +442,7 @@ func (this *Article) SetPosition() (bool, error) {
 		// 更新本条目所有子条目的 depth
 		_old_Depth := fmt.Sprintf("%s%d,", _dal.Single("depth", a.Id), a.Id)
 
-		if _, err = session.Exec(fmt.Sprintf("update articles set depth = replace(depth,'%s','%s%d,') where depth like '%s%s'", _old_Depth, a.Depth, a.Id, _old_Depth, "%")); err != nil {
+		if _, err = session.Exec(fmt.Sprintf("update articlemore set depth = replace(depth,'%s','%s%d,') where depth like '%s%s'", _old_Depth, a.Depth, a.Id, _old_Depth, "%")); err != nil {
 			session.Rollback()
 			return false, err
 		}

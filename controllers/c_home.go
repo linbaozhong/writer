@@ -45,28 +45,33 @@ func (this *Home) Books() {
 	}
 	p.Index, _ = this.GetInt("index")
 	// 读取查询条件
-	parentId, _ := this.GetInt64("parentId")
+	moreId, _ := this.GetInt64("moreId")
 	tags := this.GetString("tags")
 
 	// 拉取
 	a := new(models.Article)
 	var as []models.Article
 	var err error
+	var cond string
 
 	// 构造查询字符串
-	cond := "articles.parentId = ?"
+	if moreId == 0 {
+		cond = "articlemore.parentId = ?"
+	} else {
+		cond = "articlemore.parentId = (select articleid from articlemore where id = ?)"
+	}
 
 	if my == "" {
 		if tags == "" {
-			as, err = a.List(p, cond, parentId)
+			as, err = a.List(p, cond, moreId)
 		} else {
-			as, err = a.List(p, cond+" and articles.tags = ?", parentId, tags)
+			as, err = a.List(p, cond+" and documents.tags = ?", moreId, tags)
 		}
 	} else {
 		if tags == "" {
-			as, err = a.List(p, cond+" and articles.creator = ?", parentId, this.currentUser.Id)
+			as, err = a.List(p, cond+" and articles.creator = ?", moreId, this.currentUser.Id)
 		} else {
-			as, err = a.List(p, cond+" and articles.tags = ? and articles.creator = ?", parentId, tags, this.currentUser.Id)
+			as, err = a.List(p, cond+" and documents.tags = ? and articles.creator = ?", moreId, tags, this.currentUser.Id)
 		}
 	}
 

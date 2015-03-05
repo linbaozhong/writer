@@ -426,18 +426,22 @@
 	
 	// 头像 --- 事件
 	$('#avatar').click(function(){
-		var _parentId = 0,
-			_frame = snow.left.find('.frame.snow-me');
+		var _moreId = 0,
+			_frame = snow.left.find('.frame.snow-me:eq(0)');
 			
-		if(!_frame.length){
+		if(_frame.length){
+			_frame.nextAll('div.frame').remove();
+		}else{
 			// 追加一个frame
-			_frame = snow.chouti.appendFrame(_parentId).addClass('snow-me');
+			_frame = snow.chouti.appendFrame(_moreId).addClass('snow-me');
 		}
+		// 重绘
+		snow.chouti.refresh();
 		
 		// 加载子节点
-		$.post(snow.api.mybooks,{parentId:_parentId},function(result){
+		$.post(snow.api.mybooks,{moreId:_moreId},function(result){
 			if (result.ok) {
-				snow.chouti.appendDoc(_frame,result.data);
+				snow.chouti.appendDoc(_frame.data('moreid',_moreId),result.data);
 			};
 		});
 	});
