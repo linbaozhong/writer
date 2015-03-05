@@ -98,7 +98,8 @@
 						// 当前文档属性
 						snow.article = {
 							id : ui.item.data('id'),
-							documentId : ui.item.data('documentid'),
+							referId : ui.item.data('moreid'),
+							//parentId : ui.item.data('parentid'),
 							disable:true
 						};
 
@@ -134,17 +135,17 @@
 						
 						// 如果位置发生变化
 						if(_doc.data('moreid') != snow.article.moreId 
-							|| _doc.data('referid') != snow.article.position){
+							|| _doc.data('referid') != snow.article.positionId){
 							// 记录新位置
-							_doc.data('moreid',snow.article.moreId).data('referid',snow.article.position)
+							_doc.data('moreid',snow.article.moreId).data('referid',snow.article.positionId)
 							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
 							if(snow.owner(_doc)){
 								// 只修改parentId和position
 								$.post(snow.api.docPosition,{
 									id : snow.article.id,
-									parentId : snow.article.parentId,
-									documentId : snow.article.documentId,
-									referId : snow.article.position
+									moreId : snow.article.moreId,//新的父节点
+									referId : snow.article.referId,//原来的父节点
+									positionId: snow.article.positionId//新的位置
 								},function(result){
 									snow.log(result);
 								});					
@@ -155,7 +156,7 @@
 									id : 0,
 									parentId:snow.article.parentId,
 									documentId:snow.article.documentId,
-									position:snow.article.position
+									position:snow.article.positionId
 								},function(result){
 									snow.log(result);
 								});		
@@ -164,7 +165,7 @@
 					},
 					sort:function(e,ui){
 						// 当前文档属性
-						snow.article.position = ui.placeholder.prev('div.doc').data('id');
+						snow.article.positionId = ui.placeholder.prev('div.doc').data('moreid');
 					}
 				});
 			};

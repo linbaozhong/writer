@@ -406,49 +406,51 @@ func (this *Article) SetPosition() (bool, error) {
 		return false, err
 	}
 
+	// articlemore对象
+	_more := new(ArticleMore)
+	_more.Id = this.ParentId
+	_more.ArticleId = this.Id
+	_more.Updator = this.Updator
+	_more.Updated = this.Updated
+	_more.Ip = this.Ip
+
 	// 找到id=this.Position参考文档的position
 	var positionSql string
 	if this.Position > 0 {
-		if _results, err := session.Query("select position from articlemore where parentid=? and articleid=?", this.ParentId, this.Position); len(_results) > 0 && err == nil {
-			this.Position = utils.Bytes2int(_results[0]["position"])
+		if _results, err := session.Query("select position,parentid,depth from articlemore where id=?", this.Position); len(_results) > 0 && err == nil {
+			_more.Position = utils.Bytes2int(_results[0]["position"])
+			_more.ParentId = utils.Bytes2int64(_results[0]["parentid"])
+			// 新的depth
+			_more.Depth = string(_results[0]["depth"])
 		}
-		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where updator = ? and parentId = ? and position > ?"
+		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position > ?"
 	} else {
-		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where updator = ? and parentId = ? and position >= ?"
+		if _results, err := session.Query("select position,articleid from articlemore where id=?", this.MoreId); len(_results) > 0 && err == nil {
+			_more.ParentId = utils.Bytes2int64(_results[0]["articleid"])
+		}
+		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position >= ?"
 	}
 	// 更新其后文档的position
-	if _, err = session.Exec(positionSql, this.Updated, this.Ip, this.Updator, this.ParentId, this.Position); err != nil {
+	if _, err = session.Exec(positionSql, this.Updated, this.Ip, _more.ParentId, _more.Position); err != nil {
 		session.Rollback()
 		return false, err
 	}
 
-	a := new(ArticleMore)
-	a.ArticleId = this.Id
-	a.ParentId = this.ParentId
-	a.Position = this.Position + 1
-	a.Updated = this.Updated
-	a.Updator = this.Updator
-	a.Ip = this.Ip
+	_more.Position += 1
 
 	// 层次深度 depth = 父条目depth + 本条目Id
-	if a.ParentId > 0 {
-		// Dal对象
-		_dal := &Dal{}
-		_dal.Field = "depth"
-		_dal.From = "articles"
-		_dal.Where = "id = ?"
-		// 父条目 新depth
-		a.Depth = fmt.Sprintf("%s%d,", _dal.Single("depth", a.ParentId), a.ParentId)
-		// 更新本条目所有子条目的 depth
-		_old_Depth := fmt.Sprintf("%s%d,", _dal.Single("depth", a.Id), a.Id)
 
-		if _, err = session.Exec(fmt.Sprintf("update articlemore set depth = replace(depth,'%s','%s%d,') where depth like '%s%s'", _old_Depth, a.Depth, a.Id, _old_Depth, "%")); err != nil {
-			session.Rollback()
-			return false, err
-		}
+	// 父条目 新depth
+	_more.Depth = fmt.Sprintf("%s%d,", _dal.Single("depth", a.ParentId), a.ParentId)
+	// 更新本条目所有子条目的 depth
+	_old_Depth := fmt.Sprintf("%s%d,", _dal.Single("depth", a.Id), a.Id)
+
+	if _, err = session.Exec(fmt.Sprintf("update articlemore set depth = replace(depth,'%s','%s%d,') where depth like '%s%s'", _old_Depth, a.Depth, a.Id, _old_Depth, "%")); err != nil {
+		session.Rollback()
+		return false, err
 	}
 
-	_, err = session.Id(a.Id).Cols("parentId", "depth", "position", "updator", "updated", "ip").Update(a)
+	_, err = session.Id(_more.Id).Cols("parentId", "depth", "position", "updator", "updated", "ip").Update(_more)
 	if err != nil {
 		session.Rollback()
 		return false, err
