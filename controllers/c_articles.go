@@ -121,21 +121,19 @@ func (this *Article) Position() {
 	a.Id, _ = this.GetInt64("id")
 	//
 	if a.Id <= 0 {
-		this.renderJson(utils.JsonMessage(false, "id", "参数错误: id 必须 >0"))
+		this.renderJson(utils.JsonMessage(false, "id", "参数错误: id 必须 > 0"))
 		return
 	}
 	// 新的参考点
 	a.MoreId, _ = this.GetInt64("moreId")
-	// 原来的参考点
-	a.ParentId, _ = this.GetInt("referId")
 	// 顺序位置参考点
-	a.Position, _ = this.GetInt64("positionId")
+	a.Position, _ = this.GetInt("referId")
 
 	this.extend(a)
 
-	if ok, err := a.SetPosition(); err == nil {
+	if ok, err, more := a.SetPosition(); err == nil {
 		if ok {
-			this.renderJson(utils.JsonMessage(true, "", ""))
+			this.renderJson(utils.JsonData(true, "", more))
 		} else {
 			this.renderJson(utils.JsonMessage(false, "", ""))
 		}

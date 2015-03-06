@@ -170,9 +170,13 @@
 			openFrom:$.cookie('from'),
 			accessToken:$.cookie('token')
 		},
-		//是否当期文档的作者
+		//是否当期文档的所有者
 		owner:function(article){
 			return article.data('creator') == snow.account.id;
+		},
+		//是否当期文档的作者
+		updator:function(article){
+			return article.data('updator') == snow.account.id;
 		},
 		checkin : function(u){
 			if(u){

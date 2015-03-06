@@ -167,8 +167,9 @@ func (this *Article) Update() (error, []Error) {
 				_more.Depth = fmt.Sprintf("%s%d,", _more.Depth, _more.ParentId)
 
 				// Update articlemore 多对多表
-				if _, err = session.Insert(_more); err != nil {
-					fmt.Println(err)
+				if _, err = session.Insert(_more); err == nil {
+					this.MoreId = _more.Id
+				} else {
 					session.Rollback()
 					return err, nil
 				}
@@ -319,7 +320,7 @@ func (this *Article) _list(view bool, page *Pagination, condition string, params
 		_dal.Size = page.Size
 		_dal.Offset = page.Index * page.Size
 
-		_dal.Field = "articlemore.id as moreid,articlemore.parentid,articlemore.position,articles.*,documents.title,documents.content"
+		_dal.Field = "articlemore.id as moreid,articlemore.parentid,articlemore.position,articlemore.updator,articles.id,articles.documentid,articles.creator,documents.title,documents.content"
 		err := db.Sql(_dal.Select(), params...).Find(&as)
 		return as, err
 	}
@@ -395,7 +396,14 @@ func (this *Article) SetStatus(action string) error {
 }
 
 // 设置文档节点位置
-func (this *Article) SetPosition() (bool, error) {
+func (this *Article) SetPosition() (bool, error, *ArticleMore) {
+	// articlemore对象
+	_more := new(ArticleMore)
+	_more.Id = this.Id
+	_more.Updator = this.Updator
+	_more.Updated = this.Updated
+	_more.Ip = this.Ip
+
 	session := db.NewSession()
 	defer session.Close()
 	// 事务开始
@@ -403,61 +411,73 @@ func (this *Article) SetPosition() (bool, error) {
 
 	if err != nil {
 		session.Rollback()
-		return false, err
+		return false, err, _more
 	}
 
-	// articlemore对象
-	_more := new(ArticleMore)
-	_more.Id = this.ParentId
-	_more.ArticleId = this.Id
-	_more.Updator = this.Updator
-	_more.Updated = this.Updated
-	_more.Ip = this.Ip
-
-	// 找到id=this.Position参考文档的position
+	// 参考点的position
 	var positionSql string
 	if this.Position > 0 {
 		if _results, err := session.Query("select position,parentid,depth from articlemore where id=?", this.Position); len(_results) > 0 && err == nil {
 			_more.Position = utils.Bytes2int(_results[0]["position"])
 			_more.ParentId = utils.Bytes2int64(_results[0]["parentid"])
-			// 新的depth
 			_more.Depth = string(_results[0]["depth"])
+		} else {
+			session.Rollback()
+			return false, err, _more
 		}
 		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position > ?"
 	} else {
-		if _results, err := session.Query("select position,articleid from articlemore where id=?", this.MoreId); len(_results) > 0 && err == nil {
+		if _results, err := session.Query("select position,articleid,depth from articlemore where id=?", this.MoreId); len(_results) > 0 && err == nil {
 			_more.ParentId = utils.Bytes2int64(_results[0]["articleid"])
+			_more.Depth = fmt.Sprintf("%s%d,", string(_results[0]["depth"]), _more.ParentId)
+		} else {
+			session.Rollback()
+			return false, err, _more
 		}
 		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position >= ?"
 	}
 	// 更新其后文档的position
 	if _, err = session.Exec(positionSql, this.Updated, this.Ip, _more.ParentId, _more.Position); err != nil {
 		session.Rollback()
-		return false, err
+		return false, err, _more
 	}
 
 	_more.Position += 1
 
-	// 层次深度 depth = 父条目depth + 本条目Id
+	// 源文档的作者
+	var _updator int64
 
-	// 父条目 新depth
-	_more.Depth = fmt.Sprintf("%s%d,", _dal.Single("depth", a.ParentId), a.ParentId)
-	// 更新本条目所有子条目的 depth
-	_old_Depth := fmt.Sprintf("%s%d,", _dal.Single("depth", a.Id), a.Id)
+	// 更新所有子节点的depth
+	if _results, err := session.Query("select articleid,depth,updator from articlemore where id=?", _more.Id); len(_results) > 0 && err == nil {
+		// 更新本条目所有子条目的 depth
+		_old_Depth := fmt.Sprintf("%s%d,", string(_results[0]["depth"]), _more.Id)
+		_new_Depth := fmt.Sprintf("%s%s,", _more.Depth, string(_results[0]["articleid"]))
+		_updator = utils.Bytes2int64(_results[0]["updator"])
+		_more.ArticleId = utils.Bytes2int64(_results[0]["articleid"])
 
-	if _, err = session.Exec(fmt.Sprintf("update articlemore set depth = replace(depth,'%s','%s%d,') where depth like '%s%s'", _old_Depth, a.Depth, a.Id, _old_Depth, "%")); err != nil {
+		if _, err = session.Exec(fmt.Sprintf("update articlemore set depth = replace(depth,'%s','%s') where depth like '%s%s'", _old_Depth, _new_Depth, _old_Depth, "%")); err != nil {
+			session.Rollback()
+			return false, err, _more
+		}
+	} else {
 		session.Rollback()
-		return false, err
+		return false, err, _more
 	}
 
-	_, err = session.Id(_more.Id).Cols("parentId", "depth", "position", "updator", "updated", "ip").Update(_more)
+	// 如果修改自己的文档
+	if _updator == _more.Updator {
+		_, err = session.Id(_more.Id).Cols("parentId", "depth", "position", "updator", "updated", "ip").Update(_more)
+	} else {
+		_more.Id = 0
+		_, err = session.Insert(_more)
+	}
 	if err != nil {
 		session.Rollback()
-		return false, err
+		return false, err, _more
 	}
 	// 提交事务
 	err = session.Commit()
-	return err == nil, err
+	return err == nil, err, _more
 }
 
 // 读取目录

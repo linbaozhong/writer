@@ -318,10 +318,10 @@ div.doc.active  .doc-handle{
 	background-color:#33cc88;
 }
 div.doc footer {
-	padding: 10px;
+	padding: 0 10px;
 	font-size: .8em;
 	color: gray;
-	height: 3em;
+	height: 20px;
 	position: relative;
 }
 div.doc footer .doc-plus {
@@ -374,7 +374,7 @@ div.doc .doc-children{
 	color:#000;
 }
 div.doc .doc-children i{
-	font-size: 4em;
+	font-size: 3em;
 }
 div.doc .doc-children:hover{
 	opacity: .4;

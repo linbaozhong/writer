@@ -199,6 +199,7 @@ $(function(){
 		e.stopPropagation();
 		var _doc = $(this).closest('.doc'),
 			_moreId = _doc.data('moreid'),
+			_id = _doc.data('id'),
 			_frame = _doc.closest('.frame').next();
 
 		// 如果frame存在
@@ -211,11 +212,11 @@ $(function(){
 				// 重绘
 				snow.chouti.refresh();
 			}
-			// 标记父id
-			_frame.data('moreid',_moreId);
 		}else {
-			_frame = snow.chouti.appendFrame(_moreId);
+			_frame = snow.chouti.appendFrame(_id);
 		};
+		// 标记moreid
+		_frame.data('moreid',_moreId);
 		// 
 		if (snow.owner(_doc)) {
 			_frame.addClass('snow-me');
@@ -343,7 +344,8 @@ $(function(){
 
 	// 文档模板
 	snow.docTemplate = [];
-	snow.docTemplate.push('<div class="doc" id="doc-<%.creator%>-<%.id%>" data-id="<%.id%>" data-moreid="<%.moreId%>" data-parentid="<%.parentId%>" data-documentid="<%.documentId%>" data-creator="<%.creator%>">');
+	snow.docTemplate.push('<div class="doc" id="doc-<%.creator%>-<%.id%>" data-id="<%.id%>" data-moreid="<%.moreId%>" data-parentid="<%.parentId%>"');
+		snow.docTemplate.push(' data-documentid="<%.documentId%>" data-updator="<%.updator%>" data-creator="<%.creator%>">');
 	snow.docTemplate.push('<header class="doc-handle"></header>');
 		snow.docTemplate.push('<div class="doc-tools">');
 			snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
@@ -374,6 +376,7 @@ $(function(){
 						.replace(/<%.moreId%>/g,doc.moreId)
 						.replace(/<%.parentId%>/g,doc.parentId)
 						.replace(/<%.creator%>/g,doc.creator)
+						.replace(/<%.updator%>/g,doc.updator)
 						.replace(/<%.documentId%>/g,doc.documentId)
 						.replace(/<%.content%>/g,doc.content)).data('content',doc.content);
 	};

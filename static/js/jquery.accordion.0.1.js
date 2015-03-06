@@ -16,9 +16,9 @@
 				background: 'white',
 				clickonly: true, //只允许click触发
 				autoopen: 1, //自动打开第几个
-				space:0,//间距
-				during:200,//延时
-				timer:null,
+				space: 0, //间距
+				during: 200, //延时
+				timer: null,
 				speed: 400 //动画速度
 			},
 			opts = $.extend(defaults, options),
@@ -41,9 +41,11 @@
 					'height': self.height(),
 					'width': opts.size.body
 				});
-				
+
 				$.each(_frames, function(index, frame) {
-					var _frame = $(frame).css({left: _left});
+					var _frame = $(frame).css({
+						left: _left
+					});
 
 					// 遮罩
 					_frame.find('.mask').css({
@@ -60,7 +62,7 @@
 				});
 			},
 
-			getWrap = function(){
+			getWrap = function() {
 				return '<div class="accordion-item"></div>'
 			},
 			_sortable = function(frame) {
@@ -78,14 +80,15 @@
 						snow.article.frame = frame;
 						// 当前文档属性
 						snow.article.moreId = frame.data('moreid')
-						// 能否拖拽，当前激活文档不能向右拖
-						snow.article.disable = (ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index()))
-							|| ((frame.index()!=ui.item.closest('.frame').index()) && frame.find('#'+ui.item.attr('id')).length);
+						snow.article.parentId = frame.data('parentid')
+						// 能否拖拽，当前激活文档不能向右拖，并且，已经存在的文档不能拖入
+						snow.article.disable = (ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index())) 
+							|| ((frame.index() != ui.item.closest('.frame').index()) && frame.find('#' + ui.item.attr('id')).length);
 						//当前活动的frame保持原状
 						if (frame.hasClass('active')) {
 							return;
-						}		
-						
+						}
+
 						$this.open(frame);
 
 						if (ui.placeholder.prevAll('footer').length) {
@@ -94,78 +97,68 @@
 					},
 					start: function(e, ui) {
 						// 记录文档的参考位置id(前一个文档的id)
-						ui.item.data('referid',ui.item.prev('div.doc').data('id'));
+						ui.item.data('referid', ui.item.prev('div.doc').data('moreid'));
 						// 当前文档属性
 						snow.article = {
-							id : ui.item.data('id'),
-							referId : ui.item.data('moreid'),
-							//parentId : ui.item.data('parentid'),
-							disable:true
+							id: ui.item.data('moreid'),
+							parentId:0,
+							disable: true
 						};
 
 						// 如果是作者的作品,可以任意拖拽,否则，只能克隆
-						if(snow.owner(ui.item)){
+						if (snow.updator(ui.item)) {
 							ui.item.hide();
-						}else{
+						} else {
 							ui.item.show();
 						};
-							
+
 					},
-					beforeStop:function(e,ui){
+					beforeStop: function(e, ui) {
 						// 防止自为父节点拖拽和重复文档，并且只能对自己的frame操作
-						if(!snow.article.frame.hasClass('snow-me') || snow.article.disable){
+						if (!snow.article.frame.hasClass('snow-me') || snow.article.disable) {
 							frame.sortable('cancel');
 							return;
 						}
-						
 						// 如果是作者的作品,可以任意拖拽,否则，只能克隆
 						var _doc;
-						if(snow.owner(ui.item)){
+						if (snow.updator(ui.item)) {
 							_doc = ui.item;
-						}else{
+						} else {
 							_doc = ui.item.clone();
-							ui.placeholder.after(_doc.data('id','0'));
+							ui.placeholder.after(_doc.data('id', '0'));
 							frame.sortable('cancel');
 						}
-						
-						if(_doc.data('moreid') != snow.article.moreId){
+
+						if (_doc.data('parentid') != snow.article.parentId) {
 							// 清除激活状态
 							_doc.removeClass('active');
 						}
-						
+
 						// 如果位置发生变化
-						if(_doc.data('moreid') != snow.article.moreId 
-							|| _doc.data('referid') != snow.article.positionId){
+						if (_doc.data('parentid') != snow.article.parentId || _doc.data('referid') != snow.article.referId) {
 							// 记录新位置
-							_doc.data('moreid',snow.article.moreId).data('referid',snow.article.positionId)
-							// 如果是作者的作品,可以任意拖拽,否则，只能克隆
-							if(snow.owner(_doc)){
-								// 只修改parentId和position
-								$.post(snow.api.docPosition,{
-									id : snow.article.id,
-									moreId : snow.article.moreId,//新的父节点
-									referId : snow.article.referId,//原来的父节点
-									positionId: snow.article.positionId//新的位置
-								},function(result){
-									snow.log(result);
-								});					
-									
-							}else{
-								// 新建一个article，documentId不变
-								$.post(snow.api.docSave,{
-									id : 0,
-									parentId:snow.article.parentId,
-									documentId:snow.article.documentId,
-									position:snow.article.positionId
-								},function(result){
-									snow.log(result);
-								});		
-							};
+							_doc.data('parentid', snow.article.parentId).data('referid', snow.article.referId)
+							// 
+							snow.article.doc = _doc;
+							// 只修改parentId和position
+							$.post(snow.api.docPosition, {
+								id: snow.article.id, //文档的moreId
+								moreId: snow.article.moreId, //新的父节点
+								referId: snow.article.referId //参考节点
+							}, function(result) {
+								snow.log(result);
+								if(result.ok){
+									var _more = result.data;
+									snow.article.doc.data('moreid',_more.id).data('updator',_more.updator);
+								}
+								alert(snow.article.doc.data('moreid'));
+							});
+							
 						};
 					},
-					sort:function(e,ui){
+					sort: function(e, ui) {
 						// 当前文档属性
-						snow.article.positionId = ui.placeholder.prev('div.doc').data('moreid');
+						snow.article.referId = ui.placeholder.prev('div.doc').data('moreid');
 					}
 				});
 			};
@@ -184,17 +177,17 @@
 				html: '',
 				url: '',
 				active: false,
-				moreId:''
+				moreId: ''
 			}, options);
 
-			var _frame = $('<div />').attr('id',Math.random()).addClass('frame').css(frameStyle).css({
+			var _frame = $('<div />').attr('id', Math.random()).addClass('frame').css(frameStyle).css({
 				left: 5000
-			}).appendTo($this).data('moreid',_options.moreId);
+			}).appendTo($this).data('moreid', _options.moreId);
 			//活动状态
 			if (_options.active) {
 				_frame.addClass('active');
 			}
-			
+
 			//
 			if ($.isFunction(fn)) {
 				fn(_frame);
@@ -216,33 +209,35 @@
 		 */
 		$this.open = function(_obj) {
 			var _frames;
-			
-			if (parseInt(_obj.css('left')) > _obj.index()* opts.space) {
+
+			if (parseInt(_obj.css('left')) > _obj.index() * opts.space) {
 				//console.log('after');
 				_frames = _obj.prevAll();
-				$.each(_frames,function(){
-					var __frame=$(this);
+				$.each(_frames, function() {
+					var __frame = $(this);
 
 					__frame.stop().animate({
-							left: __frame.index() * opts.space
+						left: __frame.index() * opts.space
 					}, opts.speed);
 				});
-				_obj.stop().animate({'left':_obj.index() * opts.space}, opts.speed);
-			}else{
+				_obj.stop().animate({
+					'left': _obj.index() * opts.space
+				}, opts.speed);
+			} else {
 				//console.log('before');
 				_frames = _obj.nextAll();
-				$.each(_frames,function(){
-					var __frame=$(this);
+				$.each(_frames, function() {
+					var __frame = $(this);
 
 					__frame.stop().animate({
-							left: (__frame.index()-1) * opts.space + opts.size.body
+						left: (__frame.index() - 1) * opts.space + opts.size.body
 					}, opts.speed);
 				});
 			}
 			_obj.addClass('active').siblings('.active').removeClass('active');
 		};
 		// 刷新重绘
-		$this.refresh = function(){
+		$this.refresh = function() {
 			refresh($(this));
 		};
 		//
@@ -287,7 +282,7 @@
 					var __frame = $(this);
 					// 设置id属性
 					if (!__frame.attr('id')) {
-						__frame.attr('id',Math.random());
+						__frame.attr('id', Math.random());
 					}
 					_sortable(__frame);
 				});
@@ -304,11 +299,11 @@
 					if (_that.hasClass('active')) {
 						return;
 					}
-					opts.timer = setTimeout(function(){
-							$this.open(_that);
-						},opts.during);
-				}).on('mouseleave','.frame',function(e){
-					clearTimeout(opts.timer);					
+					opts.timer = setTimeout(function() {
+						$this.open(_that);
+					}, opts.during);
+				}).on('mouseleave', '.frame', function(e) {
+					clearTimeout(opts.timer);
 				});
 			})();
 

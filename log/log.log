@@ -7900,3 +7900,172 @@
 2015/03/05 17:54:34 [router.go:845] [D] | POST       | /home/books                              | 34.0019ms        | match      | /home/books/*                            | 
 2015/03/05 17:55:57 [main.go:17] [I] writer 0.1.14.1105 
 2015/03/05 17:55:57 [app.go:96] [I] http server Running on :8088
+2015/03/06 14:13:09 [main.go:17] [I] writer 0.1.14.1105 
+2015/03/06 14:13:09 [app.go:96] [I] http server Running on :8088
+2015/03/06 14:51:53 [router.go:845] [D] | GET        | /                                        | 342.0196ms       | match      | /                                        | 
+2015/03/06 14:51:54 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 14:51:55 [router.go:845] [D] | POST       | /home/books                              | 843.0483ms       | match      | /home/books/*                            | 
+2015/03/06 14:52:00 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 14:52:13 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 14:52:24 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/03/06 14:52:24 [router.go:845] [D] | POST       | /article/delete                          | 95.0054ms        | match      | /article/delete/*                        | 
+2015/03/06 14:52:28 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 14:52:28 [router.go:845] [D] | POST       | /article/position                        | 28.0016ms        | match      | /article/position/*                      | 
+2015/03/06 14:52:33 [router.go:845] [D] | POST       | /home/books                              | 15.0009ms        | match      | /home/books/*                            | 
+2015/03/06 14:52:34 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 14:52:37 [router.go:845] [D] | POST       | /home/books                              | 16.0009ms        | match      | /home/books/*                            | 
+2015/03/06 14:52:40 [router.go:845] [D] | POST       | /home/books                              | 16.001ms         | match      | /home/books/*                            | 
+2015/03/06 14:53:04 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 15:01:01 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 15:01:01 [router.go:845] [D] | POST       | /article/position                        | 79.0045ms        | match      | /article/position/*                      | 
+2015/03/06 15:01:35 [router.go:845] [D] | POST       | /home/books                              | 15.0008ms        | match      | /home/books/*                            | 
+2015/03/06 15:01:36 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 15:01:49 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 15:01:50 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 15:01:52 [router.go:845] [D] | POST       | /home/books                              | 32.0019ms        | match      | /home/books/*                            | 
+2015/03/06 15:02:01 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 15:02:17 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 15:02:17 [router.go:845] [D] | POST       | /article/position                        | 81.0047ms        | match      | /article/position/*                      | 
+2015/03/06 15:02:22 [router.go:845] [D] | POST       | /home/books                              | 15.0009ms        | match      | /home/books/*                            | 
+2015/03/06 15:02:24 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 15:02:25 [router.go:845] [D] | POST       | /home/books                              | 32.0019ms        | match      | /home/books/*                            | 
+2015/03/06 15:03:18 [router.go:845] [D] | POST       | /home/books                              | 15.0008ms        | match      | /home/books/*                            | 
+2015/03/06 15:03:19 [router.go:845] [D] | POST       | /home/books                              | 31.0017ms        | match      | /home/books/*                            | 
+2015/03/06 15:41:21 [main.go:17] [I] writer 0.1.14.1105 
+2015/03/06 15:41:22 [app.go:96] [I] http server Running on :8088
+2015/03/06 16:23:07 [main.go:17] [I] writer 0.1.14.1105 
+2015/03/06 16:23:07 [app.go:96] [I] http server Running on :8088
+2015/03/06 16:24:32 [main.go:17] [I] writer 0.1.14.1105 
+2015/03/06 16:24:32 [app.go:96] [I] http server Running on :8088
+2015/03/06 16:35:28 [main.go:17] [I] writer 0.1.14.1105 
+2015/03/06 16:35:28 [app.go:96] [I] http server Running on :8088
+2015/03/06 16:35:42 [router.go:845] [D] | GET        | /                                        | 170.0097ms       | match      | /                                        | 
+2015/03/06 16:35:43 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:35:43 [router.go:845] [D] | POST       | /home/books                              | 489.028ms        | match      | /home/books/*                            | 
+2015/03/06 16:35:52 [router.go:845] [D] | POST       | /home/books                              | 32.0018ms        | match      | /home/books/*                            | 
+2015/03/06 16:35:56 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 16:36:01 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:36:15 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:36:17 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:38:27 [router.go:845] [D] | GET        | /                                        | 141.008ms        | match      | /                                        | 
+2015/03/06 16:38:27 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:38:27 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:38:29 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:38:39 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:38:40 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 16:39:09 [router.go:845] [D] | GET        | /                                        | 139.008ms        | match      | /                                        | 
+2015/03/06 16:39:09 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:39:09 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:11 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 16:39:13 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:15 [router.go:845] [D] | POST       | /home/books                              | 34.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:16 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:20 [router.go:845] [D] | POST       | /home/books                              | 34.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:29 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:30 [router.go:845] [D] | POST       | /home/books                              | 34.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:37 [router.go:845] [D] | POST       | /home/books                              | 17.0009ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:41 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:39:41 [router.go:845] [D] | POST       | /article/position                        | 88.005ms         | match      | /article/position/*                      | 
+2015/03/06 16:39:44 [router.go:845] [D] | POST       | /home/books                              | 34.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:55 [router.go:845] [D] | GET        | /                                        | 157.009ms        | match      | /                                        | 
+2015/03/06 16:39:56 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:39:56 [router.go:845] [D] | POST       | /home/books                              | 32.0018ms        | match      | /home/books/*                            | 
+2015/03/06 16:39:57 [router.go:845] [D] | POST       | /home/books                              | 18.001ms         | match      | /home/books/*                            | 
+2015/03/06 16:40:02 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:40:04 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:40:05 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 16:40:41 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:40:42 [router.go:845] [D] | POST       | /home/books                              | 17.001ms         | match      | /home/books/*                            | 
+2015/03/06 16:40:45 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:40:45 [router.go:845] [D] | POST       | /article/position                        | 84.0048ms        | match      | /article/position/*                      | 
+2015/03/06 16:42:52 [main.go:17] [I] writer 0.1.14.1105 
+2015/03/06 16:42:52 [app.go:96] [I] http server Running on :8088
+2015/03/06 16:42:59 [router.go:845] [D] | GET        | /                                        | 170.0097ms       | match      | /                                        | 
+2015/03/06 16:42:59 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:43:00 [router.go:845] [D] | POST       | /home/books                              | 632.0362ms       | match      | /home/books/*                            | 
+2015/03/06 16:43:01 [router.go:845] [D] | POST       | /home/books                              | 15.0009ms        | match      | /home/books/*                            | 
+2015/03/06 16:43:06 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:43:06 [router.go:845] [D] | POST       | /article/position                        | 77.0044ms        | match      | /article/position/*                      | 
+2015/03/06 16:46:30 [router.go:845] [D] | GET        | /                                        | 153.0087ms       | match      | /                                        | 
+2015/03/06 16:46:30 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:46:30 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 16:46:32 [router.go:845] [D] | POST       | /home/books                              | 28.0016ms        | match      | /home/books/*                            | 
+2015/03/06 16:46:38 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:46:40 [router.go:845] [D] | POST       | /home/books                              | 31.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:52:19 [router.go:845] [D] | GET        | /                                        | 167.0096ms       | match      | /                                        | 
+2015/03/06 16:52:20 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:52:20 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:52:26 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:53:06 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:53:06 [router.go:845] [D] | POST       | /article/position                        | 76.0043ms        | match      | /article/position/*                      | 
+2015/03/06 16:53:49 [router.go:845] [D] | POST       | /home/books                              | 28.0016ms        | match      | /home/books/*                            | 
+2015/03/06 16:53:50 [router.go:845] [D] | POST       | /home/books                              | 33.0018ms        | match      | /home/books/*                            | 
+2015/03/06 16:53:52 [router.go:845] [D] | POST       | /home/books                              | 29.0016ms        | match      | /home/books/*                            | 
+2015/03/06 16:55:14 [router.go:845] [D] | GET        | /                                        | 154.0089ms       | match      | /                                        | 
+2015/03/06 16:55:15 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:55:15 [router.go:845] [D] | POST       | /home/books                              | 29.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:55:16 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 16:55:20 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:55:20 [router.go:845] [D] | POST       | /article/position                        | 81.0047ms        | match      | /article/position/*                      | 
+2015/03/06 16:56:05 [router.go:845] [D] | GET        | /                                        | 155.0088ms       | match      | /                                        | 
+2015/03/06 16:56:06 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:56:06 [router.go:845] [D] | POST       | /home/books                              | 29.0016ms        | match      | /home/books/*                            | 
+2015/03/06 16:56:07 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:56:13 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:56:13 [router.go:845] [D] | POST       | /article/position                        | 75.0042ms        | match      | /article/position/*                      | 
+2015/03/06 16:56:46 [router.go:845] [D] | GET        | /                                        | 156.0089ms       | match      | /                                        | 
+2015/03/06 16:56:47 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:56:47 [router.go:845] [D] | POST       | /home/books                              | 33.0019ms        | match      | /home/books/*                            | 
+2015/03/06 16:56:48 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:57:00 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 16:57:12 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:57:12 [router.go:845] [D] | POST       | /article/position                        | 76.0043ms        | match      | /article/position/*                      | 
+2015/03/06 16:57:47 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:57:47 [router.go:845] [D] | POST       | /article/position                        | 76.0044ms        | match      | /article/position/*                      | 
+2015/03/06 16:57:55 [router.go:845] [D] | GET        | /                                        | 139.0079ms       | match      | /                                        | 
+2015/03/06 16:57:55 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 16:57:55 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:57:57 [router.go:845] [D] | POST       | /home/books                              | 35.002ms         | match      | /home/books/*                            | 
+2015/03/06 16:58:03 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 16:58:21 [log.go:108] [D] Article/Position Info:zh-CN 
+2015/03/06 16:58:21 [router.go:845] [D] | POST       | /article/position                        | 76.0043ms        | match      | /article/position/*                      | 
+2015/03/06 17:02:54 [router.go:845] [D] | GET        | /                                        | 156.0089ms       | match      | /                                        | 
+2015/03/06 17:02:54 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:02:54 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:03:32 [router.go:845] [D] | GET        | /                                        | 144.0083ms       | match      | /                                        | 
+2015/03/06 17:03:32 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 17:03:32 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:06:54 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/03/06 17:06:54 [router.go:845] [D] | POST       | /article/update                          | 4.213241s        | match      | /article/update/*                        | 
+2015/03/06 17:07:13 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/03/06 17:07:13 [router.go:845] [D] | POST       | /article/update                          | 69.0039ms        | match      | /article/update/*                        | 
+2015/03/06 17:10:06 [router.go:845] [D] | GET        | /                                        | 140.008ms        | match      | /                                        | 
+2015/03/06 17:10:06 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:10:06 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 17:11:26 [router.go:845] [D] | GET        | /                                        | 155.0089ms       | match      | /                                        | 
+2015/03/06 17:11:26 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:11:26 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:14:01 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:14:02 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 17:14:04 [router.go:845] [D] | POST       | /home/books                              | 30.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:14:06 [router.go:845] [D] | POST       | /home/books                              | 32.0019ms        | match      | /home/books/*                            | 
+2015/03/06 17:15:31 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/03/06 17:15:31 [router.go:845] [D] | POST       | /article/update                          | 63.0036ms        | match      | /article/update/*                        | 
+2015/03/06 17:15:35 [router.go:845] [D] | GET        | /                                        | 156.0089ms       | match      | /                                        | 
+2015/03/06 17:15:35 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:15:35 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:19:35 [router.go:845] [D] | GET        | /                                        | 179.0102ms       | match      | /                                        | 
+2015/03/06 17:19:35 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:19:35 [router.go:845] [D] | POST       | /home/books                              | 32.0019ms        | match      | /home/books/*                            | 
+2015/03/06 17:21:18 [router.go:845] [D] | GET        | /                                        | 190.0109ms       | match      | /                                        | 
+2015/03/06 17:21:18 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:21:18 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:21:21 [router.go:845] [D] | GET        | /                                        | 164.0094ms       | match      | /                                        | 
+2015/03/06 17:21:22 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:21:22 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/06 17:23:22 [router.go:845] [D] | GET        | /                                        | 160.0092ms       | match      | /                                        | 
+2015/03/06 17:23:23 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/06 17:23:23 [router.go:845] [D] | POST       | /home/books                              | 32.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:23:34 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/06 17:24:27 [router.go:845] [D] | POST       | /home/books                              | 29.0017ms        | match      | /home/books/*                            | 
+2015/03/06 17:24:30 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
