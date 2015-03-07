@@ -246,11 +246,11 @@ $(function(){
 		}
 		
 		var _doc = $(this).closest('div.doc');
-		if(!snow.owner(_doc)){
+		if(!snow.updator(_doc)){
 			return;
 		}
 		// 调用删除文档api
-		$.post(snow.api.docDelete,{id:_doc.data('id')},function(result){
+		$.post(snow.api.docDelete,{id:_doc.data('id'),parentId:_doc.data('parentid')},function(result){
 			if(result.ok){
 				_doc.remove();
 				//

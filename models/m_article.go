@@ -331,6 +331,18 @@ func (this *Article) _list(view bool, page *Pagination, condition string, params
 func (this *Article) SetStatus(action string) error {
 	a := new(Articles)
 	a.Id = this.Id
+
+	// 验证当前用户的权限
+	if has, err := db.Id(a.Id).Cols("creator").Get(a); has {
+		_, err = db.Exec("delete from articlemore where articleid = ? and parentid = ?", this.Id, this.ParentId)
+		// 如果不是作者，只能删除映射关系
+		if a.Creator != this.Updator {
+			return err
+		}
+	} else {
+		return err
+	}
+
 	a.Updated = this.Updated
 	a.Updator = this.Updator
 	a.Ip = this.Ip
@@ -358,6 +370,7 @@ func (this *Article) SetStatus(action string) error {
 		a.Deleted = Undelete
 		d.Deleted = Undelete
 	}
+
 	// 事务
 	session := db.NewSession()
 	defer session.Close()

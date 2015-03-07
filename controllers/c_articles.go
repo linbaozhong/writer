@@ -166,6 +166,7 @@ func (this *Article) status(action string) {
 	if id, err := this.GetInt64("id"); err == nil && id > 0 {
 		a := new(models.Article)
 		a.Id = id
+		a.ParentId, _ = this.GetInt64("parentId")
 
 		this.extend(a)
 
