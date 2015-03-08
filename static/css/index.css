@@ -55,7 +55,8 @@ body {
 
 #nav-left {
 	position: fixed;
-	width: 150px;
+	/*width: 150px;*/
+	width: 0;
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -278,7 +279,7 @@ div.doc {
 	width: 100%;
 	background: #fff;
 	border: 1px dashed #fff;
-	/*margin-bottom: 1em;*/
+	border-bottom-color: #eee;
 }
 div.doc.ui-draggable-dragging{
 	width:556px;
@@ -300,6 +301,9 @@ div.doc .doc-tools {
 	right: 30px;
 	z-index: 1;
 	display: none;
+}
+div.doc:hover {
+	border:1px dashed #eee;
 }
 div.doc:hover .doc-handle,
 div.doc:hover .doc-tools,
@@ -389,9 +393,6 @@ div.doc .tools.del,
 div.doc .tools.edit {
 	font-size: 12px;
 	margin: 5px 5px 0 5px;
-}
-div.doc:hover {
-	border:1px dashed #eee;
 }
 div.doc .tools i {
 	font-size: 10px;

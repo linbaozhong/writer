@@ -81,9 +81,11 @@
 						// 当前文档属性
 						snow.article.moreId = frame.data('moreid')
 						snow.article.parentId = frame.data('parentid')
+
 						// 能否拖拽，当前激活文档不能向右拖，并且，已经存在的文档不能拖入
 						snow.article.disable = (ui.item.hasClass('active') && (frame.index() > ui.item.closest('.frame').index())) 
-							|| ((frame.index() != ui.item.closest('.frame').index()) && frame.find('#' + ui.item.attr('id')).length);
+							|| ((frame.index() != ui.item.closest('.frame').index()) && frame.find('#' + ui.item.attr('id')).length)
+							|| (snow.article.parentId == ui.item.data('id'));
 						//当前活动的frame保持原状
 						if (frame.hasClass('active')) {
 							return;
@@ -115,7 +117,7 @@
 					},
 					beforeStop: function(e, ui) {
 						// 防止自为父节点拖拽和重复文档，并且只能对自己的frame操作
-						if (!snow.article.frame.hasClass('snow-me') || snow.article.disable) {
+						if ((!snow.article.frame.hasClass('snow-me') && !snow.updator(ui.item)) || snow.article.disable) {
 							frame.sortable('cancel');
 							return;
 						}
@@ -151,7 +153,6 @@
 									var _more = result.data;
 									snow.article.doc.data('moreid',_more.id).data('updator',_more.updator);
 								}
-								alert(snow.article.doc.data('moreid'));
 							});
 							
 						};

@@ -69,13 +69,13 @@
 //      }
 //  };
 
-    $.Metro.initHints = function(area){
-        if (area != undefined) {
-            $(area).find('[data-hint]').hint();
-        } else {
-            $('[data-hint]').hint();
-        }
-    };
+    // $.Metro.initHints = function(area){
+    //     if (area != undefined) {
+    //         $(area).find('[data-hint]').hint();
+    //     } else {
+    //         $('[data-hint]').hint();
+    //     }
+    // };
 
 //  $.Metro.initInputs = function(area){
 //      if (area != undefined) {
@@ -226,7 +226,7 @@
 //      $.Metro.initDatepickers(area);
 //      $.Metro.initDropdowns(area);
 //      $.Metro.initFluentMenus(area);
-        $.Metro.initHints(area);
+//      $.Metro.initHints(area);
 //      $.Metro.initInputs(area);
 //      $.Metro.transformInputs(area);
 //      $.Metro.initListViews(area);

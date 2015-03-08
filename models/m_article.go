@@ -127,15 +127,20 @@ func (this *Article) Update() (error, []Error) {
 	if this.Id == 0 {
 		// 找到id=this.Position参考文档的position
 		var positionSql string
-		if this.MoreId > 0 {
-			if _results, err := session.Query("select position,depth,articleid from articlemore where id=?", this.MoreId); len(_results) > 0 && err == nil {
-				_more.Position = utils.Bytes2int(_results[0]["position"])
-				_more.Depth = string(_results[0]["depth"])
+		if this.Position > 0 {
+			if _results, err := session.Query("select position,depth,articleid from articlemore where id=?", this.Position); len(_results) > 0 && err == nil {
+				_more.Position = 0 //utils.Bytes2int(_results[0]["position"])
 				_more.ParentId = utils.Bytes2int64(_results[0]["articleid"])
+				_more.Depth = fmt.Sprintf("%s%d,", string(_results[0]["depth"]), _more.ParentId)
+			}
+			positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position >= ?"
+		} else {
+			if _results, err := session.Query("select position,depth,parentid from articlemore where id=?", this.MoreId); len(_results) > 0 && err == nil {
+				_more.Position = utils.Bytes2int(_results[0]["position"])
+				_more.ParentId = utils.Bytes2int64(_results[0]["parentid"])
+				_more.Depth = string(_results[0]["depth"])
 			}
 			positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position > ?"
-		} else {
-			positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position >= ?"
 		}
 		// 更新其后文档的position
 		if _, err = session.Exec(positionSql, this.Updated, this.Ip, _more.ParentId, _more.Position); err != nil {
@@ -439,7 +444,7 @@ func (this *Article) SetPosition() (bool, error, *ArticleMore) {
 			return false, err, _more
 		}
 		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position > ?"
-	} else {
+	} else if this.MoreId > 0 {
 		if _results, err := session.Query("select position,articleid,depth from articlemore where id=?", this.MoreId); len(_results) > 0 && err == nil {
 			_more.ParentId = utils.Bytes2int64(_results[0]["articleid"])
 			_more.Depth = fmt.Sprintf("%s%d,", string(_results[0]["depth"]), _more.ParentId)
@@ -447,6 +452,9 @@ func (this *Article) SetPosition() (bool, error, *ArticleMore) {
 			session.Rollback()
 			return false, err, _more
 		}
+		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position >= ?"
+	} else {
+		_more.ParentId = 0
 		positionSql = "update articlemore set position = position+2 , updated = ? , ip = ? where parentId = ? and position >= ?"
 	}
 	// 更新其后文档的position
