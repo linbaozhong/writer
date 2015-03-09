@@ -221,6 +221,7 @@ $(function(){
 				return;
 			}else{
 				_frame.nextAll('div.frame').remove();
+				_frame.data('parentid',_id);
 				// 重绘
 				snow.chouti.refresh();
 			}

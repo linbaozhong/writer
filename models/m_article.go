@@ -469,16 +469,19 @@ func (this *Article) SetPosition() (bool, error, *ArticleMore) {
 	var _updator int64
 
 	// 更新所有子节点的depth
-	if _results, err := session.Query("select articleid,depth,updator from articlemore where id=?", _more.Id); len(_results) > 0 && err == nil {
-		// 更新本条目所有子条目的 depth
-		_old_Depth := fmt.Sprintf("%s%d,", string(_results[0]["depth"]), _more.Id)
-		_new_Depth := fmt.Sprintf("%s%s,", _more.Depth, string(_results[0]["articleid"]))
+	if _results, err := session.Query("select parentid,articleid,depth,updator from articlemore where id=?", _more.Id); len(_results) > 0 && err == nil {
 		_updator = utils.Bytes2int64(_results[0]["updator"])
-		_more.ArticleId = utils.Bytes2int64(_results[0]["articleid"])
+		// 父节点已改变
+		if _more.ParentId != utils.Bytes2int64(_results[0]["parentid"]) {
+			// 更新本条目所有子条目的 depth
+			_more.ArticleId = utils.Bytes2int64(_results[0]["articleid"])
+			_old_Depth := fmt.Sprintf("%s%d,", string(_results[0]["depth"]), _more.ArticleId)
+			_new_Depth := fmt.Sprintf("%s%d,", _more.Depth, _more.ArticleId)
 
-		if _, err = session.Exec(fmt.Sprintf("update articlemore set depth = replace(depth,'%s','%s') where depth like '%s%s'", _old_Depth, _new_Depth, _old_Depth, "%")); err != nil {
-			session.Rollback()
-			return false, err, _more
+			if _, err = session.Exec(fmt.Sprintf("update articlemore set depth = concat('%s',substring(depth,%d)) where depth like '%s%s'", _new_Depth, len(_old_Depth)+1, _old_Depth, "%")); err != nil {
+				session.Rollback()
+				return false, err, _more
+			}
 		}
 	} else {
 		session.Rollback()
