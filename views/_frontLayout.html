@@ -4,6 +4,7 @@
 
 	<head>
 		<title>牛X.人</title>
+		<meta property="qc:admins" content="6050272677640117256375" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="/static/css/iconFont.min.css" />
@@ -44,6 +45,10 @@
 					</div>
 					<div class="small-size">
 						登录
+					</div>
+					<div class="snow-login">
+						<a href="javascript:;" id="qqLogin">QQ</a>
+						<a href="javascript:;">新浪微博</a>
 					</div>
 				</li>
 				<li id="avatar" class="snow-profile image-container" style="height: 90px;display:none;" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
@@ -103,7 +108,7 @@
 
 		</div>
 		<!--中间的注册登录框-->
-		<div id="snow-sign" class="bg-gray shadow">
+		<!--<div id="snow-sign" class="bg-gray shadow">
 			<div class="user-sign">
 				<a href="javascript:;" class="getout icon-cancel-2 place-top-right margin5 fg-white border padding5" style="border-radius: 50%;">
 				</a>
@@ -112,7 +117,7 @@
 					<div class="form-actions">
 						<div class="horizontal-list">
 							<ul>
-								<li class="padding5 margin5 fg-white" id="qqLogin">QQ</li>
+								<li class="padding5 margin5 fg-white">QQ</li>
 								<li class="padding5 margin5 fg-white">新浪微博(暂不可用)</li>
 							</ul>
 						</div>
@@ -131,7 +136,7 @@
 					<button type="button" class="getout button primary large" style="width: 100%;font-weight: bold;">爷就这么任性</button>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		{{.LayoutContent}}
 		<!--滚动条-->
 		<div id="scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;">
@@ -215,6 +220,7 @@
 		,catalog:'/home/catalog'
 		,tags:'/home/tags'
 		,content:'/home/content'
+		,single:'/home/single'
 		,docSave:'/article/update'
 		,docDelete:'/article/delete'
 		,docPosition:'/article/position'
@@ -260,12 +266,12 @@
 	snow.nav.left.width = snow.nav.left.width();
 	snow.nav.right.width = snow.nav.right.width();
 	//注册登录框
-	snow.sign = $('#snow-sign').css({
-		top:-2000,
-		width: 400,
-		right: snow.nav.right.width,
-		left: snow.nav.left.width
-	});
+//	snow.sign = $('#snow-sign').css({
+//		top:-2000,
+//		width: 400,
+//		right: snow.nav.right.width,
+//		left: snow.nav.left.width
+//	});
 
 	/*
 	 * 解决传统浏览器不支持placeholder问题
@@ -311,16 +317,16 @@
 		});
 	};
 
-	//打开登录注册框
-	function openSign() {
-		if (!snow.sign.hasClass('active')) {
-			snow.sign.animate({
-				top: 0
-			}, snow.speed, function() {
-				snow.sign.addClass('active');
-			});
-		}
-	}
+//	//打开登录注册框
+//	function openSign() {
+//		if (!snow.sign.hasClass('active')) {
+//			snow.sign.animate({
+//				top: 0
+//			}, snow.speed, function() {
+//				snow.sign.addClass('active');
+//			});
+//		}
+//	}
 
 	//
 	function open_login(u){
@@ -413,12 +419,12 @@
 	// 语种选择
 	$('#snow-lang').hover(
 		function(){
-			$('.snow-languages',this).animate({
+			$('.snow-languages',this).stop().animate({
 				right:75
 			});
 		},
 		function(){
-			$('.snow-languages',this).animate({
+			$('.snow-languages',this).stop().animate({
 				right:-552
 			});
 		}
@@ -426,7 +432,20 @@
 	// 登录 --- 事件
 	$('#login').click(function(){
 		openSign();
-	});
+	}).hover(
+		function(){
+			var _this = $(this);
+			_this.find('.snow-login').css('top',_this.offset().top).stop().animate({
+				right:snow.nav.right.width
+			});
+		},
+		function(){
+			var _this = $(this);
+			_this.find('.snow-login').css('top',_this.offset().top).stop().animate({
+				right:-_this.find('.snow-login').width()
+			});
+		}
+	);
 	
 	// 头像 --- 事件
 	$('#avatar').click(function(){
@@ -473,8 +492,8 @@
 		_this.append(snow.scrollbar);
 
 		var _height = _this.outerHeight(),
-			_first = _this.find('>header'),
-			_last = _this.find('>footer'),
+			_first = _this.find('> header'),
+			_last = _this.find('> footer'),
 			_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 			_step = _height / _maxHeight,
 			_top = _this.data('position') || 0;
@@ -544,20 +563,20 @@
 		snow.autoScroll($(this));
 	});
 		
-	//关闭登陆框
-	$(".getout").click(function() {
-		snow.sign
-			.removeClass('active')
-			.animate({
-				top: '-2000px'
-			}, snow.speed, function() {
-				if (snow.nav.right.is(':hidden')) {
-					snow.nav.right.animate({
-						right: 0
-					}, snow.speed).show();
-				}
-			});
-	});
+//	//关闭登陆框
+//	$(".getout").click(function() {
+//		snow.sign
+//			.removeClass('active')
+//			.animate({
+//				top: '-2000px'
+//			}, snow.speed, function() {
+//				if (snow.nav.right.is(':hidden')) {
+//					snow.nav.right.animate({
+//						right: 0
+//					}, snow.speed).show();
+//				}
+//			});
+//	});
 
 	$("#qqLogin").click(function() {
 		window.open('/connect/qq_login','sign_dialog','width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');

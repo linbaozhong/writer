@@ -141,3 +141,22 @@ func (this *Home) Content() {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
 }
+
+// 读取一个内容
+func (this *Home) Single() {
+	// 读取查询条件
+	articleId, _ := this.GetInt64("articleId")
+
+	// 构造查询字符串
+	cond := "articles.id >= ?"
+
+	// 拉取
+	a := new(models.Article)
+	err := a.GetSingle(cond, articleId)
+
+	if err == nil {
+		this.renderJson(utils.JsonData(true, "", a))
+	} else {
+		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+	}
+}

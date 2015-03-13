@@ -508,10 +508,10 @@ func (this *Article) SetPosition() (bool, error, *ArticleMore) {
 func (this *Article) Catalog(id int64) ([]Article, error) {
 	// Dal对象
 	_dal := &Dal{}
-	_dal.Field = "articles.*,documents.title"
-	_dal.From = "articles,documents"
-	_dal.Where = fmt.Sprintf("documents.id = articles.documentId and articles.parentId>0 and articles.depth like '%d,%s'", id, "%")
-	_dal.OrderBy = "articles.depth,articles.position"
+	_dal.Field = "articlemore.id as moreid,articlemore.parentid,articlemore.position,articlemore.updator,articles.id,articles.documentid,articles.creator,documents.title"
+	_dal.From = "articlemore,articles,documents"
+	_dal.Where = fmt.Sprintf("documents.id = articles.documentId and articles.id = articlemore.articleid and articlemore.depth like '%d,%s'", id, "%")
+	_dal.OrderBy = "articlemore.depth,articlemore.position"
 
 	// 可见的
 	_dal.Where += fmt.Sprintf(" and articles.status=%d and articles.deleted=%d and documents.status=%d and documents.deleted=%d", Unlock, Undelete, Unlock, Undelete)
@@ -537,9 +537,8 @@ func (this *Article) GetContentEx(page *Pagination, id int64, condition string, 
 func (this *Article) _content(view bool, page *Pagination, id int64, condition string, params ...interface{}) ([]Article, error) {
 	// Dal对象
 	_dal := &Dal{}
-	_dal.From = "articles,documents"
-	_dal.Where = fmt.Sprintf("documents.id = articles.documentId and articles.parentId>0 and articles.depth like '%d,%s'", id, "%")
-	_dal.OrderBy = "articles.depth,articles.position"
+	_dal.From = "articlemore,articles,documents"
+	_dal.Where = fmt.Sprintf("documents.id = articles.documentId and articles.id = articlemore.articleid and articlemore.depth like '%d,%s'", id, "%")
 
 	// 可见的
 	if view {
@@ -559,9 +558,37 @@ func (this *Article) _content(view bool, page *Pagination, id int64, condition s
 		_dal.Size = page.Size
 		_dal.Offset = page.Index * page.Size
 
-		_dal.Field = "articles.*,documents.title,documents.content"
+		_dal.Field = "articlemore.id as moreid,articlemore.parentid,articlemore.position,articlemore.updator,articles.id,articles.documentid,articles.creator,documents.title,documents.content"
+		_dal.OrderBy = "articlemore.depth,articlemore.position"
+
 		err := db.Sql(_dal.Select(), params...).Find(&as)
 		return as, err
 	}
 	return as, nil
+}
+
+// 读取一个文档
+func (this *Article) GetSingle(condition string, params ...interface{}) error {
+	return this._single(true, condition, params...)
+}
+
+// 读取一个文档
+func (this *Article) _single(view bool, condition string, params ...interface{}) error {
+	// Dal对象
+	_dal := &Dal{}
+	_dal.Field = "articles.id,articles.documentid,articles.creator,documents.title,documents.content"
+	_dal.From = "articles,documents"
+	_dal.Where = "documents.id = articles.documentId"
+
+	// 可见的
+	if view {
+		_dal.Where += fmt.Sprintf(" and articles.status=%d and articles.deleted=%d and documents.status=%d and documents.deleted=%d", Unlock, Undelete, Unlock, Undelete)
+	}
+	// 条件
+	if strings.TrimSpace(condition) != "" {
+		_dal.Where += " and " + condition
+	}
+
+	_, err := db.Sql(_dal.Select(), params...).Get(this)
+	return err
 }

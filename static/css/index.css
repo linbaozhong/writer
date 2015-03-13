@@ -55,12 +55,11 @@ body {
 
 #nav-left {
 	position: fixed;
-	/*width: 150px;*/
 	width: 0;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	padding: 120px 0 50px;
+	padding: 130px 0 50px;
 	z-index: 1000;
 	overflow: hidden;
 }
@@ -114,6 +113,27 @@ body {
 	bottom: 0;
 	right: 0;
 	width: 75px;
+}
+#nav-right .snow-login{
+	position: fixed;
+	right:-155px;
+	height: 55px;
+	text-align: left;
+	font-size: larger;
+	background: #1ba1e2;
+	width:155px;
+	z-index: -1;
+}
+#nav-right .snow-login a{
+	height: 55px;
+	display: inline-block;
+	width: 75px;
+	padding: 15px 5px;
+	text-align: center;
+	color: white !important;
+}
+#nav-right .snow-login a:hover{
+	background:#333;
 }
 #logo{
 	width: 160px;
@@ -249,7 +269,7 @@ div.nav-info-box {
 	width: 50%;
 	position: absolute;
 }
-.frame:nth-child(n+1){
+.frame:nth-child(n+2){
 	border-left:#bbb solid 1px;
 }
 .frame.snow-me{
