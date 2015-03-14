@@ -143,13 +143,14 @@ body {
 	height: 70px;
 	line-height: 70px;
 	background: #1ba1e2;
-	font-size: larger;
+	font-size: 20px;
 	font-weight: bold;
 	cursor: pointer;
 	position: fixed;
 	transform: rotate(-45deg);
 	left: -48px;
 	top: -3px;
+	letter-spacing: 2px;
 }
 #snow-lang .snow-languages{
 	position:absolute;

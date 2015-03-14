@@ -8957,3 +8957,52 @@
 2015/03/14 20:16:53 [log.go:108] [D] Loading language: zh-CN 
 2015/03/14 20:16:53 [main.go:16] [I] writer 0.1.14.1105 
 2015/03/14 20:16:53 [app.go:96] [I] http server Running on :80
+2015/03/14 22:34:46 [log.go:108] [D] Loading language: en-US 
+2015/03/14 22:34:46 [log.go:108] [D] Loading language: zh-CN 
+2015/03/14 22:34:46 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:34:46 [app.go:96] [I] http server Running on :80
+2015/03/14 22:35:47 [router.go:845] [D] | GET        | /                                        | 282.0162ms       | match      | /                                        | 
+2015/03/14 22:35:49 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/14 22:35:50 [router.go:845] [D] | POST       | /home/books                              | 1.4830848s       | match      | /home/books/*                            | 
+2015/03/14 22:37:18 [log.go:108] [D] Loading language: en-US 
+2015/03/14 22:37:18 [log.go:108] [D] Loading language: zh-CN 
+2015/03/14 22:37:18 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:37:18 [app.go:96] [I] http server Running on :80
+2015/03/14 22:42:32 [log.go:108] [D] Loading language: en-US 
+2015/03/14 22:42:32 [log.go:108] [D] Loading language: zh-CN 
+2015/03/14 22:42:32 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:42:32 [app.go:96] [I] http server Running on :80
+2015/03/14 22:44:07 [log.go:108] [D] Loading language: en-US 
+2015/03/14 22:44:07 [log.go:108] [D] Loading language: zh-CN 
+2015/03/14 22:44:07 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:44:07 [app.go:96] [I] http server Running on :80
+2015/03/14 22:44:52 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:44:52 [app.go:96] [I] http server Running on :80
+2015/03/14 22:44:58 [router.go:845] [D] | GET        | /                                        | 409.0234ms       | match      | /                                        | 
+2015/03/14 22:44:59 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/14 22:44:59 [router.go:845] [D] | POST       | /home/books                              | 801.0458ms       | match      | /home/books/*                            | 
+2015/03/14 22:46:41 [log.go:108] [D] Loading language: en-US 
+2015/03/14 22:46:41 [log.go:108] [D] Loading language: zh-CN 
+2015/03/14 22:46:41 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:46:41 [app.go:96] [I] http server Running on :80
+2015/03/14 22:46:51 [router.go:845] [D] | GET        | /                                        | 292.0167ms       | match      | /                                        | 
+2015/03/14 22:46:51 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/14 22:46:52 [router.go:845] [D] | POST       | /home/books                              | 1.0380594s       | match      | /home/books/*                            | 
+2015/03/14 22:49:18 [log.go:108] [D] Loading language: en-US 
+2015/03/14 22:49:18 [log.go:108] [D] Loading language: zh-CN 
+2015/03/14 22:49:18 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:49:18 [app.go:96] [I] http server Running on :80
+2015/03/14 22:50:44 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:50:44 [app.go:96] [I] http server Running on :80
+2015/03/14 22:51:04 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:51:04 [app.go:96] [I] http server Running on :80
+2015/03/14 22:55:40 [router.go:845] [D] | GET        | /                                        | 332.019ms        | match      | /                                        | 
+2015/03/14 22:55:41 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/14 22:55:42 [router.go:845] [D] | POST       | /home/books                              | 2.1591235s       | match      | /home/books/*                            | 
+2015/03/14 22:56:18 [log.go:108] [D] Loading language: en-US 
+2015/03/14 22:56:18 [log.go:108] [D] Loading language: zh-CN 
+2015/03/14 22:56:18 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/14 22:56:18 [app.go:96] [I] http server Running on :80
+2015/03/14 22:56:21 [router.go:845] [D] | GET        | /                                        | 281.0161ms       | match      | /                                        | 
+2015/03/14 22:56:23 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/14 22:56:23 [router.go:845] [D] | POST       | /home/books                              | 1.5710899s       | match      | /home/books/*                            | 

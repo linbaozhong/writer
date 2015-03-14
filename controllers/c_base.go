@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"zouzhe/models"
+	"writer/models"
 	"zouzhe/utils"
 )
 
@@ -32,12 +32,14 @@ type Base struct {
 const sub = "\\w\\W\u4e00-\u9fa5"
 
 var (
-	siteDomain string //网站域
-	langTypes  []*langType
+	page      models.Page
+	langTypes []*langType
 )
 
 func init() {
-	siteDomain = appconf("site::domain")
+	page.Domain = appconf("site::domain")
+	page.SiteName = appconf("site::sitename")
+	page.Title = appconf("site::title")
 
 	// 引用beego官网代码
 	langs := strings.Split(appconf("lang::types"), "|")
@@ -74,7 +76,6 @@ func (this *Base) Prepare() {
 
 //
 func (this *Base) initPage() {
-
 	this.Data["PageStartTime"] = time.Now()
 
 	// Redirect to make URL clean.
@@ -83,18 +84,11 @@ func (this *Base) initPage() {
 		this.Redirect(this.Ctx.Request.RequestURI[:i], 302)
 		return
 	}
-	//this.page.Author = this.lang("appauthor")
-	//this.page.Company = this.lang("appcompany")
-	//this.page.Copyright = this.lang("appcopyright")
-	//this.page.Description = this.lang("appdescription")
-	//this.page.Domain = this.lang("appdomain")
-	//this.page.Keywords = this.lang("appkeywords")
-	//this.page.SiteName = this.lang("appsitename")
-	//this.page.Title = this.lang("apptitle")
-	//this.page.Product = this.lang("appproduct")
-	//this.page.Version = this.lang("appversion")
 
-	//this.Data["page"] = &this.page
+	// 读取页面全局变量
+	this.page = page
+	// 保存指针，方便以后重定义
+	this.Data["Page"] = &this.page
 }
 
 /*
@@ -489,12 +483,12 @@ func (this *Base) end() {
 
 // 写入cookie
 func (this *Base) cookie(name, value string) {
-	this.Ctx.SetCookie(name, value, 1<<31-1, "/", siteDomain)
+	this.Ctx.SetCookie(name, value, 1<<31-1, "/", page.Domain)
 }
 
 // 写入cookie,禁止客户端读取
 func (this *Base) cookieHttpOnly(name, value string) {
-	this.Ctx.SetCookie(name, value, 1<<31-1, "/", siteDomain, nil, true)
+	this.Ctx.SetCookie(name, value, 1<<31-1, "/", page.Domain, nil, true)
 }
 
 // 设置模板文件

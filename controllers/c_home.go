@@ -10,7 +10,7 @@ type Home struct {
 }
 
 func (this *Home) Get() {
-
+	//this.page.Title = "haa"
 	this.Data["account"] = this.currentUser
 
 	this.setTplNames("index")
