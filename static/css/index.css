@@ -1,3 +1,6 @@
+*{
+	box-sizing: border-box;
+}
 *[href]{
 	cursor: pointer;
 	color:#2e92cf !important;
@@ -128,7 +131,7 @@ body {
 	height: 55px;
 	display: inline-block;
 	width: 75px;
-	padding: 15px 5px;
+	padding: 10px 5px;
 	text-align: center;
 	color: white !important;
 }
@@ -398,7 +401,7 @@ div.doc .doc-children{
 	color:#000;
 }
 div.doc .doc-children i{
-	font-size: 3em;
+	font-size: 4em;
 }
 div.doc .doc-children:hover{
 	opacity: .4;

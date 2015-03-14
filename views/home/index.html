@@ -18,7 +18,7 @@
 					</div>
 				</form>
 				<div class="doc-add text-center">
-					<a href="javascript:;" class="doc-plus">拖拽文档到这里 或点击<i class="icon-plus on-right on-left"></i>新建</a>
+					<a href="javascript:;" class="doc-plus">拖拽文档到这里 或点击<i class="fa fa-plus-circle on-right on-left"></i>新建</a>
 				</div>
 			</header>
 
@@ -68,7 +68,7 @@ $(function(){
 			frame.prepend('<footer><div class="mask" /></footer>');
 
 			frame.prepend(
-				$('<header />').append('<div class="doc-add text-center">' + '<a href="javascript:;" class="doc-plus">拖拽文档到这里 或点击<i class="icon-plus on-right on-left"></i>新建</a>' + '</div>')
+				$('<header />').append('<div class="doc-add text-center">' + '<a href="javascript:;" class="doc-plus">拖拽文档到这里 或点击<i class="fa fa-plus-circle on-right on-left"></i>新建</a>' + '</div>')
 			);
 			frame.find('.mask').css({
 				width: frame.outerWidth(),
@@ -363,15 +363,15 @@ $(function(){
 		snow.docTemplate.push(' data-documentid="<%.documentId%>" data-updator="<%.updator%>" data-creator="<%.creator%>">');
 	snow.docTemplate.push('<header class="doc-handle"></header>');
 		snow.docTemplate.push('<div class="doc-tools">');
-			snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit icon-pencil"></a>');
-			snow.docTemplate.push('<a href="javascript:;" title="删除" class="tools del icon-cancel-2"></a>');
+			snow.docTemplate.push('<a href="javascript:;" title="修改" class="tools edit fa fa-edit"></a>');
+			snow.docTemplate.push('<a href="javascript:;" title="删除" class="tools del fa fa-remove"></a>');
 		snow.docTemplate.push('</div>');
 		snow.docTemplate.push('<article class="doc-info">');
 			snow.docTemplate.push('<div class="doc-content">');
 			snow.docTemplate.push('<%.content%>');	
 			snow.docTemplate.push('</div>');
 			snow.docTemplate.push('<div title="下级" class="doc-children doc-tools">');
-			snow.docTemplate.push('<i class="icon-arrow-right-5"></i>');
+			snow.docTemplate.push('<i class="fa fa-angle-right"></i>');
 			snow.docTemplate.push('</div>');
 		snow.docTemplate.push('</article>');
 		snow.docTemplate.push('<footer class="text-center">');
@@ -379,11 +379,11 @@ $(function(){
 				snow.docTemplate.push('<span class="doc-remark"></span>');
 			snow.docTemplate.push('</div>');
 			snow.docTemplate.push('<div class="doc-tools">');
-				snow.docTemplate.push('<span class="tools icon-new-tab"><i>456</i></span>');
-				snow.docTemplate.push('<span class="tools icon-eye"><i>123</i></span>');
-				snow.docTemplate.push('<span class="tools icon-thumbs-up"><i>123</i></span>');
+				snow.docTemplate.push('<span class="tools"><i class="fa fa-eye on-left"></i>456</span>');
+				snow.docTemplate.push('<span class="tools"><i class="fa fa-thumbs-o-up on-left"></i>123</span>');
+				snow.docTemplate.push('<span class="tools"><i class="fa fa-share-square-o on-left"></i>123</span>');
 			snow.docTemplate.push('</div>');
-			snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="icon-plus on-right on-left"></i>新建</a>');
+			snow.docTemplate.push('<a href="javascript:;" class="doc-plus">在下面<i class="fa fa-plus-circle on-right on-left"></i>新建</a>');
 		snow.docTemplate.push('</footer>');
 	snow.docTemplate.push('</div>');
 	snow.docTemplate.get = function(doc){

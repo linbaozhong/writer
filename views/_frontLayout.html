@@ -7,7 +7,8 @@
 		<meta property="qc:admins" content="6050272677640117256375" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="/static/css/iconFont.min.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="/static/css/iconFont.min.css" /> -->
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css" />
 		<script src="/static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
@@ -41,14 +42,16 @@
 			<ul style="margin:0;padding:0;">
 				<li id="login" class="" style="display:none;" data-hint="登录" data-hint-position="left" data-click="transform" data-role="1" data-rel="signin">
 					<div class="icon">
-						<i class="icon-key-2"></i>
+						<i class="fa fa-sign-in fa-lg padding5"></i>
 					</div>
 					<div class="small-size">
 						登录
 					</div>
 					<div class="snow-login">
-						<a href="javascript:;" id="qqLogin">QQ</a>
-						<a href="javascript:;">新浪微博</a>
+						<a href="javascript:;" id="qqLogin">
+						<i class="fa fa-qq fa-lg padding5"></i><br />
+						QQ</a>
+						<a href="javascript:;"><i class="fa fa-weibo fa-lg padding5"></i><br />新浪微博</a>
 					</div>
 				</li>
 				<li id="avatar" class="snow-profile image-container" style="height: 90px;display:none;" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
@@ -58,7 +61,7 @@
 				</li>
 				<li id="logout" class="snow-profile" style="display:none;" data-hint="注销" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
 					<div class="icon">
-						<i class="icon-exit"></i>
+						<i class="fa fa-sign-out fa-lg padding5"></i>
 					</div>
 					<div class="small-size">
 						注销
@@ -66,7 +69,7 @@
 				</li>
 				<li class="snow-profile" style="display:none;" data-hint="收藏夹" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
 					<div class="icon">
-						<i class="icon-bookmark-4"></i>
+						<i class="fa fa-bookmark-o"></i>
 					</div>
 					<div>
 						收藏夹
@@ -74,7 +77,7 @@
 				</li>
 				<li class="snow-profile" style="display:none;" data-hint="笔记" data-hint-position="left" data-click="transform" data-role="0" data-rel="bookmarks">
 					<div class="icon">
-						<i class="icon-clipboard-2"></i>
+						<i class="fa fa-pencil-square-o"></i>
 					</div>
 					<div>
 						笔记
@@ -82,7 +85,7 @@
 				</li>
 				<li id="snow-lang" class="">
 					<div class="icon">
-						<i class="icon-location-3"></i>
+						<i class="fa fa-language fa-lg padding5"></i>
 					</div>
 					<div class="snow-lang-name">
 						中文
