@@ -99,7 +99,7 @@ body {
 	margin-bottom: 20px;
 	color: white;
 	text-align: center;
-	padding: 10px;
+	padding: 5px 10px;
 	font-size: .8em;
 	cursor:pointer;
 	position: relative;
@@ -122,7 +122,7 @@ body {
 	right:-155px;
 	height: 55px;
 	text-align: left;
-	font-size: larger;
+	/*font-size: larger;*/
 	background: #1ba1e2;
 	width:155px;
 	z-index: -1;
@@ -400,9 +400,12 @@ div.doc .doc-children{
 	text-align: center;
 	cursor: pointer;
 	color:#000;
+	height: 35px;
+	overflow: hidden;
 }
 div.doc .doc-children i{
 	font-size: 4em;
+	margin-top: -12px;
 }
 div.doc .doc-children:hover{
 	opacity: .4;
@@ -480,6 +483,7 @@ div.doc .tools i {
 	line-height: 28px;
 	font-size: 15px;
 	color: inherit;
+	letter-spacing: 1px;
 }
 .metro form {
 	margin: initial;
@@ -487,6 +491,9 @@ div.doc .tools i {
 .metro .input-control.select,
 .metro .input-control.textarea {
 	position: initial;
+}
+.metro.notify-container{
+	right:75px;
 }
 /*编辑器*/
 

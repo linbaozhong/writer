@@ -5,6 +5,7 @@
 	<head>
 		<title>{{.Page.Title}}</title>
 		<meta property="qc:admins" content="6050272677640117256375" />
+		<link rel="shortcut icon" href="/static/img/favicon.ico" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="/static/css/iconFont.min.css" /> -->
@@ -209,7 +210,27 @@
 				return false;
 			}
 		},
-		notify:function(){},
+		notify:function(){
+			var _caption='',_content='';
+			switch (arguments.length){
+				case 0:
+					return;
+					break;
+				case 1:
+					_content = arguments[0];
+					break;
+				default:
+					_caption = arguments[0];
+					_content = arguments[1];
+					break;
+			}
+			$.Notify({
+				caption:_caption,
+				content:_content,
+				style:{background:'#1ba1e2',color:'#ffffff'},
+				timeout:5000
+			});
+		},
 		article:{}
 	};
 
@@ -320,16 +341,17 @@
 		});
 	};
 
-//	//打开登录注册框
-//	function openSign() {
-//		if (!snow.sign.hasClass('active')) {
-//			snow.sign.animate({
-//				top: 0
-//			}, snow.speed, function() {
-//				snow.sign.addClass('active');
-//			});
-//		}
-//	}
+	//打开登录注册框，提醒登录
+	function openSign() {
+		// if (!snow.sign.hasClass('active')) {
+		// 	snow.sign.animate({
+		// 		top: 0
+		// 	}, snow.speed, function() {
+		// 		snow.sign.addClass('active');
+		// 	});
+		// }
+		snow.notify('你还没有登录呢 ~~~')
+	}
 
 	//
 	function open_login(u){

@@ -18,8 +18,13 @@
 					</div>
 				</form>
 				<div class="doc-add text-center">
-					<a href="javascript:;" class="doc-plus">拖拽文档到这里 或点击<i class="fa fa-plus-circle on-right on-left"></i>新建</a>
+					<a>拖拽文档到这里 或者</a><a href="javascript:;" class="doc-plus"><i class="fa fa-plus-circle on-right-more on-left"></i>新建</a><a href="javascript:;" class="doc-search"><i class="fa fa-search on-right-more on-left"></i>搜索</a>
+					<div class="input-control text" style="display:none;margin-top: 10px;">
+						<input type="text" name="keywords" placeholder="在这里输入标签进行搜索吧..." class="" style="padding-right: 4.5em;border-width: 0 0 1px 0;"> 
+						<i class="fa fa-search pos-abs fg-gray" style="bottom: 1px;right: 26px; padding: 6px; font-size: 1.4em;" title="搜索"></i><i class="fa fa-angle-up pos-abs" style="top:-3px;right: 0; padding: 6px; font-size: 1.5em;" onclick="$(this).parent().slideUp('fast');"></i>
+					</div>
 				</div>
+
 			</header>
 
 			<footer>
@@ -55,6 +60,12 @@ $(function(){
 	// accordion插件
 	snow.chouti = snow.left.find('div.chouti').accordion({
 		horizontal: true
+	});
+	//
+	$('a.doc-search').hover(function() {
+		$(this).next().slideDown('fast');
+	}, function() {
+		//$(this).next().slideUp();
 	});
 	// 追加一个frame
 	snow.chouti.appendFrame = function(id){
@@ -120,13 +131,8 @@ $(function(){
 
 
 		if (_that.attr('name') == 'btn-save') { 
-			console.log($.trim(_contentTxt));
 			if($.trim(_contentTxt)==''){
-				$.Notify({
-					caption:'Try it',
-					content:'你还什么都没有写呢 ~~~',
-					timeout:5000
-				});
+				snow.notify('你还什么都没有写呢 ~~~');
 				return;
 			}
 			var _result,_title;
@@ -200,9 +206,9 @@ $(function(){
 	//
 	snow.left.on('mousemove','.frame div.doc .doc-info',function(e){
 		var _this = $(this),
-			_top = e.pageY-$(this).offset().top-25;
+			_top = e.pageY-$(this).offset().top-20;
 
-		if(_top < 20 || _top > _this.height())
+		if(_top < 20 || _top > _this.height()-10)
 			return;
 
 		_this.children('div.doc-children').css({top:_top});
@@ -379,7 +385,7 @@ $(function(){
 				snow.docTemplate.push('<span class="doc-remark"></span>');
 			snow.docTemplate.push('</div>');
 			snow.docTemplate.push('<div class="doc-tools">');
-				snow.docTemplate.push('<span class="tools"><i class="fa fa-eye on-left"></i>456</span>');
+				snow.docTemplate.push('<span class="tools"><i class="fa fa-star-o on-left"></i>456</span>');
 				snow.docTemplate.push('<span class="tools"><i class="fa fa-thumbs-o-up on-left"></i>123</span>');
 				snow.docTemplate.push('<span class="tools"><i class="fa fa-share-square-o on-left"></i>123</span>');
 			snow.docTemplate.push('</div>');
