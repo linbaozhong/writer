@@ -390,6 +390,10 @@ div.doc .doc-content {
 	margin: 0 0 .5em;
 	color: #444 !important;
 }
+div.doc .doc-content ul li{
+	list-style: initial;
+	color: #444;
+}
 div.doc .doc-children{
 	position: absolute;
 	width:38px;
