@@ -311,14 +311,25 @@ div.doc.ui-draggable-dragging{
 }
 div.doc .doc-handle {
 	position: absolute;
-	left: 0;
+	left: 31px;
 	right: 0;
-	margin: -1px 30px 0;
-	height:21px;
+	height:30px;
+	width:30px;
 	z-index: 1;
 	display: none;
 	cursor:move;
-	background-color: whitesmoke;
+	border-top: 30px solid whitesmoke;
+	border-right: 30px solid transparent;
+}
+div.doc .doc-handle:before{
+	display: block;
+	content: "\f00c";
+	color: #ffffff;
+	font-family: 'FontAwesome';
+	font-size: 9pt;
+	font-weight: normal;
+	z-index: 2;
+	margin: -26px 0 0 4px;
 }
 div.doc .doc-tools {
 	position: absolute;
@@ -343,7 +354,7 @@ div.doc.active {
 }
 div.doc.active  .doc-handle{
 	display: block;
-	background-color:#33cc88;
+	border-top-color: #33cc88;
 }
 div.doc footer {
 	padding: 0 10px;
@@ -400,7 +411,7 @@ div.doc .doc-children{
 	right: 0;
 	top:50%;
 	opacity: .1;
-	z-index: 1000;
+	z-index: 10;
 	text-align: center;
 	cursor: pointer;
 	color:#000;
@@ -546,3 +557,9 @@ div.doc .tools i {
 	padding: 5px;
 }
 .accordion .frame.active .content {}*/
+#scrollbar_vertical .search-tools{
+	opacity:.1;
+}
+#scrollbar_vertical .search-tools:hover{
+	opacity:1;
+}

@@ -18,14 +18,7 @@
 					</div>
 				</form>
 				<div class="doc-add text-center">
-					<a>拖拽文档到这里 或者</a><a href="javascript:;" class="doc-plus"><i class="fa fa-plus-circle on-right-more on-left"></i>新建</a><a href="javascript:;" class="doc-search"><i class="fa fa-search on-right-more on-left"></i>搜索</a>
-					<div class="search-box pos-abs border bg-white" style="display:none;margin-top: 10px;z-index: 2;left:30px;right:30px;padding: 20px 20px 0;">
-						<div class="input-control text">
-							<input type="text" name="keywords" placeholder="在这里输入标签进行搜索吧..." class="" style="padding-right: 2.2em;border-width: 0 0 1px 0;">
-							<a href="#" class="place-bottom-right"><i class="fa fa-search" style="padding: 6px; font-size: 1.2em;" title="搜索"></i></a>
-						</div>
-						<a href="#" title="隐藏" class=""><i class="fa fa-angle-up" style="padding: 6px; font-size: 1.2em;" onclick="$(this).closest('.search-box').slideUp('fast');"></i></a>
-					</div>
+					<a>拖拽文档到这里 或者</a><a href="javascript:;" class="doc-plus"><i class="fa fa-plus-circle on-right-more on-left"></i>新建</a>
 				</div>
 
 			</header>
@@ -63,18 +56,7 @@
 		snow.chouti = snow.left.find('div.chouti').accordion({
 			horizontal: true
 		});
-		// 搜索框显示和隐藏事件
-		$('a.doc-search').hover(function() {
-			$(this).next().stop().slideDown('fast').find('input').focus();
-		}, function() {
 
-		}).next().hover(
-			function(){
-				
-			},
-			function(){
-				$(this).closest('.search-box').delay(2000).slideUp('fast');
-		});
 		// 追加一个frame
 		snow.chouti.appendFrame = function(id){
 			var _frame;
@@ -426,7 +408,7 @@
 				frame.find('>footer').before(doc);
 			}
 			// 刷新滚动条
-			snow.autoScroll(frame);
+			//snow.autoScroll(frame);
 		};
 		// 首次加载
 		$.post(snow.api.books,{},function(result){
