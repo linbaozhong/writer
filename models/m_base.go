@@ -7,6 +7,7 @@ import (
 	"github.com/astaxie/beego/validation"
 	_ "github.com/go-sql-driver/mysql"
 	//_ "github.com/mattn/go-sqlite3"
+	"github.com/astaxie/beego/cache"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
 	"math"
@@ -55,11 +56,11 @@ type Error struct {
 
 //分页
 type Pagination struct {
-	Count int //总页数
-	Prev  int //上页索引
-	Index int //当前页
-	Next  int //下页索引
-	Size  int //每页条数
+	Count int `json:"count"` //总页数
+	Prev  int `json:"prev"`  //上页索引
+	Index int `json:"index"` //当前页
+	Next  int `json:"next"`  //下页索引
+	Size  int `json:"size"`  //每页条数
 }
 
 //列表选项
@@ -77,7 +78,15 @@ type UploadFile struct {
 	Size int64  //文件大小
 }
 
-var db *xorm.Engine
+type ReturnJson struct {
+	Page *Pagination `json:"page"`
+	Data interface{} `json:"data"`
+}
+
+var (
+	db *xorm.Engine
+	bm cache.Cache
+)
 
 func init() {
 	var err error
@@ -95,6 +104,12 @@ func init() {
 	db.ShowSQL = true
 	db.ShowErr = true
 	//db.ShowWarn = true
+
+	// 缓存
+	bm, err = cache.NewCache("memory", `{"interval":60}`)
+	if err != nil {
+		beego.Trace(err)
+	}
 }
 
 /*
@@ -136,7 +151,7 @@ func parseDb(dbs []map[string][]byte) []map[string]string {
 
 // 根据记录总数，返回总页数
 func getPageCount(rows int64, page *Pagination) {
-	page.Count = int(math.Ceil(float64(rows / int64(page.Size))))
+	page.Count = int(math.Ceil(float64(rows) / float64(page.Size)))
 }
 
 // ---------- 数据库 DAL 层 -------------------
@@ -173,16 +188,8 @@ func (this *Dal) Select() string {
 
 // 记录数目统计
 func (this *Dal) Count(params ...interface{}) int64 {
-	//sqlstr := make([]string, 0)
-	//sqlstr = append(sqlstr, "select count(*) as counts from "+this.From)
 
 	this.Field = "count(*) as counts"
-
-	//if strings.TrimSpace(this.Where) != "" {
-	//	sqlstr = append(sqlstr, "where "+this.Where)
-	//}
-
-	//return utils.Str2int64(this.Single(strings.Join(sqlstr, " "), "counts", params...))
 	return utils.Str2int64(this.Single("counts", params...))
 }
 

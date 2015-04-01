@@ -42,8 +42,11 @@ func (this *Home) Books() {
 
 	if size, err := this.GetInt("size"); err != nil || size == 0 {
 		p.Size = 20
+	} else {
+		p.Size = size
 	}
 	p.Index, _ = this.GetInt("index")
+	p.Count, _ = this.GetInt("count")
 	// 读取查询条件
 	moreId, _ := this.GetInt64("moreId")
 	tags := this.GetString("tags")
@@ -76,7 +79,11 @@ func (this *Home) Books() {
 	}
 
 	if err == nil {
-		this.renderJson(utils.JsonData(true, "", as))
+		rj := new(models.ReturnJson)
+		rj.Data = as
+		rj.Page = p
+
+		this.renderJson(utils.JsonData(true, "", rj))
 	} else {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}

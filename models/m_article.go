@@ -169,7 +169,7 @@ func (this *Article) Update() (error, []Error) {
 			if _article.Id > 0 {
 				_more.Position += 1
 				_more.ArticleId = _article.Id
-				_more.Depth = fmt.Sprintf("%s%d,", _more.Depth, _more.ParentId)
+				//_more.Depth = fmt.Sprintf("%s%d,", _more.Depth, _more.ParentId)
 
 				// Update articlemore 多对多表
 				if _, err = session.Insert(_more); err == nil {
@@ -317,10 +317,17 @@ func (this *Article) _list(view bool, page *Pagination, condition string, params
 	}
 	// slice承载返回的结果
 	as := make([]Article, 0)
-	// 读取符合条件的记录总数
-	if rows := _dal.Count(params...); rows > 0 {
 
-		getPageCount(rows, page)
+	// 读取符合条件的记录总数
+	if page.Count == 0 {
+		// 读取符合条件的记录总数
+		if rows := _dal.Count(params...); rows > 0 {
+			// 读取总页数
+			getPageCount(rows, page)
+		}
+	}
+
+	if page.Count > 0 {
 
 		_dal.Size = page.Size
 		_dal.Offset = page.Index * page.Size
@@ -339,9 +346,9 @@ func (this *Article) SetStatus(action string) error {
 
 	// 验证当前用户的权限
 	if has, err := db.Id(a.Id).Cols("creator").Get(a); has {
-		_, err = db.Exec("delete from articlemore where articleid = ? and parentid = ?", this.Id, this.ParentId)
 		// 如果不是作者，只能删除映射关系
 		if a.Creator != this.Updator {
+			_, err = db.Exec("delete from articlemore where articleid = ? and parentid = ?", this.Id, this.ParentId)
 			return err
 		}
 	} else {

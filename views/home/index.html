@@ -235,7 +235,7 @@
 			// 加载子节点
 			$.post(snow.api.books,{moreId:_moreId},function(result){
 				if (result.ok) {
-					snow.chouti.appendDoc(_frame,result.data);
+					snow.chouti.appendDoc(_frame,result.data.data);
 				};
 			});
 			// 复原编辑表单
@@ -413,7 +413,7 @@
 		// 首次加载
 		$.post(snow.api.books,{},function(result){
 			if (result.ok) {
-				var _docs = result.data
+				var _docs = result.data.data
 					,_frame = snow.left.find('.frame').eq(0).data('moreid',0);
 	
 				$.each(_docs,function(index,_doc){
