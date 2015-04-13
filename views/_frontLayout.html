@@ -151,7 +151,7 @@
 			<div class="search-box pos-abs" style="width:75%;top:0;height:46px;padding:6px;right:6px;background-color:#1ba1e2;z-index: 10;display: none;">
 				<div class="input-control text">
 					<input type="text" name="keywords" placeholder="在这里输入标签进行搜索吧..." class="" style="padding-right:4.6em;border-width:0;">
-					<a href="#" title="搜索" class="search-close pos-abs padding10" style="right:30px;bottom:0;"><i class="fa fa-search"></i></a>
+					<a href="#" title="搜索" class="search-start pos-abs padding10" style="right:30px;bottom:0;"><i class="fa fa-search"></i></a>
 					<a href="#" title="隐藏" class="search-close place-bottom-right padding10"><i class="fa fa-angle-up"></i></a>
 				</div>
 			</div>
@@ -251,6 +251,7 @@
 		,signIn:'/signIn'
 		,signOut:'/signOut'
 		,signTrace:'/connect/signtrace'
+		//,search:'/home/search'
 		,books:'/home/books'
 		,mybooks:'/home/books/my'
 		,catalog:'/home/catalog'
@@ -271,6 +272,18 @@
 	});
 	snow.scrollbar.find('div.search-box input').blur(function(){
 		snow.scrollbar.find('div.search-box').stop().slideUp('fast');
+	}).keypress(function(e){
+		if (e.which == 13) {
+			$(this).siblings('a.search-start').click();
+		}
+	});
+	snow.scrollbar.find('a.search-start').click(function(){
+		var _keyword = $.trim($(this).siblings('input').val());
+		if (_keyword.length) {
+			snow.notify('努力加载中 ~~~')
+		}else{
+			snow.notify('不会吧?还没有输入关键词呢 ~~~');
+		}
 	});
 	
 	// 滚动条拖拽块事件
@@ -372,7 +385,7 @@
 		// 		snow.sign.addClass('active');
 		// 	});
 		// }
-		snow.notify('你还没有登录呢 ~~~')
+		snow.notify('你还没有登录呢 ~~~');
 	}
 
 	//

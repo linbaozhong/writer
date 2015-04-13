@@ -239,21 +239,27 @@ func (this *Article) Update() (error, []Error) {
 			}
 		}
 		// 清除旧的标签-文章的索引
-		_del := new(TagDocument)
-		_, err = session.Where("documentId = ?", this.Id).Delete(_del)
+		//_del := new(TagDocument)
+		//_, err = session.Where("documentId = ?", this.Id).Delete(_del)
+		_del := new(TagArticle)
+		_, err = session.Where("articleId = ?", this.Id).Delete(_del)
 		if err != nil {
 			session.Rollback()
 			return err, nil
 		}
 		// 建立新的标签-文章的索引
-		tagDocuments := make([]TagDocument, 0)
+		//tagDocuments := make([]TagDocument, 0)
+		tagArticles := make([]TagArticle, 0)
 		for _, id := range ids {
-			tagDocuments = append(tagDocuments, TagDocument{TagId: id, DocumentId: this.Id})
+			//tagDocuments = append(tagDocuments, TagDocument{TagId: id, DocumentId: this.Id})
+			tagArticles = append(tagArticles, TagArticle{TagId: id, ArticleId: this.Id})
 		}
-		fmt.Println(tagDocuments)
-		_, err = session.Insert(tagDocuments)
+
+		//_, err = session.Insert(tagDocuments)
+		_, err = session.Insert(tagArticles)
 		if err != nil {
 			session.Rollback()
+			fmt.Println(err)
 			return err, nil
 		}
 	}

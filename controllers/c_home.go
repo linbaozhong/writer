@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"strings"
 	"writer/models"
 	"zouzhe/utils"
 )
@@ -49,7 +50,7 @@ func (this *Home) Books() {
 	p.Count, _ = this.GetInt("count")
 	// 读取查询条件
 	moreId, _ := this.GetInt64("moreId")
-	tags := this.GetString("tags")
+	tags := strings.Join(this.GetStrings("tags"), ",")
 
 	// 拉取
 	a := new(models.Article)
@@ -68,13 +69,13 @@ func (this *Home) Books() {
 		if tags == "" {
 			as, err = a.List(p, cond, moreId)
 		} else {
-			as, err = a.List(p, cond+" and documents.tags = ?", moreId, tags)
+			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in (?)))", moreId, tags)
 		}
 	} else {
 		if tags == "" {
 			as, err = a.List(p, cond+" and articles.creator = ?", moreId, this.currentUser.Id)
 		} else {
-			as, err = a.List(p, cond+" and documents.tags = ? and articles.creator = ?", moreId, tags, this.currentUser.Id)
+			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in (?))) and articles.creator = ?", moreId, tags, this.currentUser.Id)
 		}
 	}
 
@@ -167,3 +168,10 @@ func (this *Home) Single() {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
 }
+
+//// 搜索标签
+//func (this *Home)Search(){
+//	// 读取请求标签
+//	tags = this.GetString('k')
+
+//}
