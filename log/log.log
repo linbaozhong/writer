@@ -9269,3 +9269,405 @@
 2015/03/16 16:07:01 [router.go:845] [D] | POST       | /home/books                              | 36.002ms         | match      | /home/books/*                            | 
 2015/03/16 16:07:15 [router.go:845] [D] | POST       | /home/books                              | 29.0017ms        | match      | /home/books/*                            | 
 2015/03/16 16:07:39 [router.go:845] [D] | POST       | /home/books                              | 32.0018ms        | match      | /home/books/*                            | 
+2015/03/19 12:10:58 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 12:11:03 [app.go:96] [I] http server Running on :8088
+2015/03/19 12:17:36 [router.go:845] [D] | GET        | /                                        | 203.0116ms       | match      | /                                        | 
+2015/03/19 12:17:36 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 12:17:37 [router.go:845] [D] | POST       | /home/books                              | 391.0223ms       | match      | /home/books/*                            | 
+2015/03/19 12:40:10 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 12:40:10 [app.go:96] [I] http server Running on :8088
+2015/03/19 12:44:29 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 12:44:29 [app.go:96] [I] http server Running on :8088
+2015/03/19 12:46:32 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 12:46:32 [app.go:96] [I] http server Running on :8088
+2015/03/19 12:54:59 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 12:54:59 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:17:16 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:17:16 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:18:08 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:18:08 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:21:10 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:21:10 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:21:28 [router.go:845] [D] | GET        | /                                        | 192.011ms        | match      | /                                        | 
+2015/03/19 13:21:31 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:21:32 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:21:32 [router.go:845] [D] | POST       | /home/books                              | 381.0218ms       | match      | /home/books/*                            | 
+2015/03/19 13:24:01 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:24:01 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:24:05 [router.go:845] [D] | GET        | /                                        | 181.0103ms       | match      | /                                        | 
+2015/03/19 13:24:05 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:24:06 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:24:06 [router.go:845] [D] | POST       | /home/books                              | 764.0437ms       | match      | /home/books/*                            | 
+2015/03/19 13:25:01 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:25:01 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:25:03 [router.go:845] [D] | GET        | /                                        | 176.01ms         | match      | /                                        | 
+2015/03/19 13:25:03 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:25:04 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:25:04 [router.go:845] [D] | POST       | /home/books                              | 373.0213ms       | match      | /home/books/*                            | 
+2015/03/19 13:55:40 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:55:40 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:55:47 [router.go:845] [D] | GET        | /                                        | 184.0105ms       | match      | /                                        | 
+2015/03/19 13:55:47 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:55:47 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:55:47 [router.go:845] [D] | POST       | /home/books                              | 360.0206ms       | match      | /home/books/*                            | 
+2015/03/19 13:56:41 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:56:41 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:56:44 [router.go:845] [D] | GET        | /                                        | 182.0104ms       | match      | /                                        | 
+2015/03/19 13:56:44 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:56:44 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:56:44 [router.go:845] [D] | POST       | /home/books                              | 356.0203ms       | match      | /home/books/*                            | 
+2015/03/19 13:57:24 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:57:24 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:57:30 [router.go:845] [D] | GET        | /                                        | 175.01ms         | match      | /                                        | 
+2015/03/19 13:57:30 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:57:30 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:57:30 [router.go:845] [D] | POST       | /home/books                              | 376.0215ms       | match      | /home/books/*                            | 
+2015/03/19 13:57:55 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:57:55 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:58:13 [router.go:845] [D] | GET        | /                                        | 182.0104ms       | match      | /                                        | 
+2015/03/19 13:58:13 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:58:13 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:58:13 [router.go:845] [D] | POST       | /home/books                              | 340.0195ms       | match      | /home/books/*                            | 
+2015/03/19 13:59:38 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 13:59:38 [app.go:96] [I] http server Running on :8088
+2015/03/19 13:59:41 [router.go:845] [D] | GET        | /                                        | 181.0103ms       | match      | /                                        | 
+2015/03/19 13:59:41 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 13:59:41 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 13:59:41 [router.go:845] [D] | POST       | /home/books                              | 367.021ms        | match      | /home/books/*                            | 
+2015/03/19 14:00:05 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:00:05 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:00:23 [router.go:845] [D] | GET        | /                                        | 185.0106ms       | match      | /                                        | 
+2015/03/19 14:00:23 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:00:24 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 14:00:24 [router.go:845] [D] | POST       | /home/books                              | 323.0185ms       | match      | /home/books/*                            | 
+2015/03/19 14:01:06 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:01:06 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:01:12 [router.go:845] [D] | GET        | /                                        | 190.0109ms       | match      | /                                        | 
+2015/03/19 14:01:12 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:01:13 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 14:01:13 [router.go:845] [D] | POST       | /home/books                              | 347.0199ms       | match      | /home/books/*                            | 
+2015/03/19 14:01:26 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:01:26 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:01:30 [router.go:845] [D] | GET        | /                                        | 180.0103ms       | match      | /                                        | 
+2015/03/19 14:01:30 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:01:31 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 14:01:31 [router.go:845] [D] | POST       | /home/books                              | 321.0184ms       | match      | /home/books/*                            | 
+2015/03/19 14:02:09 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:02:09 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:02:12 [router.go:845] [D] | GET        | /                                        | 181.0104ms       | match      | /                                        | 
+2015/03/19 14:02:12 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:02:12 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 14:02:12 [router.go:845] [D] | POST       | /home/books                              | 326.0187ms       | match      | /home/books/*                            | 
+2015/03/19 14:04:43 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:04:43 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:04:47 [router.go:845] [D] | GET        | /                                        | 182.0104ms       | match      | /                                        | 
+2015/03/19 14:04:47 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:04:47 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 14:04:47 [router.go:845] [D] | POST       | /home/books                              | 345.0197ms       | match      | /home/books/*                            | 
+2015/03/19 14:05:07 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:05:07 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:05:08 [router.go:845] [D] | GET        | /                                        | 204.0117ms       | match      | /                                        | 
+2015/03/19 14:05:08 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:05:08 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 0,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{ },
+} 
+2015/03/19 14:05:08 [router.go:845] [D] | POST       | /home/books                              | 310.0177ms       | match      | /home/books/*                            | 
+2015/03/19 14:05:26 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:05:26 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:05:28 [router.go:845] [D] | GET        | /                                        | 181.0104ms       | match      | /                                        | 
+2015/03/19 14:05:29 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:05:29 [log.go:108] [D] Home/Books Info:&models.ReturnJson{
+    Page: &models.Pagination{
+        Count: 1,
+        Prev: 0,
+        Index: 0,
+        Next: 0,
+        Size: 20,
+    },
+    Data: []models.Article{
+            models.Article{
+                Id: 1,
+                DocumentId: 1,
+                Title: ABOUT,
+                Content: <h1>ABOUT</h1><p>只是想为程序员们做一个写作和整理教程或参考之类的工具，当然，也可以用来写博客或进行其他创作，总之，这是一个非线性的在线写作工具，目前还是个半成品，边写边测试。如果你有什么建议，请在后面跟写吧……</p><p>网站的名字叫：牛X的人，不表示我是一个牛x的人，而是因为网站的域名是：niux.ren。当时只是觉得这个域名很好玩儿，就注册了，正好现在拿来用。当然，也希望牛x的人提出意见，拍砖、扔鸡蛋……</p>,
+                Tags: ,
+                MoreId: 1,
+                ParentId: 0,
+                Position: 13,
+                Status: 0,
+                Deleted: 0,
+                Creator: 2,
+                Created: 0,
+                Updator: 2,
+                Updated: 0,
+                Ip: ,
+            },
+            models.Article{
+                Id: 29,
+                DocumentId: 26,
+                Title: Golang 基础代码示例,
+                Content: <h2>Golang 基础代码示例</h2>,
+                Tags: ,
+                MoreId: 32,
+                ParentId: 0,
+                Position: 14,
+                Status: 0,
+                Deleted: 0,
+                Creator: 2,
+                Created: 0,
+                Updator: 2,
+                Updated: 0,
+                Ip: ,
+            },
+            models.Article{
+                Id: 23,
+                DocumentId: 20,
+                Title: 什么是“非线性写作”,
+                Content: <h1>什么是“非线性写作”</h1><p>我们可以通过例子来理解什么是线性什么是非线性：一个典型的线性写作文本的例子是一个单一视角的小说；而一个典型的非线性协作文本的例子是一个产品的说明书，或者是一个维基百科的词条，更复杂一点一个 POV 小说（多视点群像传，如冰与火之歌）也是一个非线性文本。</p><p>一个单一视角的小说中，任何一个中间章节被截取后读者是不能阅读的，因为线性文本中的每一个部分都和前后文有着强因果的关系。而一个说明书中的一节或维基百科词条中的一个小标题截取出来是可以被阅读的，甚至大部分情况我们在阅读此类文本的时候都是找到某一个小标题下的内容直接开始阅读不会将整个文本读完。</p><p>这就是线性和非线性的区别，非线性写作虽然看起来前后文没有强逻辑关系，但是其实对写作者来说要求更高，往往涉及到二个问题：</p><p></p><ul class=" list-paddingleft-2"><li><p>最终成稿时，当前片段在全文本所处的位置（弱因果联系和阅读顺序）。</p></li><li><p>当前片段在全文本构架中所属的级别（这里应该是一章、一节还是一节下的一个小标题？）</p></li></ul><p></p><p>无法解决这两个问题的原因是现在所有的写作软件（你可以理解 Word、记事本等都是写作软件）都是按照线性写作逻辑创造出来的，它无法实现层级上的无限递归和针对小标题的自由拖放。</p>,
+                Tags: ,
+                MoreId: 26,
+                ParentId: 0,
+                Position: 34,
+                Status: 0,
+                Deleted: 0,
+                Creator: 2,
+                Created: 0,
+                Updator: 2,
+                Updated: 0,
+                Ip: ,
+            },
+            models.Article{
+                Id: 2,
+                DocumentId: 2,
+                Title: ,
+                Content: <p>写作的时候我可以不用考虑究竟从哪开始写，先把要写的东西列出来之后再整理。</p><blockquote><p>换句话说，在下笔之前，我不必考虑我现在正在撰写的文字在未来的整个作品中要放到什么位置，因为不管它放在哪里属于哪一个层级都不会对未来的整理造成障碍。当我们发现一个节点（也许原本在我的设计中它是一篇文章的小标题）下的内容多到可以单成另一篇文章的时候，只要在这个节点下「新建」就可以建立一个新的层级。</p></blockquote>,
+                Tags: ,
+                MoreId: 2,
+                ParentId: 0,
+                Position: 56,
+                Status: 0,
+                Deleted: 0,
+                Creator: 3,
+                Created: 0,
+                Updator: 3,
+                Updated: 0,
+                Ip: ,
+            },
+            models.Article{
+                Id: 3,
+                DocumentId: 3,
+                Title: ,
+                Content: <p>另据韩联社3月3日报道，中国外交部3日表示，中国将邀请世界领导人参加今年晚些时候为纪念二战结束举行的阅兵式，这次活动可能会凸显日本的投降。</p><p>报道称，这是中国第一次邀请其他国家领导人参加这样的阅兵式。</p>,
+                Tags: ,
+                MoreId: 3,
+                ParentId: 0,
+                Position: 58,
+                Status: 0,
+                Deleted: 0,
+                Creator: 3,
+                Created: 0,
+                Updator: 3,
+                Updated: 0,
+                Ip: ,
+            },
+        },
+} 
+2015/03/19 14:05:29 [router.go:845] [D] | POST       | /home/books                              | 328.0188ms       | match      | /home/books/*                            | 
+2015/03/19 14:05:57 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:05:57 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:12:27 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:12:27 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:13:28 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:13:28 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:14:16 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:14:16 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:17:27 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:17:28 [app.go:96] [I] http server Running on :8088
+2015/03/19 14:18:19 [router.go:845] [D] | GET        | /                                        | 183.0105ms       | match      | /                                        | 
+2015/03/19 14:18:20 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 14:18:20 [router.go:845] [D] | POST       | /home/books                              | 343.0197ms       | match      | /home/books/*                            | 
+2015/03/19 14:50:56 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 14:50:56 [app.go:96] [I] http server Running on :8088
+2015/03/19 15:09:58 [router.go:845] [D] | GET        | /                                        | 183.0104ms       | match      | /                                        | 
+2015/03/19 15:09:59 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 15:09:59 [router.go:845] [D] | POST       | /home/books                              | 107.0062ms       | match      | /home/books/*                            | 
+2015/03/19 15:17:39 [router.go:845] [D] | POST       | /home/books                              | 15.0008ms        | match      | /home/books/*                            | 
+2015/03/19 15:17:41 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:17:43 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:17:47 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:17:51 [router.go:845] [D] | POST       | /home/books                              | 29.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:17:57 [router.go:845] [D] | POST       | /home/books                              | 15.0008ms        | match      | /home/books/*                            | 
+2015/03/19 15:17:58 [router.go:845] [D] | POST       | /home/books                              | 14.0008ms        | match      | /home/books/*                            | 
+2015/03/19 15:17:59 [router.go:845] [D] | POST       | /home/books                              | 15.0008ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:01 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:03 [router.go:845] [D] | POST       | /home/books                              | 16.0009ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:05 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:06 [router.go:845] [D] | POST       | /home/books                              | 16.001ms         | match      | /home/books/*                            | 
+2015/03/19 15:18:08 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:10 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:12 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:19 [router.go:845] [D] | POST       | /home/books                              | 14.0008ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:21 [router.go:845] [D] | POST       | /home/books                              | 31.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:23 [router.go:845] [D] | POST       | /home/books                              | 16.0009ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:24 [router.go:845] [D] | POST       | /home/books                              | 16.0009ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:26 [router.go:845] [D] | POST       | /home/books                              | 14.0008ms        | match      | /home/books/*                            | 
+2015/03/19 15:18:27 [router.go:845] [D] | POST       | /home/books                              | 15.0009ms        | match      | /home/books/*                            | 
+2015/03/19 15:33:53 [router.go:845] [D] | GET        | /                                        | 196.0112ms       | match      | /                                        | 
+2015/03/19 15:33:53 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 15:33:53 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:37:42 [router.go:845] [D] | GET        | /                                        | 166.0095ms       | match      | /                                        | 
+2015/03/19 15:37:43 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 15:37:43 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/19 15:38:16 [router.go:845] [D] | GET        | /                                        | 193.0111ms       | match      | /                                        | 
+2015/03/19 15:38:16 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:38:16 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 15:39:38 [router.go:845] [D] | GET        | /                                        | 176.0101ms       | match      | /                                        | 
+2015/03/19 15:39:38 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 15:39:38 [router.go:845] [D] | POST       | /home/books                              | 30.0017ms        | match      | /home/books/*                            | 
+2015/03/19 15:42:07 [router.go:845] [D] | POST       | /home/books                              | 16.0009ms        | match      | /home/books/*                            | 
+2015/03/19 15:42:29 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/03/19 15:42:29 [router.go:845] [D] | POST       | /article/update                          | 87.0049ms        | match      | /article/update/*                        | 
+2015/03/19 15:43:31 [router.go:845] [D] | GET        | /                                        | 186.0107ms       | match      | /                                        | 
+2015/03/19 15:43:31 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/03/19 15:43:31 [router.go:845] [D] | POST       | /home/books                              | 32.0018ms        | match      | /home/books/*                            | 
+2015/03/19 15:43:33 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/19 15:55:52 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 15:55:52 [app.go:96] [I] http server Running on :8088
+2015/03/19 15:56:46 [log.go:108] [D] Article/Update Info:zh-CN 
+2015/03/19 15:56:46 [router.go:845] [D] | POST       | /article/update                          | 550.0314ms       | match      | /article/update/*                        | 
+2015/03/19 15:57:02 [router.go:845] [D] | POST       | /home/books                              | 35.002ms         | match      | /home/books/*                            | 
+2015/03/19 15:57:04 [router.go:845] [D] | POST       | /home/books                              | 36.0021ms        | match      | /home/books/*                            | 
+2015/03/19 15:57:15 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/03/19 15:57:15 [router.go:845] [D] | POST       | /article/delete                          | 148.0085ms       | match      | /article/delete/*                        | 
+2015/03/19 15:57:18 [router.go:845] [D] | POST       | /home/books                              | 36.0021ms        | match      | /home/books/*                            | 
+2015/03/19 15:57:20 [router.go:845] [D] | POST       | /home/books                              | 35.0021ms        | match      | /home/books/*                            | 
+2015/03/19 16:05:05 [main.go:16] [I] writer 0.1.14.1105 
+2015/03/19 16:05:05 [app.go:96] [I] http server Running on :8088
+2015/03/19 16:05:23 [log.go:108] [D] Article/Delete Info:zh-CN 
+2015/03/19 16:05:23 [router.go:845] [D] | POST       | /article/delete                          | 504.0288ms       | match      | /article/delete/*                        | 
+2015/03/19 16:05:26 [router.go:845] [D] | POST       | /home/books                              | 31.0018ms        | match      | /home/books/*                            | 
+2015/03/19 16:05:28 [router.go:845] [D] | POST       | /home/books                              | 15.0008ms        | match      | /home/books/*                            | 
