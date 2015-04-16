@@ -24,6 +24,7 @@ type Article struct {
 	Created    int64  `json:"created"`
 	Updator    int64  `json:"updator"`
 	Updated    int64  `json:"updated"`
+	NickName   string `json:"nickName"`
 	Ip         string `json:"ip" valid:"MaxSize(23)"`
 }
 
@@ -309,8 +310,8 @@ func (this *Article) ListEx(page *Pagination, condition string, params ...interf
 func (this *Article) _list(view bool, page *Pagination, condition string, params ...interface{}) ([]Article, error) {
 	// Dal对象
 	_dal := &Dal{}
-	_dal.From = "articlemore,articles,documents"
-	_dal.Where = "articlemore.articleId = articles.id and documents.id = articles.documentId"
+	_dal.From = "articlemore,articles,documents,accounts"
+	_dal.Where = "accounts.id = articles.creator and articlemore.articleId = articles.id and documents.id = articles.documentId"
 	_dal.OrderBy = "articlemore.parentId,articlemore.position"
 
 	// 可见的
@@ -338,7 +339,7 @@ func (this *Article) _list(view bool, page *Pagination, condition string, params
 		_dal.Size = page.Size
 		_dal.Offset = page.Index * page.Size
 
-		_dal.Field = "articlemore.id as moreid,articlemore.parentid,articlemore.position,articlemore.updator,articles.id,articles.documentid,articles.creator,documents.title,documents.content"
+		_dal.Field = "articlemore.id as moreid,articlemore.parentid,articlemore.position,articlemore.updator,articles.id,articles.documentid,articles.creator,accounts.nickName,documents.title,documents.content,documents.updated"
 		err := db.Sql(_dal.Select(), params...).Find(&as)
 		return as, err
 	}

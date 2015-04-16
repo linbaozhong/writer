@@ -38,8 +38,8 @@ var (
 
 func init() {
 	page.Domain = appconf("site::domain")
-	page.SiteName = appconf("site::sitename")
-	page.Title = appconf("site::title")
+	//page.SiteName = appconf("site::sitename")
+	//page.Title = appconf("site::title")
 
 	// 引用beego官网代码
 	langs := strings.Split(appconf("lang::types"), "|")

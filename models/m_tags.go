@@ -31,7 +31,7 @@ func (this *Tags) List() ([]Tags, error) {
 }
 
 func (this *Tags) GetArticleIdsByTags(tags []string) ([]int64, error) {
-	ids = make([]int64, 0)
+	ids := make([]int64, 0)
 
 	rows, err := db.In("name", tags).Cols("id").Rows(this)
 	if err != nil {

@@ -372,7 +372,8 @@
 			snow.docTemplate.push('</article>');
 			snow.docTemplate.push('<footer class="text-center">');
 				snow.docTemplate.push('<div class="pos-abs">');
-					snow.docTemplate.push('<span class="doc-remark"></span>');
+					snow.docTemplate.push('<span class="doc-remark"><%.nickName%></span>');
+					snow.docTemplate.push('<span class="doc-remark"><%.updated%></span>');
 				snow.docTemplate.push('</div>');
 				snow.docTemplate.push('<div class="doc-tools">');
 					snow.docTemplate.push('<span class="tools"><i class="fa fa-star-o on-left"></i>456</span>');
@@ -387,7 +388,9 @@
 							.replace(/<%.moreId%>/g,doc.moreId)
 							.replace(/<%.parentId%>/g,doc.parentId)
 							.replace(/<%.creator%>/g,doc.creator)
+							.replace(/<%.nickName%>/g,doc.nickName)
 							.replace(/<%.updator%>/g,doc.updator)
+							.replace(/<%.updated%>/g,new Date(doc.updated).format())
 							.replace(/<%.documentId%>/g,doc.documentId)
 							.replace(/<%.content%>/g,doc.content)).data('content',doc.content);
 			if(!snow.updator(_doc)){
