@@ -50,7 +50,7 @@ func (this *Home) Books() {
 	p.Count, _ = this.GetInt("count")
 	// 读取查询条件
 	moreId, _ := this.GetInt64("moreId")
-	tags := strings.Join(this.GetStrings("tags"), ",")
+	tags := "'" + strings.Replace(strings.TrimSpace(this.GetString("tags")), " ", "','", -1) + "'"
 
 	// 拉取
 	a := new(models.Article)
@@ -66,19 +66,19 @@ func (this *Home) Books() {
 	}
 
 	if my == "" {
-		if tags == "" {
+		if len(tags) == 0 {
 			as, err = a.List(p, cond, moreId)
 		} else {
-			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in (?)))", moreId, tags)
+			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in ("+tags+")))", moreId)
 		}
 	} else {
-		if tags == "" {
+		if len(tags) == 0 {
 			as, err = a.List(p, cond+" and articles.creator = ?", moreId, this.currentUser.Id)
 		} else {
-			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in (?))) and articles.creator = ?", moreId, tags, this.currentUser.Id)
+			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in ("+tags+"))) and articles.creator = ?", moreId, this.currentUser.Id)
 		}
 	}
-
+	this.trace(err)
 	if err == nil {
 		rj := new(models.ReturnJson)
 		rj.Data = as
@@ -88,6 +88,7 @@ func (this *Home) Books() {
 	} else {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
+
 }
 
 // 读取最常用标签

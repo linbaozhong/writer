@@ -66,6 +66,11 @@
 				return '<div class="accordion-item"></div>'
 			},
 			_sortable = function(frame) {
+//				frame.droppable({
+//					drop:function(e,ui){
+//						console.log(ui.draggable,ui.helper);
+//					}
+//				});
 				frame.sortable({
 					connectWith: 'div.frame',
 					appendTo: '#snow-left',
