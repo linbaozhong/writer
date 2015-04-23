@@ -32,12 +32,169 @@ type OpenSign struct {
 }
 
 var (
-	appid    = appconf("qq::appid")
-	callback = appconf("qq::callback")
-	appkey   = appconf("qq::appkey")
-	//---只读取用户信息
-	scope = ""
+//appid    = appconf("qq::appid")
+//callback = appconf("qq::callback")
+//appkey   = appconf("qq::appkey")
+//---只读取用户信息
+//scope = appconf("qq::scope")
 )
+
+/*
+* 微信登录
+ */
+func (this *Connect) Wx_Login() {
+	//---生成唯一随机串防止csrf攻击
+	state := this.XsrfToken()
+	//---将随机串存入Session
+	this.SetSession("state", state)
+	//---登录的url
+	url := appconf("weixin::auth") + "?response_type=code&appid=" + appconf("weixin::appid") + "&redirect_uri=" + appconf("weixin::callback") + "&state=" + state + "&scope=" + appconf("weixin::scope") + "#wechat_redirect"
+
+	//fmt.Println(url)
+	//---
+	this.Redirect(url, 302)
+}
+
+/*
+* 微信登录回调
+ */
+func (this *Connect) Wx_Callback() {
+
+	//---验证state防止csrf攻击
+	if this.GetString("state") != this.GetSession("state").(string) {
+		//---跳转至错误页
+		this.Redirect(this.UrlFor("Connect.Connect_Error", "msg", ""), 302)
+		return
+	}
+	//---用户禁止授权
+	if this.GetString("code") == "" {
+		//---跳转至错误页
+		this.Redirect(this.UrlFor("Connect.Connect_Error", "msg", "用户禁止授权"), 302)
+		return
+	}
+
+	//---opensign第三方账户信息
+	_account := new(OpenSign)
+	_account.From = "weixin"
+
+	//---创建读取token的请求
+	req := httplib.Get(appconf("weixin::token"))
+	req.Param("grant_type", "authorization_code")
+	req.Param("appid", appconf("weixin::appid"))
+	req.Param("secret", appconf("weixin::appkey"))
+	req.Param("code", this.GetString("code"))
+
+	//---读取返回的内容
+	rep, err := req.String()
+
+	if err == nil {
+		jmap := utils.JsonString2map(rep)
+
+		if len(jmap) > 0 && jmap["errcode"] == nil {
+			//--- access_token
+			_account.Token = utils.Interface2str(jmap["access_token"])
+			//--- refresh_token
+			_account.Refresh = utils.Interface2str(jmap["refresh_token"])
+			_account.OpenId = utils.Interface2str(jmap["openid"])
+
+		} else if jmap["errcode"] != nil {
+			err = errors.New(utils.Interface2str(jmap["errmsg"]))
+		} else {
+			err = errors.New("return value is empty")
+		}
+
+	} else {
+		//---跳转至错误页
+		this.Redirect(this.UrlFor("Connect.Connect_Error", ":msg", err.Error()), 302)
+		return
+	}
+
+	//---创建读取userinfo的请求
+	if wx_userinfo(_account) != nil {
+		//---跳转至错误页
+		this.Redirect(this.UrlFor("Connect.Connect_Error", ":msg", err.Error()), 302)
+		return
+	}
+
+	// 写入cookie
+	this.cookie("openid", _account.OpenId)
+	this.cookie("token", _account.Token)
+	this.cookie("nickname", _account.NickName)
+	this.cookie("avatar", _account.Avatar_1)
+
+	// 清空旧的用户信息
+	this.loginOut()
+
+	//
+	this.Data["sign"] = _account
+
+	this.setTplNames("callback")
+
+}
+
+/*
+* 读取微信登录用户信息
+ */
+func wx_userinfo(act *OpenSign) (err error) {
+	//---创建读取userinfo的请求
+	req := httplib.Get(appconf("weixin::userinfo"))
+	req.Param("access_token", act.Token)
+	req.Param("openid", act.OpenId)
+	//---读取返回的内容
+	rep, err := req.String()
+
+	if err == nil {
+		//---解析返回的内容,检查如果包含callback,读取openid
+		jmap := utils.JsonString2map(rep)
+
+		if len(jmap) > 0 && jmap["errcode"] == nil {
+
+			act.NickName = utils.Interface2str(jmap["nickname"])
+			act.Gender = utils.Interface2str(jmap["sex"])
+			act.Avatar_1 = utils.Interface2str(jmap["headimgurl"])
+			//act.Avatar_2 = utils.Interface2str(jmap["figureurl_qq_2"])
+		} else if jmap["errcode"] != nil {
+			err = errors.New(utils.Interface2str(jmap["errmsg"]))
+		} else {
+			err = errors.New("return value is empty")
+		}
+
+	}
+	return
+}
+
+/*
+* 微信登录access_token续期
+ */
+func wx_refresh(act *OpenSign) (err error) {
+	//---创建读取token的请求
+	req := httplib.Get(appconf("weixin::refresh"))
+	req.Param("grant_type", "refresh_token")
+	req.Param("appid", appconf("weixin::appid"))
+	req.Param("refresh_token", act.Refresh)
+
+	//---读取返回的内容
+	rep, err := req.String()
+
+	if err == nil {
+		jmap := utils.JsonString2map(rep)
+
+		if len(jmap) > 0 && jmap["errcode"] == nil {
+			//--- access_token
+			act.Token = utils.Interface2str(jmap["access_token"])
+			//--- refresh_token
+			act.Refresh = utils.Interface2str(jmap["refresh_token"])
+
+		} else if jmap["errcode"] != nil {
+			err = errors.New(utils.Interface2str(jmap["errmsg"]))
+		} else {
+			err = errors.New("return value is empty")
+		}
+
+	}
+
+	return
+}
 
 /*
 * QQ登录
@@ -48,13 +205,11 @@ func (this *Connect) QQ_Login() {
 	//---将随机串存入Session
 	this.SetSession("state", state)
 	//---登录的url
-	url := appconf("qq::auth") + "?response_type=code&client_id=" + appid + "&redirect_uri=" + callback + "&state=" + state + "&scope=" + scope
+	url := appconf("qq::auth") + "?response_type=code&client_id=" + appconf("qq::appid") + "&redirect_uri=" + appconf("qq::callback") + "&state=" + state + "&scope=" + appconf("qq::scope")
 
 	//fmt.Println(url)
 	//---
 	this.Redirect(url, 302)
-
-	//fmt.Println("after redirect ...")
 }
 
 /*
@@ -83,9 +238,9 @@ func (this *Connect) QQ_Callback() {
 	//---创建读取token的请求
 	req := httplib.Get(appconf("qq::token"))
 	req.Param("grant_type", "authorization_code")
-	req.Param("client_id", appid)
-	req.Param("client_secret", appkey)
-	req.Param("redirect_uri", callback)
+	req.Param("client_id", appconf("qq::appid"))
+	req.Param("client_secret", appconf("qq::appkey"))
+	req.Param("redirect_uri", appconf("qq::callback"))
 	req.Param("code", this.GetString("code"))
 	req.Param("state", this.GetString("state"))
 
@@ -135,6 +290,8 @@ func (this *Connect) QQ_Callback() {
 
 	//
 	this.Data["sign"] = _account
+	// 清空旧的用户信息
+	this.loginOut()
 
 	this.setTplNames("callback")
 
@@ -177,7 +334,7 @@ func qq_userinfo(act *OpenSign) (err error) {
 	req := httplib.Get(appconf("qq::userinfo"))
 	req.Param("access_token", act.Token)
 	req.Param("openid", act.OpenId)
-	req.Param("oauth_consumer_key", appid)
+	req.Param("oauth_consumer_key", appconf("qq::appid"))
 	req.Debug(true)
 	//---读取返回的内容
 	rep, err := req.String()
@@ -214,8 +371,8 @@ func qq_refresh(act *OpenSign) (err error) {
 	//---创建读取token的请求
 	req := httplib.Get(appconf("qq::token"))
 	req.Param("grant_type", "refresh_token")
-	req.Param("client_secret", appkey)
-	req.Param("client_id", appid)
+	req.Param("client_secret", appconf("qq::appkey"))
+	req.Param("client_id", appconf("qq::appid"))
 	req.Param("refresh_token", act.Refresh)
 
 	//---读取返回的内容
@@ -301,23 +458,37 @@ func (this *Connect) SignTrace() {
 		// 写登录日志
 		_, err = _m_log.Post()
 
-		// 检查access_token是否需要续期(有效期一般是3个月)
+		// 检查access_token是否需要续期(qq有效期一般是3个月，weixin有效期2小时)
 		if _m_account.RefreshToken != "" && _m_account.AccessToken != "" {
-			_needRefresh := (utils.Msec2Time(_m_log.Updated).Sub(utils.Msec2Time(_m_account.Updated)).Hours() > 24*40*2)
+
+			var _needRefresh bool
 			// 2.续期
-			if _needRefresh {
-				this.trace("access_token续期")
-				err = qq_refresh(_account)
-				if err != nil {
-					// 写入cookie
-					this.cookie("token", _account.Token)
-					// 更新access_token and refresh_token and Updated
-					_m_account.AccessToken = _account.Token
-					_m_account.RefreshToken = _account.Refresh
-					this.extend(_m_account)
-					_m_account.RefreshAccessToken()
+			switch _m_account.OpenFrom {
+			case "qq":
+				_needRefresh = (utils.Msec2Time(_m_log.Updated).Sub(utils.Msec2Time(_m_account.Updated)).Hours() > 24*30*2)
+				if _needRefresh {
+					err = qq_refresh(_account)
 				}
+			case "weixin":
+				_needRefresh = (utils.Msec2Time(_m_log.Updated).Sub(utils.Msec2Time(_m_account.Updated)).Hours() > 1)
+				if _needRefresh {
+					err = wx_refresh(_account)
+				}
+			default:
+				_needRefresh = false
+				err = errors.New("")
 			}
+
+			if err == nil {
+				// 写入cookie
+				this.cookie("token", _account.Token)
+				// 更新access_token and refresh_token and Updated
+				_m_account.AccessToken = _account.Token
+				_m_account.RefreshToken = _account.Refresh
+				this.extend(_m_account)
+				_m_account.RefreshAccessToken()
+			}
+
 		}
 	} else {
 		this.trace("创建新的账户")

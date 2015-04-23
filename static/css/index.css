@@ -194,11 +194,10 @@ div.nav-info-box {
 	position: fixed;
 	left: 0;
 	right: 0;
-	top: -2000px;
+	top: 0px;
 	height: 100%;
 	width: 400px;
 	margin: 0 auto;
-	color: white !important;
 	z-index: 1000;
 }
 /*左侧框*/

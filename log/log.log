@@ -10276,3 +10276,423 @@
 2015/04/16 19:03:59 [app.go:96] [I] http server Running on :8088
 2015/04/16 19:05:09 [main.go:16] [I] writer 0.1.14.1105 
 2015/04/16 19:05:09 [app.go:96] [I] http server Running on :8088
+2015/04/22 09:53:49 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 09:53:51 [app.go:96] [I] http server Running on :8088
+2015/04/22 10:01:45 [router.go:845] [D] | GET        | /                                        | 18.001ms         | match      | /                                        | 
+2015/04/22 10:08:01 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2015/04/22 10:08:15 [router.go:845] [D] | GET        | /                                        | 25.0014ms        | match      | /                                        | 
+2015/04/22 10:08:39 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 10:08:39 [app.go:96] [I] http server Running on :8088
+2015/04/22 10:09:19 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 10:09:56 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 10:09:57 [app.go:96] [I] http server Running on :8088
+2015/04/22 10:09:59 [router.go:845] [D] | GET        | /                                        | 19.0011ms        | match      | /                                        | 
+2015/04/22 10:20:05 [router.go:845] [D] | GET        | /                                        | 122.007ms        | match      | /                                        | 
+2015/04/22 10:20:20 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 10:21:01 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 10:21:41 [router.go:845] [D] | GET        | /                                        | 23.0013ms        | match      | /                                        | 
+2015/04/22 10:21:52 [router.go:845] [D] | GET        | /                                        | 24.0014ms        | match      | /                                        | 
+2015/04/22 10:22:04 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2015/04/22 10:22:22 [router.go:845] [D] | GET        | /                                        | 17.001ms         | match      | /                                        | 
+2015/04/22 10:22:24 [router.go:845] [D] | GET        | /                                        | 26.0015ms        | match      | /                                        | 
+2015/04/22 10:25:12 [router.go:845] [D] | GET        | /                                        | 29.0017ms        | match      | /                                        | 
+2015/04/22 10:25:14 [router.go:845] [D] | GET        | /                                        | 32.0018ms        | match      | /                                        | 
+2015/04/22 10:26:20 [router.go:845] [D] | GET        | /                                        | 32.0018ms        | match      | /                                        | 
+2015/04/22 10:27:11 [router.go:845] [D] | GET        | /                                        | 17.001ms         | match      | /                                        | 
+2015/04/22 10:29:10 [router.go:845] [D] | GET        | /                                        | 16.0009ms        | match      | /                                        | 
+2015/04/22 10:29:14 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 10:29:33 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 10:29:46 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/04/22 10:30:34 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/04/22 10:31:49 [router.go:845] [D] | GET        | /                                        | 29.0017ms        | match      | /                                        | 
+2015/04/22 11:09:56 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:09:58 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:10:55 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:10:55 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:12:05 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:12:05 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:14:37 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:14:37 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:21:46 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:21:46 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:22:12 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:22:12 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:29:54 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:29:54 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:31:42 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 11:31:48 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 11:32:48 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:32:48 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:32:51 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/04/22 11:32:53 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 11:34:36 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/04/22 11:35:12 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:35:13 [app.go:96] [I] http server Running on :8088
+2015/04/22 11:35:21 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/04/22 11:36:08 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:36:08 [app.go:96] [I] http server Running on :80
+2015/04/22 11:36:08 [proc.c:1445] [C] ListenAndServe: %!(EXTRA *net.OpError=listen tcp :80: bind: An attempt was made to access a socket in a way forbidden by its access permissions.)
+2015/04/22 11:37:32 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:37:33 [app.go:96] [I] http server Running on :80
+2015/04/22 11:37:38 [router.go:845] [D] | GET        | /                                        | 32.0019ms        | match      | /                                        | 
+2015/04/22 11:37:41 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 11:37:54 [router.go:845] [D] | GET        | /connect/wx_callback                     | 1.0001ms         | match      | /connect/wx_callback/*                   | 
+2015/04/22 11:37:54 [log.go:108] [D] Connect/Connect_Error Info: 
+2015/04/22 11:37:54 [router.go:876] [C] the request url is  /connect/connect_error 
+2015/04/22 11:37:54 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:connect/connect_error.tpl 
+2015/04/22 11:37:54 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:37:54 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:253 
+2015/04/22 11:37:54 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2015/04/22 11:37:54 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2015/04/22 11:37:54 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:37:54 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:37:54 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:38:08 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 11:38:24 [router.go:845] [D] | GET        | /connect/wx_callback                     | 1ms              | match      | /connect/wx_callback/*                   | 
+2015/04/22 11:38:24 [log.go:108] [D] Connect/Connect_Error Info: 
+2015/04/22 11:38:24 [router.go:876] [C] the request url is  /connect/connect_error 
+2015/04/22 11:38:24 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:connect/connect_error.tpl 
+2015/04/22 11:38:24 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:38:24 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:253 
+2015/04/22 11:38:24 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2015/04/22 11:38:24 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2015/04/22 11:38:24 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:38:24 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:38:24 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:40:02 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2015/04/22 11:41:06 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:41:06 [app.go:96] [I] http server Running on :80
+2015/04/22 11:41:15 [router.go:845] [D] | GET        | /connect/wx_login                        | 1.0001ms         | match      | /connect/wx_login/*                      | 
+2015/04/22 11:41:50 [log.go:108] [D] Connect/Wx_Callback Info:{"access_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971Oi87qW9e9PVEbTX56j4iigLW8Du-Vk-d3fvnI1kVg1UaikGhdp7FQmgUs2mdVrhUVImjAt2zxx3p037b8yPUCA","expires_in":7200,"refresh_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971xi7JRlKABLuu8WiJ8MrxHulx2R_c64akyk84ItEVyUIXPCc2Mas788vPYJcj7Ek_fLjJ9ucrH5tUeKlv1JrxyQ","openid":"ojnJCs3PSWM2RxaRd7FnW_wyUjZ8","scope":"snsapi_login","unionid":"oLTmCjsl_egMKo8taaiKvsACL8gI"} 
+2015/04/22 11:41:50 [router.go:876] [C] the request url is  /connect/wx_callback 
+2015/04/22 11:41:50 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:connect/wx_callback.tpl 
+2015/04/22 11:41:50 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:41:50 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:253 
+2015/04/22 11:41:50 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2015/04/22 11:41:50 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2015/04/22 11:41:50 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:41:50 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:41:50 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:47:37 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:47:38 [app.go:96] [I] http server Running on :80
+2015/04/22 11:47:41 [router.go:876] [C] the request url is  /connect/wx_callback 
+2015/04/22 11:47:41 [router.go:877] [C] Handler crashed with error interface conversion: interface is nil, not string 
+2015/04/22 11:47:41 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:47:41 [router.go:883] [C] C:/Users/999119~1/AppData/Local/Temp/1/makerelease561213055/go/src/pkg/runtime/iface.goc:292 
+2015/04/22 11:47:41 [router.go:883] [C] C:/Users/999119~1/AppData/Local/Temp/1/makerelease561213055/go/src/pkg/runtime/iface.goc:280 
+2015/04/22 11:47:41 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_connect.go:64 
+2015/04/22 11:47:41 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/04/22 11:47:41 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/04/22 11:47:41 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/04/22 11:47:41 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/04/22 11:47:41 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:47:41 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:47:41 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:48:32 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:48:32 [app.go:96] [I] http server Running on :80
+2015/04/22 11:48:33 [router.go:876] [C] the request url is  /connect/wx_callback 
+2015/04/22 11:48:33 [router.go:877] [C] Handler crashed with error interface conversion: interface is nil, not string 
+2015/04/22 11:48:33 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:48:33 [router.go:883] [C] C:/Users/999119~1/AppData/Local/Temp/1/makerelease561213055/go/src/pkg/runtime/iface.goc:292 
+2015/04/22 11:48:33 [router.go:883] [C] C:/Users/999119~1/AppData/Local/Temp/1/makerelease561213055/go/src/pkg/runtime/iface.goc:280 
+2015/04/22 11:48:33 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_connect.go:64 
+2015/04/22 11:48:33 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/04/22 11:48:33 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/04/22 11:48:33 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/04/22 11:48:33 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/04/22 11:48:33 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:48:33 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:48:33 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:48:57 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:48:57 [app.go:96] [I] http server Running on :80
+2015/04/22 11:48:59 [router.go:876] [C] the request url is  /connect/wx_callback 
+2015/04/22 11:48:59 [router.go:877] [C] Handler crashed with error interface conversion: interface is nil, not string 
+2015/04/22 11:48:59 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:48:59 [router.go:883] [C] C:/Users/999119~1/AppData/Local/Temp/1/makerelease561213055/go/src/pkg/runtime/iface.goc:292 
+2015/04/22 11:48:59 [router.go:883] [C] C:/Users/999119~1/AppData/Local/Temp/1/makerelease561213055/go/src/pkg/runtime/iface.goc:280 
+2015/04/22 11:48:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_connect.go:64 
+2015/04/22 11:48:59 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/04/22 11:48:59 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/04/22 11:48:59 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/04/22 11:48:59 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/04/22 11:48:59 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:48:59 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:48:59 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:49:16 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:49:16 [app.go:96] [I] http server Running on :80
+2015/04/22 11:49:18 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/04/22 11:49:49 [log.go:108] [D] Connect/Wx_Callback Info:{"access_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK9718BUbxxvUBlJAsTFGuJQU7Om_m55ygRoG8Plfvs_IyHcpXi86ucjFHBNEe8tOEH2OZWpJsJueabXGTJjzKMJjiQ","expires_in":7200,"refresh_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971cDx1RqmWfsouTdh8jG8ExTpT2b4qjEklptXHQiOraDt8t5VaPdySs5EK6rHD4XscNDfxqLPGohrddo3LlYnWFw","openid":"ojnJCs3PSWM2RxaRd7FnW_wyUjZ8","scope":"snsapi_login","unionid":"oLTmCjsl_egMKo8taaiKvsACL8gI"} 
+2015/04/22 11:49:49 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{ } 
+2015/04/22 11:49:49 [log.go:108] [D] Connect/Wx_Callback Info:&controllers.OpenSign{
+    Ret: ,
+    Msg: ,
+    Id: 0,
+    From: weixin,
+    OpenId: ,
+    Token: ,
+    Refresh: ,
+    NickName: ,
+    Gender: ,
+    Avatar_1: ,
+    Avatar_2: ,
+} 
+2015/04/22 11:49:50 [router.go:845] [D] | GET        | /connect/wx_callback                     | 1.5580891s       | match      | /connect/wx_callback/*                   | 
+2015/04/22 11:49:50 [log.go:108] [D] Connect/Connect_Error Info: 
+2015/04/22 11:49:50 [router.go:876] [C] the request url is  /connect/connect_error 
+2015/04/22 11:49:50 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:connect/connect_error.tpl 
+2015/04/22 11:49:50 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:49:50 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:253 
+2015/04/22 11:49:50 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2015/04/22 11:49:50 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2015/04/22 11:49:50 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:49:50 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:49:50 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:51:03 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:51:03 [app.go:96] [I] http server Running on :80
+2015/04/22 11:51:08 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 11:51:21 [log.go:108] [D] Connect/Wx_Callback Info:{"access_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971H6krnMY4mQuKKehZxtpU8B3aM7fK55JR3g1tgXZN_6NSFbbCiPcM4FAZT9HEFYPNwr95_NcoXfHzqPR6SvO3Qw","expires_in":7200,"refresh_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971RMmBprMoyg8AhWd3258xMP6M-dTzF6xJKNk6zSacneafVi1_96AooSq_uJUdoZ7f3RlGXgWBFPA665-04QNDsg","openid":"ojnJCs3PSWM2RxaRd7FnW_wyUjZ8","scope":"snsapi_login","unionid":"oLTmCjsl_egMKo8taaiKvsACL8gI"} 
+2015/04/22 11:51:21 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{ } 
+2015/04/22 11:51:21 [log.go:108] [D] Connect/Wx_Callback Info:&controllers.OpenSign{
+    Ret: ,
+    Msg: ,
+    Id: 0,
+    From: weixin,
+    OpenId: ,
+    Token: ,
+    Refresh: ,
+    NickName: ,
+    Gender: ,
+    Avatar_1: ,
+    Avatar_2: ,
+} 
+2015/04/22 11:51:22 [router.go:845] [D] | GET        | /connect/wx_callback                     | 1.5470885s       | match      | /connect/wx_callback/*                   | 
+2015/04/22 11:51:22 [log.go:108] [D] Connect/Connect_Error Info: 
+2015/04/22 11:51:22 [router.go:876] [C] the request url is  /connect/connect_error 
+2015/04/22 11:51:22 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:connect/connect_error.tpl 
+2015/04/22 11:51:22 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:51:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:253 
+2015/04/22 11:51:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2015/04/22 11:51:22 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2015/04/22 11:51:22 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:51:22 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:51:22 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:53:21 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:53:21 [app.go:96] [I] http server Running on :80
+2015/04/22 11:53:34 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/04/22 11:53:45 [log.go:108] [D] Connect/Wx_Callback Info:"access_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971uKhA1hwQIMc1oIMtXdijGfXUXXliHIR482osVqLrjGMpfDk2vrzdRrPzzCtHboIkcAIzmOq6kW_vCofxfX6EAQ","expires_in":7200,"refresh_token":"OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971jk82FaV-7feQtOM_1sW31stlh2-JdvVuvp5r3xDZV9I55bNwpMMX_FZws66K0HfoLgigda0fP1rxMEhu8VVE7w","openid":"ojnJCs3PSWM2RxaRd7FnW_wyUjZ8","scope":"snsapi_login","unionid":"oLTmCjsl_egMKo8taaiKvsACL8gI" 
+2015/04/22 11:53:45 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{ } 
+2015/04/22 11:53:45 [log.go:108] [D] Connect/Wx_Callback Info:&controllers.OpenSign{
+    Ret: ,
+    Msg: ,
+    Id: 0,
+    From: weixin,
+    OpenId: ,
+    Token: ,
+    Refresh: ,
+    NickName: ,
+    Gender: ,
+    Avatar_1: ,
+    Avatar_2: ,
+} 
+2015/04/22 11:53:46 [router.go:845] [D] | GET        | /connect/wx_callback                     | 1.5860908s       | match      | /connect/wx_callback/*                   | 
+2015/04/22 11:53:46 [log.go:108] [D] Connect/Connect_Error Info: 
+2015/04/22 11:53:46 [router.go:876] [C] the request url is  /connect/connect_error 
+2015/04/22 11:53:46 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:connect/connect_error.tpl 
+2015/04/22 11:53:46 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:53:46 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:253 
+2015/04/22 11:53:46 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2015/04/22 11:53:46 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2015/04/22 11:53:46 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:53:46 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:53:46 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:55:21 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:55:21 [app.go:96] [I] http server Running on :80
+2015/04/22 11:55:27 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:55:27 [app.go:96] [I] http server Running on :80
+2015/04/22 11:55:34 [router.go:845] [D] | GET        | /connect/wx_login                        | 1.0001ms         | match      | /connect/wx_login/*                      | 
+2015/04/22 11:55:44 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{
+        unionid: oLTmCjsl_egMKo8taaiKvsACL8gI,
+        access_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971eL5I3olTsiWrrI7pHhv0felQLQeJiuSwCIpNJaIvwvL_qy4-J7m2-mEp7WJqYelk63kFH7VQ_siYHK9_lQwJBA,
+        expires_in: 7200,
+        refresh_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971bbtj_lK2kcXE6xGXcPn3Zc0uzloXeGAfhxeiA0ClU3dbaTT6Z5zS66n5jKjKskTOhZh_xHF5Qe0gh8sLmnaMxg,
+        openid: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+        scope: snsapi_login,
+} 
+2015/04/22 11:55:44 [log.go:108] [D] Connect/Wx_Callback Info:&controllers.OpenSign{
+    Ret: ,
+    Msg: ,
+    Id: 0,
+    From: weixin,
+    OpenId: ,
+    Token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971eL5I3olTsiWrrI7pHhv0felQLQeJiuSwCIpNJaIvwvL_qy4-J7m2-mEp7WJqYelk63kFH7VQ_siYHK9_lQwJBA,
+    Refresh: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971bbtj_lK2kcXE6xGXcPn3Zc0uzloXeGAfhxeiA0ClU3dbaTT6Z5zS66n5jKjKskTOhZh_xHF5Qe0gh8sLmnaMxg,
+    NickName: ,
+    Gender: ,
+    Avatar_1: ,
+    Avatar_2: ,
+} 
+2015/04/22 11:55:46 [router.go:876] [C] the request url is  /connect/wx_callback 
+2015/04/22 11:55:46 [router.go:877] [C] Handler crashed with error runtime error: invalid memory address or nil pointer dereference 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:552 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/runtime/os_windows.c:359 
+2015/04/22 11:55:46 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/writer/controllers/c_connect.go:122 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/runtime/asm_386.s:383 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:563 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/reflect/value.go:411 
+2015/04/22 11:55:46 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:794 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/04/22 11:55:46 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/04/22 11:59:34 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 11:59:34 [app.go:96] [I] http server Running on :80
+2015/04/22 12:00:57 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:00:57 [app.go:96] [I] http server Running on :80
+2015/04/22 12:01:02 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:01:02 [app.go:96] [I] http server Running on :80
+2015/04/22 12:03:29 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:03:29 [app.go:96] [I] http server Running on :80
+2015/04/22 12:06:18 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:06:18 [app.go:96] [I] http server Running on :80
+2015/04/22 12:10:02 [router.go:845] [D] | GET        | /ifr_status/                             | 2.0001ms         | notmatch   | 
+2015/04/22 12:11:00 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:11:00 [app.go:96] [I] http server Running on :80
+2015/04/22 12:12:02 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:12:02 [app.go:96] [I] http server Running on :80
+2015/04/22 12:16:48 [router.go:845] [D] | GET        | /connect/wx_login                        | 1.0001ms         | match      | /connect/wx_login/*                      | 
+2015/04/22 12:16:52 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/04/22 12:16:59 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/04/22 12:17:03 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 12:18:13 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{
+        access_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971jFHj_5-EKCxo5ma-3hcCUzug16TkvUTYNVZUu7fwHPDt_p7cY3suE5-OezBItVlHj3kuWH8ZUQnGMk8zP2FvJw,
+        expires_in: 7200,
+        refresh_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971F9MBiuPt_ndMVx8xZhCCaCOyDNorq7bIphDNsizkMJErMHrtArEup7ReqTEuAHggkGHUA7TqYcFukRqkcPp4cQ,
+        openid: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+        scope: snsapi_login,
+        unionid: oLTmCjsl_egMKo8taaiKvsACL8gI,
+} 
+2015/04/22 12:18:13 [log.go:108] [D] Connect/Wx_Callback Info:&controllers.OpenSign{
+    Ret: ,
+    Msg: ,
+    Id: 0,
+    From: weixin,
+    OpenId: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+    Token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971jFHj_5-EKCxo5ma-3hcCUzug16TkvUTYNVZUu7fwHPDt_p7cY3suE5-OezBItVlHj3kuWH8ZUQnGMk8zP2FvJw,
+    Refresh: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971F9MBiuPt_ndMVx8xZhCCaCOyDNorq7bIphDNsizkMJErMHrtArEup7ReqTEuAHggkGHUA7TqYcFukRqkcPp4cQ,
+    NickName: ,
+    Gender: ,
+    Avatar_1: ,
+    Avatar_2: ,
+} 
+2015/04/22 12:18:13 [router.go:845] [D] | GET        | /connect/wx_callback                     | 668.0382ms       | match      | /connect/wx_callback/*                   | 
+2015/04/22 12:18:13 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2015/04/22 12:18:13 [router.go:845] [D] | POST       | /connect/signtrace                       | 111.0063ms       | match      | /connect/signtrace/*                     | 
+2015/04/22 12:19:13 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:19:13 [app.go:96] [I] http server Running on :80
+2015/04/22 12:19:14 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 12:19:24 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{
+        access_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971fGURrPzvwhu1RXz28piiT3EWlk05u2CwnIPL8xomU1Zs2H6ZqjlNYR-pX2djn2D9R-m5dP8kbcrVL7UJu52TKw,
+        expires_in: 7200,
+        refresh_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971IGwFOKQLxXpx1EgiyaaAxH3ryUUJN36BbeuW9kNUtv4SvWsU6EI0GHTBdtfOeEpbTOarJP4gCvmWCgHC3l5tGQ,
+        openid: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+        scope: snsapi_login,
+        unionid: oLTmCjsl_egMKo8taaiKvsACL8gI,
+} 
+2015/04/22 12:19:24 [log.go:108] [D] Connect/Wx_Callback Info:&controllers.OpenSign{
+    Ret: ,
+    Msg: ,
+    Id: 0,
+    From: weixin,
+    OpenId: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+    Token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971fGURrPzvwhu1RXz28piiT3EWlk05u2CwnIPL8xomU1Zs2H6ZqjlNYR-pX2djn2D9R-m5dP8kbcrVL7UJu52TKw,
+    Refresh: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971IGwFOKQLxXpx1EgiyaaAxH3ryUUJN36BbeuW9kNUtv4SvWsU6EI0GHTBdtfOeEpbTOarJP4gCvmWCgHC3l5tGQ,
+    NickName: L,
+    Gender: 1,
+    Avatar_1: http://wx.qlogo.cn/mmopen/XzhF92tBcewnNbvXLXygl3FlqNAlp1qibjSXuRWBkUs77CJ496km5Zq4894DcYtqJ83tO6EXJyC28jrZvcCksYghuU4xf5WX8/0,
+    Avatar_2: ,
+} 
+2015/04/22 12:19:24 [router.go:845] [D] | GET        | /connect/wx_callback                     | 642.0367ms       | match      | /connect/wx_callback/*                   | 
+2015/04/22 12:19:24 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2015/04/22 12:19:24 [router.go:845] [D] | POST       | /connect/signtrace                       | 98.0056ms        | match      | /connect/signtrace/*                     | 
+2015/04/22 12:33:09 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:33:09 [app.go:96] [I] http server Running on :80
+2015/04/22 12:33:40 [router.go:845] [D] | GET        | /connect/wx_login                        | 1.0001ms         | match      | /connect/wx_login/*                      | 
+2015/04/22 12:34:05 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 12:34:11 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 12:34:20 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{
+        access_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971Miqmv15hR0m8_OAgtpw-BAXNbAPRCMhcQ94QE47rX4xtFAJEJ4e1OEibXeLpSRssKtvhjRKIDnrdgXiwDy2yDw,
+        expires_in: 7200,
+        refresh_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971xaM4kph6BBb22_FIZpXo0FEsTcDJEsE-LfA3qktSf2PH33EeiZvVaVJxOQqcwttmHgWor28klO3hUon4BwLjzw,
+        openid: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+        scope: snsapi_login,
+        unionid: oLTmCjsl_egMKo8taaiKvsACL8gI,
+} 
+2015/04/22 12:34:20 [log.go:108] [D] Connect/Wx_Callback Info:&controllers.OpenSign{
+    Ret: ,
+    Msg: ,
+    Id: 0,
+    From: weixin,
+    OpenId: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+    Token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971Miqmv15hR0m8_OAgtpw-BAXNbAPRCMhcQ94QE47rX4xtFAJEJ4e1OEibXeLpSRssKtvhjRKIDnrdgXiwDy2yDw,
+    Refresh: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971xaM4kph6BBb22_FIZpXo0FEsTcDJEsE-LfA3qktSf2PH33EeiZvVaVJxOQqcwttmHgWor28klO3hUon4BwLjzw,
+    NickName: L,
+    Gender: 1,
+    Avatar_1: http://wx.qlogo.cn/mmopen/XzhF92tBcewnNbvXLXygl3FlqNAlp1qibjSXuRWBkUs77CJ496km5Zq4894DcYtqJ83tO6EXJyC28jrZvcCksYghuU4xf5WX8/0,
+    Avatar_2: ,
+} 
+2015/04/22 12:34:20 [router.go:845] [D] | GET        | /connect/wx_callback                     | 708.0405ms       | match      | /connect/wx_callback/*                   | 
+2015/04/22 12:34:20 [log.go:108] [D] Connect/SignTrace Info:记录登录日志 
+2015/04/22 12:34:20 [router.go:845] [D] | POST       | /connect/signtrace                       | 107.0061ms       | match      | /connect/signtrace/*                     | 
+2015/04/22 12:36:02 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:36:02 [app.go:96] [I] http server Running on :80
+2015/04/22 12:36:09 [router.go:845] [D] | GET        | /                                        | 24.0013ms        | match      | /                                        | 
+2015/04/22 12:36:11 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 12:36:21 [log.go:108] [D] Connect/Wx_Callback Info:map[string]interface {}{
+        access_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971yhCoW1xMKx4SvLcKZ-_AdFbE5a22nKXWGidnv3TBpzk9hzy8khLvlCMTcE97dLFZxMVHY8Zs_DLRaQ9lkMRf3w,
+        expires_in: 7200,
+        refresh_token: OezXcEiiBSKSxW0eoylIeNZr0N92v12cGrA9XedZUWEqvZW-F6tlvCNpK6rtK971Ya-pW3PDCiUwS-1H2NVuPDWlTt3qjrTwKPhflD17o-Ok2GbKFRFnkmIZHKZxmumF2TU0qaR92F-RAmq4WCqzsw,
+        openid: ojnJCs3PSWM2RxaRd7FnW_wyUjZ8,
+        scope: snsapi_login,
+        unionid: oLTmCjsl_egMKo8taaiKvsACL8gI,
+} 
+2015/04/22 12:36:21 [router.go:845] [D] | GET        | /connect/wx_callback                     | 656.0376ms       | match      | /connect/wx_callback/*                   | 
+2015/04/22 12:36:21 [log.go:108] [D] Connect/SignTrace Info:创建新的账户 
+2015/04/22 12:36:21 [m_base.go:132] [E] 无效数据：%s-%s AccessToken.MaxSize Maximum size is 32 
+2015/04/22 12:36:21 [m_base.go:132] [E] 无效数据：%s-%s RefreshToken.MaxSize Maximum size is 32 
+2015/04/22 12:36:21 [router.go:845] [D] | POST       | /connect/signtrace                       | 102.0059ms       | match      | /connect/signtrace/*                     | 
+2015/04/22 12:50:49 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:50:49 [app.go:96] [I] http server Running on :80
+2015/04/22 12:51:01 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:51:01 [app.go:96] [I] http server Running on :80
+2015/04/22 12:53:20 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:53:20 [app.go:96] [I] http server Running on :80
+2015/04/22 12:54:01 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 12:54:01 [app.go:96] [I] http server Running on :80
+2015/04/22 13:01:56 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 13:01:56 [app.go:96] [I] http server Running on :80
+2015/04/22 13:02:41 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 13:02:41 [app.go:96] [I] http server Running on :80
+2015/04/22 13:12:02 [main.go:16] [I] writer 0.1.14.1105 
+2015/04/22 13:12:02 [app.go:96] [I] http server Running on :80
+2015/04/22 13:23:42 [router.go:845] [D] | GET        | /                                        | 17.0009ms        | match      | /                                        | 
+2015/04/22 13:25:59 [router.go:845] [D] | GET        | /                                        | 27.0015ms        | match      | /                                        | 
+2015/04/22 13:26:21 [router.go:845] [D] | GET        | /                                        | 19.001ms         | match      | /                                        | 
+2015/04/22 13:26:55 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2015/04/22 13:27:36 [router.go:845] [D] | GET        | /                                        | 30.0018ms        | match      | /                                        | 
+2015/04/22 13:28:19 [router.go:845] [D] | GET        | /                                        | 26.0015ms        | match      | /                                        | 
+2015/04/22 13:31:54 [router.go:845] [D] | GET        | /                                        | 29.0016ms        | match      | /                                        | 
+2015/04/22 13:35:34 [router.go:845] [D] | GET        | /                                        | 19.0011ms        | match      | /                                        | 
+2015/04/22 13:37:10 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2015/04/22 13:37:32 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 13:38:13 [router.go:845] [D] | GET        | /                                        | 25.0014ms        | match      | /                                        | 
+2015/04/22 13:38:15 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/04/22 13:39:28 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/04/22 13:41:21 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2015/04/22 13:41:45 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 13:41:59 [router.go:845] [D] | GET        | /                                        | 31.0017ms        | match      | /                                        | 
+2015/04/22 13:42:49 [router.go:845] [D] | GET        | /                                        | 32.0018ms        | match      | /                                        | 
+2015/04/22 13:43:11 [router.go:845] [D] | GET        | /                                        | 29.0017ms        | match      | /                                        | 
+2015/04/22 13:43:13 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/04/22 13:43:29 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
+2015/04/22 13:43:43 [router.go:845] [D] | GET        | /                                        | 22.0013ms        | match      | /                                        | 
+2015/04/22 13:43:58 [router.go:845] [D] | GET        | /                                        | 26.0015ms        | match      | /                                        | 

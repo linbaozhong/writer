@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>{{i18n .Lang "app title"}}</title>
+		<meta property="qc:admins" content="6050272677640117256375" />
+		<link rel="shortcut icon" href="/static/img/favicon.ico" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/index.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body class="metro">
+		<a href="/">
+			<div id="logo" class="text-center fg-white">
+				{{i18n .Lang "app sitename"}}
+			</div>
+		</a>
+		{{.LayoutContent}}
+	</body>
+
+</html>
+<script type="text/javascript">
+	var snow = {
+		speed: 300,
+		width: $(window).width(),
+		log: function() {
+			console.log(arguments);
+		},
+		go: function(url) {
+			window.location = url;
+		},
+		account: {
+			id: '{{.account.Id}}',
+			nickName: $.cookie('nickname'),
+			avatar: $.cookie('avatar'),
+			openFrom: $.cookie('from'),
+			accessToken: $.cookie('token')
+		},
+		checkin: function(u) {
+			if (u) {
+				var _avatar = $('#avatar').data('hint', u.nickName);
+				_avatar.find('img').attr('src', u.avatar_1);
+				_avatar.find('.nickname').text(u.nickName);
+				snow.account.id = u.accoundId;
+				$('.snow-profile', snow.right).show();
+				$('#login').hide();
+				return true;
+			} else if ($.cookie('_snow_token') && $.cookie('_snow_token').length) {
+				var _avatar = $('#avatar').data('hint', snow.account.nickName);
+				_avatar.find('img').attr('src', snow.account.avatar);
+				_avatar.find('.nickname').text(snow.account.nickName);
+				$('.snow-profile', snow.right).show();
+				$('#login').hide();
+				return true;
+			} else {
+				$('.snow-profile', snow.right).hide();
+				$('#login').show();
+				return false;
+			}
+		},
+		notify: function() {
+			var _caption = '',
+				_content = '';
+			switch (arguments.length) {
+				case 0:
+					return;
+					break;
+				case 1:
+					_content = arguments[0];
+					break;
+				default:
+					_caption = arguments[0];
+					_content = arguments[1];
+					break;
+			}
+			$.Notify({
+				caption: _caption,
+				content: _content,
+				style: {
+					background: '#1ba1e2',
+					color: '#ffffff'
+				},
+				timeout: 5000
+			});
+		},
+		article: {}
+	};
+	
+	snow.api = {
+		signUp: '/signUp',
+		signIn: '/signIn',
+		signOut: '/signOut',
+		signTrace: '/connect/signtrace',
+		books: '/home/books',
+		mybooks: '/home/books/my',
+		catalog: '/home/catalog',
+		tags: '/home/tags',
+		content: '/home/content',
+		single: '/home/single',
+		docSave: '/article/update',
+		docDelete: '/article/delete',
+		docPosition: '/article/position'
+	};
+
+	//注册登录框
+	snow.sign = $('#snow-sign').css({
+		top:0,
+		width: 400,
+		right: 0,
+		left: 0
+	});
+
+	//打开登录注册框，提醒登录
+	function openSign() {
+		snow.notify('你还没有登录呢 ~~~');
+	};
+		//
+
+	function open_login(u) {
+		snow.account.nickName = u.NickName;
+		snow.account.gender = u.Gender;
+		snow.account.avatar = u.Avatar_1;
+		snow.account.openFrom = u.From;
+		snow.account.openId = u.OpenId;
+		snow.account.accessToken = u.Token;
+		//console.log(u);		
+		//记录登录状态
+		$.post(snow.api.signTrace, {
+			from: u.From,
+			token: u.Token,
+			openId: u.OpenId,
+			nickName: u.NickName,
+			gender: u.Gender,
+			refresh: u.Refresh,
+			avatar_1: u.Avatar_1,
+			avatar_2: u.Avatar_2
+		}, function(d) {
+			if (d.ok) {
+				$(".getout").click();
+				// 变更登录状态
+				snow.checkin(d.data);
+			}
+		});
+	};
+	//
+	$(window).resize(function() {
+		// 窗体宽度
+		snow.width = $(this).width();
+
+		// 左侧工作区
+		snow.left.css({
+			right: snow.nav.right.width,
+			left: snow.nav.left.width
+		});
+
+	}).resize();
+	
+	setTimeout(function() {
+		//打开登录注册框
+		if (!snow.checkin()) {
+			openSign();
+		}
+	}, 100);
+
+	// 登录 --- 事件
+	$('#login').click(function() {
+		openSign();
+	}).hover(
+		function() {
+			var _this = $(this);
+			_this.find('.snow-login').css('top', _this.offset().top).stop().animate({
+				right: snow.nav.right.width
+			});
+		},
+		function() {
+			var _this = $(this);
+			_this.find('.snow-login').css('top', _this.offset().top).stop().animate({
+				right: -_this.find('.snow-login').width()
+			});
+		}
+	);
+
+
+	$("#qqLogin").click(function() {
+		window.open('/connect/qq_login', 'sign_dialog', 'width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
+	});
+
+	//
+	// 通用方法，只要包含超链接href属性的，都转为超链接
+	document.onclick = function(e) {
+		var _href = e.target.getAttribute('href');
+		if (e.target.tagName.toLowerCase() != 'a' && _href && _href.trim().length) {
+			var el = document.createElement("a"),
+				_target = e.target.getAttribute('target');
+			document.body.appendChild(el);
+			el.href = _href; //url 是你得到的连接
+			el.target = _target ? _target : ''; //指定在新窗口打开
+			el.click();
+			document.body.removeChild(el);
+		}
+	};
+</script>

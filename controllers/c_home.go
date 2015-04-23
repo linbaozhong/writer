@@ -11,7 +11,7 @@ type Home struct {
 }
 
 func (this *Home) Get() {
-	//this.page.Title = "haa"
+	this.Layout = "_blankLayout.html"
 	this.Data["account"] = this.currentUser
 
 	this.setTplNames("index")
