@@ -1,1 +1,39 @@
-/*可以在这里添加你自己的css*/
+*{
+	font-family: "微软雅黑", "Microsoft Yahei" !important;
+	color:#444;
+	font-size: 12px;
+}
+h1 {
+	font-size: 1.4em !important;
+}
+h2 {
+	font-size: 1.3em !important;
+}
+h3 {
+	font-size: 1.2em !important;
+}
+h4 {
+	font-size: 1.1em !important;
+}
+h5,
+h6 {
+	font-size: 1em !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/*font-weight: 400 !important;*/
+	font-weight: bold;
+	line-height: initial;
+	margin: 0 0 .8em;
+	color: #555 !important;
+}
+p{
+	line-height: 28px;
+	font-size: 15px;
+	color: inherit;
+	letter-spacing: 1px;
+}
