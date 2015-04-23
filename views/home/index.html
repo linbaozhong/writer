@@ -1,53 +1,31 @@
-<!--左侧框--工作区-->
-<div id="snow-left" class="bg-white">
-	<div class="chouti" style="height:100%;">
-		<div class="frame">
-			<header>
-				<form class="doc user-input native" style="display:none;">
-					<input type="hidden" name="id" id="doc-id" value="" />
-					<input type="hidden" name="moreId" id="doc-moreId" value="" />
-					<input type="hidden" name="parentId" id="doc-parentId" value="" />
-					<input type="hidden" name="documentId" id="doc-documentId" value="" />
-					<input type="hidden" name="position" id="doc-position" value="" />
-					<script id="myEditor" name="content" type="text/plain">
-
-					</script>
-					<div class="form-actions text-right" style="margin-top: 10px;">
-						<button name="btn-save" type="button" data-role="0" class="button primary">保存</button>
-						<button name="btn-cancel" type="button" data-role="0" class="button">取消</button>
-					</div>
-				</form>
-				<div class="doc-add text-center">
-					<a>拖拽文档到这里 或者</a><a href="javascript:;" class="doc-plus"><i class="fa fa-plus-circle on-right-more on-left"></i>新建</a>
-				</div>
-
-			</header>
-
-			<footer>
-				<div class="mask" />
-			</footer>
+<!--中间的注册登录框-->
+<div id="snow-sign" class="text-center fg-gray">
+	<div style="margin-top:150px;font-size:2em;font-weight:bold;">
+		<span class="padding10">niux<b style="color:red;">.</b>ren</span>
+		<span class="padding10">程序员社区</span>
+	</div>
+	<div style="margin-top:30px;">
+		<img src="/static/img/logo_100.png" />
+	</div>
+	<div class="user-sign fg-gray" style="margin-top: 200px;">
+		<div>
+			<h5 class="fg-gray">使用合作网站账户登录</h5>
 		</div>
+		<div class="">
+			<span id="">
+						<a href="#" id="weixin_login">
+			<img src="https://open.weixin.qq.com/zh_CN/htmledition/res/assets/res-design-download/icon32_wx_logo.png" /> 微信</a>
+			</span>
+			<span style="margin-left:20px;">
+						<a href="#" id="qq_login">
+			<img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/bt_white_24X24.png" /> QQ</a>
+			</span>
+		</div>
+
 	</div>
 </div>
-<!--书签-->
-<!--<div class="bookmarks bookmarks-left bg-gray">
-	<h1>
-	<i class="icon-arrow-left-3 fg-white"></i></h1>
-</div>
-<div class="bookmarks bookmarks-right bg-gray">
-	<h1>
-	<i class="icon-arrow-right-3 fg-white"></i></h1>
-</div>-->
-
-<!--编辑器-->
-<script type="text/javascript" charset="utf-8" src="/static/js/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="/static/js/ueditor.all.min.js"></script>
-<script type="text/javascript" src="/static/js/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/addKityFormulaDialog.js"></script>
-<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/getKfContent.js"></script>
-<script type="text/javascript" charset="utf-8" src="/static/js/kityformula-plugin/defaultFilterFix.js"></script>
-
 <script type="text/javascript">
+<<<<<<< HEAD
 	$(function(){
 		//实例化编辑器
 		snow.ue = UE.getEditor('myEditor'),
@@ -439,5 +417,9 @@
 		// 		$(this).css('opacity', 0.1);
 		// 	}
 		// );
+=======
+	$("#weixin_login").click(function() {
+		window.open('/connect/wx_login', 'sign_dialog', 'width=600,height=520,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
+>>>>>>> origin/master
 	});
 </script>

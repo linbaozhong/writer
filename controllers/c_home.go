@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"strings"
 	"writer/models"
 	"zouzhe/utils"
 )
@@ -10,7 +11,7 @@ type Home struct {
 }
 
 func (this *Home) Get() {
-	//this.page.Title = "haa"
+	this.Layout = "_blankLayout.html"
 	this.Data["account"] = this.currentUser
 
 	this.setTplNames("index")
@@ -49,7 +50,7 @@ func (this *Home) Books() {
 	p.Count, _ = this.GetInt("count")
 	// 读取查询条件
 	moreId, _ := this.GetInt64("moreId")
-	tags := this.GetString("tags")
+	tags := "'" + strings.Replace(strings.TrimSpace(this.GetString("tags")), " ", "','", -1) + "'"
 
 	// 拉取
 	a := new(models.Article)
@@ -65,19 +66,19 @@ func (this *Home) Books() {
 	}
 
 	if my == "" {
-		if tags == "" {
+		if len(tags) == 0 {
 			as, err = a.List(p, cond, moreId)
 		} else {
-			as, err = a.List(p, cond+" and documents.tags = ?", moreId, tags)
+			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in ("+tags+")))", moreId)
 		}
 	} else {
-		if tags == "" {
+		if len(tags) == 0 {
 			as, err = a.List(p, cond+" and articles.creator = ?", moreId, this.currentUser.Id)
 		} else {
-			as, err = a.List(p, cond+" and documents.tags = ? and articles.creator = ?", moreId, tags, this.currentUser.Id)
+			as, err = a.List(p, cond+" and articles.id in (select articleId from tagarticle where tagId in (select id from tags where name in ("+tags+"))) and articles.creator = ?", moreId, this.currentUser.Id)
 		}
 	}
-
+	this.trace(err)
 	if err == nil {
 		rj := new(models.ReturnJson)
 		rj.Data = as
@@ -87,6 +88,7 @@ func (this *Home) Books() {
 	} else {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
+
 }
 
 // 读取最常用标签
@@ -167,3 +169,10 @@ func (this *Home) Single() {
 		this.renderJson(utils.JsonMessage(false, "", err.Error()))
 	}
 }
+
+//// 搜索标签
+//func (this *Home)Search(){
+//	// 读取请求标签
+//	tags = this.GetString('k')
+
+//}

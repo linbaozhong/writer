@@ -151,6 +151,7 @@ body {
 	left: -48px;
 	top: -3px;
 	letter-spacing: 2px;
+	z-index: 10;
 }
 #snow-lang .snow-languages{
 	position:absolute;
@@ -193,11 +194,10 @@ div.nav-info-box {
 	position: fixed;
 	left: 0;
 	right: 0;
-	top: -2000px;
+	top: 0px;
 	height: 100%;
 	width: 400px;
 	margin: 0 auto;
-	color: white !important;
 	z-index: 1000;
 }
 /*左侧框*/
@@ -345,9 +345,10 @@ div.doc:hover {
 	border:1px dashed #eee;
 }
 div.doc:hover .doc-handle,
+div.doc:hover .doc-remark,
 div.doc:hover .doc-tools,
 div.doc:hover .doc-plus {
-	display: block;
+	display: inline-block;
 }
 div.doc .doc-info {
 	padding: 20px 20px 0 20px;
@@ -363,7 +364,7 @@ div.doc.active  .doc-handle{
 div.doc footer {
 	padding: 0 10px;
 	font-size: .8em;
-	color: gray;
+	color: #ccc;
 	height: 20px;
 	position: relative;
 }
@@ -430,7 +431,8 @@ div.doc .doc-children:hover{
 	opacity: .4;
 }
 div.doc .doc-remark {
-
+	padding-right: .5em;
+	display: none;
 } 
 div.doc .tools {
 	margin-left: 10px;

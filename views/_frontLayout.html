@@ -3,7 +3,7 @@
 <html>
 
 	<head>
-		<title>{{.Page.Title}}</title>
+		<title>{{i18n .Lang "app title"}}</title>
 		<meta property="qc:admins" content="6050272677640117256375" />
 		<link rel="shortcut icon" href="/static/img/favicon.ico" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,7 +11,8 @@
 		<!-- <link rel="stylesheet" type="text/css" href="/static/css/iconFont.min.css" /> -->
 		<link rel="stylesheet" href="/static/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="/static/css/metro-bootstrap.min.css" />
-		<script src="/static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="/static/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/static/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/static/js/jquery.mousewheel.js" type="text/javascript"></script>
@@ -28,11 +29,15 @@
 	</head>
 
 	<body class="metro">
+		<a href="/">
+			<div id="logo" class="text-center fg-white">
+				<!--{{.Page.SiteName}}-->
+				{{i18n .Lang "app sitename"}}
+			</div>
+		</a>
 		<!--左侧导航条-->
 		<nav id="nav-left" class="bg-dark">
-			<a href="/"><div id="logo" class="text-center fg-white">
-				{{.Page.SiteName}}
-			</div></a>
+
 			<div id="tags" class="fg-white text-bold" style="margin:0;padding:0;">
 
 			</div>
@@ -50,14 +55,15 @@
 					</div>
 					<div class="snow-login">
 						<a href="javascript:;" id="qqLogin">
-						<i class="fa fa-qq fa-lg padding5"></i><br />
-						QQ</a>
+							<i class="fa fa-qq fa-lg padding5"></i>
+							<br /> QQ
+						</a>
 						<a href="javascript:;"><i class="fa fa-weibo fa-lg padding5"></i><br />新浪微博</a>
 					</div>
 				</li>
 				<li id="avatar" class="snow-profile image-container" style="height: 90px;display:none;" data-hint="" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
-					<img src="" class="cycle"  />
-					<div class="nickname"  style="color:#fff !important">
+					<img src="" class="cycle" />
+					<div class="nickname" style="color:#fff !important">
 					</div>
 				</li>
 				<li id="logout" class="snow-profile" style="display:none;" data-hint="注销" data-hint-position="left" data-click="transform" data-role="1" data-rel="">
@@ -151,7 +157,7 @@
 			<div class="search-box pos-abs" style="width:75%;top:0;height:46px;padding:6px;right:6px;background-color:#1ba1e2;z-index: 10;display: none;">
 				<div class="input-control text">
 					<input type="text" name="keywords" placeholder="在这里输入标签进行搜索吧..." class="" style="padding-right:4.6em;border-width:0;">
-					<a href="#" title="搜索" class="search-close pos-abs padding10" style="right:30px;bottom:0;"><i class="fa fa-search"></i></a>
+					<a href="#" title="搜索" class="search-start pos-abs padding10" style="right:30px;bottom:0;"><i class="fa fa-search"></i></a>
 					<a href="#" title="隐藏" class="search-close place-bottom-right padding10"><i class="fa fa-angle-up"></i></a>
 				</div>
 			</div>
@@ -168,7 +174,87 @@
 
 </html>
 <script type="text/javascript">
-
+	// 扩展字符串方法，用指定字符填充字符串
+	String.prototype.padLeft = function(int, char) {
+		if (this.length >= int) {
+			return this;
+		} else {
+			var n = int - this.length,
+				s = [];
+			for (var i = 0; i < n; i++) {
+				s.push(char);
+			}
+			return s.join('') + this;
+		}
+	};
+	// 扩展日期方法，日期格式化
+	Date.prototype.format = function(format) {
+		var date = this;
+		if (arguments.length == 0 && !date.getTime) {
+			format = date;
+			date = new Date();
+		}
+		if (typeof format != 'string') {
+			var _now = new Date(),
+				_fmt = [];
+			if (date.getFullYear() != _now.getFullYear()) {
+				_fmt.push('yyyy年');
+			}
+			if (date.getMonth() != _now.getMonth()) {
+				_fmt.push('MM月');
+			}
+			if (date.getDate() != _now.getDate()) {
+				if (_fmt.length) {
+					_fmt.push('dd日');
+				} else {
+					var _day = _now.getDate() - date.getDate();
+					if (_day > 2) {
+						_fmt.push('当月dd日');
+					} else {
+						return _day == 1 ? '昨天' : '前天';
+					}
+				}
+			}
+			if (!_fmt.length) {
+				if (date.getHours() != _now.getHours()) {
+					return (_now.getHours() - date.getHours()).toString() + '小时前';
+				}
+				if (date.getMinutes() != _now.getMinutes()) {
+					return (_now.getMinutes() - date.getMinutes()).toString() + '分钟前';
+				}
+				return '刚刚';
+			}
+			//format = 'yyyy年MM月dd日 hh时mm分ss秒';
+			format = _fmt.join('');
+		}
+		var week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', '日', '一', '二', '三', '四', '五', '六'];
+		return format.replace(/yyyy|yy|MM|dd|hh|mm|ss|星期|周|www|week/g, function(a) {
+			switch (a) {
+				case "yyyy":
+					return date.getFullYear();
+				case "yy":
+					return (date.getFullYear() + "").slice(2);
+				case "MM":
+					return (date.getMonth() + 1).toString(); //.padLeft(2,'0');
+				case "dd":
+					return date.getDate().toString(); //.padLeft(2, '0');
+				case "hh":
+					return date.getHours().toString().padLeft(2, '0');
+				case "mm":
+					return date.getMinutes().toString().padLeft(2, '0');
+				case "ss":
+					return date.getSeconds().toString().padLeft(2, '0');
+				case "星期":
+					return "星期" + week[date.getDay() + 7];
+				case "周":
+					return "周" + week[date.getDay() + 7];
+				case "week":
+					return week[date.getDay()];
+				case "www":
+					return week[date.getDay()].slice(0, 3);
+			}
+		});
+	};
 	var snow = {
 		speed: 300,
 		width: $(window).width(),
@@ -178,53 +264,52 @@
 		inc: function() {
 			return '/static/inc/_' + arguments[0] + '.html';
 		},
-		go : function(url){
+		go: function(url) {
 			window.location = url;
 		},
 		left: $('#snow-left'),
 		scrollbar: $('#scrollbar_vertical'),
-		account : {
-			id:{{.account.Id}},
-			nickName:$.cookie('nickname'),
-			avatar:$.cookie('avatar'),
-			openFrom:$.cookie('from'),
-			accessToken:$.cookie('token')
+		account: {
+			id: '{{.account.Id}}',
+			nickName: $.cookie('nickname'),
+			avatar: $.cookie('avatar'),
+			openFrom: $.cookie('from'),
+			accessToken: $.cookie('token')
 		},
 		//是否当期文档的所有者
-		owner:function(article){
+		owner: function(article) {
 			return article.data('creator') == snow.account.id;
 		},
 		//是否当期文档的作者
-		updator:function(article){
+		updator: function(article) {
 			return article.data('updator') == snow.account.id;
 		},
-		checkin : function(u){
-			if(u){
-				var _avatar = $('#avatar').data('hint',u.nickName);
-				_avatar.find('img').attr('src',u.avatar_1);
+		checkin: function(u) {
+			if (u) {
+				var _avatar = $('#avatar').data('hint', u.nickName);
+				_avatar.find('img').attr('src', u.avatar_1);
 				_avatar.find('.nickname').text(u.nickName);
-
 				snow.account.id = u.accoundId;
-
-				$('.snow-profile',snow.right).show();
+				$('.snow-profile', snow.right).show();
 				$('#login').hide();
 				return true;
-			}else if($.cookie('_snow_token') && $.cookie('_snow_token').length){
-				var _avatar = $('#avatar').data('hint',snow.account.nickName);
-				_avatar.find('img').attr('src',snow.account.avatar);
+			} else if ($.cookie('_snow_token') && $.cookie('_snow_token').length) {
+				var _avatar = $('#avatar').data('hint', snow.account.nickName);
+				_avatar.find('img').attr('src', snow.account.avatar);
 				_avatar.find('.nickname').text(snow.account.nickName);
-				$('.snow-profile',snow.right).show();
+				$('.snow-profile', snow.right).show();
 				$('#login').hide();
 				return true;
-			}else{
-				$('.snow-profile',snow.right).hide();
+			} else {
+				$('.snow-profile', snow.right).hide();
 				$('#login').show();
 				return false;
 			}
 		},
-		notify:function(){
-			var _caption='',_content='';
-			switch (arguments.length){
+		notify: function() {
+			var _caption = '',
+				_content = '';
+			switch (arguments.length) {
 				case 0:
 					return;
 					break;
@@ -237,42 +322,56 @@
 					break;
 			}
 			$.Notify({
-				caption:_caption,
-				content:_content,
-				style:{background:'#1ba1e2',color:'#ffffff'},
-				timeout:5000
+				caption: _caption,
+				content: _content,
+				style: {
+					background: '#1ba1e2',
+					color: '#ffffff'
+				},
+				timeout: 5000
 			});
 		},
-		article:{}
+		article: {}
 	};
-
 	snow.api = {
-		signUp:'/signUp'
-		,signIn:'/signIn'
-		,signOut:'/signOut'
-		,signTrace:'/connect/signtrace'
-		,books:'/home/books'
-		,mybooks:'/home/books/my'
-		,catalog:'/home/catalog'
-		,tags:'/home/tags'
-		,content:'/home/content'
-		,single:'/home/single'
-		,docSave:'/article/update'
-		,docDelete:'/article/delete'
-		,docPosition:'/article/position'
+		signUp: '/signUp',
+		signIn: '/signIn',
+		signOut: '/signOut',
+		signTrace: '/connect/signtrace'
+			//,search:'/home/search'
+			,
+		books: '/home/books',
+		mybooks: '/home/books/my',
+		catalog: '/home/catalog',
+		tags: '/home/tags',
+		content: '/home/content',
+		single: '/home/single',
+		docSave: '/article/update',
+		docDelete: '/article/delete',
+		docPosition: '/article/position'
 	};
-
 	// 搜索框显示和隐藏事件
 	snow.scrollbar.find('a.search-open').click(function() {
 		snow.scrollbar.find('div.search-box').stop().slideDown('fast').find('input').focus();
 	});
-	snow.scrollbar.find('a.search-close').click(function(){
+	snow.scrollbar.find('a.search-close').click(function() {
 		snow.scrollbar.find('div.search-box').stop().slideUp('fast');
 	});
-	snow.scrollbar.find('div.search-box input').blur(function(){
+	snow.scrollbar.find('div.search-box input').blur(function() {
 		snow.scrollbar.find('div.search-box').stop().slideUp('fast');
+	}).keypress(function(e) {
+		if (e.which == 13) {
+			$(this).siblings('a.search-start').click();
+		}
 	});
-	
+	snow.scrollbar.find('a.search-start').click(function() {
+		var _keyword = $.trim($(this).siblings('input').val());
+		if (_keyword.length) {
+			snow.notify('努力加载中 ~~~')
+		} else {
+			snow.notify('不会吧?还没有输入关键词呢 ~~~');
+		}
+	});
 	// 滚动条拖拽块事件
 	snow.scrollbar.drager = snow.scrollbar.find('#dragger_vertical').draggable({
 		axis: "y",
@@ -285,11 +384,9 @@
 				_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 				_step = _height / _maxHeight,
 				_top = ui.position.top / _step * (-1);
-
 			_first.css({
 				marginTop: _top
 			});
-
 			// 保存当前位置
 			_this.data('position', _top);
 		}
@@ -300,37 +397,31 @@
 		right: -1000
 	};
 	//
-
 	// 导航条
 	snow.nav = {
 		left: $('#nav-left'),
 		right: $('#nav-right')
 	};
-	if(!snow.left.find('.snow-read').length){
-		snow.nav.left.css('width',0);
+	if (!snow.left.find('.snow-read').length) {
+		snow.nav.left.css('width', 0);
 	}
 	snow.nav.left.width = snow.nav.left.width();
 	snow.nav.right.width = snow.nav.right.width();
 	//注册登录框
-//	snow.sign = $('#snow-sign').css({
-//		top:-2000,
-//		width: 400,
-//		right: snow.nav.right.width,
-//		left: snow.nav.left.width
-//	});
-
+	//	snow.sign = $('#snow-sign').css({
+	//		top:-2000,
+	//		width: 400,
+	//		right: snow.nav.right.width,
+	//		left: snow.nav.left.width
+	//	});
 	/*
 	 * 解决传统浏览器不支持placeholder问题
 	 */
 	function placeholder() {
-
 		if (!('placeholder' in document.createElement('input'))) {
-
 			$('input[placeholder],textarea[placeholder]').each(function() {
-
 				var that = $(this),
 					text = that.attr('placeholder');
-
 				if (that.val() === "") {
 					that.val(text).addClass('placeholder');
 				}
@@ -362,49 +453,45 @@
 			}
 		});
 	};
-
 	//打开登录注册框，提醒登录
 	function openSign() {
-		// if (!snow.sign.hasClass('active')) {
-		// 	snow.sign.animate({
-		// 		top: 0
-		// 	}, snow.speed, function() {
-		// 		snow.sign.addClass('active');
-		// 	});
-		// }
-		snow.notify('你还没有登录呢 ~~~')
-	}
+			// if (!snow.sign.hasClass('active')) {
+			// 	snow.sign.animate({
+			// 		top: 0
+			// 	}, snow.speed, function() {
+			// 		snow.sign.addClass('active');
+			// 	});
+			// }
+			snow.notify('你还没有登录呢 ~~~');
+		}
+		//
 
-	//
-	function open_login(u){
+	function open_login(u) {
 		snow.account.nickName = u.NickName;
 		snow.account.gender = u.Gender;
 		snow.account.avatar = u.Avatar_1;
 		snow.account.openFrom = u.From;
 		snow.account.openId = u.OpenId;
 		snow.account.accessToken = u.Token;
-		
 		//console.log(u);		
-		
 		//记录登录状态
-		$.post(snow.api.signTrace,{
-			from:u.From,
-			token:u.Token,
-			openId:u.OpenId,
-			nickName:u.NickName,
-			gender:u.Gender,
-			refresh:u.Refresh,
-			avatar_1:u.Avatar_1,
-			avatar_2:u.Avatar_2
-		},function(d){
-			if(d.ok){
+		$.post(snow.api.signTrace, {
+			from: u.From,
+			token: u.Token,
+			openId: u.OpenId,
+			nickName: u.NickName,
+			gender: u.Gender,
+			refresh: u.Refresh,
+			avatar_1: u.Avatar_1,
+			avatar_2: u.Avatar_2
+		}, function(d) {
+			if (d.ok) {
 				$(".getout").click();
 				// 变更登录状态
 				snow.checkin(d.data);
 			}
 		});
 	};
-
 	//
 	$(window).resize(function() {
 		// 窗体宽度
@@ -418,133 +505,120 @@
 			right: snow.nav.right.width,
 			left: snow.nav.left.width
 		});
-		
 		// 重绘工作区
-		if(snow.left.find('.snow-index').length || snow.left.find('.snow-read').length){
-			var _frames = snow.left.find('.frame'),_width = snow.left.width();
-			if (_width < 2*600 && _frames.eq(0).width() < 600) {
-				_frames.eq(0).css('width',600);
+		if (snow.left.find('.snow-index').length || snow.left.find('.snow-read').length) {
+			var _frames = snow.left.find('.frame'),
+				_width = snow.left.width();
+			if (_width < 2 * 600 && _frames.eq(0).width() < 600) {
+				_frames.eq(0).css('width', 600);
 				_frames.eq(1).css({
-					width:_width - 600,
-					left:600
+					width: _width - 600,
+					left: 600
 				})
-			}else{
-				_frames.css('width','50%');
-				_frames.eq(1).css('left','50%');
+			} else {
+				_frames.css('width', '50%');
+				_frames.eq(1).css('left', '50%');
 			}
 		}
-
 		//
-		snow.left.find('.frame').each(function(){
+		snow.left.find('.frame').each(function() {
 			var _this = $(this);
 			_this.css({
 				height: _this.parent().height()
 			});
 		});
 	}).resize();
-
-
 	setTimeout(function() {
 		// 拉取数据
 		dataLoading();
 		// 解决传统浏览器不支持placeholder问题
 		placeholder();
-
 		//打开登录注册框
-		if(!snow.checkin()){
+		if (!snow.checkin()) {
 			//openSign();
 		}
-
 	}, 100);
-
 	// 左导航条---事件
 	snow.nav.left.on('click', 'li', function(e) {
 		var _that = $(this).addClass('active').siblings('.active').removeClass('active');
 	});
-
 	// 右导航条---事件
 	// 语种选择
 	$('#snow-lang').hover(
-		function(){
-			$('.snow-languages',this).stop().animate({
-				right:75
+		function() {
+			$('.snow-languages', this).stop().animate({
+				right: 75
 			});
 		},
-		function(){
-			$('.snow-languages',this).stop().animate({
-				right:-552
+		function() {
+			$('.snow-languages', this).stop().animate({
+				right: -552
 			});
 		}
 	);
 	// 登录 --- 事件
-	$('#login').click(function(){
+	$('#login').click(function() {
 		openSign();
 	}).hover(
-		function(){
+		function() {
 			var _this = $(this);
-			_this.find('.snow-login').css('top',_this.offset().top).stop().animate({
-				right:snow.nav.right.width
+			_this.find('.snow-login').css('top', _this.offset().top).stop().animate({
+				right: snow.nav.right.width
 			});
 		},
-		function(){
+		function() {
 			var _this = $(this);
-			_this.find('.snow-login').css('top',_this.offset().top).stop().animate({
-				right:-_this.find('.snow-login').width()
+			_this.find('.snow-login').css('top', _this.offset().top).stop().animate({
+				right: -_this.find('.snow-login').width()
 			});
 		}
 	);
-	
 	// 头像 --- 事件
-	$('#avatar').click(function(){
+	$('#avatar').click(function() {
 		var _moreId = 0,
 			_frame = snow.left.find('.frame.snow-me:eq(0)');
-			
-		if(_frame.length){
+		if (_frame.length) {
 			_frame.nextAll('div.frame').remove();
-		}else{
+		} else {
 			// 追加一个frame
 			_frame = snow.chouti.appendFrame(_moreId).addClass('snow-me');
 		}
 		// 重绘
 		snow.chouti.refresh();
-		
 		// 加载子节点
-		$.post(snow.api.mybooks,{moreId:_moreId},function(result){
+		$.post(snow.api.mybooks, {
+			moreId: _moreId
+		}, function(result) {
 			if (result.ok) {
-				snow.chouti.appendDoc(_frame.data('moreid',_moreId),result.data);
+				snow.chouti.appendDoc(_frame.data('moreid', _moreId), result.data);
 			};
 		});
 	});
-	
 	snow.nav.right.on('click', 'li', function(e) {
 		var _that = $(this);
-		if (_that.data('rel') == 'signin') {
-			
-		} else {
-//			//
-//			$('div.nav-info').load(snow.inc(_that.data('rel')), function() {
-//				$('div.nav-info-box').css({
-//					width: $('div.nav-info').eq(0).width()
-//				});
-//			});
-//			$('div.nav-info-box,div.nav-info').animate({
-//				right: snow.nav.right.width
-//			});
+		if (_that.data('rel') == 'signin') {} else {
+			//			//
+			//			$('div.nav-info').load(snow.inc(_that.data('rel')), function() {
+			//				$('div.nav-info-box').css({
+			//					width: $('div.nav-info').eq(0).width()
+			//				});
+			//			});
+			//			$('div.nav-info-box,div.nav-info').animate({
+			//				right: snow.nav.right.width
+			//			});
 		}
 	});
-
 	// resize事件
 	snow.autoScroll = function(_this) {
 		//滚动条
 		_this.append(snow.scrollbar);
-
 		var _height = _this.outerHeight(),
 			_first = _this.find('> header'),
 			_last = _this.find('> footer'),
 			_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 			_step = _height / _maxHeight,
 			_top = _this.data('position') || 0;
-
+			
 		if (_first === _last || _maxHeight <= _height) {
 			snow.scrollbar.find('#scrollbar').hide();
 			_first.css({
@@ -557,7 +631,6 @@
 			});
 		} else {
 			var _toTop = _height - _last.offset().top - _last.outerHeight()
-
 			if (_toTop > 0) {
 				_first.css('marginTop', '+=' + _toTop);
 			} else {
@@ -575,7 +648,6 @@
 		// 记录位置
 		_this.data('position', _first.css('marginTop'));
 	};
-
 	// 滚动条事件
 	snow.left.on('mousewheel', '.frame', function(e, delta) {
 		// 只有滚动条才可滚动
@@ -588,63 +660,60 @@
 			_last = _this.find('>footer'),
 			_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 			_step = _height / _maxHeight,
-			_top = parseInt(_first.css('marginTop')) + (delta * 30);
-
+			_top = parseInt(_first.css('marginTop')) + (delta * 100);
+			
+		(_top > -100 && _top < 0) && (_top = -100);
+		
 		// 向上
 		if (delta > 0 && _top > 0) {
 			return;
 		} else if (delta < 0 && parseInt(snow.scrollbar.drager.css('top')) + snow.scrollbar.drager.height() >= _height) {
 			return;
 		}
-
 		_first.css({
 			marginTop: _top
 		});
-
 		snow.scrollbar.drager.css({
 			top: _top * _step * (-1)
 		});
 		// 保存当前位置
 		_this.data('position', _top);
-
 	}).on('mouseenter', '.frame', function(e) {
 		// 刷新滚动条
 		snow.autoScroll($(this));
 	});
-		
-//	//关闭登陆框
-//	$(".getout").click(function() {
-//		snow.sign
-//			.removeClass('active')
-//			.animate({
-//				top: '-2000px'
-//			}, snow.speed, function() {
-//				if (snow.nav.right.is(':hidden')) {
-//					snow.nav.right.animate({
-//						right: 0
-//					}, snow.speed).show();
-//				}
-//			});
-//	});
-
+	//	//关闭登陆框
+	//	$(".getout").click(function() {
+	//		snow.sign
+	//			.removeClass('active')
+	//			.animate({
+	//				top: '-2000px'
+	//			}, snow.speed, function() {
+	//				if (snow.nav.right.is(':hidden')) {
+	//					snow.nav.right.animate({
+	//						right: 0
+	//					}, snow.speed).show();
+	//				}
+	//			});
+	//	});
 	$("#qqLogin").click(function() {
-		window.open('/connect/qq_login','sign_dialog','width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
+		window.open('/connect/qq_login', 'sign_dialog', 'width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
 	});
 	// 注销
-	$('#logout').click(function(){
-		$.post(snow.api.signOut,{},function(d){
+	$('#logout').click(function() {
+		$.post(snow.api.signOut, {}, function(d) {
 			if (d.ok) {
 				snow.go('/');
 			}
 		});
 	});
-	
 	//
 	// 通用方法，只要包含超链接href属性的，都转为超链接
-	document.onclick = function(e){
+	document.onclick = function(e) {
 		var _href = e.target.getAttribute('href');
-		if(e.target.tagName.toLowerCase()!='a' && _href && _href.trim().length){
-			var el = document.createElement("a"),_target = e.target.getAttribute('target');
+		if (e.target.tagName.toLowerCase() != 'a' && _href && _href.trim().length) {
+			var el = document.createElement("a"),
+				_target = e.target.getAttribute('target');
 			document.body.appendChild(el);
 			el.href = _href; //url 是你得到的连接
 			el.target = _target ? _target : ''; //指定在新窗口打开
