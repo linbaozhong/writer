@@ -5,9 +5,12 @@
 		<title></title>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="static/js/marked.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="static/js/jquery.caret.js">
+			
+		</script>
 	</head>
 	<body>
-		<div id="editor" style="width:300px;height:300px" class="" contenteditable="true">
+		<div id="inputor" style="width:300px;height:300px" class="" contenteditable="true">
 			ni
 <p>hahahahahah lahjsdgklf j
 </p>
@@ -16,8 +19,8 @@
 	</body>
 </html>
 <script type="text/javascript">
-	$('#editor').on('keydown',function(e){
+	$('#inputor').on('keydown',function(e){
 		//e.stopPropagation();e.preventDefault();
-		console.log(e.relatedTarget);
+		console.log($('#inputor').caret('position'),$('#inputor').caret('offset'),$('#inputor').caret('pos'));
 	});
 </script>
