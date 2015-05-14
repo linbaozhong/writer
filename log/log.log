@@ -10696,3 +10696,86 @@
 2015/04/22 13:43:29 [router.go:845] [D] | GET        | /                                        | 28.0016ms        | match      | /                                        | 
 2015/04/22 13:43:43 [router.go:845] [D] | GET        | /                                        | 22.0013ms        | match      | /                                        | 
 2015/04/22 13:43:58 [router.go:845] [D] | GET        | /                                        | 26.0015ms        | match      | /                                        | 
+2015/05/12 11:40:28 [main.go:16] [I] writer 0.1.14.1105 
+2015/05/12 11:40:31 [main.go:16] [I] writer 0.1.14.1105 
+2015/05/12 11:40:34 [app.go:96] [I] http server Running on :80
+2015/05/12 11:40:47 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/05/12 11:41:02 [router.go:845] [D] | GET        | /connect/wx_login                        | 0                | match      | /connect/wx_login/*                      | 
+2015/05/12 11:41:25 [router.go:845] [D] | GET        | /connect/wx_callback                     | 717.041ms        | match      | /connect/wx_callback/*                   | 
+2015/05/12 11:41:25 [log.go:108] [D] Connect/SignTrace Info:创建新的账户 
+2015/05/12 11:41:25 [router.go:845] [D] | POST       | /connect/signtrace                       | 122.007ms        | match      | /connect/signtrace/*                     | 
+2015/05/12 11:45:09 [router.go:845] [D] | GET        | /                                        | 32.0018ms        | match      | /                                        | 
+2015/05/12 11:45:13 [router.go:845] [D] | GET        | /                                        | 32.0018ms        | match      | /                                        | 
+2015/05/12 11:45:22 [router.go:845] [D] | GET        | /                                        | 25.0014ms        | match      | /                                        | 
+2015/05/12 11:46:51 [router.go:845] [D] | GET        | /home                                    | 2.0001ms         | notmatch   | 
+2015/05/12 11:46:56 [router.go:876] [C] the request url is  /home/index 
+2015/05/12 11:46:56 [router.go:877] [C] Handler crashed with error can't find templatefile in the path:home/index.tpl 
+2015/05/12 11:46:56 [router.go:883] [C] E:/Go/src/pkg/runtime/panic.c:248 
+2015/05/12 11:46:56 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:208 
+2015/05/12 11:46:56 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/controller.go:179 
+2015/05/12 11:46:56 [router.go:883] [C] G:/baiduyun/cloud/GoWalker/src/github.com/astaxie/beego/router.go:801 
+2015/05/12 11:46:56 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1673 
+2015/05/12 11:46:56 [router.go:883] [C] E:/Go/src/pkg/net/http/server.go:1174 
+2015/05/12 11:46:56 [router.go:883] [C] E:/Go/src/pkg/runtime/proc.c:1445 
+2015/05/12 11:47:02 [router.go:845] [D] | GET        | /home/zone                               | 1.0001ms         | notmatch   | 
+2015/05/12 11:47:12 [router.go:845] [D] | GET        | /xone                                    | 2.0001ms         | notmatch   | 
+2015/05/12 11:47:17 [router.go:845] [D] | GET        | /zone                                    | 1.0001ms         | notmatch   | 
+2015/05/12 11:47:23 [router.go:845] [D] | GET        | /index                                   | 1.0001ms         | notmatch   | 
+2015/05/12 11:47:47 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2015/05/12 11:48:13 [router.go:845] [D] | GET        | /home                                    | 1.0001ms         | notmatch   | 
+2015/05/12 11:49:48 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/05/12 11:49:51 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/05/12 11:55:39 [router.go:845] [D] | GET        | /                                        | 24.0014ms        | match      | /                                        | 
+2015/05/12 11:55:41 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/05/12 11:55:47 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/05/12 11:56:17 [router.go:845] [D] | GET        | /                                        | 32.0019ms        | match      | /                                        | 
+2015/05/12 11:58:33 [router.go:845] [D] | GET        | /                                        | 29.0016ms        | match      | /                                        | 
+2015/05/12 11:58:35 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/05/12 11:59:24 [router.go:845] [D] | GET        | /                                        | 32.0019ms        | match      | /                                        | 
+2015/05/12 11:59:29 [router.go:845] [D] | GET        | /                                        | 26.0014ms        | match      | /                                        | 
+2015/05/12 11:59:30 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/05/12 11:59:39 [router.go:845] [D] | GET        | /                                        | 29.0016ms        | match      | /                                        | 
+2015/05/12 12:00:06 [main.go:16] [I] writer 0.1.14.1105 
+2015/05/12 12:00:06 [app.go:96] [I] http server Running on :80
+2015/05/12 12:00:07 [router.go:845] [D] | GET        | /                                        | 35.002ms         | match      | /                                        | 
+2015/05/12 12:00:08 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2015/05/12 12:00:26 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/05/12 12:01:53 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/05/12 12:04:54 [router.go:845] [D] | GET        | /                                        | 16.0009ms        | match      | /                                        | 
+2015/05/12 12:04:56 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/05/12 12:04:57 [router.go:845] [D] | GET        | /                                        | 30.0017ms        | match      | /                                        | 
+2015/05/12 12:05:45 [router.go:845] [D] | GET        | /                                        | 32.0019ms        | match      | /                                        | 
+2015/05/12 12:06:11 [router.go:845] [D] | GET        | /                                        | 30.0018ms        | match      | /                                        | 
+2015/05/12 12:06:12 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/05/12 12:06:55 [router.go:845] [D] | GET        | /                                        | 25.0014ms        | match      | /                                        | 
+2015/05/12 12:06:59 [router.go:845] [D] | GET        | /connect/qq_login                        | 0                | match      | /connect/qq_login/*                      | 
+2015/05/12 12:07:11 [router.go:845] [D] | GET        | /                                        | 32.0018ms        | match      | /                                        | 
+2015/05/12 12:07:13 [router.go:845] [D] | GET        | /                                        | 31.0018ms        | match      | /                                        | 
+2015/05/12 12:07:17 [router.go:845] [D] | GET        | /connect/qq_login                        | 1.0001ms         | match      | /connect/qq_login/*                      | 
+2015/05/12 12:09:49 [router.go:845] [D] | GET        | /connect/qq_login                        | 1.0001ms         | match      | /connect/qq_login/*                      | 
+2015/05/12 12:12:59 [router.go:845] [D] | GET        | /connect/wx_login                        | 1ms              | match      | /connect/wx_login/*                      | 
+2015/05/12 12:14:29 [router.go:845] [D] | GET        | /zone                                    | 1ms              | notmatch   | 
+2015/05/12 12:14:50 [router.go:845] [D] | GET        | /home/zone                               | 1ms              | notmatch   | 
+2015/05/12 12:17:53 [main.go:16] [I] writer 0.1.14.1105 
+2015/05/12 12:17:54 [app.go:96] [I] http server Running on :80
+2015/05/12 12:18:07 [main.go:16] [I] writer 0.1.14.1105 
+2015/05/12 12:18:07 [app.go:96] [I] http server Running on :80
+2015/05/12 12:18:11 [router.go:845] [D] | GET        | /home/zone                               | 197.0112ms       | match      | /home/zone/*                             | 
+2015/05/12 12:18:12 [log.go:108] [D] Home/Books Info:invalid 
+2015/05/12 12:18:12 [router.go:845] [D] | POST       | /home/books                              | 460.0263ms       | match      | /home/books/*                            | 
+2015/05/12 12:18:13 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/05/12 12:18:28 [log.go:108] [D] Home/Books Info:invalid 
+2015/05/12 12:18:28 [router.go:845] [D] | POST       | /home/books                              | 24.0013ms        | match      | /home/books/*                            | 
+2015/05/12 12:30:08 [router.go:845] [D] | GET        | /ifr_status/                             | 1.0001ms         | notmatch   | 
+2015/05/12 13:00:08 [router.go:845] [D] | GET        | /ifr_status/                             | 1ms              | notmatch   | 
+2015/05/12 13:28:02 [router.go:845] [D] | GET        | /zone                                    | 1.0001ms         | notmatch   | 
+2015/05/12 13:29:46 [main.go:16] [I] writer 0.1.14.1105 
+2015/05/12 13:29:47 [app.go:96] [I] http server Running on :80
+2015/05/12 13:29:49 [router.go:845] [D] | GET        | /zone                                    | 206.0118ms       | match      | /zone                                    | 
+2015/05/12 13:29:49 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/05/12 13:29:49 [log.go:108] [D] Home/Books Info:invalid 
+2015/05/12 13:29:49 [router.go:845] [D] | POST       | /home/books                              | 413.0236ms       | match      | /home/books/*                            | 
+2015/05/12 13:31:12 [router.go:845] [D] | GET        | /zone                                    | 187.0107ms       | match      | /zone                                    | 
+2015/05/12 13:31:13 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
+2015/05/12 13:31:13 [log.go:108] [D] Home/Books Info:invalid 
+2015/05/12 13:31:13 [router.go:845] [D] | POST       | /home/books                              | 35.002ms         | match      | /home/books/*                            | 

@@ -18,8 +18,8 @@ type Accounts struct {
 	Gender       int    `json:"gender" valid:"Range(0,1)"`
 	Avatar_1     string `json:"avatar_1" valid:"MaxSize(250)"`
 	Avatar_2     string `json:"avatar_2" valid:"MaxSize(250)"`
-	AccessToken  string `json:"accessToken" valid:"MaxSize(32)"`
-	RefreshToken string `json:"refreshToken" valid:"MaxSize(32)"`
+	AccessToken  string `json:"accessToken" valid:"MaxSize(150)"`
+	RefreshToken string `json:"refreshToken" valid:"MaxSize(150)"`
 	Status       int    `json:"status" valid:"Range(0,1)"`
 	Deleted      int    `json:"deleted" valid:"Range(0,1)"`
 	Updator      int64  `json:"updator"`

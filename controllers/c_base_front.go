@@ -15,6 +15,8 @@ func (this *Front) Prepare() {
 	// this.LayoutSections["Login"] = "_login.html"
 	// this.LayoutSections["Footer"] = "_footer.html"
 	// this.LayoutSections["Scripts"] = "_scripts.html"
+
+	this.Data["account"] = this.currentUser
 }
 
 func (this *Front) Finish() {

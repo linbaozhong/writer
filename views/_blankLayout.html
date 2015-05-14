@@ -107,20 +107,6 @@
 		docPosition: '/article/position'
 	};
 
-	//注册登录框
-	snow.sign = $('#snow-sign').css({
-		top:0,
-		width: 400,
-		right: 0,
-		left: 0
-	});
-
-	//打开登录注册框，提醒登录
-	function openSign() {
-		snow.notify('你还没有登录呢 ~~~');
-	};
-		//
-
 	function open_login(u) {
 		snow.account.nickName = u.NickName;
 		snow.account.gender = u.Gender;
@@ -147,48 +133,6 @@
 			}
 		});
 	};
-	//
-	$(window).resize(function() {
-		// 窗体宽度
-		snow.width = $(this).width();
-
-		// 左侧工作区
-		snow.left.css({
-			right: snow.nav.right.width,
-			left: snow.nav.left.width
-		});
-
-	}).resize();
-	
-	setTimeout(function() {
-		//打开登录注册框
-		if (!snow.checkin()) {
-			openSign();
-		}
-	}, 100);
-
-	// 登录 --- 事件
-	$('#login').click(function() {
-		openSign();
-	}).hover(
-		function() {
-			var _this = $(this);
-			_this.find('.snow-login').css('top', _this.offset().top).stop().animate({
-				right: snow.nav.right.width
-			});
-		},
-		function() {
-			var _this = $(this);
-			_this.find('.snow-login').css('top', _this.offset().top).stop().animate({
-				right: -_this.find('.snow-login').width()
-			});
-		}
-	);
-
-
-	$("#qqLogin").click(function() {
-		window.open('/connect/qq_login', 'sign_dialog', 'width=600,height=420,menubar=no,scrollbars=yes, resizable=yes,status=yes,titlebar=no,toolbar=no,location=yes');
-	});
 
 	//
 	// 通用方法，只要包含超链接href属性的，都转为超链接

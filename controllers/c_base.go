@@ -92,6 +92,13 @@ func (this *Base) initPage() {
 }
 
 /*
+* 当前请求的根地址
+ */
+func (this *Base) root() string {
+	return fmt.Sprintf("http://%s", this.Ctx.Request.Host)
+}
+
+/*
 * setLangVer 设置网址语言版本.引用beego官网
  */
 func (this *Base) setLangVer() bool {

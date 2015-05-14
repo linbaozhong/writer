@@ -5,6 +5,7 @@ package controllers
 
 import (
 	"errors"
+	"fmt"
 	"strconv"
 	"strings"
 	"writer/models"
@@ -31,14 +32,6 @@ type OpenSign struct {
 	Avatar_2 string //100*100的qq头像
 }
 
-var (
-//appid    = appconf("qq::appid")
-//callback = appconf("qq::callback")
-//appkey   = appconf("qq::appkey")
-//---只读取用户信息
-//scope = appconf("qq::scope")
-)
-
 /*
 * 微信登录
  */
@@ -48,7 +41,7 @@ func (this *Connect) Wx_Login() {
 	//---将随机串存入Session
 	this.SetSession("state", state)
 	//---登录的url
-	url := appconf("weixin::auth") + "?response_type=code&appid=" + appconf("weixin::appid") + "&redirect_uri=" + appconf("weixin::callback") + "&state=" + state + "&scope=" + appconf("weixin::scope") + "#wechat_redirect"
+	url := appconf("weixin::auth") + "?response_type=code&appid=" + appconf("weixin::appid") + "&redirect_uri=" + this.root() + appconf("weixin::callback") + "&state=" + state + "&scope=" + appconf("weixin::scope") + "#wechat_redirect"
 
 	//fmt.Println(url)
 	//---
@@ -205,7 +198,7 @@ func (this *Connect) QQ_Login() {
 	//---将随机串存入Session
 	this.SetSession("state", state)
 	//---登录的url
-	url := appconf("qq::auth") + "?response_type=code&client_id=" + appconf("qq::appid") + "&redirect_uri=" + appconf("qq::callback") + "&state=" + state + "&scope=" + appconf("qq::scope")
+	url := appconf("qq::auth") + "?response_type=code&client_id=" + appconf("qq::appid") + "&redirect_uri=" + this.root() + appconf("qq::callback") + "&state=" + state + "&scope=" + appconf("qq::scope")
 
 	//fmt.Println(url)
 	//---
@@ -240,13 +233,13 @@ func (this *Connect) QQ_Callback() {
 	req.Param("grant_type", "authorization_code")
 	req.Param("client_id", appconf("qq::appid"))
 	req.Param("client_secret", appconf("qq::appkey"))
-	req.Param("redirect_uri", appconf("qq::callback"))
+	req.Param("redirect_uri", this.root()+appconf("qq::callback"))
 	req.Param("code", this.GetString("code"))
 	req.Param("state", this.GetString("state"))
 
 	//---读取返回的内容
 	rep, err := req.String()
-
+	this.trace(req, err)
 	if err == nil {
 
 		jmap := make(map[string]string)

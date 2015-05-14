@@ -12,9 +12,13 @@ type Home struct {
 
 func (this *Home) Get() {
 	this.Layout = "_blankLayout.html"
-	this.Data["account"] = this.currentUser
 
 	this.setTplNames("index")
+}
+
+//
+func (this *Home) Zone() {
+	this.setTplNames("zone")
 }
 
 // 阅读
