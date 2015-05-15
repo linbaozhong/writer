@@ -563,6 +563,12 @@ div.doc .tools i {
 	padding: 5px;
 }
 .accordion .frame.active .content {}*/
+
+#scrollbar_vertical{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+}
 #scrollbar_vertical .search-tools{
 	opacity:.1;
 }

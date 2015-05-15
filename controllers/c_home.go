@@ -54,7 +54,11 @@ func (this *Home) Books() {
 	p.Count, _ = this.GetInt("count")
 	// 读取查询条件
 	moreId, _ := this.GetInt64("moreId")
-	tags := "'" + strings.Replace(strings.TrimSpace(this.GetString("tags")), " ", "','", -1) + "'"
+	tags := this.GetString("tags")
+
+	if len(tags) > 0 {
+		tags = "'" + strings.Replace(strings.TrimSpace(tags), " ", "','", -1) + "'"
+	}
 
 	// 拉取
 	a := new(models.Article)

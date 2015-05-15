@@ -154,7 +154,7 @@
 				<a href="#" class="search-open place-bottom-left" style="padding: 5px;"><i class="fa fa-search" style="" title="搜索此列"></i></a>
 				<a href="#" class="search-all place-bottom-right" style="padding: 5px;"><i class="fa fa-circle-o" style="" title="显示最新"></i></a>
 			</div>
-			<div class="search-box pos-abs" style="width:500px;top:0;height:46px;padding:6px;left:-506px;background-color:#1ba1e2;z-index: 10;display: none;">
+			<div class="search-box pos-abs" style="width:75%;top:0;height:46px;padding:6px;right:6px;background-color:#1ba1e2;z-index: 10;display: none;">
 				<div class="input-control text">
 					<input type="text" name="keywords" placeholder="在这里输入标签进行搜索吧..." class="" style="padding-right:4.6em;border-width:0;">
 					<a href="#" title="搜索" class="search-start pos-abs padding10" style="right:30px;bottom:0;"><i class="fa fa-search"></i></a>
@@ -378,13 +378,17 @@
 		containment: "parent",
 		drag: function(e, ui) {
 			var _this = $(this).css('left', 0).closest('.frame'),
-				_height = snow.left.height(),
-				_maxHeight = _this.outerHeight(),
+				_height = _this.outerHeight(),
+				_first = _this.find('>header'),
+				_last = _this.find('>footer'),
+				_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 				_step = _height / _maxHeight,
 				_top = ui.position.top / _step * (-1);
-			_this.css({
-				top: _top
+			_first.css({
+				marginTop: _top
 			});
+			// 保存当前位置
+			_this.data('position', _top);
 		}
 	});
 	//隐藏位置
@@ -492,6 +496,10 @@
 	$(window).resize(function() {
 		// 窗体宽度
 		snow.width = $(this).width();
+		// // 书签
+		// $('div.bookmarks').css({
+		// 	top: (snow.nav.right.height() - 80) / 2
+		// });
 		// 左侧工作区
 		snow.left.css({
 			right: snow.nav.right.width,
@@ -520,7 +528,6 @@
 			});
 		});
 	}).resize();
-	
 	setTimeout(function() {
 		// 拉取数据
 		dataLoading();
@@ -610,26 +617,40 @@
 			})
 		);
 		var _height = snow.left.height(); //_this.outerHeight(),
-			_maxHeight = _this.outerHeight(),
+			_first = _this.find('> header'),
+			_last = _this.find('> footer'),
+			_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 			_step = _height / _maxHeight,
-			_top = _this.position().top;
+			_top = _this.data('position') || 0;
 			
-		if (_maxHeight <= _height) {
+		if (_first === _last || _maxHeight <= _height) {
 			snow.scrollbar.find('#scrollbar').hide();
-			
+			_first.css({
+				marginTop: 0
+			});
 			snow.scrollbar.drager.css({
 				maxHeight: _height,
 				height: _height * _step,
 				top: 0
 			});
 		} else {
+			var _toTop = _height - _last.offset().top - _last.outerHeight()
+			if (_toTop > 0) {
+				_first.css('marginTop', '+=' + _toTop);
+			} else {
+				_first.css({
+					marginTop: _top
+				});
+			}
 			snow.scrollbar.find('#scrollbar').show();
 			snow.scrollbar.drager.css({
 				maxHeight: _height,
 				height: _height * _step,
-				top: _top * _step * (-1)
+				top: parseInt(_first.css('marginTop')) * _step * (-1)
 			});
 		}
+		// 记录位置
+		_this.data('position', _first.css('marginTop'));
 	};
 	// 滚动条事件
 	snow.left.on('mousewheel', '.frame', function(e, delta) {
@@ -638,24 +659,32 @@
 			return;
 		}
 		var _this = $(this),
-			_height = snow.left.height(),
-			_maxHeight = _this.outerHeight(),
+			_height = _this.outerHeight(),
+			_first = _this.find('>header'),
+			_last = _this.find('>footer'),
+			_maxHeight = Math.abs(parseInt(_first.css('marginTop'))) + _last.offset().top + _last.outerHeight(),
 			_step = _height / _maxHeight,
-			_top = _this.position().top + (delta * 100);
+			_top = parseInt(_first.css('marginTop')) + (delta * 100);
 			
+		(_top > -100 && _top < 0) && (_top = -100);
+		
 		// 向上
 		if (delta > 0 && _top > 0) {
-			_top = 0;
-		} else if (delta < 0 && _maxHeight + _top < _height) {
-			_top = _height - _maxHeight;
+			return;
+		} else if (delta < 0 && parseInt(snow.scrollbar.drager.css('top')) + snow.scrollbar.drager.height() >= _height) {
+			return;
 		}
-		
-		_this.css({
-			top: _top
+		_first.css({
+			marginTop: _top
 		});
 		snow.scrollbar.drager.css({
-			top: _top * _step * -1
+			top: _top * _step * (-1)
 		});
+		// 保存当前位置
+		_this.data('position', _top);
+	}).on('mouseenter', '.frame', function(e) {
+		// 刷新滚动条
+		snow.autoScroll($(this));
 	});
 	//	//关闭登陆框
 	//	$(".getout").click(function() {

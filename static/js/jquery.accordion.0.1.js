@@ -24,7 +24,6 @@
 			opts = $.extend(defaults, options),
 			frameStyle = {
 				'position': 'absolute',
-				'overflow': 'hidden',
 				'background': opts.background
 			},
 			//重绘frame
@@ -38,13 +37,22 @@
 				opts.space = _width;
 				// 渲染frame
 				_frames.css({
-					'height': self.height(),
+					'minHeight': self.height(),
 					'width': opts.size.body
 				});
 
 				$.each(_frames, function(index, frame) {
-					var _frame = $(frame).css({
-						left: _left
+					var _frame = $(frame),
+						_height = self.height(),
+						_maxHeight = _frame.outerHeight(),
+						_top = _frame.position().top;
+						
+					if (_maxHeight + _top < _height) {
+						_top = _height - _maxHeight;
+					}
+					_frame.css({
+						left: _left,
+						top:_top
 					});
 
 					// 遮罩
@@ -58,7 +66,15 @@
 							left: _left
 						}, opts.speed);
 					}
-					_left += _frame.hasClass('active') ? opts.size.body : opts.space;
+					
+					if(_frame.hasClass('active')){
+						// 刷新滚动条
+						snow.autoScroll(_frame);
+						
+						_left += opts.size.body;
+					} else{
+						_left += opts.space;
+					}
 				});
 			},
 
@@ -226,11 +242,17 @@
 						left: __frame.index() * opts.space
 					}, opts.speed);
 				});
+				
 				_obj.stop().animate({
 					'left': _obj.index() * opts.space
-				}, opts.speed);
+				}, opts.speed,function(){
+					// 刷新滚动条
+					snow.autoScroll(_obj);
+				});
 			} else {
-				//console.log('before');
+				// 刷新滚动条
+				snow.autoScroll(_obj);
+				
 				_frames = _obj.nextAll();
 				$.each(_frames, function() {
 					var __frame = $(this);
@@ -241,6 +263,7 @@
 				});
 			}
 			_obj.addClass('active').siblings('.active').removeClass('active');
+			
 		};
 		// 刷新重绘
 		$this.refresh = function() {
