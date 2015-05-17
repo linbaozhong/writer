@@ -53,7 +53,7 @@ func (this *Article) Get() {
 	id, err := this.GetInt64("id")
 
 	if err != nil {
-		this.renderJson(utils.JsonMessage(false, "", "参数错误"))
+		this.renderJson(utils.JsonResult(false, "", "参数错误"))
 		return
 	}
 
@@ -65,10 +65,10 @@ func (this *Article) Get() {
 		if has {
 			this.renderJson(utils.JsonData(true, "", a))
 		} else {
-			this.renderJson(utils.JsonMessage(false, "", "数据不存在"))
+			this.renderJson(utils.JsonResult(false, "", "数据不存在"))
 		}
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 }
 
@@ -106,9 +106,9 @@ func (this *Article) Get() {
 //	}
 
 //	if err == nil {
-//		this.renderJson(utils.JsonData(true, "", as))
+//		this.renderJson(utils.JsonResult(true, "", as))
 //	} else {
-//		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+//		this.renderJson(utils.JsonResult(false, "", err.Error()))
 //	}
 //}
 
@@ -121,7 +121,7 @@ func (this *Article) Position() {
 	a.Id, _ = this.GetInt64("id")
 	//
 	if a.Id <= 0 {
-		this.renderJson(utils.JsonMessage(false, "id", "参数错误: id 必须 > 0"))
+		this.renderJson(utils.JsonResult(false, "id", "参数错误: id 必须 > 0"))
 		return
 	}
 	// 新的参考点
@@ -133,12 +133,12 @@ func (this *Article) Position() {
 
 	if ok, err, more := a.SetPosition(); err == nil {
 		if ok {
-			this.renderJson(utils.JsonData(true, "", more))
+			this.renderJson(utils.JsonResult(true, "", more))
 		} else {
-			this.renderJson(utils.JsonMessage(false, "", ""))
+			this.renderJson(utils.JsonResult(false, "", ""))
 		}
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 }
 
@@ -171,12 +171,12 @@ func (this *Article) status(action string) {
 		this.extend(a)
 
 		if err := a.SetStatus(action); err == nil {
-			this.renderJson(utils.JsonMessage(true, "", ""))
+			this.renderJson(utils.JsonResult(true, "", ""))
 		} else {
-			this.renderJson(utils.JsonMessage(false, "", err.Error()))
+			this.renderJson(utils.JsonResult(false, "", err.Error()))
 		}
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", "参数错误"))
+		this.renderJson(utils.JsonResult(false, "", "参数错误"))
 	}
 
 }

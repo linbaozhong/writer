@@ -100,7 +100,7 @@ func (this *Account) SignIn() {
 // 签出
 func (this *Account) SignOut() {
 	this.loginOut()
-	this.renderJson(utils.JsonMessage(true, "", ""))
+	this.renderJson(utils.JsonResult(true, "", ""))
 }
 
 // 密码重置

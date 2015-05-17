@@ -106,7 +106,7 @@ func (this *Home) Tags() {
 	if ts, err := t.List(); err == nil {
 		this.renderJson(utils.JsonData(true, "", ts))
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 	//// 检查当前用户是否本地用户
 	//if this.allowRequest() {
@@ -119,7 +119,7 @@ func (this *Home) Catalog() {
 	id, _ := this.GetInt64("parentId")
 
 	if id <= 0 {
-		this.renderJson(utils.JsonMessage(false, "", "参数错误"))
+		this.renderJson(utils.JsonResult(false, "", "参数错误"))
 	}
 
 	a := new(models.Article)
@@ -128,7 +128,7 @@ func (this *Home) Catalog() {
 	if err == nil {
 		this.renderJson(utils.JsonData(true, "", as))
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 }
 
@@ -153,9 +153,9 @@ func (this *Home) Content() {
 	as, err := a.GetContent(p, parentId, cond, articleId)
 
 	if err == nil {
-		this.renderJson(utils.JsonData(true, "", as))
+		this.renderJson(utils.JsonResult(true, "", as))
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 }
 
@@ -172,9 +172,9 @@ func (this *Home) Single() {
 	err := a.GetSingle(cond, articleId)
 
 	if err == nil {
-		this.renderJson(utils.JsonData(true, "", a))
+		this.renderJson(utils.JsonResult(true, "", a))
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
 }
 
