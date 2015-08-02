@@ -3,7 +3,7 @@ package controllers
 import (
 	//"fmt"
 	"writer/models"
-	"zouzhe/utils"
+	"writer/utils"
 )
 
 type Article struct {
@@ -38,9 +38,9 @@ func (this *Article) Update() {
 
 	// 提交更新，返回结果
 	if err, errs := article.Update(); err == nil {
-		this.renderJson(utils.JsonData(true, "", article))
+		this.renderJson(utils.ActionResult(true, article))
 	} else {
-		this.renderJson(utils.JsonData(false, "", errs))
+		this.renderJson(utils.ActionResult(false, errs))
 	}
 
 }
@@ -63,7 +63,7 @@ func (this *Article) Get() {
 
 	if has, err := a.Get(); err == nil {
 		if has {
-			this.renderJson(utils.JsonData(true, "", a))
+			this.renderJson(utils.ActionResult(true, a))
 		} else {
 			this.renderJson(utils.JsonResult(false, "", "数据不存在"))
 		}

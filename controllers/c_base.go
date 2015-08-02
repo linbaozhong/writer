@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 	"writer/models"
-	"zouzhe/utils"
+	"writer/utils"
 )
 
 type langType struct {
@@ -272,7 +272,7 @@ func (this *Base) serveString(arg string) {
 
 //响应签名丢失错误
 func (this *Base) renderLoseToken() {
-	data := utils.JsonMessage(false, "invalidFormToken", "invalidFormToken")
+	data := utils.ActionResult(false, utils.ResultData{Key: "invalidFormToken", Data: "invalidFormToken"})
 	this.renderJson(data)
 }
 

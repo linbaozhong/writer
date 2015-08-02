@@ -3,7 +3,7 @@ package controllers
 import (
 	"strings"
 	"writer/models"
-	"zouzhe/utils"
+	"writer/utils"
 )
 
 type Home struct {
@@ -92,9 +92,9 @@ func (this *Home) Books() {
 		rj.Data = as
 		rj.Page = p
 
-		this.renderJson(utils.JsonData(true, "", rj))
+		this.renderJson(utils.ActionResult(true, rj))
 	} else {
-		this.renderJson(utils.JsonMessage(false, "", err.Error()))
+		this.renderJson(utils.ActionResult(false, err.Error()))
 	}
 
 }
@@ -104,7 +104,7 @@ func (this *Home) Tags() {
 	t := new(models.Tags)
 
 	if ts, err := t.List(); err == nil {
-		this.renderJson(utils.JsonData(true, "", ts))
+		this.renderJson(utils.ActionResult(true, ts))
 	} else {
 		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}
@@ -126,7 +126,7 @@ func (this *Home) Catalog() {
 	as, err := a.Catalog(id)
 
 	if err == nil {
-		this.renderJson(utils.JsonData(true, "", as))
+		this.renderJson(utils.ActionResult(true, as))
 	} else {
 		this.renderJson(utils.JsonResult(false, "", err.Error()))
 	}

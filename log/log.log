@@ -10779,3 +10779,51 @@
 2015/05/12 13:31:13 [staticfile.go:62] [W] GetFileAttributesEx static/js/net/controller.ashx: The system cannot find the path specified. 
 2015/05/12 13:31:13 [log.go:108] [D] Home/Books Info:invalid 
 2015/05/12 13:31:13 [router.go:845] [D] | POST       | /home/books                              | 35.002ms         | match      | /home/books/*                            | 
+2015/07/11 16:45:28 [main.go:16] [I] writer 0.1.14.1105 
+2015/07/11 16:45:28 [app.go:96] [I] http server Running on :80
+2015/07/11 16:46:17 [main.go:16] [I] writer 0.1.14.1105 
+2015/07/11 16:46:17 [app.go:96] [I] http server Running on :80
+2015/07/11 16:47:49 [main.go:16] [I] writer 0.1.14.1105 
+2015/07/11 16:47:49 [app.go:96] [I] http server Running on :80
+2015/07/11 16:48:34 [router.go:845] [D] | GET        | /                                        | 269.0154ms       | match      | /                                        | 
+2015/07/11 16:49:08 [router.go:845] [D] | GET        | /                                        | 148.0085ms       | match      | /                                        | 
+2015/07/11 17:48:47 [log.go:108] [D] Loading language: en-US 
+2015/07/11 17:48:47 [log.go:108] [D] Loading language: zh-CN 
+2015/07/11 17:48:47 [main.go:16] [I] writer 0.1.14.1105 
+2015/07/11 17:48:47 [app.go:96] [I] http server Running on :80
+2015/07/11 17:48:57 [router.go:845] [D] | GET        | /                                        | 210.012ms        | match      | /                                        | 
+2015/07/11 17:55:10 [router.go:845] [D] | GET        | /                                        | 134.0077ms       | match      | /                                        | 
+2015/07/11 18:00:21 [router.go:845] [D] | GET        | /                                        | 255.0146ms       | match      | /                                        | 
+2015/07/11 18:02:25 [router.go:845] [D] | GET        | /                                        | 129.0074ms       | match      | /                                        | 
+2015/07/11 18:03:33 [router.go:845] [D] | GET        | /                                        | 133.0076ms       | match      | /                                        | 
+2015/07/11 18:04:27 [router.go:845] [D] | GET        | /                                        | 152.0087ms       | match      | /                                        | 
+2015/07/11 18:05:43 [router.go:845] [D] | GET        | /                                        | 143.0082ms       | match      | /                                        | 
+2015/07/12 09:28:22 [log.go:108] [D] Loading language: en-US 
+2015/07/12 09:28:22 [log.go:108] [D] Loading language: zh-CN 
+2015/07/12 09:28:22 [main.go:16] [I] writer 0.1.14.1105 
+2015/07/12 09:28:22 [app.go:96] [I] http server Running on :80
+2015/07/12 09:28:30 [router.go:845] [D] | GET        | /                                        | 151.0086ms       | match      | /                                        | 
+2015/07/12 09:33:20 [router.go:845] [D] | GET        | /                                        | 183.0105ms       | match      | /                                        | 
+2015/07/12 09:35:10 [router.go:845] [D] | GET        | /                                        | 202.0115ms       | match      | /                                        | 
+2015/07/12 09:39:02 [router.go:845] [D] | GET        | /                                        | 173.0099ms       | match      | /                                        | 
+2015/07/12 09:39:31 [router.go:845] [D] | GET        | /                                        | 123.007ms        | match      | /                                        | 
+2015/07/12 09:40:15 [router.go:845] [D] | GET        | /                                        | 163.0093ms       | match      | /                                        | 
+2015/07/12 09:40:52 [router.go:845] [D] | GET        | /                                        | 171.0097ms       | match      | /                                        | 
+2015/07/12 09:41:55 [router.go:845] [D] | GET        | /                                        | 140.008ms        | match      | /                                        | 
+2015/07/12 09:43:53 [router.go:845] [D] | GET        | /                                        | 212.0121ms       | match      | /                                        | 
+2015/07/12 09:44:05 [router.go:845] [D] | GET        | /                                        | 144.0083ms       | match      | /                                        | 
+2015/07/12 09:46:59 [router.go:845] [D] | GET        | /                                        | 182.0104ms       | match      | /                                        | 
+2015/07/12 09:49:31 [router.go:845] [D] | GET        | /                                        | 167.0095ms       | match      | /                                        | 
+2015/07/12 09:51:19 [router.go:845] [D] | GET        | /                                        | 151.0086ms       | match      | /                                        | 
+2015/07/12 09:51:43 [router.go:845] [D] | GET        | /                                        | 134.0077ms       | match      | /                                        | 
+2015/07/12 09:51:53 [router.go:845] [D] | GET        | /                                        | 125.0071ms       | match      | /                                        | 
+2015/07/12 09:53:03 [router.go:845] [D] | GET        | /                                        | 135.0077ms       | match      | /                                        | 
+2015/07/12 09:57:18 [router.go:845] [D] | GET        | /                                        | 151.0087ms       | match      | /                                        | 
+2015/07/12 09:58:21 [router.go:845] [D] | GET        | /                                        | 155.0088ms       | match      | /                                        | 
+2015/07/12 09:58:56 [router.go:845] [D] | GET        | /                                        | 132.0075ms       | match      | /                                        | 
+2015/07/12 10:01:14 [router.go:845] [D] | GET        | /                                        | 169.0096ms       | match      | /                                        | 
+2015/07/12 10:01:30 [router.go:845] [D] | GET        | /                                        | 139.008ms        | match      | /                                        | 
+2015/07/12 10:03:32 [router.go:845] [D] | GET        | /                                        | 178.0102ms       | match      | /                                        | 
+2015/07/12 10:03:59 [router.go:845] [D] | GET        | /                                        | 166.0095ms       | match      | /                                        | 
+2015/07/12 10:07:39 [router.go:845] [D] | GET        | /                                        | 195.0111ms       | match      | /                                        | 
+2015/07/12 10:17:59 [router.go:845] [D] | GET        | /                                        | 44.0025ms        | match      | /                                        | 

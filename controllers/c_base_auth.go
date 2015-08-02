@@ -1,9 +1,7 @@
 package controllers
 
 import (
-	//"strings"
-	//"writer/models"
-	"zouzhe/utils"
+	"writer/utils"
 )
 
 type Auth struct {
@@ -15,7 +13,7 @@ func (this *Auth) Prepare() {
 	// 检查当前用户是否合法用户
 	if !this.allowRequest() {
 		if this.IsAjax() {
-			this.renderJson(utils.JsonMessage(false, "", "无效用户,请登录……"))
+			this.renderJson(utils.ActionResult(false, "无效用户,请登录……"))
 			this.end()
 		} else {
 			// 跳转到错误页

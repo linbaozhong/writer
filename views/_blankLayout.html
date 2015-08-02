@@ -12,14 +12,39 @@
 		<link rel="stylesheet" type="text/css" href="/static/css/index.css" />
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="/static/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#tags p{
+				padding: 2px 1em;
+				text-align: right;
+				cursor: pointer;
+			}
+			#tags p:hover,#tags p.active{
+				background: #ffffff;
+				color: #333;
+			}
+		</style>
 	</head>
 
 	<body class="metro">
-		<a href="/">
-			<div id="logo" class="text-center fg-white">
-				{{i18n .Lang "app sitename"}}
+		<!--左侧导航条-->
+		<nav id="nav-left" class="bg-dark" style="width:100px;">
+				<div id="avatar" class="snow-profile text-center image-container" style="width: 100%;" data-click="transform" data-role="1" data-rel="">
+					<img src="http://wx.qlogo.cn/mmopen/1071cicwhU1tQ15N3QspuTDpiaC3hiakB0CLjLicibgxGPVrbZN1Elw2ax4H4iaIeSEy1xbarPGslu7XTO8Hk5v9H9gYia5tia1YIyRP/0" class="cycle" style="width: 70%;" />
+					<div class="nickname" style="color:#fff !important">
+						登录
+					</div>
+					<div style="color:#fff !important">
+						注销
+					</div>
+				</div>
+				<div id="tags" class="fg-white text-bold" style="margin:50px 0;padding:0;">
+				<p class="active">首页</p>
+				<p>前端</p>
+				<p>后端</p>
+				<p>运维</p>
+				<p>设计</p>
 			</div>
-		</a>
+		</nav>
 		{{.LayoutContent}}
 	</body>
 

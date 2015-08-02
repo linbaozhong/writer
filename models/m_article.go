@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/astaxie/beego/validation"
 	"strings"
-	"zouzhe/utils"
+	"writer/utils"
 )
 
 // article视图
@@ -223,7 +223,7 @@ func (this *Article) Update() (error, []Error) {
 			ids = append(ids, tags.Id)
 			// 移除已经存在标签
 			if utils.StringsContains(_tags, tags.Name) {
-				_tags = utils.RemoveStringSlice(tags.Name, _tags)
+				_tags = utils.RemoveStringSlice(_tags, tags.Name)
 			}
 		}
 		// 遍历标签，找到数据库中不存在的标签，insert into标签表

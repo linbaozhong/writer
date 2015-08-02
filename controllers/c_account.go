@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 	"writer/models"
-	"zouzhe/utils"
+	"writer/utils"
 
 	"github.com/astaxie/beego"
 )
@@ -73,7 +73,7 @@ func (this *Account) New() {
 		utils.CookieEncode(fmt.Sprintf("%d|%s|%s", oa.Id, oa.NickName, oa.Avatar_1)),
 		cookieDuration, "/")
 
-	this.renderJson(utils.JsonData(true, "", oa))
+	this.renderJson(utils.ActionResult(true, oa))
 }
 
 // 注册
@@ -94,7 +94,7 @@ func (this *Account) SignIn() {
 	_m_account.Password = this.GetString("password")
 	_m_account.Gender = this.getCheckboxInt("auto")
 
-	this.renderJson(utils.JsonData(true, "", _m_account))
+	this.renderJson(utils.ActionResult(true, _m_account))
 }
 
 // 签出
